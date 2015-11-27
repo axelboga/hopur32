@@ -9,7 +9,7 @@ class ComputerScientist
 public:
     ComputerScientist();
     string getName();
-    string sex();
+    string getSex();
     int getYearOfBirth();
     int getYearOfDeath();
 private:

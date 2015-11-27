@@ -11,7 +11,7 @@ string ComputerScientist::getName()
    return name;
 }
 
-string ComputerScientist::sex()
+string ComputerScientist::getSex()
 {
     return sex;
 }

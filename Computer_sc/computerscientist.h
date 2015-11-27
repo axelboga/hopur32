@@ -8,10 +8,14 @@ class ComputerScientist
 {
 public:
     ComputerScientist();
+    string getName();
+    string sex();
+    int getYearOfBirth();
+    int getYearOfDeath();
 private:
     string name;
-    int yearOfBirt;
-    int YearOfDeath;
+    int yearOfBirth;
+    int yearOfDeath;
     string sex;
 };
 

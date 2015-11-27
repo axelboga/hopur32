@@ -15,6 +15,10 @@ void UI::start() {
 
     if (input == "add") {
         ComputerScientist c = ComputerScientist();
+        setName(c);
+        setSex(c);
+        setYearOfBirth(c);
+        setYearOfDeath(c);
         CompSciLogic.add(c);
     }
 };

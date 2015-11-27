@@ -8,8 +8,14 @@ CONFIG -= app_bundle
 TEMPLATE = app
 
 SOURCES += main.cpp \
-    ui.cpp
+    ui.cpp \
+    logic.cpp \
+    computerscientist.cpp \
+    repository.cpp
 
 HEADERS += \
-    ui.h
+    ui.h \
+    logic.h \
+    computerscientist.h \
+    repository.h
 

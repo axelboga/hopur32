@@ -4,7 +4,7 @@ using namespace std;
 
 UI::UI()
 {
-
+    logic CompSciLogic();
 }
 
 void UI::start() {
@@ -14,6 +14,7 @@ void UI::start() {
     cin >> input;
 
     if (input == "add") {
-
+        ComputerScientist c = ComputerScientist();
+        CompSciLogic.add(c);
     }
 };

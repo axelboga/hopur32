@@ -3,6 +3,7 @@
 
 #include "ComputerScientist.h"
 #include "repository.h"
+#include <ctype.h>
 
 class logic
 {
@@ -11,6 +12,7 @@ private:
 public:
     logic();
     void add(ComputerScientist c);
+    bool isValid(string s);
 };
 
 #endif // LOGIC_H

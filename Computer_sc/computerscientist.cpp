@@ -3,7 +3,10 @@
 
 ComputerScientist::ComputerScientist()
 {
-
+    name = "";
+    sex = "";
+    yearOfBirth = 0;
+    yearOfDeath = 0;
 }
 
 string ComputerScientist::getName()
@@ -22,6 +25,6 @@ int ComputerScientist::getYearOfBirth()
 }
 
 int ComputerScientist::getYearOfDeath()
-{
+{   
     return yearOfDeath;
 }

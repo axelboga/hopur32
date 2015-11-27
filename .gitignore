@@ -28,4 +28,4 @@
 *.app
 
 # User files
-*.user
+/*.user

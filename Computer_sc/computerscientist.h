@@ -12,10 +12,10 @@ public:
     string getSex();
     int getYearOfBirth();
     int getYearOfDeath();
-    friend void setName(ComputerScientist c);
-    friend void setSex(ComputerScientist c);
-    friend void setYearOfBirth(ComputerScientist c);
-    friend void setYearOfDeath(ComputerScientist c);
+    friend void setName(ComputerScientist& c);
+    friend void setSex(ComputerScientist& c);
+    friend void setYearOfBirth(ComputerScientist& c);
+    friend void setYearOfDeath(ComputerScientist& c);
 private:
     string name;
     int yearOfBirth;

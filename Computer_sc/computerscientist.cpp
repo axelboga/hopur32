@@ -29,7 +29,7 @@ int ComputerScientist::getYearOfDeath()
     return yearOfDeath;
 }
 
-void setName(ComputerScientist c) {
+void setName(ComputerScientist& c) {
     cout << "Input name (first name, second name, last name): ";
 
     char ch;
@@ -41,21 +41,21 @@ void setName(ComputerScientist c) {
     getline(cin, c.name);
 }
 
-void setSex(ComputerScientist c) {
+void setSex(ComputerScientist& c) {
     cout << "Input sex (female / male): " ;
     cin >> c.sex;
 }
 
-void setYearOfBirth(ComputerScientist c) {
+void setYearOfBirth(ComputerScientist& c) {
     cout << "Input year of birth: ";
     cin >> c.yearOfBirth;
 }
-void setYearOfDeath(ComputerScientist c){
-    char answ;
+void setYearOfDeath(ComputerScientist& c){
+    char answ = 'n';
     cout << "Is " << c.name << " still alive ? " << endl;
     cout << "y for yes: ";
     cin >> answ;
-    if (answ != 'y' || answ != 'Y') {
+    if (answ != 'y' && answ != 'Y') {
         cout << "Input year of death: ";
         cin >> c.yearOfDeath;
     }

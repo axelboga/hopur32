@@ -10,6 +10,7 @@ class UI
 public:
     UI();
     void start();
+    void banner();
 private:
     logic CompSciLogic;
 };

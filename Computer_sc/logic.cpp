@@ -1,5 +1,5 @@
 #include "logic.h"
-
+#include <stdlib.h>
 logic::logic()
  {
     compSciRepo = repository();
@@ -10,18 +10,30 @@ void logic::add(ComputerScientist& c)
     bool valid = false;
     while (!valid){
         setName(c);
-        valid = isValid(c.getName());
+        valid = checkName(c.getName());
         if (!valid) {
-            cout << "Invalid input!" << endl;
+            cout << "Names may only contain alphabetic characters!" << endl;
+            cout << "Please try again." << endl;
         }
     }
-    setSex(c);
-    setYearOfBirth(c);
-    setYearOfDeath(c);
+    valid = false;
+    while (!valid){
+        setSex(c);
+        valid = checkSex(c.getSex());
+        if (!valid) {
+            cout << "Sex must be either female or male." << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+
+    setYearOfBirth(c); //Þarf að tjékka hvort árið sé löglegt
+    setYearOfDeath(c); //Það þarf tjékka hvort Death komi á eftir Birth
+                       //Mjög erfitt að gera með strings. Breyta í int?
+
     compSciRepo.add(c);
 }
 
-bool logic::isValid(string s) {
+bool logic::checkName(string s) {
     for (unsigned int i = 0; i < s.length(); i++){
         if (!isalpha(s[i])) {
             if (s[i] != ' ' && s[i] != '\'') {
@@ -30,4 +42,14 @@ bool logic::isValid(string s) {
         }
     }
    return true;
+}
+bool logic::checkSex(string s) {
+
+    if(s != "male" && s != "female")
+    {
+        return false;
+    }
+
+    return true;
+
 }

@@ -2,7 +2,7 @@
 #define REPOSITORY_H
 
 #include <vector>
-#include "ComputerScientist.h"
+#include "computerscientist.h"
 using namespace std;
 
 class repository

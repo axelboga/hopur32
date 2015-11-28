@@ -1,7 +1,7 @@
 #ifndef LOGIC_H
 #define LOGIC_H
 
-#include "ComputerScientist.h"
+#include "computerscientist.h"
 #include "repository.h"
 #include <ctype.h>
 
@@ -12,7 +12,10 @@ private:
 public:
     logic();
     void add(ComputerScientist& c);
-    bool isValid(string s);
+    bool checkName(string s);
+    bool checkSex(string s);
+    bool checkBirth(string s);
+
 };
 
 #endif // LOGIC_H

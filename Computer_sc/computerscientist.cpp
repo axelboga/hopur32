@@ -1,4 +1,4 @@
-#include "ComputerScientist.h"
+#include "computerscientist.h"
 #include <iomanip>
 
 ComputerScientist::ComputerScientist()
@@ -30,7 +30,7 @@ string ComputerScientist::getYearOfDeath()
 }
 
 void setName(ComputerScientist& c) {
-   cout << "Input name (first name, second name, last name): ";
+   cout << "Input name (first name, middle name, surname): ";
    cin.ignore();
    getline(cin, c.name);
 }

@@ -1,5 +1,5 @@
 #include "ComputerScientist.h"
-
+#include <iomanip>
 
 ComputerScientist::ComputerScientist()
 {
@@ -53,4 +53,10 @@ void setYearOfDeath(ComputerScientist& c){
         cout << "Input year of death: ";
         cin >> c.yearOfDeath;
     }
+}
+
+ostream& operator <<(ostream& outs, ComputerScientist& c) {
+    outs << left << setw(15) << c.name << left << setw(8) << c.sex <<
+            right << setw(8) << c.yearOfBirth << setw(10) << c.yearOfDeath << endl;
+    return outs;
 }

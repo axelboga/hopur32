@@ -10,16 +10,16 @@ public:
     ComputerScientist();
     string getName();
     string getSex();
-    int getYearOfBirth();
-    int getYearOfDeath();
+    string getYearOfBirth();
+    string getYearOfDeath();
     friend void setName(ComputerScientist& c);
     friend void setSex(ComputerScientist& c);
     friend void setYearOfBirth(ComputerScientist& c);
     friend void setYearOfDeath(ComputerScientist& c);
 private:
     string name;
-    int yearOfBirth;
-    int yearOfDeath;
+    string yearOfBirth;
+    string yearOfDeath;
     string sex;
 };
 

@@ -11,7 +11,7 @@ private:
     repository compSciRepo;
 public:
     logic();
-    void add(ComputerScientist c);
+    void add(ComputerScientist& c);
     bool isValid(string s);
 };
 

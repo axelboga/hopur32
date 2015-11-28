@@ -15,21 +15,6 @@ void UI::start() {
 
     if (input == "add") {
         ComputerScientist c = ComputerScientist();
-
-        bool valid = false;
-        do {
-            setName(c);
-            valid = CompSciLogic.isValid(c.getName());
-            if (!valid) {
-                cout << "Invalid input!" << endl;
-            }
-        }
-        while(!valid);
-
-        setSex(c);
-        setYearOfBirth(c);
-        setYearOfDeath(c);
-
         CompSciLogic.add(c);
     }
 };

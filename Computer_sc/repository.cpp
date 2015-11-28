@@ -3,8 +3,13 @@
 repository::repository()
 {
     compSciVector = vector<ComputerScientist>();
+
 }
 
-void repository::add(ComputerScientist c){
+void repository::add(ComputerScientist c){ //add to list
     compSciVector.push_back(c);
+}
+
+void fillVectorFromList(){
+
 }

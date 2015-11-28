@@ -5,8 +5,8 @@ ComputerScientist::ComputerScientist()
 {
     name = "";
     sex = "";
-    yearOfBirth = 0;
-    yearOfDeath = 0;
+    yearOfBirth = "";
+    yearOfDeath = "";
 }
 
 string ComputerScientist::getName()
@@ -19,26 +19,20 @@ string ComputerScientist::getSex()
     return sex;
 }
 
-int ComputerScientist::getYearOfBirth()
+string ComputerScientist::getYearOfBirth()
 {
     return yearOfBirth;
 }
 
-int ComputerScientist::getYearOfDeath()
+string ComputerScientist::getYearOfDeath()
 {   
     return yearOfDeath;
 }
 
 void setName(ComputerScientist& c) {
-    cout << "Input name (first name, second name, last name): ";
-
-    char ch;
-    do {
-        cin.get(ch);
-    }
-    while(ch != '\n');
-
-    getline(cin, c.name);
+   cout << "Input name (first name, second name, last name): ";
+   cin.ignore();
+   getline(cin, c.name);
 }
 
 void setSex(ComputerScientist& c) {

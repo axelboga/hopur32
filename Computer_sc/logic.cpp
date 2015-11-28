@@ -7,6 +7,7 @@ logic::logic()
 
 void logic::add(ComputerScientist& c)
 {
+    cout << endl;
     bool valid = false;
     while (!valid){
         setName(c);

@@ -8,14 +8,34 @@ UI::UI()
 }
 
 void UI::start() {
-    string input;
-    cout << "Welcome!" << endl;
-    cout << "The commands are:\t add";
+    int input;
+    cout << "Welcome to the Computer Scientists Program." << endl;
+    cout << "___________________________________________" << endl;
+    cout << "1.\t" << "Add Scientist" << endl;
+    cout << "2.\t" << "View Scientist" << endl;
+    cout << "3.\t" << "Exit" << endl;
+    cout << "___________________________________________" << endl;
+    cout << endl;
+    cout << "Enter your Selection: ";
     cin >> input;
 
-    if (input == "add") {
+    if (input == 1) {
         ComputerScientist c = ComputerScientist();
         CompSciLogic.add(c);
+    }
+    else if(input == 2){
+
+        cout << "This feature is not yet available :(" << endl;
+        cout << endl;
+
+    }
+    else if(input == 3){
+
+        cout << "Ending Program." << endl;
+        cout << endl;
+
+
+
     }
 };
 void UI::banner(){
@@ -32,6 +52,7 @@ void UI::banner(){
     cout << " _\\ \\ (__| |  __/ | | | |_| \\__ \\ |_\\__ \\      " << endl;
     cout << " \\__/\\___|_|\\___|_| |_|\\__|_|___/\\__|___/      " << endl;
     cout << endl;
+
 
 
 }

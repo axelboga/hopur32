@@ -33,12 +33,14 @@ void repository::add(ComputerScientist c){
 }
 
 void repository::outputList(vector<ComputerScientist>& v) {
-    cout << left << setw(15) << "First name" << left << setw(15) << "Last name"
-             << left << setw(15) << "Gender" << left <<setw(15) << "Date of birth"
-             << left <<setw(15) << "Date of death" << endl;
-    cout << "------------------------------------------------------------------------------" << endl;
+    cout << " _____________________________________________________________________________" << endl;
+    cout << " First name\t Last name \t Gender\t\t Date of birth\t Date of death\t" << endl;
+    cout << " _____________________________________________________________________________" << endl;
 
     for (unsigned int i = 0; i < v.size(); i++) {
-        cout << v[i] << endl;
+        cout << " "<< v[i] << endl;
     }
+
+    cout << " _____________________________________________________________________________" << endl;
+
 }

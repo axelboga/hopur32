@@ -1,8 +1,7 @@
 #include "computerscientist.h"
 #include <iomanip>
 
-ComputerScientist::ComputerScientist()
-{
+ComputerScientist::ComputerScientist() {
     firstName = "";
     lastName = "";
     sex = "";
@@ -10,36 +9,35 @@ ComputerScientist::ComputerScientist()
     yearOfDeath = "na";
 }
 
-string ComputerScientist::getfirstName()
-{
+string ComputerScientist::getFirstName() {
    return firstName;
 }
 
-string ComputerScientist::getlastName()
-{
+string ComputerScientist::getLastName() {
    return lastName;
 }
 
-string ComputerScientist::getSex()
-{
+string ComputerScientist::getSex() {
     return sex;
 }
 
-string ComputerScientist::getYearOfBirth()
-{
+string ComputerScientist::getYearOfBirth() {
     return yearOfBirth;
 }
 
-string ComputerScientist::getYearOfDeath()
-{   
+string ComputerScientist::getYearOfDeath() {
     return yearOfDeath;
 }
 
-void setName(ComputerScientist& c) {
+void setFirstName(ComputerScientist& c) {
    cout << "Input first name: ";
    cin >> c.firstName;
-   cout << "Input last name: ";
-   cin >> c.lastName;
+
+}
+
+void setLastName(ComputerScientist& c) {
+    cout << "Input last name: ";
+    cin >> c.lastName;
 }
 
 void setSex(ComputerScientist& c) {

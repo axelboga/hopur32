@@ -4,12 +4,8 @@
 #include "computerscientist.h"
 #include "repository.h"
 #include <ctype.h>
-<<<<<<< HEAD
 #include <algorithm>
-=======
 #include <stdlib.h>
->>>>>>> 06611104c3e9fb224832658e97db97a8776806df
-
 class logic
 {
 private:
@@ -26,20 +22,13 @@ public:
     bool checkName(string s);
     bool checkSex(string s);
     bool checkBirth(string s);
-<<<<<<< HEAD
     bool checkDeath(string d, string b);
-=======
-<<<<<<< HEAD
     bool compareByFirstName(ComputerScientist a, ComputerScientist b);
     bool compareByLastName(ComputerScientist a, ComputerScientist b);
     bool compareBySex(ComputerScientist a, ComputerScientist b);
     bool compareByBirth(ComputerScientist a, ComputerScientist b);
     bool compareByDeath(ComputerScientist a, ComputerScientist b);
-=======
     bool checkDeath(ComputerScientist& c, string s);
->>>>>>> 06611104c3e9fb224832658e97db97a8776806df
-
->>>>>>> d25021db660a0bb446c38993c718e3e8ba8926fc
 };
 
 #endif // LOGIC_H

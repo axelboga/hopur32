@@ -14,3 +14,4 @@ hanna           panna           male            1992            na
 ha              na              male            1992            na             
 ha              na              male            1992            na             
 ha              n               male            1992            na             
+hanna         banani          female          1992            na             

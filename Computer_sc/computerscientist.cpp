@@ -49,19 +49,14 @@ void setYearOfBirth(ComputerScientist& c) {
     cin >> c.yearOfBirth;
 }
 void setYearOfDeath(ComputerScientist& c) {
-    /*if (ch != 'y' && ch != 'Y' ) {
-        cout << "Input year of death: ";
-        cin >> c.yearOfDeath;
-    }
-    */
     cout << "Input year of death: ";
     cin >> c.yearOfDeath;
 }
 
-char ComputerScientist::isAlive() {
-    char answ = 'n';
+string ComputerScientist::isAlive() {
+    string answ = "no";
     cout << "Is " << firstName << " still alive ? " << endl;
-    cout << "y for yes: ";
+    cout << "yes/no : ";
     cin >> answ;
 
     return answ;

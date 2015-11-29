@@ -19,7 +19,7 @@ public:
     friend void setSex(ComputerScientist& c);
     friend void setYearOfBirth(ComputerScientist& c);
     friend void setYearOfDeath(ComputerScientist& c);
-    char isAlive();
+    string isAlive();
     friend ostream& operator <<(ostream& outs, ComputerScientist& c);
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
 private:

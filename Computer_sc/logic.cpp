@@ -68,8 +68,8 @@ void logic::addYearOfBirth(ComputerScientist& c) {
 
 void logic::addYearOfDeath(ComputerScientist& c) {
     bool valid = false;
-    char answ = c.isAlive();
-    if (answ != 'y' && answ != 'Y') {
+    string answ = c.isAlive();
+    if (answ != "y" && answ != "Y" && answ != "yes" && answ != "Yes" ) {
         while (!valid){
             setYearOfDeath(c);
             valid = checkDeath(c.getYearOfDeath(), c.getYearOfBirth());

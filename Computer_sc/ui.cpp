@@ -12,14 +12,9 @@ void UI::start() {
     do {
         char input;
         cout << "Welcome to the Computer Scientists Program." << endl;
-        cout << " ___________________________________________" << endl;
-        cout << " 1.\t" << "Add Scientist" << endl;
-        cout << " 2.\t" << "View Scientists" << endl;
-        cout << " 3.\t" << "Exit" << endl;
-        cout << " ___________________________________________" << endl;
-        cout << endl;
-        cout << "Enter your Selection: ";
+        menu();
         cin >> input;
+        cout << endl;
 
         if (input == '1') {
             ComputerScientist c = ComputerScientist();
@@ -39,14 +34,9 @@ void UI::start() {
         else {
             cout << "Invalid number, try again: " << endl;
             cout << "Welcome to the Computer Scientists Program." << endl;
-            cout << " ___________________________________________" << endl;
-            cout << " 1.\t" << "Add Scientist" << endl;
-            cout << " 2.\t" << "View Scientists" << endl;
-            cout << " 3.\t" << "Exit" << endl;
-            cout << " ___________________________________________" << endl;
-            cout << endl;
-            cout << "Enter your Selection: ";
+            menu();
             cin >> input;
+            cout << endl;
         }
     }
     while(true);
@@ -68,7 +58,7 @@ void UI::banner(){
 
 
 }
-void UI::sortUI(){
+void UI::sortUI() {
 
     cout << "Sort list by:" << endl;
     cout << " ___________________________________________" << endl;
@@ -80,4 +70,14 @@ void UI::sortUI(){
     cout << endl;
     cout << "Enter your Selection: ";
 
+}
+
+void UI::menu() {
+    cout << " ___________________________________________" << endl;
+    cout << " 1.\t" << "Add Scientist" << endl;
+    cout << " 2.\t" << "View Scientists" << endl;
+    cout << " 3.\t" << "Exit" << endl;
+    cout << " ___________________________________________" << endl;
+    cout << endl;
+    cout << "Enter your Selection: ";
 }

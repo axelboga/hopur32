@@ -32,7 +32,6 @@ void UI::start() {
         }
         else {
             cout << "Invalid number, try again: " << endl;
-            cout << "Welcome to the Computer Scientists Program." << endl;
             menu();
             cin >> input;
             cout << endl;

@@ -12,8 +12,8 @@ repository::repository(){
     }
 }
 
-void repository::getVector(vector<ComputerScientist>& v) {
-    v = compSciVector;
+vector<ComputerScientist> repository::getVector() {
+    return compSciVector;
 }
 
 void repository::add(ComputerScientist c){

@@ -24,7 +24,7 @@ void logic::add(ComputerScientist& c)
 
 bool logic::okToAdd(ComputerScientist& c) {
     vector<ComputerScientist> v;
-    compSciRepo.getVector(v);
+    v = compSciRepo.getVector();
     for (unsigned int i = 0; i < v.size(); i++) {
         if (v[i] == c) {
             return false;
@@ -153,15 +153,16 @@ bool logic::checkSex(string s) {
 
 }
 
-void logic::view() {
+void logic::view() { 
     vector<ComputerScientist> v;
-    compSciRepo.getVector(v);
+    v = compSciRepo.getVector();
     compSciRepo.outputList(v);
 }
-bool logic::compareByFirstName(ComputerScientist a, ComputerScientist b)
+bool logic::compareByFirstName(ComputerScientist& a, ComputerScientist& b)
 {
     return a.getFirstName() < b.getFirstName();
 }
+/*
 bool logic::compareByLastName(ComputerScientist a, ComputerScientist b)
 {
     return a.getLastName() < b.getLastName();
@@ -174,7 +175,18 @@ bool logic::compareByBirth(ComputerScientist a, ComputerScientist b)
 {
     return a.getYearOfBirth() < b.getYearOfBirth();
 }
-bool logic::compareByDeath(ComputerScientist a, ComputerScientist b)
+bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
 {
     return a.getYearOfDeath() < b.getYearOfDeath();
 }
+
+*/
+
+void logic::sorting(vector<ComputerScientist>& v) {
+    vector<ComputerScientist> vec;
+    ComputerScientist a;
+    ComputerScientist b;
+    v = compSciRepo.getVector();
+    sort(vec.begin(), vec.end(), compareByFirstName);
+}
+

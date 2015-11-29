@@ -13,7 +13,7 @@ public:
     repository();
     void add(ComputerScientist c);
     void outputList(vector<ComputerScientist>& v);
-    void getVector(vector<ComputerScientist>& v);
+    vector<ComputerScientist> getVector();
 };
 
 #endif // REPOSITORY_H

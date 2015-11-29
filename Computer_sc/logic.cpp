@@ -184,6 +184,6 @@ void logic::sorting(vector<ComputerScientist>& v) {
     ComputerScientist a;
     ComputerScientist b;
     v = compSciRepo.getVector();
-  //  sort(vec.begin(), vec.end());
+    sort(vec.begin(), vec.end());
 }
 

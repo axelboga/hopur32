@@ -7,8 +7,23 @@ logic::logic()
 
 void logic::add(ComputerScientist& c)
 {
+<<<<<<< HEAD
     addName(c);
     addSex(c);
+=======
+    addFirstName(c);
+    addLastName(c);
+
+    bool valid = false;
+    while (!valid){
+        setSex(c);
+        valid = checkSex(c.getSex());
+        if (!valid) {
+            cout << "Sex must be either female or male." << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+>>>>>>> 7327be1963dc897d92309c0136c9def24b41c092
 
     setYearOfBirth(c); //Þarf að tjékka hvort árið sé löglegt
     setYearOfDeath(c); //Það þarf tjékka hvort Death komi á eftir Birth
@@ -17,7 +32,7 @@ void logic::add(ComputerScientist& c)
     compSciRepo.add(c);
 }
 
-void logic::addName(ComputerScientist& c) {
+void logic::addFirstName(ComputerScientist& c) {
     bool valid = false;
     while (!valid){
         setFirstName(c);
@@ -27,8 +42,10 @@ void logic::addName(ComputerScientist& c) {
             cout << "Please try again." << endl;
         }
     }
+}
 
-    valid = false;
+void logic::addLastName(ComputerScientist& c) {
+    bool valid = false;
     while (!valid){
         setLastName(c);
         valid = checkName(c.getLastName());

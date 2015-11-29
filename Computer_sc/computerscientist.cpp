@@ -61,8 +61,8 @@ void setYearOfDeath(ComputerScientist& c){
 }
 
 ostream& operator <<(ostream& outs, ComputerScientist& c) {
-    outs << left << setw(15) << c.firstName << left << setw(15) << c.lastName << left << setw(15)<<
-            c. sex << right << setw(13)<< c.yearOfBirth << right <<setw(15) << c.yearOfDeath << endl;
+    outs << left << setw(16) << c.firstName << left << setw(16) << c.lastName << left << setw(16)<<
+            c. sex << left << setw(16)<< c.yearOfBirth << left <<setw(15) << c.yearOfDeath << endl;
     return outs;
 }
 

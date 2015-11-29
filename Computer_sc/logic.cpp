@@ -1,13 +1,12 @@
 #include "logic.h"
 #include <iostream>
 #include <string>
-logic::logic()
- {
+
+logic::logic() {
     compSciRepo = repository();
  }
 
-void logic::add(ComputerScientist& c)
-{
+void logic::add(ComputerScientist& c) {
     addFirstName(c);
     addLastName(c);
     addSex(c);
@@ -17,7 +16,7 @@ void logic::add(ComputerScientist& c)
         compSciRepo.add(c);
     }
     else {
-        cout << "This ComputerScientist is already listed" << endl;
+        cout << "This Computer Scientist is already listed" << endl;
     }
 }
 
@@ -145,7 +144,7 @@ bool logic::checkName(string s) {
 }
 bool logic::checkSex(string s) {
 
-    if(s != "male" && s != "female"){
+    if(islower(s != "male" && s != "female")){
         return false;
     }
     return true;
@@ -157,8 +156,9 @@ void logic::view() {
     v = compSciRepo.getVector();
     compSciRepo.outputList(v);
 }
-bool logic::compareByFirstName(const ComputerScientist& a, const ComputerScientist& b)
-{
+
+bool logic::compareByFirstName(const ComputerScientist& a, const ComputerScientist& b){
+
     return a.getFirstName() < b.getFirstName();
 }
 /*
@@ -200,5 +200,7 @@ void logic::searching(){
             cout << v[i];
         }
     }
+  //  sort(vec.begin(), vec.end());
+
 }
 

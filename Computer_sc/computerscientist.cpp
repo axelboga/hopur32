@@ -40,7 +40,7 @@ void setLastName(ComputerScientist& c) {
 }
 
 void setSex(ComputerScientist& c) {
-    cout << "Input sex (female / male): " ;
+    cout << "Input sex (female / male): ";
     cin >> c.sex;
 }
 

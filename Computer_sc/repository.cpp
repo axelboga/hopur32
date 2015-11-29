@@ -6,13 +6,9 @@ repository::repository(){
     compSciVector = vector<ComputerScientist>();
     ifstream ins ("list6.txt");
     if (ins.is_open()){
-        cout << "ja" << endl;
         ComputerScientist c;
         c.fillVectorFromList(ins, compSciVector); //eða ekki friend fall heldur nota getters ?
         ins.close();
-    }
-    else {
-        cout << "no" << endl;
     }
 }
 

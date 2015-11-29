@@ -4,6 +4,7 @@
 #include "computerscientist.h"
 #include "repository.h"
 #include <ctype.h>
+#include <stdlib.h>
 
 class logic
 {
@@ -15,10 +16,13 @@ public:
     void addFirstName(ComputerScientist& c);
     void addLastName(ComputerScientist& c);
     void addSex(ComputerScientist& c);
+    void addYearOfBirth(ComputerScientist& c);
+    void addYearOfDeath(ComputerScientist& c);
     void view();
     bool checkName(string s);
     bool checkSex(string s);
     bool checkBirth(string s);
+    bool checkDeath(ComputerScientist& c, string s);
 
 };
 

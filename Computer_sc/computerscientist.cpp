@@ -49,15 +49,20 @@ void setYearOfBirth(ComputerScientist& c) {
     cout << "Input year of birth: ";
     cin >> c.yearOfBirth;
 }
-void setYearOfDeath(ComputerScientist& c){
-    char answ = 'n';
-    cout << "Is " << c.firstName << " still alive ? " << endl;
-    cout << "y for yes: ";
-    cin >> answ;
-    if (answ != 'y' && answ != 'Y') {
+void setYearOfDeath(ComputerScientist& c, char ch) {
+    if (ch != 'y' && ch != 'Y') {
         cout << "Input year of death: ";
         cin >> c.yearOfDeath;
     }
+}
+
+char ComputerScientist::isAlive() {
+    char answ = 'n';
+    cout << "Is " << firstName << " still alive ? " << endl;
+    cout << "y for yes: ";
+    cin >> answ;
+
+    return answ;
 }
 
 ostream& operator <<(ostream& outs, ComputerScientist& c) {

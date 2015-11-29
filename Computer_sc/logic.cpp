@@ -1,5 +1,7 @@
 #include "logic.h"
-#include <stdlib.h>
+#include <iostream>
+#include <string>
+
 logic::logic()
  {
     compSciRepo = repository();
@@ -11,9 +13,8 @@ void logic::add(ComputerScientist& c)
     addLastName(c);
     addSex(c);
 
-    setYearOfBirth(c); //Þarf að tjékka hvort árið sé löglegt
-    setYearOfDeath(c); //Það þarf tjékka hvort Death komi á eftir Birth
-                       //Mjög erfitt að gera með strings. Breyta í int?
+    addYearOfBirth(c);
+    addYearOfDeath(c);
 
     compSciRepo.add(c);
 }
@@ -52,6 +53,69 @@ void logic::addSex(ComputerScientist& c) {
             cout << "Please try again." << endl;
         }
     }
+}
+
+void logic::addYearOfBirth(ComputerScientist& c) {
+    bool valid = false;
+    while (!valid){
+        setYearOfBirth(c);
+        valid = checkBirth(c.getYearOfBirth());
+        if (!valid) {
+            cout << "Invalid year!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+}
+
+void logic::addYearOfDeath(ComputerScientist& c) {
+    bool valid = false;
+    char answ = c.isAlive();
+    while (!valid){
+        setYearOfDeath(c, answ);
+        valid = checkDeath(c, c.getYearOfBirth());
+        if (!valid) {
+            cout << "Invalid year!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+}
+
+bool logic::checkBirth(string s){
+    int  year = atoi(s.c_str());
+
+    for (unsigned int i = 0; i < s.length(); i++){
+        if (!isdigit(s[i])) {
+            return false;
+        }
+        if(s.length() != 4){
+            return false;
+        }
+        if(year > 2015){
+            return false;
+        }
+    }
+   return true;
+}
+
+bool logic::checkDeath(ComputerScientist& c, string s) {
+    int  yearOfDeath = atoi(s.c_str());
+    int yearOfBirth = atoi(c.getYearOfBirth().c_str());
+
+    for (unsigned int i = 0; i < s.length(); i++){
+        if (!isdigit(s[i])) {
+            return false;
+        }
+        if(s.length() != 4){
+            return false;
+        }
+        if(yearOfDeath > 2015){
+            return false;
+        }
+        if(yearOfBirth > yearOfDeath){
+            return false;
+        }
+    }
+   return true;
 }
 
 bool logic::checkName(string s) {

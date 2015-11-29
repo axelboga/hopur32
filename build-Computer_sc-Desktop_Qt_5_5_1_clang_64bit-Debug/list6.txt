@@ -1,3 +1,7 @@
 Hafdis         Alexandersdottirfemale                  1995             na
 Hafdis         Inga           female                                   na
 Hafdis         Inga           female                  1995             na
+hafdis         jaja           female                                   na
+ha             ha             female                 19998             na
+hafdis         inga           female                  1998             na
+hafi           ha             female                   999             na

@@ -143,3 +143,23 @@ void logic::view() {
     compSciRepo.getVector(v);
     compSciRepo.outputList(v);
 }
+bool logic::compareByFirstName(ComputerScientist a, ComputerScientist b)
+{
+    return a.getFirstName() < b.getFirstName();
+}
+bool logic::compareByLastName(ComputerScientist a, ComputerScientist b)
+{
+    return a.getLastName() < b.getLastName();
+}
+bool logic::compareBySex(ComputerScientist a, ComputerScientist b)
+{
+    return a.getSex() < b.getSex();
+}
+bool logic::compareByBirth(ComputerScientist a, ComputerScientist b)
+{
+    return a.getYearOfBirth() < b.getYearOfBirth();
+}
+bool logic::compareByDeath(ComputerScientist a, ComputerScientist b)
+{
+    return a.getYearOfDeath() < b.getYearOfDeath();
+}

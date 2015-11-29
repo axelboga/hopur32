@@ -8,9 +8,9 @@ UI::UI()
 }
 
 void UI::start() {
+    cout << "Welcome to the Computer Scientists Program." << endl;
     do {
         char input;
-        cout << "Welcome to the Computer Scientists Program." << endl;
         menu();
         cin >> input;
         cout << endl;
@@ -31,10 +31,7 @@ void UI::start() {
             exit(1);
         }
         else {
-            cout << "Invalid number, try again: " << endl;
-            menu();
-            cin >> input;
-            cout << endl;
+            cout << "Invalid input, try again: " << endl;
         }
     }
     while(true);

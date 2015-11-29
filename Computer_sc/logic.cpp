@@ -7,17 +7,9 @@ logic::logic()
 
 void logic::add(ComputerScientist& c)
 {
-    cout << endl;
+    addName(c);
+
     bool valid = false;
-    while (!valid){
-        setName(c);
-        valid = checkName(c.getfirstName());
-        if (!valid) {
-            cout << "Names may only contain alphabetic characters!" << endl;
-            cout << "Please try again." << endl;
-        }
-    }
-    valid = false;
     while (!valid){
         setSex(c);
         valid = checkSex(c.getSex());
@@ -32,6 +24,28 @@ void logic::add(ComputerScientist& c)
                        //Mjög erfitt að gera með strings. Breyta í int?
 
     compSciRepo.add(c);
+}
+
+void logic::addName(ComputerScientist& c) {
+    bool valid = false;
+    while (!valid){
+        setFirstName(c);
+        valid = checkName(c.getFirstName());
+        if (!valid) {
+            cout << "Names may only contain alphabetic characters!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+
+    valid = false;
+    while (!valid){
+        setLastName(c);
+        valid = checkName(c.getLastName());
+        if (!valid) {
+            cout << "Names may only contain alphabetic characters!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
 }
 
 bool logic::checkName(string s) {

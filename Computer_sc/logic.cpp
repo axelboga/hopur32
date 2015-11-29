@@ -144,7 +144,7 @@ bool logic::checkName(string s) {
 }
 bool logic::checkSex(string s) {
 
-    if(s != "male" && s != "female"){
+    if(islower(s != "male" && s != "female")){
         return false;
     }
     return true;
@@ -184,6 +184,6 @@ void logic::sorting(vector<ComputerScientist>& v) {
     ComputerScientist a;
     ComputerScientist b;
     v = compSciRepo.getVector();
-    sort(vec.begin(), vec.end(), compareByFirstName);
+  //  sort(vec.begin(), vec.end());
 }
 

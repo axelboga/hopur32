@@ -2,13 +2,11 @@
 #include <iostream>
 #include <string>
 
-logic::logic()
- {
+logic::logic() {
     compSciRepo = repository();
  }
 
-void logic::add(ComputerScientist& c)
-{
+void logic::add(ComputerScientist& c) {
     addFirstName(c);
     addLastName(c);
     addSex(c);
@@ -18,7 +16,7 @@ void logic::add(ComputerScientist& c)
         compSciRepo.add(c);
     }
     else {
-        cout << "This ComputerScientist is already listed" << endl;
+        cout << "This Computer Scientist is already listed" << endl;
     }
 }
 
@@ -158,8 +156,7 @@ void logic::view() {
     v = compSciRepo.getVector();
     compSciRepo.outputList(v);
 }
-bool logic::compareByFirstName(ComputerScientist& a, ComputerScientist& b)
-{
+bool logic::compareByFirstName(ComputerScientist& a, ComputerScientist& b) {
     return a.getFirstName() < b.getFirstName();
 }
 /*

@@ -5,7 +5,7 @@ using namespace std;
 
 UI::UI()
 {
-    logic CompSciLogic();
+    logic CompSciLogic;
 }
 
 void UI::start() {

@@ -12,6 +12,7 @@ public:
     void start();
     void banner();
     void sortUI();
+    void menu();
 private:
     logic CompSciLogic;
 };

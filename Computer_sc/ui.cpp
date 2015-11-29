@@ -10,7 +10,7 @@ UI::UI()
 
 void UI::start() {
     do {
-        int input;
+        char input;
         cout << "Welcome to the Computer Scientists Program." << endl;
         cout << " ___________________________________________" << endl;
         cout << " 1.\t" << "Add Scientist" << endl;
@@ -21,20 +21,32 @@ void UI::start() {
         cout << "Enter your Selection: ";
         cin >> input;
 
-        if (input == 1) {
+        if (input == '1') {
             ComputerScientist c = ComputerScientist();
             CompSciLogic.add(c);
         }
-        else if(input == 2){
+        else if(input == '2'){
             CompSciLogic.view();
             cout << endl;
             sortUI();
             cin >> input;
         }
-        else if(input == 3){
+        else if(input == '3'){
             cout << "Ending Program." << endl;
             cout << endl;
             exit(1);
+        }
+        else {
+            cout << "Invalid number, try again: " << endl;
+            cout << "Welcome to the Computer Scientists Program." << endl;
+            cout << " ___________________________________________" << endl;
+            cout << " 1.\t" << "Add Scientist" << endl;
+            cout << " 2.\t" << "View Scientists" << endl;
+            cout << " 3.\t" << "Exit" << endl;
+            cout << " ___________________________________________" << endl;
+            cout << endl;
+            cout << "Enter your Selection: ";
+            cin >> input;
         }
     }
     while(true);

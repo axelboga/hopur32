@@ -12,6 +12,7 @@ private:
 public:
     logic();
     void add(ComputerScientist& c);
+    void view();
     bool checkName(string s);
     bool checkSex(string s);
     bool checkBirth(string s);

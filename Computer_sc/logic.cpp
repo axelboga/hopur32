@@ -11,7 +11,7 @@ void logic::add(ComputerScientist& c)
     bool valid = false;
     while (!valid){
         setName(c);
-        valid = checkName(c.getName());
+        valid = checkName(c.getfirstName());
         if (!valid) {
             cout << "Names may only contain alphabetic characters!" << endl;
             cout << "Please try again." << endl;
@@ -53,4 +53,10 @@ bool logic::checkSex(string s) {
 
     return true;
 
+}
+
+void logic::view() {
+    vector<ComputerScientist> v;
+    compSciRepo.getVector(v);
+    compSciRepo.outputList(v);
 }

@@ -12,6 +12,8 @@ private:
 public:
     repository();
     void add(ComputerScientist c);
+    void outputList(vector<ComputerScientist>& v);
+    void getVector(vector<ComputerScientist>& v);
 };
 
 #endif // REPOSITORY_H

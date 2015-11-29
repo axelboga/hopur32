@@ -1,0 +1,6 @@
+Hanna R        male        1992      1998
+Jon Jonsson    male        1800      1900
+Gunna Dis Jonsdottirfemale      1992      1992
+Hanna R        male        1992      1999
+Kalli          male        1800          
+bla            male        1992         n

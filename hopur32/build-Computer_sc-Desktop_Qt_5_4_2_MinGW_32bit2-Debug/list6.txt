@@ -1,0 +1,2 @@
+Hanna          Ragnarsdottir  female                  1992             na
+Bjorgvin       Bjorgvins      male                    1990           2015

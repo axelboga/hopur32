@@ -1,0 +1,2 @@
+Hanna          Ragnars        female                  1992             na
+Eytor          Ragnarsson     male                    1994           2015

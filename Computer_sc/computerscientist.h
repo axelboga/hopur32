@@ -2,13 +2,15 @@
 #define COMPUTERSCIENTIST_H
 #include <iostream>
 #include <string>
+#include <vector>
 using namespace std;
 
 class ComputerScientist
 {
 public:
     ComputerScientist();
-    string getName();
+    string getfirstName();
+    string getlastName();
     string getSex();
     string getYearOfBirth();
     string getYearOfDeath();
@@ -17,8 +19,10 @@ public:
     friend void setYearOfBirth(ComputerScientist& c);
     friend void setYearOfDeath(ComputerScientist& c);
     friend ostream& operator <<(ostream& outs, ComputerScientist& c);
+    void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
 private:
-    string name;
+    string firstName;
+    string lastName;
     string yearOfBirth;
     string yearOfDeath;
     string sex;

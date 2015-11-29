@@ -9,8 +9,6 @@ UI::UI()
 
 void UI::start() {
 
-
-
     int input;
     cout << "Welcome to the Computer Scientists Program." << endl;
     cout << " ___________________________________________" << endl;
@@ -27,14 +25,13 @@ void UI::start() {
         CompSciLogic.add(c);
     }
     else if(input == 2){
-
+        CompSciLogic.view();
         cout << endl;
         sortUI();
         cin >> input;
 
     }
     else if(input == 3){
-
         cout << "Ending Program." << endl;
         cout << endl;
 

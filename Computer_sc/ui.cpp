@@ -26,6 +26,10 @@ void UI::start() {
             cin >> input;
         }
         else if(input == '3'){
+            cout << "Search word: ";
+            CompSciLogic.searching();
+        }
+        else if(input == '4'){
             cout << "Ending Program." << endl;
             cout << endl;
             exit(1);
@@ -71,7 +75,8 @@ void UI::menu() {
     cout << " ___________________________________________" << endl;
     cout << " 1.\t" << "Add Scientist" << endl;
     cout << " 2.\t" << "View Scientists" << endl;
-    cout << " 3.\t" << "Exit" << endl;
+    cout << " 3.\t" << "Search for Scientists" << endl;
+    cout << " 4.\t" << "Exit" << endl;
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";

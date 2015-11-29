@@ -1,7 +1,6 @@
 #include "logic.h"
 #include <iostream>
 #include <string>
-
 logic::logic()
  {
     compSciRepo = repository();
@@ -158,7 +157,7 @@ void logic::view() {
     v = compSciRepo.getVector();
     compSciRepo.outputList(v);
 }
-bool logic::compareByFirstName(ComputerScientist& a, ComputerScientist& b)
+bool logic::compareByFirstName(const ComputerScientist& a, const ComputerScientist& b)
 {
     return a.getFirstName() < b.getFirstName();
 }
@@ -182,11 +181,24 @@ bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
 
 */
 
-void logic::sorting(vector<ComputerScientist>& v) {
-    vector<ComputerScientist> vec;
+/*void logic::sorting() {
+    vector<ComputerScientist> v;
     ComputerScientist a;
     ComputerScientist b;
     v = compSciRepo.getVector();
-    sort(vec.begin(), vec.end(), compareByFirstName);
+    sort(v.begin(), v.end(), compareByFirstName);
+}
+*/
+
+void logic::searching(){
+    vector<ComputerScientist> v;
+    v = compSciRepo.getVector();
+    string input;
+    cin >> input;
+    for (unsigned int i = 0; i < v.size(); i++){
+        if (input == v[i]) {
+            cout << v[i];
+        }
+    }
 }
 

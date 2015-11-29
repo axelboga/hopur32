@@ -7,7 +7,8 @@ logic::logic()
 
 void logic::add(ComputerScientist& c)
 {
-    addName(c);
+    addFirstName(c);
+    addLastName(c);
 
     bool valid = false;
     while (!valid){
@@ -26,7 +27,7 @@ void logic::add(ComputerScientist& c)
     compSciRepo.add(c);
 }
 
-void logic::addName(ComputerScientist& c) {
+void logic::addFirstName(ComputerScientist& c) {
     bool valid = false;
     while (!valid){
         setFirstName(c);
@@ -36,8 +37,10 @@ void logic::addName(ComputerScientist& c) {
             cout << "Please try again." << endl;
         }
     }
+}
 
-    valid = false;
+void logic::addLastName(ComputerScientist& c) {
+    bool valid = false;
     while (!valid){
         setLastName(c);
         valid = checkName(c.getLastName());

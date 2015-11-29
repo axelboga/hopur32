@@ -7,6 +7,10 @@ logic::logic()
 
 void logic::add(ComputerScientist& c)
 {
+<<<<<<< HEAD
+    addName(c);
+    addSex(c);
+=======
     addFirstName(c);
     addLastName(c);
 
@@ -19,6 +23,7 @@ void logic::add(ComputerScientist& c)
             cout << "Please try again." << endl;
         }
     }
+>>>>>>> 7327be1963dc897d92309c0136c9def24b41c092
 
     setYearOfBirth(c); //Þarf að tjékka hvort árið sé löglegt
     setYearOfDeath(c); //Það þarf tjékka hvort Death komi á eftir Birth
@@ -46,6 +51,18 @@ void logic::addLastName(ComputerScientist& c) {
         valid = checkName(c.getLastName());
         if (!valid) {
             cout << "Names may only contain alphabetic characters!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+}
+
+void logic::addSex(ComputerScientist& c) {
+    bool valid = false;
+    while (!valid){
+        setSex(c);
+        valid = checkSex(c.getSex());
+        if (!valid) {
+            cout << "Sex must be either female or male." << endl;
             cout << "Please try again." << endl;
         }
     }

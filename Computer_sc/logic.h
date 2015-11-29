@@ -4,6 +4,7 @@
 #include "computerscientist.h"
 #include "repository.h"
 #include <ctype.h>
+#include <algorithm>
 
 class logic
 {
@@ -19,6 +20,11 @@ public:
     bool checkName(string s);
     bool checkSex(string s);
     bool checkBirth(string s);
+    bool compareByFirstName(ComputerScientist a, ComputerScientist b);
+    bool compareByLastName(ComputerScientist a, ComputerScientist b);
+    bool compareBySex(ComputerScientist a, ComputerScientist b);
+    bool compareByBirth(ComputerScientist a, ComputerScientist b);
+    bool compareByDeath(ComputerScientist a, ComputerScientist b);
 
 };
 

@@ -2,7 +2,6 @@
 #include <stdlib.h>
 using namespace std;
 
-
 UI::UI()
 {
     logic CompSciLogic();

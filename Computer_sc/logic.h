@@ -29,6 +29,7 @@ public:
     bool compareByBirth(ComputerScientist a, ComputerScientist b);
     bool compareByDeath(ComputerScientist a, ComputerScientist b);
     bool checkDeath(ComputerScientist& c, string s);
+    bool okToAdd(ComputerScientist& c);
 };
 
 #endif // LOGIC_H

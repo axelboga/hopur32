@@ -21,6 +21,7 @@ public:
     friend void setYearOfDeath(ComputerScientist& c);
     string isAlive();
     friend ostream& operator <<(ostream& outs, ComputerScientist& c);
+    friend bool operator == (ComputerScientist& c1, ComputerScientist& c2);
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
 private:
     string firstName;

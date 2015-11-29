@@ -73,3 +73,13 @@ void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientis
         v.push_back(*this);
     }
 }
+
+bool operator == (ComputerScientist& c1, ComputerScientist& c2) {
+    if (c1.firstName == c2.firstName && c1.lastName == c2.lastName &&
+            c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath) {
+        return true;
+    }
+    else {
+        return false;
+    }
+}

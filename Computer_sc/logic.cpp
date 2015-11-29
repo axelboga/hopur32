@@ -12,10 +12,25 @@ void logic::add(ComputerScientist& c)
     addFirstName(c);
     addLastName(c);
     addSex(c);
-
     addYearOfBirth(c);
     addYearOfDeath(c);
-    compSciRepo.add(c);
+    if (okToAdd(c)) {
+        compSciRepo.add(c);
+    }
+    else {
+        cout << "This ComputerScientist is already listed" << endl;
+    }
+}
+
+bool logic::okToAdd(ComputerScientist& c) {
+    vector<ComputerScientist> v;
+    compSciRepo.getVector(v);
+    for (unsigned int i = 0; i < v.size(); i++) {
+        if (v[i] == c) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void logic::addFirstName(ComputerScientist& c) {

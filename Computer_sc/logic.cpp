@@ -69,9 +69,9 @@ void logic::addYearOfBirth(ComputerScientist& c) {
 void logic::addYearOfDeath(ComputerScientist& c) {
     bool valid = false;
     char answ = c.isAlive();
-    while (!valid){
-        setYearOfDeath(c, answ);
-        if (c.getYearOfDeath() != "na") {
+    if (answ != 'y' && answ != 'Y') {
+        while (!valid){
+            setYearOfDeath(c);
             valid = checkDeath(c.getYearOfDeath(), c.getYearOfBirth());
             if (!valid) {
                 cout << "Invalid year!" << endl;
@@ -131,8 +131,7 @@ bool logic::checkName(string s) {
 }
 bool logic::checkSex(string s) {
 
-    if(s != "male" && s != "female")
-    {
+    if(s != "male" && s != "female"){
         return false;
     }
     return true;

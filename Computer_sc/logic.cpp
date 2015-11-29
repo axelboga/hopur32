@@ -15,7 +15,6 @@ void logic::add(ComputerScientist& c)
 
     addYearOfBirth(c);
     addYearOfDeath(c);
-
     compSciRepo.add(c);
 }
 
@@ -72,10 +71,12 @@ void logic::addYearOfDeath(ComputerScientist& c) {
     char answ = c.isAlive();
     while (!valid){
         setYearOfDeath(c, answ);
-        valid = checkDeath(c, c.getYearOfBirth());
-        if (!valid) {
-            cout << "Invalid year!" << endl;
-            cout << "Please try again." << endl;
+        if (c.getYearOfDeath() != "na") {
+            valid = checkDeath(c.getYearOfDeath(), c.getYearOfBirth());
+            if (!valid) {
+                cout << "Invalid year!" << endl;
+                cout << "Please try again." << endl;
+            }
         }
     }
 }
@@ -97,15 +98,15 @@ bool logic::checkBirth(string s){
    return true;
 }
 
-bool logic::checkDeath(ComputerScientist& c, string s) {
-    int  yearOfDeath = atoi(s.c_str());
-    int yearOfBirth = atoi(c.getYearOfBirth().c_str());
+bool logic::checkDeath(string d, string b) {
+    int yearOfDeath = atoi(d.c_str());
+    int yearOfBirth = atoi(b.c_str());
 
-    for (unsigned int i = 0; i < s.length(); i++){
-        if (!isdigit(s[i])) {
+    for (unsigned int i = 0; i < d.length(); i++){
+        if (!isdigit(d[i])) {
             return false;
         }
-        if(s.length() != 4){
+        if(d.length() != 4){
             return false;
         }
         if(yearOfDeath > 2015){
@@ -134,7 +135,6 @@ bool logic::checkSex(string s) {
     {
         return false;
     }
-
     return true;
 
 }

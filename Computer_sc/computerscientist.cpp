@@ -32,7 +32,6 @@ string ComputerScientist::getYearOfDeath() {
 void setFirstName(ComputerScientist& c) {
    cout << "Input first name: ";
    cin >> c.firstName;
-
 }
 
 void setLastName(ComputerScientist& c) {
@@ -50,7 +49,7 @@ void setYearOfBirth(ComputerScientist& c) {
     cin >> c.yearOfBirth;
 }
 void setYearOfDeath(ComputerScientist& c, char ch) {
-    if (ch != 'y' && ch != 'Y') {
+    if (ch != 'y' && ch != 'Y' ) {
         cout << "Input year of death: ";
         cin >> c.yearOfDeath;
     }

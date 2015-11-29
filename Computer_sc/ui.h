@@ -1,6 +1,5 @@
 #ifndef UI_H
 #define UI_H
-
 #include <string>
 #include "logic.h"
 #include <iostream>

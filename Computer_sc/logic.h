@@ -13,6 +13,7 @@ public:
     logic();
     void add(ComputerScientist& c);
     void addName(ComputerScientist& c);
+    void addSex(ComputerScientist& c);
     void view();
     bool checkName(string s);
     bool checkSex(string s);

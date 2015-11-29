@@ -2,8 +2,7 @@
 #include <fstream>
 #include <iomanip>
 
-repository::repository()
-{
+repository::repository(){
     compSciVector = vector<ComputerScientist>();
     ifstream ins ("list6.txt");
     if (ins.is_open()){

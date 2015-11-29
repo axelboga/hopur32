@@ -1,4 +1,5 @@
 #include "ui.h"
+#include <stdlib.h>
 using namespace std;
 
 
@@ -8,34 +9,35 @@ UI::UI()
 }
 
 void UI::start() {
-
-    int input;
-    cout << "Welcome to the Computer Scientists Program." << endl;
-    cout << " ___________________________________________" << endl;
-    cout << " 1.\t" << "Add Scientist" << endl;
-    cout << " 2.\t" << "View Scientists" << endl;
-    cout << " 3.\t" << "Exit" << endl;
-    cout << " ___________________________________________" << endl;
-    cout << endl;
-    cout << "Enter your Selection: ";
-    cin >> input;
-
-    if (input == 1) {
-        ComputerScientist c = ComputerScientist();
-        CompSciLogic.add(c);
-    }
-    else if(input == 2){
-        CompSciLogic.view();
+    do {
+        int input;
+        cout << "Welcome to the Computer Scientists Program." << endl;
+        cout << " ___________________________________________" << endl;
+        cout << " 1.\t" << "Add Scientist" << endl;
+        cout << " 2.\t" << "View Scientists" << endl;
+        cout << " 3.\t" << "Exit" << endl;
+        cout << " ___________________________________________" << endl;
         cout << endl;
-        sortUI();
+        cout << "Enter your Selection: ";
         cin >> input;
 
+        if (input == 1) {
+            ComputerScientist c = ComputerScientist();
+            CompSciLogic.add(c);
+        }
+        else if(input == 2){
+            CompSciLogic.view();
+            cout << endl;
+            sortUI();
+            cin >> input;
+        }
+        else if(input == 3){
+            cout << "Ending Program." << endl;
+            cout << endl;
+            exit(1);
+        }
     }
-    else if(input == 3){
-        cout << "Ending Program." << endl;
-        cout << endl;
-
-    }
+    while(true);
 };
 void UI::banner(){
 

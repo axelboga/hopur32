@@ -1,2 +1,4 @@
 Hanna          Ragnarsdottir  female                  1992             na
 Bjorgvin       Bjorgvins      male                    1990           2015
+John           Johns          male                    1800             na
+Hanna          R              female                  1700           1900

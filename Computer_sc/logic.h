@@ -33,6 +33,7 @@ public:
     bool okToAdd(ComputerScientist& c);
     void sorting();
     void searching();
+    void eraseFromVector();
 };
 
 #endif // LOGIC_H

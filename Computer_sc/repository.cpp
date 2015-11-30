@@ -40,3 +40,12 @@ void repository::outputList(vector<ComputerScientist>& v) {
     cout << " ________________________________________________________________________________" << endl;
 
 }
+
+void repository::eraseFromVector() {
+    int number;
+    cout << "Input the number of the scientist you want to erase: ";
+    cin >> number;
+
+    compSciVector.erase(compSciVector.begin() + (number - 1));
+    cout << "The scientist number " << number << " has been erased from the list" << endl;
+}

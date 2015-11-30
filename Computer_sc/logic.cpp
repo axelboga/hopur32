@@ -216,3 +216,7 @@ void logic::searching() {
         }
     }
 }
+
+void logic::eraseFromVector() {
+    compSciRepo.eraseFromVector();
+}

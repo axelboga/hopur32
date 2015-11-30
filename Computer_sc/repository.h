@@ -10,9 +10,10 @@ private:
     vector<ComputerScientist> compSciVector;
 public:
     repository();
+    vector<ComputerScientist> getVector();
     void add(ComputerScientist c);
     void outputList(vector<ComputerScientist>& v);
-    vector<ComputerScientist> getVector();
+    void eraseFromVector();
 };
 
 #endif // REPOSITORY_H

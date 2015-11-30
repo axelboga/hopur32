@@ -171,6 +171,12 @@ void logic::view(vector<ComputerScientist>& v) {
     compSciRepo.outputList(v);
 }
 
+void logic::view() {
+    vector<ComputerScientist> v;
+    v = compSciRepo.getVector();
+    compSciRepo.outputList(v);
+}
+
 bool compareByFirstName(ComputerScientist a, ComputerScientist b){
     return a.getFirstName() < b.getFirstName();
 }
@@ -220,5 +226,9 @@ void logic::searching() {
 }
 
 void logic::eraseFromVector() {
-    compSciRepo.eraseFromVector();
+    int number;
+    cout << "Input the number of the scientist you want to erase: ";
+    cin >> number;
+
+    compSciRepo.eraseFromVector(number);
 }

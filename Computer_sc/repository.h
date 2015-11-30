@@ -13,7 +13,7 @@ public:
     vector<ComputerScientist> getVector();
     void add(ComputerScientist c);
     void outputList(vector<ComputerScientist>& v);
-    void eraseFromVector();
+    void eraseFromVector(int number);
 };
 
 #endif // REPOSITORY_H

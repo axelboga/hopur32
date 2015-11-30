@@ -19,6 +19,10 @@ void UI::start() {
             CompSciLogic.add(c);
         }
         else if(input == '2'){
+            CompSciLogic.view();
+            CompSciLogic.eraseFromVector();
+        }
+        else if(input == '3'){
             vector<ComputerScientist> v;
             char ch;
             cout << endl;
@@ -39,11 +43,11 @@ void UI::start() {
             }
             while (ch != '1' && ch != '2');
         }
-        else if(input == '3'){
+        else if(input == '4'){
             cout << "Search word: ";
             CompSciLogic.searching();
         }
-        else if(input == '4'){
+        else if(input == '5'){
             cout << "Ending Program." << endl;
             cout << endl;
             exit(1);
@@ -86,9 +90,10 @@ void UI::sortUI() {
 void UI::menu() {
     cout << " ___________________________________________" << endl;
     cout << " 1.\t" << "Add Scientist" << endl;
-    cout << " 2.\t" << "View Scientists" << endl;
-    cout << " 3.\t" << "Search for Scientists" << endl;
-    cout << " 4.\t" << "Exit" << endl;
+    cout << " 2.\t" << "Remove Scientist" << endl;
+    cout << " 3.\t" << "View Scientists" << endl;
+    cout << " 4.\t" << "Search for Scientists" << endl;
+    cout << " 5.\t" << "Exit" << endl;
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";

@@ -24,6 +24,7 @@ public:
     void addYearOfBirth(ComputerScientist& c);
     void addYearOfDeath(ComputerScientist& c);
     void view(vector<ComputerScientist>& v);
+    void view();
     bool checkName(string s);
     bool checkSex(string s);
     bool checkBirth(string s);

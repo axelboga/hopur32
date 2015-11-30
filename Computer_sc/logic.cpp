@@ -12,10 +12,10 @@ void logic::add(ComputerScientist& c) {
     addSex(c);
     addYearOfBirth(c);
     addYearOfDeath(c);
-    if (okToAdd(c)) {
+    if (okToAdd(c)){
         compSciRepo.add(c);
     }
-    else {
+    else{
         cout << "This Computer Scientist is already listed" << endl;
     }
 }
@@ -23,8 +23,8 @@ void logic::add(ComputerScientist& c) {
 bool logic::okToAdd(ComputerScientist& c) {
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
-    for (unsigned int i = 0; i < v.size(); i++) {
-        if (v[i] == c) {
+    for (unsigned int i = 0; i < v.size(); i++){
+        if (v[i] == c){
             return false;
         }
     }
@@ -39,7 +39,7 @@ void logic::addFirstName(ComputerScientist& c) {
         cin >> f_name;
         c.setFirstName(f_name);
         valid = checkName(c.getFirstName());
-        if (!valid) {
+        if (!valid){
             cout << "Names may only contain alphabetic characters!" << endl;
             cout << "Please try again." << endl;
         }
@@ -54,7 +54,7 @@ void logic::addLastName(ComputerScientist& c) {
         cin >> l_name;
         c.setLastName(l_name);
         valid = checkName(c.getLastName());
-        if (!valid) {
+        if (!valid){
             cout << "Names may only contain alphabetic characters!" << endl;
             cout << "Please try again." << endl;
         }
@@ -69,7 +69,7 @@ void logic::addSex(ComputerScientist& c) {
         cin >> gender;
         c.setSex(gender);
         valid = checkSex(c.getSex());
-        if (!valid) {
+        if (!valid){
             cout << "Sex must be either female or male." << endl;
             cout << "Please try again." << endl;
         }
@@ -84,7 +84,7 @@ void logic::addYearOfBirth(ComputerScientist& c) {
         cin >> b_year;
         c.setYearOfBirth(b_year);
         valid = checkBirth(c.getYearOfBirth());
-        if (!valid) {
+        if (!valid){
             cout << "Invalid year!" << endl;
             cout << "Please try again." << endl;
         }
@@ -95,13 +95,13 @@ void logic::addYearOfDeath(ComputerScientist& c) {
     string d_year;
     bool valid = false;
     string answ = c.isAlive();
-    if (answ != "y" && answ != "Y" && answ != "yes" && answ != "Yes" && answ != "YES" ) {
+    if (answ != "y" && answ != "Y" && answ != "yes" && answ != "Yes" && answ != "YES" ){
         while (!valid){
             cout << "Input year of death: ";
             cin >> d_year;
             c.setYearOfDeath(d_year);
             valid = checkDeath(c.getYearOfDeath(), c.getYearOfBirth());
-            if (!valid) {
+            if (!valid){
                 cout << "Invalid year!" << endl;
                 cout << "Please try again." << endl;
             }
@@ -109,11 +109,11 @@ void logic::addYearOfDeath(ComputerScientist& c) {
     }
 }
 
-bool logic::checkBirth(string s){
+bool logic::checkBirth(string s) {
     int  year = atoi(s.c_str());
 
     for (unsigned int i = 0; i < s.length(); i++){
-        if (!isdigit(s[i])) {
+        if (!isdigit(s[i])){
             return false;
         }
         if(s.length() != 4){
@@ -150,13 +150,14 @@ bool logic::checkDeath(string d, string b) {
 bool logic::checkName(string s) {
     for (unsigned int i = 0; i < s.length(); i++){
         if (!isalpha(s[i])) {
-            if (s[i] != ' ' && s[i] != '\'') {
+            if (s[i] != ' ' && s[i] != '\''){
                 return false;
             }
         }
     }
    return true;
 }
+
 bool logic::checkSex(string s) {
 
     if(islower(s != "male" && s != "female")){
@@ -172,7 +173,7 @@ void logic::view() {
     compSciRepo.outputList(v);
 }
 
-bool logic::compareByFirstName(const ComputerScientist& a, const ComputerScientist& b){
+bool logic::compareByFirstName(const ComputerScientist& a, const ComputerScientist& b) {
 
     return a.getFirstName() < b.getFirstName();
 }
@@ -204,7 +205,7 @@ bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
 }
 */
 
-void logic::searching(){
+void logic::searching() {
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
     string input;

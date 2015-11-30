@@ -5,8 +5,7 @@
 #include "computerscientist.h"
 using namespace std;
 
-class repository
-{
+class repository {
 private:
     vector<ComputerScientist> compSciVector;
 public:

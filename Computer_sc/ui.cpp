@@ -2,8 +2,7 @@
 #include <stdlib.h>
 using namespace std;
 
-UI::UI()
-{
+UI::UI() {
     logic CompSciLogic;
 }
 
@@ -15,7 +14,7 @@ void UI::start() {
         cin >> input;
         cout << endl;
 
-        if (input == '1') {
+        if (input == '1'){
             ComputerScientist c = ComputerScientist();
             CompSciLogic.add(c);
         }
@@ -34,7 +33,7 @@ void UI::start() {
             cout << endl;
             exit(1);
         }
-        else {
+        else{
             cout << "Invalid input, try again: " << endl;
         }
     }
@@ -53,10 +52,8 @@ void UI::banner(){
     cout << " ___/ / /__/ /  __/ / / / /_/ (__  ) /_(__  )     " << endl;
     cout << "/____/\\___/_/\\___/_/ /_/\\__/_/____/\\__/____/      " << endl;
     cout << endl;
-
-
-
 }
+
 void UI::sortUI() {
 
     cout << "Sort list by:" << endl;
@@ -68,7 +65,6 @@ void UI::sortUI() {
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";
-
 }
 
 void UI::menu() {

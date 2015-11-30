@@ -8,8 +8,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <iomanip>
-class logic
-{
+class logic {
 private:
     repository compSciRepo;
 public:

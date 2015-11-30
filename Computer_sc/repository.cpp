@@ -2,7 +2,7 @@
 #include <fstream>
 #include <iomanip>
 
-repository::repository(){
+repository::repository() {
     compSciVector = vector<ComputerScientist>();
     ifstream ins ("list6.txt");
     if (ins.is_open()){
@@ -16,12 +16,12 @@ vector<ComputerScientist> repository::getVector() {
     return compSciVector;
 }
 
-void repository::add(ComputerScientist c){
+void repository::add(ComputerScientist c) {
     compSciVector.push_back(c); //add to the vector
 
     ofstream outs;   //also add to the list/file.
     outs.open("list6.txt", ios::app);
-    if (outs.fail()) {
+    if (outs.fail()){
         cout << "failed" << endl;
     }
     outs << c;
@@ -33,7 +33,7 @@ void repository::outputList(vector<ComputerScientist>& v) {
     cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
     cout << " ________________________________________________________________________________" << endl;
 
-    for (unsigned int i = 0; i < v.size(); i++) {
+    for (unsigned int i = 0; i < v.size(); i++){
         cout << i+1 << ". "<< v[i] << endl;
     }
 

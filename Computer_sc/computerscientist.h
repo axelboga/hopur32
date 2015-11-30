@@ -25,8 +25,10 @@ public:
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
     bool found (string a, string b);
     bool compareByFirstName(ComputerScientist a, ComputerScientist b);
-    bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b);
     bool compareByLastName(ComputerScientist a, ComputerScientist b);
+    bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b);
+    bool compareByReverseLastName(ComputerScientist a, ComputerScientist b);
+
 
 private:
     string firstName;

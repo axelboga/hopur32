@@ -181,14 +181,19 @@ bool compareByFirstName(ComputerScientist a, ComputerScientist b){
     return a.getFirstName() < b.getFirstName();
 }
 
-bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b){
-    return a.getFirstName() > b.getFirstName();
-}
-
 bool compareByLastName(ComputerScientist a, ComputerScientist b)
 {
     return a.getLastName() < b.getLastName();
 }
+
+bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b){
+    return a.getFirstName() > b.getFirstName();
+}
+
+bool compareByReverseLastName(ComputerScientist a, ComputerScientist b){
+    return a.getLastName() > b.getLastName();
+}
+
 /*
 bool logic::compareBySex(ComputerScientist a, ComputerScientist b)
 {
@@ -218,6 +223,11 @@ void logic::sortByLastName(vector<ComputerScientist>& v) {
 void logic::sortReverseByFirstName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareByReverseFirstName);
+}
+
+void logic::sortReverseByLastName(vector<ComputerScientist>& v) {
+    v = compSciRepo.getVector();
+    sort(v.begin(), v.end(), compareByReverseLastName);
 }
 
 void logic::searching() {

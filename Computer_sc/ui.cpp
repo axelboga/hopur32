@@ -43,6 +43,10 @@ void UI::start() {
                     CompSciLogic.sortByLastName(v);
                     CompSciLogic.view(v);
                 }
+                else if (ch == '4'){
+                    CompSciLogic.sortReverseByLastName(v);
+                    CompSciLogic.view(v);
+                }
                 else{
                     cout << "Wrong input. Try again" << endl;
                 }
@@ -86,10 +90,11 @@ void UI::sortUI() {
     cout << " ___________________________________________" << endl;
     cout << " 1.\t" << "First Name (a-z)" << endl;
     cout << " 2.\t" << "First Name (z-a)" << endl;
-    cout << " 3.\t" << "Last Name" << endl;
-    cout << " 4.\t" << "Gender" << endl;
-    cout << " 5.\t" << "Year of Birth" << endl;
-    cout << " 6.\t" << "Year of Death" << endl;
+    cout << " 3.\t" << "Last Name (a-z)" << endl;
+    cout << " 4.\t" << "Last Name (z-a)" << endl;
+    cout << " 5.\t" << "Gender" << endl;
+    cout << " 6.\t" << "Year of Birth" << endl;
+    cout << " 7.\t" << "Year of Death" << endl;
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";

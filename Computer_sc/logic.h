@@ -29,11 +29,6 @@ public:
     bool checkSex(string s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
-    //bool compareByFirstName(ComputerScientist a, ComputerScientist b);
-    //bool compareByLastName(ComputerScientist a, ComputerScientist b);
-    //bool compareBySex(ComputerScientist a, ComputerScientist b);
-    //bool compareByBirth(ComputerScientist a, ComputerScientist b);
-    //bool compareByDeath(ComputerScientist a, ComputerScientist b);
     bool checkDeath(ComputerScientist& c, string s);
     bool okToAdd(ComputerScientist& c);
     void sortByFirstName(vector<ComputerScientist>& v);

@@ -202,18 +202,6 @@ bool compareByYear(ComputerScientist a, ComputerScientist b){
     return a.getYearOfBirth() < b.getYearOfBirth();
 }
 
-/*
-bool logic::compareByBirth(ComputerScientist a, ComputerScientist b)
-{
-    return a.getYearOfBirth() < b.getYearOfBirth();
-}
-bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
-{
-    return a.getYearOfDeath() < b.getYearOfDeath();
-}
-
-*/
-
 void logic::sortBySex(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareBySex);

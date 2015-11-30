@@ -1,6 +1,7 @@
 #include "repository.h"
 #include <fstream>
 #include <iomanip>
+#include <algorithm>
 
 repository::repository(){
     compSciVector = vector<ComputerScientist>();
@@ -38,5 +39,4 @@ void repository::outputList(vector<ComputerScientist>& v) {
     }
 
     cout << " ________________________________________________________________________________" << endl;
-
 }

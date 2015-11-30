@@ -25,6 +25,8 @@ public:
     friend bool operator == (string s, ComputerScientist& c);
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
     bool found (string a, string b);
+    bool compareByFirstName(ComputerScientist a, ComputerScientist b);
+    bool compareByLastName(ComputerScientist a, ComputerScientist b);
 private:
     string firstName;
     string lastName;

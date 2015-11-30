@@ -166,21 +166,20 @@ bool logic::checkSex(string s) {
 
 }
 
-void logic::view() { 
-    vector<ComputerScientist> v;
-    v = compSciRepo.getVector();
+void logic::view(vector<ComputerScientist>& v) {
     compSciRepo.outputList(v);
 }
 
-bool logic::compareByFirstName(const ComputerScientist& a, const ComputerScientist& b){
-
+bool compareByFirstName(ComputerScientist a, ComputerScientist b){
     return a.getFirstName() < b.getFirstName();
 }
-/*
-bool logic::compareByLastName(ComputerScientist a, ComputerScientist b)
+
+
+bool compareByLastName(ComputerScientist a, ComputerScientist b)
 {
     return a.getLastName() < b.getLastName();
 }
+/*
 bool logic::compareBySex(ComputerScientist a, ComputerScientist b)
 {
     return a.getSex() < b.getSex();
@@ -196,13 +195,16 @@ bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
 
 */
 
-/*void logic::sorting() {
-    vector<ComputerScientist> v;
-    ComputerScientist a;
-    ComputerScientist b;
+void logic::sortByFirstName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
+    sort(v.begin(), v.end(), compareByFirstName);
 }
-*/
+
+void logic::sortByLastName(vector<ComputerScientist>& v) {
+    v = compSciRepo.getVector();
+    sort(v.begin(), v.end(), compareByLastName);
+}
+
 
 void logic::searching(){
     vector<ComputerScientist> v;

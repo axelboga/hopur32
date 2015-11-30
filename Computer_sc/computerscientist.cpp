@@ -94,3 +94,7 @@ bool ComputerScientist::found(string a, string b) {
     }
    return true;
 }
+
+bool ComputerScientist::compareByFirstName(ComputerScientist a, ComputerScientist b){
+    return a.getFirstName() < b.getFirstName();
+}

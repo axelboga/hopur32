@@ -20,10 +20,25 @@ void UI::start() {
             CompSciLogic.add(c);
         }
         else if(input == '2'){
-            CompSciLogic.view();
+            vector<ComputerScientist> v;
+            char ch;
             cout << endl;
             sortUI();
-            cin >> input;
+            cin >> ch;
+            do {
+                if (ch == '1') {
+                    CompSciLogic.sortByFirstName(v);
+                    CompSciLogic.view(v);
+                }
+                else if (ch == '2'){
+                    CompSciLogic.sortByFirstName(v);
+                    CompSciLogic.view(v);
+                }
+                else{
+                    cout << "Wrong input. Try again";
+                }
+            }
+            while (ch != '1' && ch != '2');
         }
         else if(input == '3'){
             cout << "Search word: ";
@@ -61,10 +76,11 @@ void UI::sortUI() {
 
     cout << "Sort list by:" << endl;
     cout << " ___________________________________________" << endl;
-    cout << " 1.\t" << "Name" << endl;
-    cout << " 2.\t" << "Gender" << endl;
-    cout << " 3.\t" << "Year of Birth" << endl;
-    cout << " 4.\t" << "Year of Death" << endl;
+    cout << " 1.\t" << "First Name" << endl;
+    cout << " 2.\t" << "Last Name" << endl;
+    cout << " 3.\t" << "Gender" << endl;
+    cout << " 4.\t" << "Year of Birth" << endl;
+    cout << " 5.\t" << "Year of Death" << endl;
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";

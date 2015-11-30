@@ -16,3 +16,4 @@ ha              na              male            1992            na
 ha              n               male            1992            na             
 hanna         banani          female          1992            na             
 hanna         ragnars         Female          1992            na             
+Hanna         R               female          1992            1998           

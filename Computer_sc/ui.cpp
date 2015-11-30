@@ -26,9 +26,11 @@ void UI::start() {
             vector<ComputerScientist> v;
             char ch;
             cout << endl;
-            sortUI();
-            cin >> ch;
+
             do {
+                sortUI();
+                cin >> ch;
+
                 if (ch == '1') {
                     CompSciLogic.sortByFirstName(v);
                     CompSciLogic.view(v);
@@ -38,10 +40,11 @@ void UI::start() {
                     CompSciLogic.view(v);
                 }
                 else{
-                    cout << "Wrong input. Try again";
+                    cout << "Wrong input. Try again" << endl;
                 }
             }
-            while (ch != '1' && ch != '2');
+            while (true);
+
         }
         else if(input == '4'){
             cout << "Search word: ";

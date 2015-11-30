@@ -83,11 +83,14 @@ void logic::addYearOfBirth(ComputerScientist& c) {
 }
 
 void logic::addYearOfDeath(ComputerScientist& c) {
+    string d_year;
     bool valid = false;
     string answ = c.isAlive();
     if (answ != "y" && answ != "Y" && answ != "yes" && answ != "Yes" && answ != "YES" ) {
         while (!valid){
-            setYearOfDeath(c);
+            cout << "Input year of death: ";
+            cin >> d_year;
+            c.setYearOfDeath(d_year);
             valid = checkDeath(c.getYearOfDeath(), c.getYearOfBirth());
             if (!valid) {
                 cout << "Invalid year!" << endl;

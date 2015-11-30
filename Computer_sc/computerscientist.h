@@ -5,15 +5,14 @@
 #include <vector>
 using namespace std;
 
-class ComputerScientist
-{
+class ComputerScientist {
 public:
     ComputerScientist();
     string getFirstName() const;
-    string getLastName();
-    string getSex();
-    string getYearOfBirth();
-    string getYearOfDeath();
+    string getLastName() const;
+    string getSex() const;
+    string getYearOfBirth() const;
+    string getYearOfDeath() const;
     void setFirstName(string f_name);
     void setLastName(string l_name);
     void setSex(string gender);

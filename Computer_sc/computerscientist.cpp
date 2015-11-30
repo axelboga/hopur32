@@ -13,19 +13,19 @@ string ComputerScientist::getFirstName() const {
    return firstName;
 }
 
-string ComputerScientist::getLastName() {
+string ComputerScientist::getLastName() const {
    return lastName;
 }
 
-string ComputerScientist::getSex() {
+string ComputerScientist::getSex() const {
     return sex;
 }
 
-string ComputerScientist::getYearOfBirth() {
+string ComputerScientist::getYearOfBirth() const {
     return yearOfBirth;
 }
 
-string ComputerScientist::getYearOfDeath() {
+string ComputerScientist::getYearOfDeath() const {
     return yearOfDeath;
 }
 
@@ -63,24 +63,24 @@ ostream& operator <<(ostream& outs, ComputerScientist& c) {
     return outs;
 }
 
-void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v){
-    while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath) {
+void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
+    while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath){
         v.push_back(*this);
     }
 }
 
 bool operator == (ComputerScientist& c1, ComputerScientist& c2) {
     if (c1.firstName == c2.firstName && c1.lastName == c2.lastName &&
-            c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath) {
+            c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath){
         return true;
     }
-    else {
+    else{
         return false;
     }
 }
 
 bool operator == (string s, ComputerScientist& c) {
-    if (c.found(c.firstName, s) || c.found(c.lastName, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)) {
+    if (c.found(c.firstName, s) || c.found(c.lastName, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)){
         return true;
     }
     return false;
@@ -89,7 +89,7 @@ bool operator == (string s, ComputerScientist& c) {
 bool ComputerScientist::found(string a, string b) {
    int n;
    n = a.find(b);
-   if (n < 0) {
+   if (n < 0){
      return false;
     }
    return true;

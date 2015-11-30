@@ -8,10 +8,11 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <iomanip>
+
 using namespace std;
 
-class logic
-{
+class logic {
+
 private:
     repository compSciRepo;
 public:
@@ -37,6 +38,7 @@ public:
     void sortByFirstName(vector<ComputerScientist>& v);
     void sortByLastName(vector<ComputerScientist>& v);
     void searching();
+    void eraseFromVector();
 };
 
 #endif // LOGIC_H

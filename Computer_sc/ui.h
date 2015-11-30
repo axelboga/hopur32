@@ -4,8 +4,7 @@
 #include "logic.h"
 #include <iostream>
 
-class UI
-{
+class UI {
 public:
     UI();
     void start();

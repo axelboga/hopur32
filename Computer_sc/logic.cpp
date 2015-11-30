@@ -44,9 +44,12 @@ void logic::addFirstName(ComputerScientist& c) {
 }
 
 void logic::addLastName(ComputerScientist& c) {
+    string l_name;
     bool valid = false;
     while (!valid){
-        setLastName(c);
+        cout << "Input last name: ";
+        cin >> l_name;
+        c.setLastName(l_name);
         valid = checkName(c.getLastName());
         if (!valid) {
             cout << "Names may only contain alphabetic characters!" << endl;

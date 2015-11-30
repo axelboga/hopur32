@@ -15,7 +15,7 @@ public:
     string getYearOfBirth();
     string getYearOfDeath();
     friend void setFirstName(ComputerScientist& c);
-    friend void setLastName(ComputerScientist& c);
+    void setLastName(string l_name);
     void setSex(string gender);
     void setYearOfBirth(string b_year);
     void setYearOfDeath(string d_year);

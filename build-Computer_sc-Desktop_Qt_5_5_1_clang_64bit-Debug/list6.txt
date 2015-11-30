@@ -3,3 +3,7 @@ Jalli         Jallason        female          1994            na
 Brynja        Peturs          Female          1965            na             
 joi           johanns         Male            1999            2000           
                                                                              
+Unnur         Arnars          Female          1444            1999           
+                                                                             
+Hanna         Jons            Female          1933            1999           
+                                                                             

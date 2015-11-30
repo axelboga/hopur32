@@ -34,9 +34,8 @@ void setFirstName(ComputerScientist& c) {
    cin >> c.firstName;
 }
 
-void setLastName(ComputerScientist& c) {
-    cout << "Input last name: ";
-    cin >> c.lastName;
+void ComputerScientist::setLastName(string l_name) {
+   lastName = l_name;
 }
 
 void ComputerScientist::setSex(string gender) {

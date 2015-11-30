@@ -1,20 +1,18 @@
-Hanna          Ragnarsdottir  female                  1992             na
-Bjorgvin       Bjorgvins      male                    1990           2015
-John           Johns          male                    1800             na
-Hanna          R              female                  1700           1900
-ha             r              female                  1992             na
-Jon             Jonsson         female          1992            na             
-Hanna           Ragnars         female          1992            1990           
-ha              na              male            1992            o              
-hanna           nanna           male            1992            1998           
-ba              na              male            1992            1900           
-ja              na              male            1900            1992           
-ha              no              male            1992            1998           
-hanna           panna           male            1992            na             
-ha              na              male            1992            na             
-ha              na              male            1992            na             
-ha              n               male            1992            na             
-hanna         banani          female          1992            na             
-hanna         ragnars         Female          1992            na             
+Hanna         Ragnarsdottir   female          1992            na             
+
+Hanna         R               female          1700            1900           
+
+ha            r               female          1992            na             
+
+Hanna         Ragnars         female          1992            1990           
+
+ha            na              male            1992            o              
+
+ha            no              male            1992            1998           
+
+ha            na              male            1992            na             
+
+ha            na              male            1992            na             
+
 Hanna         R               female          1992            1998           
-Hanna         Panna           male            1992            na             
+

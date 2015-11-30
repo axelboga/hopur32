@@ -38,7 +38,7 @@ public:
     void sortBySex(vector<ComputerScientist>& v);
     void sortByBirthYear(vector<ComputerScientist>& v);
     void searching();
-    void eraseFromVector();
+    void removeScientist();
     void header();
     void footer();
 };

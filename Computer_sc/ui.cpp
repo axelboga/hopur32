@@ -20,7 +20,7 @@ void UI::start() {
         }
         else if(input == '2'){
             CompSciLogic.view();
-            CompSciLogic.eraseFromVector();
+            CompSciLogic.removeScientist();
         }
         else if(input == '3'){
             vector<ComputerScientist> v;

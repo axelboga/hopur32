@@ -41,7 +41,19 @@ void repository::outputList(vector<ComputerScientist>& v) {
     cout << " ________________________________________________________________________________" << endl;
 }
 
-void repository::eraseFromVector(int number) {
-    compSciVector.erase(compSciVector.begin() + (number - 1));
-    cout << "The scientist number " << number << " has been erased from the list" << endl;
+void repository::removeScientist(int number) {
+    ComputerScientist c = compSciVector[number - 1]; //get name of the scientist to be deleted
+    string name = c.getFirstName()+" "+c.getLastName();
+
+    compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from Vector
+    ofstream outs("list6.txt", ios::out);
+
+    for(int i = 0; i != compSciVector.size(); i++) {    //remove from list
+        outs << compSciVector[i] << endl;
+    }
+    outs.close();
+
+
+    cout << "The scientist " << name << " has been removed from the list" << endl;
 }
+

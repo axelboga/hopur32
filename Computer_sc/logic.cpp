@@ -259,10 +259,9 @@ void logic::footer()
 
 }
 
-void logic::eraseFromVector() {
+void logic::removeScientist() {
     int number;
     cout << "Input the number of the scientist you want to erase: ";
     cin >> number;
-
-    compSciRepo.eraseFromVector(number);
+    compSciRepo.removeScientist(number);
 }

@@ -1,2 +1,3 @@
 Hafdis        Inga            Female          1995            na             
 Jalli         Jallason        female          1994            na             
+Brynja        Peturs          Female          1965            na             

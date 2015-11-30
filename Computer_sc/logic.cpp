@@ -56,9 +56,12 @@ void logic::addLastName(ComputerScientist& c) {
 }
 
 void logic::addSex(ComputerScientist& c) {
+    string gender;
     bool valid = false;
     while (!valid){
-        setSex(c);
+        cout << "Input gender(female / male): ";
+        cin >> gender;
+        c.setSex(gender);
         valid = checkSex(c.getSex());
         if (!valid) {
             cout << "Sex must be either female or male." << endl;
@@ -68,9 +71,9 @@ void logic::addSex(ComputerScientist& c) {
 }
 
 void logic::addYearOfBirth(ComputerScientist& c) {
+    string b_year;
     bool valid = false;
     while (!valid){
-        string b_year;
         cout << "Input year of birth: ";
         cin >> b_year;
         c.setYearOfBirth(b_year);

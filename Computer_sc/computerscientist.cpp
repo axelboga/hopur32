@@ -39,9 +39,8 @@ void setLastName(ComputerScientist& c) {
     cin >> c.lastName;
 }
 
-void setSex(ComputerScientist& c) {
-    cout << "Input sex (female / male): ";
-    cin >> c.sex;
+void ComputerScientist::setSex(string gender) {
+    sex = gender;
 }
 
 void ComputerScientist::setYearOfBirth(string b_year) {

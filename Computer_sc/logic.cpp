@@ -218,5 +218,9 @@ void logic::searching() {
 }
 
 void logic::eraseFromVector() {
-    compSciRepo.eraseFromVector();
+    int number;
+    cout << "Input the number of the scientist you want to erase: ";
+    cin >> number;
+
+    compSciRepo.eraseFromVector(number);
 }

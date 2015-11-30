@@ -14,8 +14,13 @@ public:
     string getSex();
     string getYearOfBirth();
     string getYearOfDeath();
+<<<<<<< HEAD
     friend void setFirstName(ComputerScientist& c);
     void setLastName(string l_name);
+=======
+    void setFirstName(string f_name);
+    friend void setLastName(ComputerScientist& c);
+>>>>>>> 46cd5ec5bf988a13756d3959e62303199a472555
     void setSex(string gender);
     void setYearOfBirth(string b_year);
     void setYearOfDeath(string d_year);

@@ -32,9 +32,12 @@ bool logic::okToAdd(ComputerScientist& c) {
 }
 
 void logic::addFirstName(ComputerScientist& c) {
+    string f_name;
     bool valid = false;
     while (!valid){
-        setFirstName(c);
+        cout << "Input first name: ";
+        cin >> f_name;
+        c.setFirstName(f_name);
         valid = checkName(c.getFirstName());
         if (!valid) {
             cout << "Names may only contain alphabetic characters!" << endl;

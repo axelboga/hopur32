@@ -29,9 +29,8 @@ string ComputerScientist::getYearOfDeath() {
     return yearOfDeath;
 }
 
-void setFirstName(ComputerScientist& c) {
-   cout << "Input first name: ";
-   cin >> c.firstName;
+void ComputerScientist::setFirstName(string f_name) {
+   firstName = f_name;
 }
 
 void ComputerScientist::setLastName(string l_name) {

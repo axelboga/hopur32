@@ -44,9 +44,8 @@ void setSex(ComputerScientist& c) {
     cin >> c.sex;
 }
 
-void setYearOfBirth(ComputerScientist& c) {
-    cout << "Input year of birth: ";
-    cin >> c.yearOfBirth;
+void ComputerScientist::setYearOfBirth(string b_year) {
+    yearOfBirth = b_year;
 }
 void setYearOfDeath(ComputerScientist& c) {
     cout << "Input year of death: ";
@@ -83,16 +82,6 @@ bool operator == (ComputerScientist& c1, ComputerScientist& c2) {
         return false;
     }
 }
-
-/*bool operator == (string s, ComputerScientist& c) {
-    if (s == c.firstName || s == c.lastName || s == c.yearOfBirth || s == c.yearOfDeath) {
-        return true;
-    }
-    else {
-        return false;
-    }
-}
-*/
 
 bool operator == (string s, ComputerScientist& c) {
     if (c.found(c.firstName, s) || c.found(c.lastName, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)) {

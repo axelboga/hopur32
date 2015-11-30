@@ -116,7 +116,7 @@ void logic::addYearOfBirth(ComputerScientist& c) {
 void logic::addYearOfDeath(ComputerScientist& c) {
     string d_year;
     bool valid = false;
-    string answ = c.isAlive();
+    string answ = isAlive(c);
     transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
     // ^ converts to lowercase
     if (answ != "y" && answ != "ye" && answ != "yes"){
@@ -131,6 +131,22 @@ void logic::addYearOfDeath(ComputerScientist& c) {
             }
         }
     }
+}
+
+string logic::isAlive(ComputerScientist& c) {
+    string answ = "no";
+    do {
+        cout << "Is " << c.getFirstName() << " still alive ? " << endl;
+        cout << "yes/no : ";
+        cin >> answ;
+        transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
+        if (answ != "y" && answ != "ye" && answ != "yes" && answ != "n" && answ != "no"){
+            cout << "Invalid input! Try again!" << endl;
+        }
+    }
+    while(answ != "y" && answ != "ye" && answ != "yes" && answ != "n" && answ != "no");
+
+    return answ;
 }
 
 bool logic::checkBirth(string s) {

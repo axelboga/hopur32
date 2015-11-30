@@ -48,15 +48,6 @@ void ComputerScientist::setYearOfDeath(string d_year) {
     yearOfDeath = d_year;
 }
 
-string ComputerScientist::isAlive() {
-    string answ = "no";
-    cout << "Is " << firstName << " still alive ? " << endl;
-    cout << "yes/no : ";
-    cin >> answ;
-
-    return answ;
-}
-
 ostream& operator <<(ostream& outs, ComputerScientist& c) {
     outs << left << setw(14) << c.firstName << left << setw(16) << c.lastName << left << setw(16)<<
             c. sex << left << setw(16)<< c.yearOfBirth << left <<setw(15) << c.yearOfDeath << endl;

@@ -39,6 +39,7 @@ public:
     void sortBySex(vector<ComputerScientist>& v);
     void sortByBirthYear(vector<ComputerScientist>& v);
     void searching();
+    string isAlive(ComputerScientist& c);
     void removeScientist();
     void header();
     void footer();

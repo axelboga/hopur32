@@ -34,7 +34,7 @@ void UI::start() {
                     CompSciLogic.view(v);
                 }
                 else if (ch == '2'){
-                    CompSciLogic.sortByFirstName(v);
+                    CompSciLogic.sortByLastName(v);
                     CompSciLogic.view(v);
                 }
                 else{

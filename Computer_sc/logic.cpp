@@ -237,11 +237,26 @@ void logic::searching() {
     v = compSciRepo.getVector();
     string input;
     cin >> input;
+    header();
+    int p = 1;
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){  //== is overloaded for string and object
-            cout << v[i];
+            cout << p << ". " <<v[i];
         }
     }
+    footer();
+}
+void logic::header()
+{
+    cout << " ________________________________________________________________________________" << endl;
+    cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
+    cout << " ________________________________________________________________________________" << endl;
+
+}
+void logic::footer()
+{
+    cout << " ________________________________________________________________________________" << endl;
+
 }
 
 void logic::eraseFromVector() {

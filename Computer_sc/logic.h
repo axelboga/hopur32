@@ -44,6 +44,8 @@ public:
     void sortByBirthYear(vector<ComputerScientist>& v);
     void searching();
     void eraseFromVector();
+    void header();
+    void footer();
 };
 
 #endif // LOGIC_H

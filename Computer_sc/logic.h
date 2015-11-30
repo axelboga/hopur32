@@ -8,6 +8,7 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <iomanip>
+#include <stdio.h>
 
 using namespace std;
 

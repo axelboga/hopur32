@@ -96,11 +96,6 @@ void logic::addSex(ComputerScientist& c) {
         gender = "female";
         c.setSex(gender);
     }
-
-
-
-
-
 }
 
 void logic::addYearOfBirth(ComputerScientist& c) {
@@ -268,12 +263,19 @@ void logic::searching() {
     cin >> input;
     header();
     int p = 1;
+    int counter = 0;
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){  //== is overloaded for string and object
-            cout << p << ". " <<v[i];
+            cout << p << ". " << v[i];
+        }
+        else {
+            counter++;
         }
     }
-    footer();
+     footer();
+    if (counter >= 5) {
+         cout << "The search didn't match anything in the list!" << endl;
+    }
 }
 void logic::header()
 {

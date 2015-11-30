@@ -1,0 +1,9 @@
+Hanna         Ragnarsdottir   female          1992            1999           
+
+Jonas         Karlsson        male            1990            na             
+
+J             Kallason        male            1800            na             
+
+Olof          Anna            female          1992            na             
+
+Bjorgvin      Bjorgvinsson    male            1990            na             

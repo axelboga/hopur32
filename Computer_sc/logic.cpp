@@ -186,6 +186,7 @@ bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
     ComputerScientist a;
     ComputerScientist b;
     v = compSciRepo.getVector();
+<<<<<<< HEAD
     sort(v.begin(), v.end(), compareByFirstName);
 }
 */
@@ -200,7 +201,11 @@ void logic::searching(){
             cout << v[i];
         }
     }
+}
   //  sort(vec.begin(), vec.end());
 
+/*=======
+    sort(vec.begin(), vec.end());
+>>>>>>> a5c691108245de370e450e80155cddafca0b53f1
 }
-
+*/

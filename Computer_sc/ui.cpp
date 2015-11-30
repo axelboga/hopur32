@@ -51,11 +51,15 @@ void UI::start() {
                     CompSciLogic.sortBySex(v);
                     CompSciLogic.view(v);
                 }
+                else if (ch == '6'){
+                    CompSciLogic.sortByBirthYear(v);
+                    CompSciLogic.view(v);
+                }
                 else{
                     cout << "Wrong input. Try again" << endl;
                 }
             }
-            while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6' && ch != '7');
+            while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
 
         }
         else if(input == '4'){
@@ -98,7 +102,6 @@ void UI::sortUI() {
     cout << " 4.\t" << "Last Name (z-a)" << endl;
     cout << " 5.\t" << "Gender" << endl;
     cout << " 6.\t" << "Year of Birth" << endl;
-    cout << " 7.\t" << "Year of Death" << endl;
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";

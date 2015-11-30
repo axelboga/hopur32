@@ -37,6 +37,7 @@ public:
     bool checkDeath(ComputerScientist& c, string s);
     bool okToAdd(ComputerScientist& c);
     void sortByFirstName(vector<ComputerScientist>& v);
+    void sortReverseByFirstName(vector<ComputerScientist>& v);
     void sortByLastName(vector<ComputerScientist>& v);
     void searching();
     void eraseFromVector();

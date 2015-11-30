@@ -18,7 +18,7 @@ public:
     friend void setLastName(ComputerScientist& c);
     void setSex(string gender);
     void setYearOfBirth(string b_year);
-    friend void setYearOfDeath(ComputerScientist& c);
+    void setYearOfDeath(string d_year);
     string isAlive();
     friend ostream& operator << (ostream& outs, ComputerScientist& c);
     friend bool operator == (ComputerScientist& c1, ComputerScientist& c2);

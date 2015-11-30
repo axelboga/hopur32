@@ -28,6 +28,7 @@ public:
     bool compareByLastName(ComputerScientist a, ComputerScientist b);
     bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b);
     bool compareByReverseLastName(ComputerScientist a, ComputerScientist b);
+    bool compareBySex(ComputerScientist a, ComputerScientist b);
 
 
 private:

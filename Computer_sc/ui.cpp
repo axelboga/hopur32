@@ -47,6 +47,10 @@ void UI::start() {
                     CompSciLogic.sortReverseByLastName(v);
                     CompSciLogic.view(v);
                 }
+                else if (ch == '5'){
+                    CompSciLogic.sortBySex(v);
+                    CompSciLogic.view(v);
+                }
                 else{
                     cout << "Wrong input. Try again" << endl;
                 }

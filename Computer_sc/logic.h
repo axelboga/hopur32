@@ -40,6 +40,7 @@ public:
     void sortByLastName(vector<ComputerScientist>& v);
     void sortReverseByFirstName(vector<ComputerScientist>& v);
     void sortReverseByLastName(vector<ComputerScientist>& v);
+    void sortBySex(vector<ComputerScientist>& v);
     void searching();
     void eraseFromVector();
 };

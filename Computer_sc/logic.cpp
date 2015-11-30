@@ -37,6 +37,10 @@ void logic::addFirstName(ComputerScientist& c) {
     while (!valid){
         cout << "Input first name: ";
         cin >> f_name;
+        transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
+        // ^ converts to lowercase
+        f_name[0] = toupper(f_name[0]);
+        // ^ converts first char to uppercase
         c.setFirstName(f_name);
         valid = checkName(c.getFirstName());
         if (!valid){
@@ -44,6 +48,7 @@ void logic::addFirstName(ComputerScientist& c) {
             cout << "Please try again." << endl;
         }
     }
+
 }
 
 void logic::addLastName(ComputerScientist& c) {
@@ -52,6 +57,10 @@ void logic::addLastName(ComputerScientist& c) {
     while (!valid){
         cout << "Input last name: ";
         cin >> l_name;
+        transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
+        // ^ converts to lowercase
+        l_name[0] = toupper(l_name[0]);
+        // ^ converts first char to uppercase
         c.setLastName(l_name);
         valid = checkName(c.getLastName());
         if (!valid){
@@ -67,13 +76,31 @@ void logic::addSex(ComputerScientist& c) {
     while (!valid){
         cout << "Input gender(female / male): ";
         cin >> gender;
+        transform(gender.begin(), gender.end(), gender.begin(), ::tolower);
+        // ^ converts to lowercase
         c.setSex(gender);
         valid = checkSex(c.getSex());
         if (!valid){
             cout << "Sex must be either female or male." << endl;
             cout << "Please try again." << endl;
         }
+
     }
+    if(c.getSex() == "m" || c.getSex() == "ma" || c.getSex() == "mal" || c.getSex() == "male")
+    {
+        gender = "male";
+        c.setSex(gender);
+    }
+    else
+    {
+        gender = "female";
+        c.setSex(gender);
+    }
+
+
+
+
+
 }
 
 void logic::addYearOfBirth(ComputerScientist& c) {
@@ -95,7 +122,9 @@ void logic::addYearOfDeath(ComputerScientist& c) {
     string d_year;
     bool valid = false;
     string answ = c.isAlive();
-    if (answ != "y" && answ != "Y" && answ != "yes" && answ != "Yes" && answ != "YES" ){
+    transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
+    // ^ converts to lowercase
+    if (answ != "y" && answ != "ye" && answ != "yes"){
         while (!valid){
             cout << "Input year of death: ";
             cin >> d_year;

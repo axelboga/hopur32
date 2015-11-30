@@ -70,7 +70,10 @@ void logic::addSex(ComputerScientist& c) {
 void logic::addYearOfBirth(ComputerScientist& c) {
     bool valid = false;
     while (!valid){
-        setYearOfBirth(c);
+        string b_year;
+        cout << "Input year of birth: ";
+        cin >> b_year;
+        c.setYearOfBirth(b_year);
         valid = checkBirth(c.getYearOfBirth());
         if (!valid) {
             cout << "Invalid year!" << endl;
@@ -186,8 +189,6 @@ bool logic::compareByDeath(ComputerScientist& a, ComputerScientist& b)
     ComputerScientist a;
     ComputerScientist b;
     v = compSciRepo.getVector();
-<<<<<<< HEAD
-    sort(v.begin(), v.end(), compareByFirstName);
 }
 */
 
@@ -197,15 +198,8 @@ void logic::searching(){
     string input;
     cin >> input;
     for (unsigned int i = 0; i < v.size(); i++){
-        if (input == v[i]) {
+        if (input == v[i]){  //== is overloaded for string and object
             cout << v[i];
         }
     }
 }
-  //  sort(vec.begin(), vec.end());
-
-/*=======
-    sort(vec.begin(), vec.end());
->>>>>>> a5c691108245de370e450e80155cddafca0b53f1
-}
-*/

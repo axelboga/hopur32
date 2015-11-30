@@ -44,9 +44,8 @@ void setSex(ComputerScientist& c) {
     cin >> c.sex;
 }
 
-void setYearOfBirth(ComputerScientist& c) {
-    cout << "Input year of birth: ";
-    cin >> c.yearOfBirth;
+void ComputerScientist::setYearOfBirth(string b_year) {
+    yearOfBirth = b_year;
 }
 void setYearOfDeath(ComputerScientist& c) {
     cout << "Input year of death: ";

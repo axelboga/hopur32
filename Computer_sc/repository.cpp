@@ -55,7 +55,8 @@ void repository::outputList(vector<ComputerScientist>& v) {
 
 void repository::removeScientist(int number) {
     ComputerScientist c = compSciVector[number - 1]; //get name of the scientist to be deleted
-    string name = c.getName();
+    string name = c.getFirstName();
+    name[0] = toupper(name[0]);
 
     compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from vector
     ofstream outs("list2.txt", ios::out);

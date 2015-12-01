@@ -13,7 +13,6 @@ void UI::start() {
         menu();
         cin >> input;
         cout << endl;
-        system("clear");
 
         if (input == '1'){
             ComputerScientist c = ComputerScientist();
@@ -27,12 +26,10 @@ void UI::start() {
             vector<ComputerScientist> v;
             char ch;
             cout << endl;
-            system("clear");
             do {
                 sortUI();
                 cin >> ch;
                 if (ch == '1') {
-                    system("clear");
                     CompSciLogic.sortByFirstName(v);
                     CompSciLogic.view(v);
                 }

@@ -21,6 +21,7 @@ public:
     void setYearOfBirth(string b_year);
     void setYearOfDeath(string d_year);
     friend ostream& operator << (ostream& outs, ComputerScientist& c);
+    friend ostream& readToFile(ostream& outs, ComputerScientist& c);
     friend bool operator == (ComputerScientist& c1, ComputerScientist& c2);
     friend bool operator == (string s, ComputerScientist& c);
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);

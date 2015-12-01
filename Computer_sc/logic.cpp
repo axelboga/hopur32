@@ -42,8 +42,7 @@ void logic::addFirstName(ComputerScientist& c) {
         cin >> f_name;
         transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
         // ^ converts to lowercase
-        f_name[0] = toupper(f_name[0]);
-        // ^ converts first char to uppercase
+
         c.setFirstName(f_name);
         valid = checkName(c.getFirstName());
         if (!valid){
@@ -61,8 +60,7 @@ void logic::addLastName(ComputerScientist& c) {
         cin >> l_name;
         transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
         // ^ converts to lowercase
-        l_name[0] = toupper(l_name[0]);
-        // ^ converts first char to uppercase
+
         c.setLastName(l_name);
         valid = checkName(c.getLastName());
         if (!valid){
@@ -265,7 +263,7 @@ void logic::searching() {
     v = compSciRepo.getVector();
     string input;
     cin >> input;
-    //transform(input.begin(), input.end(), input.begin(), ::tolower);
+    transform(input.begin(), input.end(), input.begin(), ::tolower);
     header();
     int space = 3;
     int p = 1;

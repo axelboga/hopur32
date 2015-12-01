@@ -1,0 +1,2 @@
+charles    babbage     male          1791            1871
+ada        lovelace    female        1815            1852

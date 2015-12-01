@@ -68,6 +68,12 @@ ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the 
     return outs;
 }
 
+ostream& readToFile(ostream& outs, ComputerScientist& c) { //put the scientist into the file
+    outs << left << setw(11) << c.firstName << left << setw(12) << c.lastName << left << setw(14)
+         << c.sex << left << setw(16)<< c.yearOfBirth << left <<setw(4) << c.yearOfDeath << endl;
+    return outs;
+}
+
 void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
     while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath){
         name = firstName+" "+lastName;

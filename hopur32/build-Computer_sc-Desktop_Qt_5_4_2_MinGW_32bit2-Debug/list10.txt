@@ -1,0 +1,5 @@
+Hanna         Ragnars         female          1992            -              
+
+Hanna         Asgeirs         female          1992            -              
+
+Gudmundur     Einarsson       male            1992            -              

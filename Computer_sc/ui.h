@@ -11,6 +11,7 @@ public:
     void banner();
     void sortUI();
     void menu();
+    void clearScreen();
 private:
     logic CompSciLogic;
 };

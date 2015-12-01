@@ -13,6 +13,7 @@ void UI::start() {
         menu();
         cin >> input;
         cout << endl;
+        system("CLS");
 
         if (input == '1'){
             ComputerScientist c = ComputerScientist();
@@ -26,12 +27,12 @@ void UI::start() {
             vector<ComputerScientist> v;
             char ch;
             cout << endl;
-
+            system("CLS");
             do {
                 sortUI();
                 cin >> ch;
-
                 if (ch == '1') {
+                    system("CLS");
                     CompSciLogic.sortByFirstName(v);
                     CompSciLogic.view(v);
                 }
@@ -60,7 +61,6 @@ void UI::start() {
                 }
             }
             while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
-
         }
         else if(input == '4'){
             cout << "Search word: ";

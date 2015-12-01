@@ -59,7 +59,7 @@ void ComputerScientist::setYearOfDeath(string d_year) {
 }
 
 ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the object computerScientist
-    outs << left << setw(11) << c.firstName << left << setw(11) << c.lastName << left << setw(15)
+    outs << left << setw(11) << c.firstName << left << setw(12) << c.lastName << left << setw(14)
          << c.sex << left << setw(16)<< c.yearOfBirth << left <<setw(4) << c.yearOfDeath << endl;
     return outs;
 }

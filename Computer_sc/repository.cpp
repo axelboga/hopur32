@@ -8,7 +8,7 @@ repository::repository() {
     ifstream ins ("list9.txt");
     if (ins.is_open()){
         ComputerScientist c;
-        c.fillVectorFromList(ins, compSciVector); //eða ekki friend fall heldur nota getters ?
+        c.fillVectorFromList(ins, compSciVector);
         ins.close();
     }
 }
@@ -64,7 +64,6 @@ void repository::removeScientist(int number) {
         outs << compSciVector[i] << endl;
     }
     outs.close();
-
 
     cout << "The scientist " << name << " has been removed from the list" << endl;
 }

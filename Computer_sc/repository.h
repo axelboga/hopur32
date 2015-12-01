@@ -6,14 +6,14 @@
 using namespace std;
 
 class repository {
-private:
-    vector<ComputerScientist> compSciVector;
 public:
     repository();
     vector<ComputerScientist> getVector();
     void add(const ComputerScientist& c);
     void outputList(vector<ComputerScientist>& v);
     void removeScientist(int number);
+private:
+    vector<ComputerScientist> compSciVector;
 };
 
 #endif // REPOSITORY_H

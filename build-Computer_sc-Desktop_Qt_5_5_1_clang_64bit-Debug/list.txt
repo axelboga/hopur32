@@ -1,0 +1,5 @@
+Charles       Babbage         male            1791            1871           
+Ada           Lovelace        female          1815            1852           
+Blaise        Pascal          male            1623            1662           
+Alan       Turing     male           1912            1954
+George     Bool       male           1815            1864

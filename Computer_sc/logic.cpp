@@ -77,6 +77,8 @@ void logic::addSex(ComputerScientist& c) {
     do{
         cout << "Input gender(female / male): ";
         cin >> gender;
+        transform(gender.begin(), gender.end(), gender.begin(), ::tolower);
+        // ^ converts to lowercase
 
         if(gender == "m" || gender  == "ma" || gender  == "mal" || gender  == "male"){
             gender = "male";

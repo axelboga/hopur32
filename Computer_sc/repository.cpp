@@ -33,9 +33,20 @@ void repository::outputList(vector<ComputerScientist>& v) {
     cout << " ________________________________________________________________________________" << endl;
     cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
     cout << " ________________________________________________________________________________" << endl;
-
+    int space = 3;
     for (unsigned int i = 0; i < v.size(); i++){
-        cout << i+1 << ". "<< v[i] << endl;
+
+            if(i >= 9) //aligns the spacing between the number and first name
+            {
+                space = 2;
+            }
+            else if(i >= 99)
+            {
+                space = 1;
+            }
+
+
+        cout << i+1 << setw(space) << "."<< v[i];
     }
 
     cout << " ________________________________________________________________________________" << endl;

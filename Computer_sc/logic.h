@@ -13,9 +13,6 @@
 using namespace std;
 
 class logic {
-
-private:
-    repository compSciRepo;
 public:
     logic();
     void add(ComputerScientist& c);
@@ -30,7 +27,6 @@ public:
     bool checkSex(string s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
-    bool checkDeath(ComputerScientist& c, string s);
     bool okToAdd(ComputerScientist& c);
     void sortByFirstName(vector<ComputerScientist>& v);
     void sortByLastName(vector<ComputerScientist>& v);
@@ -39,10 +35,12 @@ public:
     void sortBySex(vector<ComputerScientist>& v);
     void sortByBirthYear(vector<ComputerScientist>& v);
     void searching();
-    string isAlive(ComputerScientist& c);
     void removeScientist();
     void header();
     void footer();
+private:
+    repository compSciRepo;
+    string isAlive(ComputerScientist& c);
 };
 
 #endif // LOGIC_H

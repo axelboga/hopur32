@@ -17,6 +17,7 @@ string ComputerScientist::getFirstName() const {
 string ComputerScientist::getLastName() const {
    return lastName;
 }
+
 string ComputerScientist::getName() const {
    return name;
 }
@@ -52,6 +53,7 @@ void ComputerScientist::setSex(string gender) {
 void ComputerScientist::setYearOfBirth(string b_year) {
     yearOfBirth = b_year;
 }
+
 void ComputerScientist::setYearOfDeath(string d_year) {
     yearOfDeath = d_year;
 }
@@ -67,12 +69,6 @@ void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientis
         v.push_back(*this);
     }
 }
-
-/*void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
-    while(ins >> name >> sex >> yearOfBirth >> yearOfDeath){
-        v.push_back(*this);
-    }
-}*/
 
 bool operator == (ComputerScientist& c1, ComputerScientist& c2) { //returns true if two objects are exactly the same
     if (c1.name == c2.name && c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath){
@@ -91,7 +87,7 @@ bool operator == (string s, ComputerScientist& c) { //return true if string, s, 
 }
 
 bool ComputerScientist::found(string a, string b) { //returns true if a certain substring exists in a string
-   int n;                                           //spyrja:þetta ætti ekki að vera meðlimafall!?!
+   int n;
    n = a.find(b);
    if (n < 0){
      return false;

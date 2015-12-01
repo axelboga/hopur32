@@ -51,7 +51,6 @@ void logic::addFirstName(ComputerScientist& c) {
             cout << "Please try again." << endl;
         }
     }
-
 }
 
 void logic::addLastName(ComputerScientist& c) {
@@ -87,15 +86,12 @@ void logic::addSex(ComputerScientist& c) {
             cout << "Sex must be either female or male." << endl;
             cout << "Please try again." << endl;
         }
-
     }
-    if(c.getSex() == "m" || c.getSex() == "ma" || c.getSex() == "mal" || c.getSex() == "male")
-    {
+    if(c.getSex() == "m" || c.getSex() == "ma" || c.getSex() == "mal" || c.getSex() == "male"){
         gender = "male";
         c.setSex(gender);
     }
-    else
-    {
+    else{
         gender = "female";
         c.setSex(gender);
     }
@@ -213,7 +209,6 @@ bool logic::checkSex(string s) {
         return false;
     }
     return true;
-
 }
 
 void logic::view(vector<ComputerScientist>& v) {
@@ -230,8 +225,7 @@ bool compareByName(ComputerScientist a, ComputerScientist b){
     return a.getName() < b.getName();
 }
 
-bool compareByLastName(ComputerScientist a, ComputerScientist b)
-{
+bool compareByLastName(ComputerScientist a, ComputerScientist b){
     return a.getLastName() < b.getLastName();
 }
 
@@ -303,17 +297,16 @@ void logic::searching() {
          cout << "The search didn't match anything in the list!" << endl;
     }
 }
-void logic::header()
-{
+
+void logic::header() {
     cout << " ________________________________________________________________________________" << endl;
     cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
     cout << " ________________________________________________________________________________" << endl;
 
 }
-void logic::footer()
-{
-    cout << " ________________________________________________________________________________" << endl;
 
+void logic::footer() {
+    cout << " ________________________________________________________________________________" << endl;
 }
 
 void logic::removeScientist() {

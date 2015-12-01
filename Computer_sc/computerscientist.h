@@ -24,14 +24,12 @@ public:
     friend bool operator == (ComputerScientist& c1, ComputerScientist& c2);
     friend bool operator == (string s, ComputerScientist& c);
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
-    bool found (string a, string b);
     bool compareByName(ComputerScientist a, ComputerScientist b);
     bool compareByLastName(ComputerScientist a, ComputerScientist b);
     bool compareByReverseName(ComputerScientist a, ComputerScientist b);
     bool compareByReverseLastName(ComputerScientist a, ComputerScientist b);
     bool compareBySex(ComputerScientist a, ComputerScientist b);
     bool compareByYear(ComputerScientist a, ComputerScientist b);
-
 private:
     string firstName;
     string lastName;
@@ -39,6 +37,7 @@ private:
     string yearOfBirth;
     string yearOfDeath;
     string sex;
+    bool found (string a, string b);
 };
 
 #endif // COMPUTERSCIENTIST_H

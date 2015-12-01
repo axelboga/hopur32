@@ -82,7 +82,8 @@ void logic::addSex(ComputerScientist& c) {
             gender = "male";
             c.setSex(gender);
         }
-        else if(gender == "f" || gender  == "fe" || gender  == "fema" || gender  == "female"){
+        else if(gender == "f" || gender  == "fe" || gender  == "fem" || gender  == "fema"
+              || gender == "femal" || gender == "female"){
             gender = "female";
             c.setSex(gender);
         }

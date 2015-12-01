@@ -67,4 +67,3 @@ void repository::removeScientist(int number) {
 
     cout << "The scientist " << name << " has been removed from the list" << endl;
 }
-

@@ -12,6 +12,7 @@ public:
     void add(const ComputerScientist& c);
     void outputList(vector<ComputerScientist>& v);
     void removeScientist(int number);
+    void fillVectorFromList(istream& ins, ComputerScientist& c);
 private:
     vector<ComputerScientist> compSciVector;
 };

@@ -4,7 +4,7 @@
 ComputerScientist::ComputerScientist(){
     firstName = "";
     lastName = "";
-    name = firstName+" "+lastName;
+    name = "";
     sex = "";
     yearOfBirth = "";
     yearOfDeath = "-";
@@ -66,7 +66,9 @@ ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the 
 
 void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
     while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath){
+        name = firstName+" "+lastName;
         v.push_back(*this);
+
     }
 }
 

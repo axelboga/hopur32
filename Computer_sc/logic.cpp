@@ -267,11 +267,21 @@ void logic::searching() {
     cin >> input;
     //transform(input.begin(), input.end(), input.begin(), ::tolower);
     header();
+    int space = 3;
     int p = 1;
     int counter = 0;
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){  //== is overloaded for string and object
-            cout << p << ". " << v[i];
+            if(i >= 9) //aligns the spacing between the number and first name
+            {
+                space = 2;
+            }
+            else if(i >= 99)
+            {
+                space = 1;
+            }
+            cout << p << setw(space) << "." << v[i];
+            p++;
         }
         else {
             counter++;

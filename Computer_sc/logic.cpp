@@ -133,7 +133,9 @@ void logic::addYearOfDeath(ComputerScientist& c) {
 string logic::isAlive(ComputerScientist& c) {
     string answ = "no";
     do {
-        cout << "Is " << c.getFirstName() << " still alive ? " << endl;
+        string name = c.getFirstName();
+        name[0] = toupper(name[0]);
+        cout << "Is " << name << " still alive ? " << endl;
         cout << "yes/no : ";
         cin >> answ;
         transform(answ.begin(), answ.end(), answ.begin(), ::tolower);

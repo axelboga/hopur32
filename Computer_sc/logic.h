@@ -23,7 +23,6 @@ public:
     void view(vector<ComputerScientist>& v);
     void view();
     bool checkName(string s);
-    bool checkSex(string s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
     bool okToAdd(ComputerScientist& c);

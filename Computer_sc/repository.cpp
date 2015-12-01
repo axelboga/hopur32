@@ -1,6 +1,5 @@
 #include "repository.h"
 #include <fstream>
-//#include <iomanip>
 #include <algorithm>
 
 repository::repository() {
@@ -37,19 +36,15 @@ void repository::outputList(vector<ComputerScientist>& v) {
     int space = 3;
     for (unsigned int i = 0; i < v.size(); i++){
 
-            if(i >= 9) //aligns the spacing between the number and first name
-            {
+            if(i >= 9) { //aligns the spacing between the number and first name
                 space = 2;
             }
-            else if(i >= 99)
-            {
+            else if(i >= 99) {
                 space = 1;
             }
 
-
         cout << i+1 << setw(space) << "." << v[i];
     }
-
     cout << " __________________________________________________________________" << endl;
 }
 

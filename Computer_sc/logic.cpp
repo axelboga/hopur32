@@ -270,7 +270,7 @@ void logic::searching() {
     int p = 1;
     unsigned int counter = 0;
     for (unsigned int i = 0; i < v.size(); i++){
-        if (input == v[i]){  //== is overloaded for string and object
+        if (input == v[i]){
             if(i >= 9) //aligns the spacing between the number and first name
             {
                 space = 2;

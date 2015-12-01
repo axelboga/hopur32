@@ -90,7 +90,7 @@ bool operator == (string s, ComputerScientist& c) { //return true if string, s, 
     return false;
 }
 
-bool ComputerScientist::found(string a, string b) { //returns true if a certain substring excits in a string
+bool ComputerScientist::found(string a, string b) { //returns true if a certain substring exists in a string
    int n;                                           //spyrja:þetta ætti ekki að vera meðlimafall!?!
    n = a.find(b);
    if (n < 0){

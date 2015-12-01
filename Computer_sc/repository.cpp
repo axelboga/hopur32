@@ -32,7 +32,7 @@ void repository::add(const ComputerScientist& c) {
 
 void repository::outputList(vector<ComputerScientist>& v) {
     cout << " ________________________________________________________________________________" << endl;
-    cout << "  name\t Gender\t\t Date of Birth\t Date of Death\t" << endl;
+    cout << "  First Name\t Last Name\t Gender\t\t Date of Birth\t Date of Death\t" << endl;
     cout << " ________________________________________________________________________________" << endl;
     int space = 3;
     for (unsigned int i = 0; i < v.size(); i++){

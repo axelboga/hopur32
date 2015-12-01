@@ -13,6 +13,7 @@ void UI::start() {
         menu();
         cin >> input;
         cout << endl;
+        clearScreen();
 
         if (input == '1'){
             ComputerScientist c = ComputerScientist();
@@ -29,6 +30,7 @@ void UI::start() {
             do {
                 sortUI();
                 cin >> ch;
+                clearScreen();
                 if (ch == '1') {
                     CompSciLogic.sortByFirstName(v);
                     CompSciLogic.view(v);
@@ -60,6 +62,7 @@ void UI::start() {
             while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
         }
         else if(input == '4'){
+            clearScreen();
             cout << "Search word: ";
             CompSciLogic.searching();
         }
@@ -123,4 +126,8 @@ void UI::menu() {
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";
+}
+void UI::clearScreen()
+{
+   if (system("CLS")) system("clear");
 }

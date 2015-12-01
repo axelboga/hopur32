@@ -11,6 +11,7 @@ logic::logic() {
 void logic::add(ComputerScientist& c) {
     addFirstName(c);
     addLastName(c);
+    c.setName();
     addSex(c);
     addYearOfBirth(c);
     addYearOfDeath(c);
@@ -225,8 +226,8 @@ void logic::view() {
     compSciRepo.outputList(v);
 }
 
-bool compareByFirstName(ComputerScientist a, ComputerScientist b){
-    return a.getFirstName() < b.getFirstName();
+bool compareByName(ComputerScientist a, ComputerScientist b){
+    return a.getName() < b.getName();
 }
 
 bool compareByLastName(ComputerScientist a, ComputerScientist b)
@@ -234,8 +235,8 @@ bool compareByLastName(ComputerScientist a, ComputerScientist b)
     return a.getLastName() < b.getLastName();
 }
 
-bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b){
-    return a.getFirstName() > b.getFirstName();
+bool compareByReverseName(ComputerScientist a, ComputerScientist b){
+    return a.getName() > b.getName();
 }
 
 bool compareByReverseLastName(ComputerScientist a, ComputerScientist b){
@@ -257,7 +258,7 @@ void logic::sortBySex(vector<ComputerScientist>& v) {
 
 void logic::sortByFirstName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
-    sort(v.begin(), v.end(), compareByFirstName);
+    sort(v.begin(), v.end(), compareByName);
 }
 
 void logic::sortByLastName(vector<ComputerScientist>& v) {
@@ -267,7 +268,7 @@ void logic::sortByLastName(vector<ComputerScientist>& v) {
 
 void logic::sortReverseByFirstName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
-    sort(v.begin(), v.end(), compareByReverseFirstName);
+    sort(v.begin(), v.end(), compareByReverseName);
 }
 
 void logic::sortReverseByLastName(vector<ComputerScientist>& v) {
@@ -298,7 +299,7 @@ void logic::searching() {
         }
     }
     footer();
-    if (counter >= 5) {
+    if (counter > 3) {
          cout << "The search didn't match anything in the list!" << endl;
     }
 }

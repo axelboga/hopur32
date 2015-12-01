@@ -5,7 +5,7 @@
 
 repository::repository() {
     compSciVector = vector<ComputerScientist>();
-    ifstream ins ("list6.txt");
+    ifstream ins ("list7.txt");
     if (ins.is_open()){
         ComputerScientist c;
         c.fillVectorFromList(ins, compSciVector); //eða ekki friend fall heldur nota getters ?
@@ -22,7 +22,7 @@ void repository::add(const ComputerScientist& c) {
     compSciVector.push_back(temp); //add to the vector
 
     ofstream outs;   //also add to the list/file.
-    outs.open("list6.txt", ios::app);
+    outs.open("list7.txt", ios::app);
     if (outs.fail()){
         cout << "failed" << endl;
     }
@@ -32,7 +32,7 @@ void repository::add(const ComputerScientist& c) {
 
 void repository::outputList(vector<ComputerScientist>& v) {
     cout << " ________________________________________________________________________________" << endl;
-    cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
+    cout << "  name\t Gender\t\t Date of Birth\t Date of Death\t" << endl;
     cout << " ________________________________________________________________________________" << endl;
     int space = 3;
     for (unsigned int i = 0; i < v.size(); i++){
@@ -60,7 +60,7 @@ void repository::removeScientist(int number) {
     compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from Vector
     ofstream outs("list6.txt", ios::out);
 
-    for(int i = 0; i != compSciVector.size(); i++) {    //remove from list
+    for(unsigned int i = 0; i != compSciVector.size(); i++) {    //remove from list
         outs << compSciVector[i] << endl;
     }
     outs.close();

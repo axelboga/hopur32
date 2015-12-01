@@ -85,7 +85,9 @@ bool operator == (string s, ComputerScientist& c) { //return true if string, s, 
     if (c.found(c.name, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)){
         return true;
     }
-    return false;
+    else{
+        return false;
+    }
 }
 
 bool ComputerScientist::found(string a, string b) { //returns true if a certain substring exists in a string

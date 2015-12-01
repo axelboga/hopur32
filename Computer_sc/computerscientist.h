@@ -10,11 +10,13 @@ public:
     ComputerScientist();
     string getFirstName() const;
     string getLastName() const;
+    string getName() const;
     string getSex() const;
     string getYearOfBirth() const;
     string getYearOfDeath() const;
     void setFirstName(string f_name);
     void setLastName(string l_name);
+    void setName();
     void setSex(string gender);
     void setYearOfBirth(string b_year);
     void setYearOfDeath(string d_year);
@@ -23,9 +25,9 @@ public:
     friend bool operator == (string s, ComputerScientist& c);
     void fillVectorFromList(istream& ins, vector<ComputerScientist>& v);
     bool found (string a, string b);
-    bool compareByFirstName(ComputerScientist a, ComputerScientist b);
+    bool compareByName(ComputerScientist a, ComputerScientist b);
     bool compareByLastName(ComputerScientist a, ComputerScientist b);
-    bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b);
+    bool compareByReverseName(ComputerScientist a, ComputerScientist b);
     bool compareByReverseLastName(ComputerScientist a, ComputerScientist b);
     bool compareBySex(ComputerScientist a, ComputerScientist b);
     bool compareByYear(ComputerScientist a, ComputerScientist b);
@@ -33,6 +35,7 @@ public:
 private:
     string firstName;
     string lastName;
+    string name;
     string yearOfBirth;
     string yearOfDeath;
     string sex;

@@ -1,21 +1,2 @@
-Hanna         Ragnarsdottir   female          1992            na             
-
-Hanna         R               female          1700            1900           
-
-ha            r               female          1992            na             
-
-Hanna         Ragnars         female          1992            1990           
-
-ha            na              male            1992            o              
-
-ha            no              male            1992            1998           
-
-ha            na              male            1992            na             
-
-ha            na              male            1992            na             
-
-Hanna         R               female          1992            1998           
-
-Johnny        Boy             male            1800            1990           
-Dalia         Jonasardottir   female          1899            1900           
-Peli          Snudduson       female          1700            na             
+Hanna Ragnarsdottirfemale          1992            na             
+Jonas Jonsson male            1992            1999           

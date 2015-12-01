@@ -1,10 +1,10 @@
 #include "computerscientist.h"
 #include <iomanip>
 
-ComputerScientist::ComputerScientist() {
+ComputerScientist::ComputerScientist(){
     firstName = "";
     lastName = "";
-    name = firstName+" "+lastName;
+    name = "";
     sex = "";
     yearOfBirth = "";
     yearOfDeath = "-";

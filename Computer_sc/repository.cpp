@@ -13,11 +13,11 @@ repository::repository() {
     }
 }
 
-vector<ComputerScientist> repository::getVector() {
+vector<ComputerScientist> repository::getVector(){
     return compSciVector;
 }
 
-void repository::add(const ComputerScientist& c) {
+void repository::add(const ComputerScientist& c){
     ComputerScientist temp = c;
     compSciVector.push_back(temp); //add to the vector
 
@@ -57,7 +57,7 @@ void repository::removeScientist(int number) {
     ComputerScientist c = compSciVector[number - 1]; //get name of the scientist to be deleted
     string name = c.getName();
 
-    compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from Vector
+    compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from vector
     ofstream outs("list9.txt", ios::out);
 
     for(unsigned int i = 0; i != compSciVector.size(); i++) {    //remove from list

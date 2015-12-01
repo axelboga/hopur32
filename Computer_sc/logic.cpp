@@ -271,11 +271,11 @@ void logic::searching() {
     unsigned int counter = 0;
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){
-            if(i >= 9) //aligns the spacing between the number and first name
+            if(p >= 10) //aligns the spacing between the number and first name
             {
                 space = 2;
             }
-            else if(i >= 99)
+            else if(i >= 100)
             {
                 space = 1;
             }

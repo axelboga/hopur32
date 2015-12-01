@@ -11,7 +11,7 @@ private:
 public:
     repository();
     vector<ComputerScientist> getVector();
-    void add(ComputerScientist c);
+    void add(const ComputerScientist& c);
     void outputList(vector<ComputerScientist>& v);
     void removeScientist(int number);
 };

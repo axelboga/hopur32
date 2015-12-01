@@ -18,3 +18,4 @@ Hanna         R               female          1992            1998
 
 Johnny        Boy             male            1800            1990           
 Dalia         Jonasardottir   female          1899            1900           
+Peli          Snudduson       female          1700            na             

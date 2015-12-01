@@ -1,0 +1,3 @@
+Charles       Babbage         male            1791            1871           
+Ada           Lovelace        female          1815            1852           
+Blaise        Pascal          male            1623            1662           

@@ -57,16 +57,22 @@ void ComputerScientist::setYearOfDeath(string d_year) {
 }
 
 ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the object computerScientist
-    outs << left << setw(25) << c.name << left << setw(16) << c.sex << left
-         << setw(16)<< c.yearOfBirth << left <<setw(15) << c.yearOfDeath << endl;
+    outs << left << setw(14) << c.firstName << left << setw(16) << c.lastName << left << setw(16)
+         << c.sex << left << setw(16)<< c.yearOfBirth << left <<setw(15) << c.yearOfDeath << endl;
     return outs;
 }
 
 void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
-    while(ins >> name >> sex >> yearOfBirth >> yearOfDeath){
+    while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath){
         v.push_back(*this);
     }
 }
+
+/*void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
+    while(ins >> name >> sex >> yearOfBirth >> yearOfDeath){
+        v.push_back(*this);
+    }
+}*/
 
 bool operator == (ComputerScientist& c1, ComputerScientist& c2) { //returns true if two objects are exactly the same
     if (c1.name == c2.name && c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath){

@@ -272,13 +272,14 @@ void logic::searching() {
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){  //== is overloaded for string and object
             cout << p << ". " << v[i];
+            p++;
         }
         else {
             counter++;
         }
     }
     footer();
-    if (counter > 3) {
+    if (counter > 4) {
          cout << "The search didn't match anything in the list!" << endl;
     }
 }

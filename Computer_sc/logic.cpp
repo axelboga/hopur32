@@ -279,6 +279,7 @@ void logic::searching() {
     v = compSciRepo.getVector();
     string input;
     cin >> input;
+    //transform(input.begin(), input.end(), input.begin(), ::tolower);
     header();
     int p = 1;
     int counter = 0;
@@ -290,7 +291,7 @@ void logic::searching() {
             counter++;
         }
     }
-     footer();
+    footer();
     if (counter >= 5) {
          cout << "The search didn't match anything in the list!" << endl;
     }

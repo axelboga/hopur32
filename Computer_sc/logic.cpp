@@ -267,21 +267,31 @@ void logic::searching() {
     cin >> input;
     //transform(input.begin(), input.end(), input.begin(), ::tolower);
     header();
+    int space = 3;
     int p = 1;
-    int counter = 0;
+    unsigned int counter = 0;
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){  //== is overloaded for string and object
-            cout << p << ". " << v[i];
+            if(i >= 9) //aligns the spacing between the number and first name
+            {
+                space = 2;
+            }
+            else if(i >= 99)
+            {
+                space = 1;
+            }
+            cout << p << setw(space) << "." << v[i];
             p++;
         }
-        else {
+        else{
             counter++;
+        }
+        if(counter >= v.size()){
+            cout << endl;
+            cout << "The search didn't match anything in the list!" << endl;
         }
     }
     footer();
-    if (counter > 4) {
-         cout << "The search didn't match anything in the list!" << endl;
-    }
 }
 
 void logic::header() {
@@ -296,7 +306,7 @@ void logic::footer() {
 
 void logic::removeScientist() {
     int number;
-    cout << "Input the number of the scientist you want to erase: ";
+    cout << "Input the number of the scientist you want to remove: ";
     cin >> number;
     compSciRepo.removeScientist(number);
 }

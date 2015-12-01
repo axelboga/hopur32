@@ -59,7 +59,7 @@ void ComputerScientist::setYearOfDeath(string d_year) {
 }
 
 ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the object computerScientist
-    outs << left << setw(11) << c.firstName << left << setw(11) << c.lastName << left << setw(15)
+    outs << left << setw(11) << c.firstName << left << setw(12) << c.lastName << left << setw(14)
          << c.sex << left << setw(16)<< c.yearOfBirth << left <<setw(4) << c.yearOfDeath << endl;
     return outs;
 }
@@ -85,7 +85,9 @@ bool operator == (string s, ComputerScientist& c) { //return true if string, s, 
     if (c.found(c.name, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)){
         return true;
     }
-    return false;
+    else{
+        return false;
+    }
 }
 
 bool ComputerScientist::found(string a, string b) { //returns true if a certain substring exists in a string

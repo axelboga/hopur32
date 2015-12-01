@@ -1,6 +1,4 @@
 #include "logic.h"
-#include <iostream>
-#include <string>
 
 const int CURRENT_YEAR = 2015;
 

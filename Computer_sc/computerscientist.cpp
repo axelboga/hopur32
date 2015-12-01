@@ -1,5 +1,4 @@
 #include "computerscientist.h"
-#include <iomanip>
 
 ComputerScientist::ComputerScientist(){
     firstName = "";

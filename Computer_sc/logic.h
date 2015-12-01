@@ -2,13 +2,10 @@
 #define LOGIC_H
 #include "computerscientist.h"
 #include "repository.h"
-#include <ctype.h>
 #include <cctype>
 #include <algorithm>
 #include <stdlib.h>
-#include <iomanip>
 #include <stdio.h>
-//#include <boost/algorithm/string.hpp>
 using namespace std;
 
 class logic {

@@ -1,9 +1,6 @@
 #ifndef REPOSITORY_H
 #define REPOSITORY_H
-
-#include <vector>
 #include "computerscientist.h"
-using namespace std;
 
 class repository {
 public:

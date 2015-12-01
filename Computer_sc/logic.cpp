@@ -203,7 +203,13 @@ bool logic::checkName(string s) {
 
 bool logic::checkSex(string s) {
 
-    if(islower(s != "male" && s != "female")){
+    for(unsigned int i = 0; i < s.length(); i++){
+        if(!isalpha(s[i])){
+            return false;
+        }
+    }
+
+   if(islower(s != "male" && s != "female")){
         return false;
     }
     return true;

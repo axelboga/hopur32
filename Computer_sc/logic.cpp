@@ -2,6 +2,8 @@
 #include <iostream>
 #include <string>
 
+const int CURRENT_YEAR = 2015;
+
 logic::logic() {
     compSciRepo = repository();
  }
@@ -20,11 +22,11 @@ void logic::add(ComputerScientist& c) {
     }
 }
 
-bool logic::okToAdd(ComputerScientist& c) {
+bool logic::okToAdd(ComputerScientist& c) { //returns true if the object c is not equal to any other objects in the vector
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
     for (unsigned int i = 0; i < v.size(); i++){
-        if (v[i] == c){
+        if (v[i] == c){ //the operator == has bin overloaded
             return false;
         }
     }
@@ -149,7 +151,7 @@ string logic::isAlive(ComputerScientist& c) {
     return answ;
 }
 
-bool logic::checkBirth(string s) {
+bool logic::checkBirth(string s) {//returns false if user inputs non-digits, wrong length or year greater than 2015
     int  year = atoi(s.c_str());
 
     for (unsigned int i = 0; i < s.length(); i++){
@@ -159,7 +161,7 @@ bool logic::checkBirth(string s) {
         if(s.length() != 4){
             return false;
         }
-        if(year > 2015){
+        if(year > CURRENT_YEAR){
             return false;
         }
     }

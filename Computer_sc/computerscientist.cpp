@@ -4,7 +4,7 @@
 ComputerScientist::ComputerScientist(){
     firstName = "";
     lastName = "";
-    name = "";
+    name = firstName+" "+lastName;
     sex = "";
     yearOfBirth = "";
     yearOfDeath = "-";

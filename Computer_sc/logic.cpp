@@ -74,27 +74,24 @@ void logic::addLastName(ComputerScientist& c) {
 
 void logic::addSex(ComputerScientist& c) {
     string gender;
-    bool valid = false;
-    while (!valid){
+    do{
         cout << "Input gender(female / male): ";
         cin >> gender;
-        transform(gender.begin(), gender.end(), gender.begin(), ::tolower);
-        // ^ converts to lowercase
-        c.setSex(gender);
-        valid = checkSex(c.getSex());
-        if (!valid){
+
+        if(gender == "m" || gender  == "ma" || gender  == "mal" || gender  == "male"){
+            gender = "male";
+            c.setSex(gender);
+        }
+        else if(gender == "f" || gender  == "fe" || gender  == "fema" || gender  == "female"){
+            gender = "female";
+            c.setSex(gender);
+        }
+        else{
             cout << "Sex must be either female or male." << endl;
             cout << "Please try again." << endl;
         }
-    }
-    if(c.getSex() == "m" || c.getSex() == "ma" || c.getSex() == "mal" || c.getSex() == "male"){
-        gender = "male";
-        c.setSex(gender);
-    }
-    else{
-        gender = "female";
-        c.setSex(gender);
-    }
+    }while(c.getSex() != "male" && c.getSex() != "female");
+
 }
 
 void logic::addYearOfBirth(ComputerScientist& c) {
@@ -197,20 +194,6 @@ bool logic::checkName(string s) {
    return true;
 }
 
-bool logic::checkSex(string s) {
-
-    for(unsigned int i = 0; i < s.length(); i++){
-        if(!isalpha(s[i])){
-            return false;
-        }
-    }
-
-   if(islower(s != "male" && s != "female")){
-        return false;
-    }
-    return true;
-}
-
 void logic::view(vector<ComputerScientist>& v) {
     compSciRepo.outputList(v);
 }
@@ -299,14 +282,13 @@ void logic::searching() {
 }
 
 void logic::header() {
-    cout << " ________________________________________________________________________________" << endl;
-    cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
-    cout << " ________________________________________________________________________________" << endl;
-
+    cout << " __________________________________________________________________ " << endl;
+    cout << " Name                    | Gender | Date of Birth | Date of Death   " << endl;
+    cout << " ________________________|________|_______________|________________ " << endl;
 }
 
 void logic::footer() {
-    cout << " ________________________________________________________________________________" << endl;
+    cout << " __________________________________________________________________" << endl;
 }
 
 void logic::removeScientist() {

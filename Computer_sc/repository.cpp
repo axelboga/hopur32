@@ -17,15 +17,16 @@ vector<ComputerScientist> repository::getVector() {
     return compSciVector;
 }
 
-void repository::add(ComputerScientist c) {
-    compSciVector.push_back(c); //add to the vector
+void repository::add(const ComputerScientist& c) {
+    ComputerScientist temp = c;
+    compSciVector.push_back(temp); //add to the vector
 
     ofstream outs;   //also add to the list/file.
     outs.open("list6.txt", ios::app);
     if (outs.fail()){
         cout << "failed" << endl;
     }
-    outs << c;
+    outs << temp;
     outs.close();
 }
 
@@ -33,15 +34,38 @@ void repository::outputList(vector<ComputerScientist>& v) {
     cout << " ________________________________________________________________________________" << endl;
     cout << "  First name\t Last name \t Gender\t\t Date of Birth\t Date of Death\t" << endl;
     cout << " ________________________________________________________________________________" << endl;
-
+    int space = 3;
     for (unsigned int i = 0; i < v.size(); i++){
-        cout << i+1 << ". "<< v[i] << endl;
+
+            if(i >= 9) //aligns the spacing between the number and first name
+            {
+                space = 2;
+            }
+            else if(i >= 99)
+            {
+                space = 1;
+            }
+
+
+        cout << i+1 << setw(space) << "."<< v[i];
     }
 
     cout << " ________________________________________________________________________________" << endl;
 }
 
-void repository::eraseFromVector(int number) {
-    compSciVector.erase(compSciVector.begin() + (number - 1));
-    cout << "The scientist number " << number << " has been erased from the list" << endl;
+void repository::removeScientist(int number) {
+    ComputerScientist c = compSciVector[number - 1]; //get name of the scientist to be deleted
+    string name = c.getFirstName()+" "+c.getLastName();
+
+    compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from Vector
+    ofstream outs("list6.txt", ios::out);
+
+    for(int i = 0; i != compSciVector.size(); i++) {    //remove from list
+        outs << compSciVector[i] << endl;
+    }
+    outs.close();
+
+
+    cout << "The scientist " << name << " has been removed from the list" << endl;
 }
+

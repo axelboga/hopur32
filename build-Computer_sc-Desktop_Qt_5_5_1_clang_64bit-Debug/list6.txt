@@ -1,4 +1,5 @@
-Hafdis        Alexandersd     female          1995            na             
-Anna          Jons            female          1799            1999           
-Jon           Alfreds         male            1978            2006           
-Brynja        Peturs          female          1965            na             
+Gunnar        Gunnarsson      male            1993            na             
+Jon           Jonsson         female          1995            na             
+Hafdis        Alexandersdottirfemale                                         
+                              female                                         
+Kristin       Gunnarsdottir   female          1997            na             

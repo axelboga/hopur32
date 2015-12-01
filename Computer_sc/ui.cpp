@@ -20,7 +20,7 @@ void UI::start() {
         }
         else if(input == '2'){
             CompSciLogic.view();
-            CompSciLogic.eraseFromVector();
+            CompSciLogic.removeScientist();
         }
         else if(input == '3'){
             vector<ComputerScientist> v;
@@ -51,11 +51,15 @@ void UI::start() {
                     CompSciLogic.sortBySex(v);
                     CompSciLogic.view(v);
                 }
+                else if (ch == '6'){
+                    CompSciLogic.sortByBirthYear(v);
+                    CompSciLogic.view(v);
+                }
                 else{
                     cout << "Wrong input. Try again" << endl;
                 }
             }
-            while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6' && ch != '7');
+            while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
 
         }
         else if(input == '4'){
@@ -75,17 +79,27 @@ void UI::start() {
 };
 void UI::banner(){
 
-    cout << "   ______                            __           " << endl;
-    cout << "  / ____/___  ____ ___  ____  __  __/ /____  _____" << endl;
-    cout << " / /   / __ \\/ __ `__ \\/ __ \\/ / / / __/ _ \\/ ___/" << endl;
-    cout << "/ /___/ /_/ / / / / / / /_/ / /_/ / /_/  __/ /    " << endl;
-    cout << "\\____/\\____/_/ /_/ /_/ .___/\\__,_/\\__/\\___/_/     " << endl;
-    cout << "   _____      _     /_/    __  _      __          " << endl;
-    cout << "  / ___/_____(_)__  ____  / /_(_)____/ /______    " << endl;
-    cout << "  \\__ \\/ ___/ / _ \\/ __ \\/ __/ / ___/ __/ ___/    " << endl;
-    cout << " ___/ / /__/ /  __/ / / / /_/ (__  ) /_(__  )     " << endl;
-    cout << "/____/\\___/_/\\___/_/ /_/\\__/_/____/\\__/____/      " << endl;
-    cout << endl;
+    cout << " .d8888b.                                           888                       " << endl;
+    cout << "d88P  Y88b                                          888                       " << endl;
+    cout << "888    888                                          888                       " << endl;
+    cout << "888         .d88b.  88888b.d88b.  88888b.  888  888 888888 .d88b.  888d888    " << endl;
+    cout << "888        d88\"\"88b 888 \"888 \"88b 888 \"88b 888  888 888   d8P  Y8b 888P\"      " << endl;
+    cout << "888    888 888  888 888  888  888 888  888 888  888 888   88888888 888        " << endl;
+    cout << "Y88b  d88P Y88..88P 888  888  888 888 d88P Y88b 888 Y88b. Y8b.     888        " << endl;
+    cout << " \"Y8888P\"   \"Y88P\"  888  888  888 88888P\"   \"Y88888  \"Y888 \"Y8888  888        " << endl;
+    cout << "                                  888                                         " << endl;
+    cout << "                                  888                                         " << endl;
+    cout << "                                  888                                         " << endl;
+    cout << " .d8888b.           d8b                   888    d8b          888             " << endl;
+    cout << "d88P  Y88b          Y8P                   888    Y8P          888             " << endl;
+    cout << "Y88b.                                     888                 888             " << endl;
+    cout << " \"Y888b.    .d8888b 888  .d88b.  88888b.  888888 888 .d8888b  888888 .d8888b  " << endl;
+    cout << "    \"Y88b. d88P\"    888 d8P  Y8b 888 \"88b 888    888 88K      888    88K      " << endl;
+    cout << "      \"888 888      888 88888888 888  888 888    888 \"Y8888b. 888    \"Y8888b. " << endl;
+    cout << "Y88b  d88P Y88b.    888 Y8b.     888  888 Y88b.  888      X88 Y88b.       X88 " << endl;
+    cout << " \"Y8888P\"   \"Y8888P 888  \"Y8888  888  888  \"Y888 888  88888P'  \"Y888  88888P' " << endl;
+    cout << endl << endl << endl << endl;
+
 }
 
 void UI::sortUI() {
@@ -98,7 +112,6 @@ void UI::sortUI() {
     cout << " 4.\t" << "Last Name (z-a)" << endl;
     cout << " 5.\t" << "Gender" << endl;
     cout << " 6.\t" << "Year of Birth" << endl;
-    cout << " 7.\t" << "Year of Death" << endl;
     cout << " ___________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";

@@ -18,7 +18,6 @@ public:
     void setSex(string gender);
     void setYearOfBirth(string b_year);
     void setYearOfDeath(string d_year);
-    string isAlive();
     friend ostream& operator << (ostream& outs, ComputerScientist& c);
     friend bool operator == (ComputerScientist& c1, ComputerScientist& c2);
     friend bool operator == (string s, ComputerScientist& c);
@@ -29,7 +28,7 @@ public:
     bool compareByReverseFirstName(ComputerScientist a, ComputerScientist b);
     bool compareByReverseLastName(ComputerScientist a, ComputerScientist b);
     bool compareBySex(ComputerScientist a, ComputerScientist b);
-
+    bool compareByYear(ComputerScientist a, ComputerScientist b);
 
 private:
     string firstName;

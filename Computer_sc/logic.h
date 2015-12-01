@@ -8,7 +8,8 @@
 #include <algorithm>
 #include <stdlib.h>
 #include <iomanip>
-
+#include <stdio.h>
+//#include <boost/algorithm/string.hpp>
 using namespace std;
 
 class logic {
@@ -29,11 +30,6 @@ public:
     bool checkSex(string s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
-    //bool compareByFirstName(ComputerScientist a, ComputerScientist b);
-    //bool compareByLastName(ComputerScientist a, ComputerScientist b);
-    //bool compareBySex(ComputerScientist a, ComputerScientist b);
-    //bool compareByBirth(ComputerScientist a, ComputerScientist b);
-    //bool compareByDeath(ComputerScientist a, ComputerScientist b);
     bool checkDeath(ComputerScientist& c, string s);
     bool okToAdd(ComputerScientist& c);
     void sortByFirstName(vector<ComputerScientist>& v);
@@ -41,8 +37,12 @@ public:
     void sortReverseByFirstName(vector<ComputerScientist>& v);
     void sortReverseByLastName(vector<ComputerScientist>& v);
     void sortBySex(vector<ComputerScientist>& v);
+    void sortByBirthYear(vector<ComputerScientist>& v);
     void searching();
-    void eraseFromVector();
+    string isAlive(ComputerScientist& c);
+    void removeScientist();
+    void header();
+    void footer();
 };
 
 #endif // LOGIC_H

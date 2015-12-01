@@ -11,9 +11,9 @@ private:
 public:
     repository();
     vector<ComputerScientist> getVector();
-    void add(ComputerScientist c);
+    void add(const ComputerScientist& c);
     void outputList(vector<ComputerScientist>& v);
-    void eraseFromVector(int number);
+    void removeScientist(int number);
 };
 
 #endif // REPOSITORY_H

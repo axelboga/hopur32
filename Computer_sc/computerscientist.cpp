@@ -48,16 +48,7 @@ void ComputerScientist::setYearOfDeath(string d_year) {
     yearOfDeath = d_year;
 }
 
-string ComputerScientist::isAlive() {
-    string answ = "no";
-    cout << "Is " << firstName << " still alive ? " << endl;
-    cout << "yes/no : ";
-    cin >> answ;
-
-    return answ;
-}
-
-ostream& operator <<(ostream& outs, ComputerScientist& c) {
+ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the object computerScientist
     outs << left << setw(14) << c.firstName << left << setw(16) << c.lastName << left << setw(16)<<
             c. sex << left << setw(16)<< c.yearOfBirth << left <<setw(15) << c.yearOfDeath << endl;
     return outs;
@@ -69,7 +60,7 @@ void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientis
     }
 }
 
-bool operator == (ComputerScientist& c1, ComputerScientist& c2) {
+bool operator == (ComputerScientist& c1, ComputerScientist& c2) { //returns true if two objects are exactly the same
     if (c1.firstName == c2.firstName && c1.lastName == c2.lastName &&
             c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath){
         return true;
@@ -79,22 +70,18 @@ bool operator == (ComputerScientist& c1, ComputerScientist& c2) {
     }
 }
 
-bool operator == (string s, ComputerScientist& c) {
+bool operator == (string s, ComputerScientist& c) { //return true if string, s, is a substring in any of the object's variables
     if (c.found(c.firstName, s) || c.found(c.lastName, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)){
         return true;
     }
     return false;
 }
 
-bool ComputerScientist::found(string a, string b) {
-   int n;
+bool ComputerScientist::found(string a, string b) { //returns true if a certain substring excits in a string
+   int n;                                           //spyrja:þetta ætti ekki að vera meðlimafall!?!
    n = a.find(b);
    if (n < 0){
      return false;
     }
    return true;
-}
-
-bool ComputerScientist::compareByFirstName(ComputerScientist a, ComputerScientist b){
-    return a.getFirstName() < b.getFirstName();
 }

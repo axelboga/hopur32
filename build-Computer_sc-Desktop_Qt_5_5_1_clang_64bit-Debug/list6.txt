@@ -1,5 +1,0 @@
-Gunnar        Gunnarsson      male            1993            na             
-Jon           Jonsson         female          1995            na             
-Hafdis        Alexandersdottirfemale                                         
-                              female                                         
-Kristin       Gunnarsdottir   female          1997            na             

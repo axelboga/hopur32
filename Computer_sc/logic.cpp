@@ -58,7 +58,6 @@ void logic::addLastName(ComputerScientist& c) {
         cin >> l_name;
         transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
         // ^ converts to lowercase
-
         c.setLastName(l_name);
         valid = checkName(c.getLastName());
         if (!valid){
@@ -266,21 +265,13 @@ void logic::searching() {
     cin >> input;
     transform(input.begin(), input.end(), input.begin(), ::tolower);
     header();
-    int space = 3;
-    int p = 1;
     unsigned int counter = 0;
+    int tempCount = 1;
     for (unsigned int i = 0; i < v.size(); i++){
         if (input == v[i]){
-            if(i >= 9) //aligns the spacing between the number and first name
-            {
-                space = 2;
-            }
-            else if(i >= 99)
-            {
-                space = 1;
-            }
-            cout << p << setw(space) << "." << v[i];
-            p++;
+            cout<< " " << left << setw(5)<< setfill(' ');
+            cout << tempCount << v[i];
+            tempCount++;
         }
         else{
             counter++;
@@ -294,18 +285,23 @@ void logic::searching() {
 }
 
 void logic::header() {
-    cout << " __________________________________________________________________ " << endl;
-    cout << " Name                    | Gender | Date of Birth | Date of Death   " << endl;
-    cout << " ________________________|________|_______________|________________ " << endl;
+    cout << " ______________________________________________________________________ " << endl;
+    cout << " No.|Name                    | Gender | Date of Birth | Date of Death   " << endl;
+    cout << " ___|________________________|________|_______________|________________ " << endl;
 }
 
 void logic::footer() {
-    cout << " __________________________________________________________________" << endl;
+    cout << " _____________________________________________________________________" << endl;
 }
 
 void logic::removeScientist() {
-    int number;
+    unsigned int number;
     cout << "Input the number of the scientist you want to remove: ";
-    cin >> number;
-    compSciRepo.removeScientist(number);
+    do{
+        cin >> number;
+        if(number < 1 || number > compSciRepo.getVector().size()){
+            cout << "invalid input, please pick a number that is in the list" << endl;
+        }
+    }while(number < 1 || number > compSciRepo.getVector().size());
+        compSciRepo.removeScientist(number);
 }

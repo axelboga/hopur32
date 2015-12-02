@@ -104,26 +104,26 @@ void UI::banner(){
 void UI::sortUI() {
 
     cout << "Sort list by:" << endl;
-    cout << " ___________________________________________" << endl;
-    cout << " 1.\t" << "First Name (a-z)" << endl;
-    cout << " 2.\t" << "First Name (z-a)" << endl;
-    cout << " 3.\t" << "Last Name (a-z)" << endl;
-    cout << " 4.\t" << "Last Name (z-a)" << endl;
-    cout << " 5.\t" << "Gender" << endl;
-    cout << " 6.\t" << "Year of Birth" << endl;
-    cout << " ___________________________________________" << endl;
+    cout << " _____________________________________________________________________" << endl;
+    cout << " 1\t" << "First Name (a-z)" << endl;
+    cout << " 2\t" << "First Name (z-a)" << endl;
+    cout << " 3\t" << "Last Name (a-z)" << endl;
+    cout << " 4\t" << "Last Name (z-a)" << endl;
+    cout << " 5\t" << "Gender" << endl;
+    cout << " 6\t" << "Year of Birth" << endl;
+    cout << " _____________________________________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";
 }
 
 void UI::menu() {
-    cout << " ___________________________________________" << endl;
-    cout << " 1.\t" << "Add Scientist" << endl;
-    cout << " 2.\t" << "Remove Scientist" << endl;
-    cout << " 3.\t" << "View Scientists" << endl;
-    cout << " 4.\t" << "Search for Scientists" << endl;
-    cout << " 5.\t" << "Exit" << endl;
-    cout << " ___________________________________________" << endl;
+    cout << " _____________________________________________________________________" << endl;
+    cout << " 1\t" << "Add Scientist" << endl;
+    cout << " 2\t" << "Remove Scientist" << endl;
+    cout << " 3\t" << "View Scientists" << endl;
+    cout << " 4\t" << "Search for Scientists" << endl;
+    cout << " 5\t" << "Exit" << endl;
+    cout << " _____________________________________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";
 }

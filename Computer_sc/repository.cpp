@@ -29,23 +29,16 @@ void repository::add(const ComputerScientist& c){
     outs.close();
 }
 
+
 void repository::outputList(vector<ComputerScientist>& v) {
-    cout << " __________________________________________________________________ " << endl;
-    cout << " Name                    | Gender | Date of Birth | Date of Death   " << endl;
-    cout << " ________________________|________|_______________|________________ " << endl;
-    int space = 3;
+    cout << " _____________________________________________________________________ " << endl;
+    cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
+    cout << " ___|_________________________|________|_______________|______________ " << endl;
     for (unsigned int i = 0; i < v.size(); i++){
-
-            if(i >= 9) { //aligns the spacing between the number and first name
-                space = 2;
-            }
-            else if(i >= 99) {
-                space = 1;
-            }
-
-        cout << i+1 << setw(space) << "." << v[i];
+        cout<< " " << left << setw(5)<< setfill(' ');
+        cout << i+1 << v[i];
     }
-    cout << " __________________________________________________________________" << endl;
+    cout << " _____________________________________________________________________" << endl;
 }
 
 void repository::removeScientist(int number) {
@@ -54,12 +47,20 @@ void repository::removeScientist(int number) {
     name[0] = toupper(name[0]);
 
     compSciVector.erase(compSciVector.begin() + (number - 1));  //remove from vector
-    ofstream outs("list.txt", ios::out);
 
-    for(unsigned int i = 0; i != compSciVector.size(); i++) {    //remove from list
-        outs << compSciVector[i] << endl;
-    }
+    ofstream outs("list.txt", ios::out);
     outs.close();
+    ofstream out;   //also add to the list/file.
+    out.open("list.txt", ios::app);
+    if (out.fail()){
+        cout << "failed" << endl;
+    }
+    for(unsigned int i = 0; i != compSciVector.size(); i++) {
+        ComputerScientist temp = compSciVector[i];
+        //also add to the list/file.
+        readToFile(out, temp);
+    }
+    out.close();
 
     cout << "The scientist " << name << " has been removed from the list" << endl;
 }

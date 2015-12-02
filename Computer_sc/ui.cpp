@@ -3,7 +3,7 @@
 using namespace std;
 
 UI::UI() {
-    logic CompSciLogic;
+    ScientistServices CompSciServices;
 }
 
 void UI::start() {
@@ -17,11 +17,11 @@ void UI::start() {
 
         if (input == '1'){
             ComputerScientist c = ComputerScientist();
-            CompSciLogic.add(c);
+            CompSciServices.add(c);
         }
         else if(input == '2'){
-            CompSciLogic.view();
-            CompSciLogic.removeScientist();
+            CompSciServices.view();
+            CompSciServices.removeScientist();
         }
         else if(input == '3'){
             vector<ComputerScientist> v;
@@ -32,28 +32,28 @@ void UI::start() {
                 cin >> ch;
                 clearScreen();
                 if (ch == '1') {
-                    CompSciLogic.sortByFirstName(v);
-                    CompSciLogic.view(v);
+                    CompSciServices.sortByFirstName(v);
+                    CompSciServices.view(v);
                 }
                 else if (ch == '2'){
-                    CompSciLogic.sortReverseByFirstName(v);
-                    CompSciLogic.view(v);
+                    CompSciServices.sortReverseByFirstName(v);
+                    CompSciServices.view(v);
                 }
                 else if (ch == '3'){
-                    CompSciLogic.sortByLastName(v);
-                    CompSciLogic.view(v);
+                    CompSciServices.sortByLastName(v);
+                    CompSciServices.view(v);
                 }
                 else if (ch == '4'){
-                    CompSciLogic.sortReverseByLastName(v);
-                    CompSciLogic.view(v);
+                    CompSciServices.sortReverseByLastName(v);
+                    CompSciServices.view(v);
                 }
                 else if (ch == '5'){
-                    CompSciLogic.sortBySex(v);
-                    CompSciLogic.view(v);
+                    CompSciServices.sortBySex(v);
+                    CompSciServices.view(v);
                 }
                 else if (ch == '6'){
-                    CompSciLogic.sortByBirthYear(v);
-                    CompSciLogic.view(v);
+                    CompSciServices.sortByBirthYear(v);
+                    CompSciServices.view(v);
                 }
                 else{
                     cout << "Wrong input. Try again" << endl;
@@ -64,7 +64,7 @@ void UI::start() {
         else if(input == '4'){
             clearScreen();
             cout << "Search word: ";
-            CompSciLogic.searching();
+            CompSciServices.searching();
         }
         else if(input == '5'){
             cout << "Ending Program." << endl;

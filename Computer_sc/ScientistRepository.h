@@ -1,16 +1,15 @@
-#ifndef REPOSITORY_H
-#define REPOSITORY_H
-#include "computerscientist.h"
+#ifndef SCIENTISTREPOSITORY_H
+#define SCIENTISTREPOSITORY_H
+#include "ComputerScientist.h"
 
-class repository {
+class ScientistRepository {
 public:
-    repository();
+    ScientistRepository();
     vector<ComputerScientist> getVector();
     void add(const ComputerScientist& c);
     void outputList(vector<ComputerScientist>& v);
     void removeScientist(int number);
     void fillVectorFromList(istream& ins, ComputerScientist& c);
-    void headerAndSpaces(vector<ComputerScientist>& v);
 private:
     vector<ComputerScientist> compSciVector;
 };

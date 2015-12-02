@@ -1,12 +1,12 @@
-#include "logic.h"
+#include "ScientistServices.h"
 
 const int CURRENT_YEAR = 2015;
 
-logic::logic() {
-    compSciRepo = repository();
+ScientistServices::ScientistServices() {
+    compSciRepo = ScientistRepository();
  }
 
-void logic::add(ComputerScientist& c) {
+void ScientistServices::add(ComputerScientist& c) {
     addFirstName(c);
     addLastName(c);
     c.setName();
@@ -21,7 +21,7 @@ void logic::add(ComputerScientist& c) {
     }
 }
 
-bool logic::okToAdd(ComputerScientist& c) { //returns true if the object c is not equal to any other objects in the vector
+bool ScientistServices::okToAdd(ComputerScientist& c) { //returns true if the object c is not equal to any other objects in the vector
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
     for (unsigned int i = 0; i < v.size(); i++){
@@ -32,7 +32,7 @@ bool logic::okToAdd(ComputerScientist& c) { //returns true if the object c is no
     return true;
 }
 
-void logic::addFirstName(ComputerScientist& c) {
+void ScientistServices::addFirstName(ComputerScientist& c) {
     string f_name;
     bool valid = false;
     while (!valid){
@@ -50,7 +50,7 @@ void logic::addFirstName(ComputerScientist& c) {
     }
 }
 
-void logic::addLastName(ComputerScientist& c) {
+void ScientistServices::addLastName(ComputerScientist& c) {
     string l_name;
     bool valid = false;
     while (!valid){
@@ -67,7 +67,7 @@ void logic::addLastName(ComputerScientist& c) {
     }
 }
 
-void logic::addSex(ComputerScientist& c) {
+void ScientistServices::addSex(ComputerScientist& c) {
     string gender;
     do{
         cout << "Input gender(female / male): ";
@@ -92,7 +92,7 @@ void logic::addSex(ComputerScientist& c) {
 
 }
 
-void logic::addYearOfBirth(ComputerScientist& c) {
+void ScientistServices::addYearOfBirth(ComputerScientist& c) {
     string b_year;
     bool valid = false;
     while (!valid){
@@ -107,7 +107,7 @@ void logic::addYearOfBirth(ComputerScientist& c) {
     }
 }
 
-void logic::addYearOfDeath(ComputerScientist& c) {
+void ScientistServices::addYearOfDeath(ComputerScientist& c) {
     string d_year;
     bool valid = false;
     string answ = isAlive(c);
@@ -127,7 +127,7 @@ void logic::addYearOfDeath(ComputerScientist& c) {
     }
 }
 
-string logic::isAlive(ComputerScientist& c) {
+string ScientistServices::isAlive(ComputerScientist& c) {
     string answ = "no";
     do {
         string name = c.getFirstName();
@@ -145,7 +145,7 @@ string logic::isAlive(ComputerScientist& c) {
     return answ;
 }
 
-bool logic::checkBirth(string s) {//returns false if user inputs non-digits, wrong length or year greater than 2015
+bool ScientistServices::checkBirth(string s) {//returns false if user inputs non-digits, wrong length or year greater than 2015
     int  year = atoi(s.c_str());
 
     for (unsigned int i = 0; i < s.length(); i++){
@@ -162,7 +162,7 @@ bool logic::checkBirth(string s) {//returns false if user inputs non-digits, wro
    return true;
 }
 
-bool logic::checkDeath(string d, string b) {
+bool ScientistServices::checkDeath(string d, string b) {
     int yearOfDeath = atoi(d.c_str());
     int yearOfBirth = atoi(b.c_str());
 
@@ -183,7 +183,7 @@ bool logic::checkDeath(string d, string b) {
    return true;
 }
 
-bool logic::checkName(string s) {
+bool ScientistServices::checkName(string s) {
     for (unsigned int i = 0; i < s.length(); i++){
         if (!isalpha(s[i])) {
             if (s[i] != ' ' && s[i] != '\''){
@@ -194,11 +194,11 @@ bool logic::checkName(string s) {
    return true;
 }
 
-void logic::view(vector<ComputerScientist>& v) {
+void ScientistServices::view(vector<ComputerScientist>& v) {
     compSciRepo.outputList(v);
 }
 
-void logic::view() {
+void ScientistServices::view() {
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
     compSciRepo.outputList(v);
@@ -228,37 +228,37 @@ bool compareByYear(ComputerScientist a, ComputerScientist b){
     return a.getYearOfBirth() < b.getYearOfBirth();
 }
 
-void logic::sortBySex(vector<ComputerScientist>& v) {
+void ScientistServices::sortBySex(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareBySex);
 }
 
-void logic::sortByFirstName(vector<ComputerScientist>& v) {
+void ScientistServices::sortByFirstName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareByName);
 }
 
-void logic::sortByLastName(vector<ComputerScientist>& v) {
+void ScientistServices::sortByLastName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareByLastName);
 }
 
-void logic::sortReverseByFirstName(vector<ComputerScientist>& v) {
+void ScientistServices::sortReverseByFirstName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareByReverseName);
 }
 
-void logic::sortReverseByLastName(vector<ComputerScientist>& v) {
+void ScientistServices::sortReverseByLastName(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareByReverseLastName);
 }
 
-void logic::sortByBirthYear(vector<ComputerScientist>& v) {
+void ScientistServices::sortByBirthYear(vector<ComputerScientist>& v) {
     v = compSciRepo.getVector();
     sort(v.begin(), v.end(), compareByYear);
 }
 
-void logic::searching() {
+void ScientistServices::searching() {
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
     string input;
@@ -284,17 +284,17 @@ void logic::searching() {
     footer();
 }
 
-void logic::header() {
+void ScientistServices::header() {
     cout << " ______________________________________________________________________ " << endl;
     cout << " No.|Name                    | Gender | Date of Birth | Date of Death   " << endl;
     cout << " ___|________________________|________|_______________|________________ " << endl;
 }
 
-void logic::footer() {
+void ScientistServices::footer() {
     cout << " _____________________________________________________________________" << endl;
 }
 
-void logic::removeScientist() {
+void ScientistServices::removeScientist() {
     unsigned int number;
     cout << "Input the number of the scientist you want to remove: ";
     do{

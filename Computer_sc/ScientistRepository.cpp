@@ -1,8 +1,8 @@
-#include "repository.h"
+#include "ScientistRepository.h"
 #include <fstream>
 #include <algorithm>
 
-repository::repository() {
+ScientistRepository::ScientistRepository() {
     compSciVector = vector<ComputerScientist>();
     ifstream ins ("list.txt");
     if (ins.is_open()){
@@ -12,11 +12,11 @@ repository::repository() {
     }
 }
 
-vector<ComputerScientist> repository::getVector(){
+vector<ComputerScientist> ScientistRepository::getVector(){
     return compSciVector;
 }
 
-void repository::add(const ComputerScientist& c){
+void ScientistRepository::add(const ComputerScientist& c){
     ComputerScientist temp = c;
     compSciVector.push_back(temp); //add to the vector
 
@@ -30,7 +30,7 @@ void repository::add(const ComputerScientist& c){
 }
 
 
-void repository::outputList(vector<ComputerScientist>& v) {
+void ScientistRepository::outputList(vector<ComputerScientist>& v) {
     cout << " _____________________________________________________________________ " << endl;
     cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
     cout << " ___|_________________________|________|_______________|______________ " << endl;
@@ -41,7 +41,7 @@ void repository::outputList(vector<ComputerScientist>& v) {
     cout << " _____________________________________________________________________" << endl;
 }
 
-void repository::removeScientist(int number) {
+void ScientistRepository::removeScientist(int number) {
     ComputerScientist c = compSciVector[number - 1]; //get name of the scientist to be deleted
     string name = c.getFirstName();
     name[0] = toupper(name[0]);

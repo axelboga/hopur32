@@ -7,3 +7,4 @@ grace      hopper      female        1906            1992
 gottfried  leibniz     male          1664            1716
 sophie     wilson      female        1957            -   
 john       napier      male          1550            1617
+blaise     pascal      male          1623            1662

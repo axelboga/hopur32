@@ -9,13 +9,13 @@ TEMPLATE = app
 
 SOURCES += main.cpp \
     ui.cpp \
-    logic.cpp \
-    computerscientist.cpp \
-    repository.cpp
+    ScientistServices.cpp \
+    ComputerScientist.cpp \
+    ScientistRepository.cpp
 
 HEADERS += \
     ui.h \
-    logic.h \
-    computerscientist.h \
-    repository.h
+    ScientistServices.h \
+    ComputerScientist.h \
+    ScientistRepository.h
 

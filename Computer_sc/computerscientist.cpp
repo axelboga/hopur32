@@ -1,4 +1,4 @@
-#include "computerscientist.h"
+#include "ComputerScientist.h"
 
 ComputerScientist::ComputerScientist(){
     firstName = "";

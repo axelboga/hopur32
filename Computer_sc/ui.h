@@ -1,6 +1,6 @@
 #ifndef UI_H
 #define UI_H
-#include "logic.h"
+#include "ScientistServices.h"
 #include <string>
 #include <iostream>
 
@@ -13,7 +13,7 @@ public:
     void menu();
     void clearScreen();
 private:
-    logic CompSciLogic;
+    ScientistServices CompSciServices;
 };
 
 #endif // UI_H

@@ -1,16 +1,16 @@
-#ifndef LOGIC_H
-#define LOGIC_H
-#include "computerscientist.h"
-#include "repository.h"
+#ifndef SCIENTISTSERVICES_H
+#define SCIENTISTSERVICES_H
+#include "ComputerScientist.h"
+#include "ScientistRepository.h"
 #include <cctype>
 #include <algorithm>
 #include <stdlib.h>
 #include <stdio.h>
 using namespace std;
 
-class logic {
+class ScientistServices {
 public:
-    logic();
+    ScientistServices();
     void add(ComputerScientist& c);
     void addFirstName(ComputerScientist& c);
     void addLastName(ComputerScientist& c);
@@ -34,7 +34,7 @@ public:
     void header();
     void footer();
 private:
-    repository compSciRepo;
+    ScientistRepository compSciRepo;
     string isAlive(ComputerScientist& c);
 };
 

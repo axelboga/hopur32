@@ -1,7 +1,7 @@
 #ifndef SCIENTISTSERVICES_H
 #define SCIENTISTSERVICES_H
-#include "ComputerScientist.h"
-#include "ScientistRepository.h"
+#include "computerscientist.h"
+#include "scientistrepository.h"
 #include <cctype>
 #include <algorithm>
 #include <stdlib.h>

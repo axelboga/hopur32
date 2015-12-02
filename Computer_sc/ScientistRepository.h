@@ -1,6 +1,6 @@
 #ifndef SCIENTISTREPOSITORY_H
 #define SCIENTISTREPOSITORY_H
-#include "ComputerScientist.h"
+#include "computerscientist.h"
 
 class ScientistRepository {
 public:

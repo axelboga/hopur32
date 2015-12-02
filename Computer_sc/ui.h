@@ -1,6 +1,6 @@
 #ifndef UI_H
 #define UI_H
-#include "ScientistServices.h"
+#include "scientistservices.h"
 #include <string>
 #include <iostream>
 

@@ -1,4 +1,4 @@
-#include "ScientistRepository.h"
+#include "scientistrepository.h"
 #include <fstream>
 #include <algorithm>
 

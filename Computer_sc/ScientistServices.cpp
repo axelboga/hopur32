@@ -1,4 +1,4 @@
-#include "ScientistServices.h"
+#include "scientistservices.h"
 
 const int CURRENT_YEAR = 2015;
 

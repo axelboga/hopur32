@@ -6,6 +6,9 @@
 class ComputerRepository {
 public:
     ComputerRepository();
+    void add(Computer computer);
+private:
+    BaseRepository baseRepo;
 };
 
 #endif // COMPUTERREPOSITORY_H

@@ -9,6 +9,7 @@ class BaseRepository
 public:
     BaseRepository();
     QSqlDatabase ConnectDatabase();
+
 private:
     QSqlDatabase datab;
 };

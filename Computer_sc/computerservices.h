@@ -7,9 +7,11 @@ class ComputerServices{
 
 public:
     ComputerServices();
-    void addComputer(Computer computer);
+    void add(Computer computer);
     void removeComputer(string id);
     vector<Computer> searchComputer(string searchTerm);
+private:
+    ComputerRepository compRepo;
 };
 
 #endif // COMPUTERSERVICES_H

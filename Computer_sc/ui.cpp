@@ -3,7 +3,8 @@
 using namespace std;
 
 UI::UI() {
-    ScientistServices CompSciServices;
+    sciServices = ScientistServices();
+    compServices = ComputerServices();
 }
 
 void UI::start() {
@@ -16,12 +17,15 @@ void UI::start() {
         clearScreen();
 
         if (input == '1'){
-            ComputerScientist c = ComputerScientist();
-            CompSciServices.add(c);
+            //ComputerScientist c = ComputerScientist();
+            //CompSciServices.add(c);
+            Computer c;
+            compServices.add(c);
+
         }
         else if(input == '2'){
-            CompSciServices.view();
-            CompSciServices.removeScientist();
+            sciServices.view();
+            sciServices.removeScientist();
         }
         else if(input == '3'){
             vector<ComputerScientist> v;
@@ -32,28 +36,28 @@ void UI::start() {
                 cin >> ch;
                 clearScreen();
                 if (ch == '1') {
-                    CompSciServices.sortByFirstName(v);
-                    CompSciServices.view(v);
+                    sciServices.sortByFirstName(v);
+                    sciServices.view(v);
                 }
                 else if (ch == '2'){
-                    CompSciServices.sortReverseByFirstName(v);
-                    CompSciServices.view(v);
+                    sciServices.sortReverseByFirstName(v);
+                    sciServices.view(v);
                 }
                 else if (ch == '3'){
-                    CompSciServices.sortByLastName(v);
-                    CompSciServices.view(v);
+                    sciServices.sortByLastName(v);
+                    sciServices.view(v);
                 }
                 else if (ch == '4'){
-                    CompSciServices.sortReverseByLastName(v);
-                    CompSciServices.view(v);
+                    sciServices.sortReverseByLastName(v);
+                    sciServices.view(v);
                 }
                 else if (ch == '5'){
-                    CompSciServices.sortBySex(v);
-                    CompSciServices.view(v);
+                    sciServices.sortBySex(v);
+                    sciServices.view(v);
                 }
                 else if (ch == '6'){
-                    CompSciServices.sortByBirthYear(v);
-                    CompSciServices.view(v);
+                    sciServices.sortByBirthYear(v);
+                    sciServices.view(v);
                 }
                 else{
                     cout << "Wrong input. Try again" << endl;
@@ -64,7 +68,7 @@ void UI::start() {
         else if(input == '4'){
             clearScreen();
             cout << "Search word: ";
-            CompSciServices.searching();
+            sciServices.searching();
         }
         else if(input == '5'){
             cout << "Ending Program." << endl;

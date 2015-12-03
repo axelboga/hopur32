@@ -1,6 +1,7 @@
 #ifndef UI_H
 #define UI_H
 #include "scientistservices.h"
+#include "computerservices.h"
 #include <string>
 #include <iostream>
 
@@ -16,7 +17,8 @@ public:
     void computerMenu();
 
 private:
-    ScientistServices CompSciServices;
+    ScientistServices sciServices;
+    ComputerServices compServices;
 };
 
 #endif // UI_H

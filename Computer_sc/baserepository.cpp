@@ -16,7 +16,6 @@ QSqlDatabase BaseRepository::ConnectDatabase(){
     else{
         database = QSqlDatabase::addDatabase("QSQLITE", "ComuterScience");
         database.setDatabaseName("Database.sqlite");
-
         database.open();
     }
 

@@ -1,8 +1,6 @@
 #include "computerrepository.h"
-#include "baserepository.h"
-#include "computer.h"
 
 ComputerRepository::ComputerRepository(){
-
+     BaseRepository baseRep = BaseRepository();
 }
 

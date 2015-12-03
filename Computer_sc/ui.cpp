@@ -23,9 +23,9 @@ void UI::start() {
         }
         else if(input == '2')
         {
-            //computerLoop();
-            cout << "Sorry!" << endl;
-            cout << "Feature not ready!" << endl;
+            computerLoop();
+           //cout << "Sorry!" << endl;
+           //cout << "Feature not ready!" << endl;
         }
         else if(input == '3')
         {
@@ -125,9 +125,8 @@ void UI::computerMenu() {
     cout << endl;
     cout << "Enter your Selection: ";
 }
-<<<<<<< HEAD
 void UI::mainMenu(){
-    banner2();
+    banner();
     cout << "Welcome to the Computers & Scientists Program." << endl;
     cout << "Which database would you like to visit?" << endl;
 
@@ -212,30 +211,84 @@ void UI::scientistLoop(){
     while(true);
 
 }
-void UI::banner2()
-{
-    cout << " ______     ______     __    __     ______   __  __     ______   ______     ______     ______	    " << endl;
-    cout << "/\\  ___\\   /\\  __ \\   /\\ \"-./  \\   /\\  == \\ /\\ \\/\\ \\   /\\__  _\\ /\\  ___\\   /\\  == \\   /\\  ___\\     " << endl;
-    cout << "\\ \\ \\____  \\ \\ \\/\\ \\  \\ \\ \\-./\\ \\  \\ \\  _-/ \\ \\ \\_\\ \\  \\/_/\\ \\/ \\ \\  __\\   \\ \\  __<   \\ \\___  \\    " << endl;
-    cout << " \\ \\_____\\  \\ \\_____\\  \\ \\_\\ \\ \\_\\  \\ \\_\\    \\ \\_____\\    \\ \\_\\  \\ \\_____\\  \\ \\_\\ \\_\\  \\/\\_____\\   " << endl;
-    cout << "  \\/_____/   \\/_____/   \\/_/  \\/_/   \\/_/     \\/_____/     \\/_/   \\/_____/   \\/_/ /_/   \\/_____/   " << endl;
-    cout << "                                                                                                   " << endl;
-    cout << "                               ______     __   __     _____                                        " << endl;
-    cout << "                              /\\  __ \\   /\\ \"-.\\ \\   /\\  __-.                                      " << endl;
-    cout << "                              \\ \\  __ \\  \\ \\ \\-.  \\  \\ \\ \\/\\ \\                                     " << endl;
-    cout << "                               \\ \\_\\ \\_\\  \\ \\_\\\\\"\\_\\  \\ \\____-                                     " << endl;
-    cout << "                                \\/_/\\/_/   \\/_/ \\/_/   \\/____/                                     " << endl;
-    cout << "                                                                                                   " << endl;
-    cout << " ______     ______     __     ______     __   __     ______   __     ______     ______   ______    " << endl;
-    cout << "/\\  ___\\   /\\  ___\   /\\ \\   /\\  ___\\   /\\ \"-.\\ \\   /\\__  _\\ /\\ \\   /\\  ___\\   /\\__  _\\ /\\  ___ " << endl;
-    cout << "\\ \\___  \\  \\ \\ \\____  \\ \\ \\  \\ \\  __\\   \\ \\ \\-.  \\  \\/_/\\ \\/ \\ \\ \\  \\ \\___  \\  \\/_/\\ \\/ \\ \\___  \\  " << endl;
-    cout << " \\/\\_____\\  \\ \\_____\\  \\ \\_\\  \\ \\_____\\  \\ \\_\\\\\"\\_\\    \\ \\_\\  \\ \\_\\  \\/\\_____\\    \\ \\_\\  \\/\\_____\\ " << endl;
-    cout << "  \\/_____/   \\/_____/   \\/_/   \\/_____/   \\/_/ \\/_/     \\/_/   \\/_/   \\/_____/     \\/_/   \\/_____/ " << endl;
+void UI::computerLoop(){
+    do {
+        char input;
+        computerMenu();
+        cin >> input;
+        cout << endl;
+        clearScreen();
 
+        if (input == '1'){
+            Computer c = Computer();
+            addComputer(c);
+            compServices.add(c);
 
-=======
+        }
+        else if(input == '2'){
+            sciServices.view();
+            sciServices.removeScientist();
+        }
+        else if(input == '3'){
+            vector<ComputerScientist> v;
+            char ch;
+            cout << endl;
+            do {
+                scientistSortUI();
+                cin >> ch;
+                clearScreen();
+                if (ch == '1') {
+                    sciServices.sortByFirstName(v);
+                    sciServices.view(v);
+                }
+                else if (ch == '2'){
+                    sciServices.sortReverseByFirstName(v);
+                    sciServices.view(v);
+                }
+                else if (ch == '3'){
+                    sciServices.sortByLastName(v);
+                    sciServices.view(v);
+                }
+                else if (ch == '4'){
+                    sciServices.sortReverseByLastName(v);
+                    sciServices.view(v);
+                }
+                else if (ch == '5'){
+                    sciServices.sortBySex(v);
+                    sciServices.view(v);
+                }
+                else if (ch == '6'){
+                    sciServices.sortByBirthYear(v);
+                    sciServices.view(v);
+                }
+                else{
+                    cout << "Wrong input. Try again" << endl;
+                }
+            }
+            while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
+        }
+        else if(input == '4'){
+            clearScreen();
+            cout << "Search word: ";
+            sciServices.searching();
+        }
+        else if(input == '5'){
+            cout << "Returning to Main Menu." << endl;
+            cout << endl;
+            return;
+        }
+        else{
+            cout << "Invalid input, try again: " << endl;
+        }
+    }
+    while(true);
+}
 
 void UI::addComputer(Computer& c){
+    string my_name;
+    cout << "Name: ";
+    cin >> my_name;
+    c.setName(my_name);
     string my_year;
     cout << "Year built: ";
     cin >> my_year;
@@ -257,5 +310,4 @@ void UI::addComputer(Computer& c){
         cout << "Types may only contain alphabetic characters!" << endl;
         cout << "Please try again." << endl;
     }
->>>>>>> 8a82514efc5e6611df3eb5110d7f3b7b8dec91c0
 }

@@ -19,7 +19,7 @@ void UI::start() {
         if (input == '1'){
             //ComputerScientist c = ComputerScientist();
             //CompSciServices.add(c);
-            Computer c;
+      
             compServices.add(c);
         }
         else if(input == '2'){
@@ -158,3 +158,9 @@ void UI::computerMenu() {
     cout << endl;
     cout << "Enter your Selection: ";
 }
+
+Computer c;
+string my_name;
+cin >> my_name;
+computer.setName(my_name);
+compServices.checkName

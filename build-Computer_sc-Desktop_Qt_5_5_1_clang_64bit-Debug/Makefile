@@ -12,10 +12,10 @@ MAKEFILE      = Makefile
 
 CC            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang
 CXX           = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
-DEFINES       = -DQT_CORE_LIB
+DEFINES       = -DQT_SQL_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wall -W -fPIC $(DEFINES)
-INCPATH       = -I../Computer_sc -I. -I../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -I../../../Qt/5.5/clang_64/mkspecs/macx-clang -F/Users/hafdisinga/Qt/5.5/clang_64/lib
+INCPATH       = -I../Computer_sc -I. -I../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers -I../../../Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -I../../../Qt/5.5/clang_64/mkspecs/macx-clang -F/Users/hafdisinga/Qt/5.5/clang_64/lib
 QMAKE         = /Users/hafdisinga/Qt/5.5/clang_64/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -36,7 +36,7 @@ DISTNAME      = Computer_sc1.0.0
 DISTDIR = /Users/hafdisinga/Desktop/hopur32/build-Computer_sc-Desktop_Qt_5_5_1_clang_64bit-Debug/.tmp/Computer_sc1.0.0
 LINK          = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/clang++
 LFLAGS        = -headerpad_max_install_names -Wl,-syslibroot,/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk -mmacosx-version-min=10.7 -Wl,-rpath,/Users/hafdisinga/Qt/5.5/clang_64/lib
-LIBS          = $(SUBLIBS) -F/Users/hafdisinga/Qt/5.5/clang_64/lib -framework QtCore -framework DiskArbitration -framework IOKit 
+LIBS          = $(SUBLIBS) -F/Users/hafdisinga/Qt/5.5/clang_64/lib -framework QtSql -framework QtCore -framework DiskArbitration -framework IOKit 
 AR            = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ar cq
 RANLIB        = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/ranlib -s
 SED           = sed
@@ -403,6 +403,7 @@ Makefile: ../Computer_sc/Computer_sc.pro ../../../Qt/5.5/clang_64/mkspecs/macx-c
 		../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/lex.prf \
 		../Computer_sc/Computer_sc.pro \
+		/Users/hafdisinga/Qt/5.5/clang_64/lib/QtSql.framework/QtSql.prl \
 		/Users/hafdisinga/Qt/5.5/clang_64/lib/QtCore.framework/QtCore.prl
 	$(QMAKE) -spec macx-clang CONFIG+=debug CONFIG+=x86_64 -o Makefile ../Computer_sc/Computer_sc.pro
 ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf:
@@ -546,6 +547,7 @@ Makefile: ../Computer_sc/Computer_sc.pro ../../../Qt/5.5/clang_64/mkspecs/macx-c
 ../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf:
 ../../../Qt/5.5/clang_64/mkspecs/features/lex.prf:
 ../Computer_sc/Computer_sc.pro:
+/Users/hafdisinga/Qt/5.5/clang_64/lib/QtSql.framework/QtSql.prl:
 /Users/hafdisinga/Qt/5.5/clang_64/lib/QtCore.framework/QtCore.prl:
 qmake: FORCE
 	@$(QMAKE) -spec macx-clang CONFIG+=debug CONFIG+=x86_64 -o Makefile ../Computer_sc/Computer_sc.pro
@@ -638,10 +640,42 @@ computerscientist.o: ../Computer_sc/computerscientist.cpp ../Computer_sc/compute
 
 computerrepository.o: ../Computer_sc/computerrepository.cpp ../Computer_sc/computerrepository.h \
 		../Computer_sc/baserepository.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
 		../Computer_sc/computer.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o computerrepository.o ../Computer_sc/computerrepository.cpp
 
-baserepository.o: ../Computer_sc/baserepository.cpp ../Computer_sc/baserepository.h
+baserepository.o: ../Computer_sc/baserepository.cpp ../Computer_sc/baserepository.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o baserepository.o ../Computer_sc/baserepository.cpp
 
 ####### Install

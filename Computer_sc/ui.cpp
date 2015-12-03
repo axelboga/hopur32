@@ -292,7 +292,8 @@ void UI::computerLoop(){
 void UI::readComputer(Computer& c){
     string my_name;
     cout << "Name: ";
-    cin >> my_name;
+    cin.ignore();
+    getline(cin, my_name);
     c.setName(my_name);
 
     string my_type;

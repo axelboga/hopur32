@@ -7,7 +7,8 @@ class ComputerRepository {
 public:
     ComputerRepository();
     void add(Computer computer);
-    void fillVectorFromDatabase(vector<Computer>& v);
+    void fillVectorFromDatabase(vector<Computer>& v, string sql);
+    vector<Computer> search(string input);
 private:
     BaseRepository baseRepo;
     QSqlDatabase datab;

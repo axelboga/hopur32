@@ -13,10 +13,17 @@ public:
     void setName(string my_name);
     string getYear() const;
     void setYear(string my_year);
+    string getType() const;
+    void setType(string my_type);
+    bool getWasBuilt() const;
+    void setWasBuilt(bool my_wasBuilt);
+
 private:
     int id;
     string name;
     string year;
+    string type;
+    bool wasBuilt;
 };
 
 #endif // COMPUTER_H

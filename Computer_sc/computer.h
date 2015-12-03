@@ -16,7 +16,7 @@ public:
     string getType() const;
     void setType(string my_type);
     bool getWasBuilt() const;
-    void setWasBuilt(bool my_wasBuilt);
+    void setWasBuilt(string my_wasBuilt);
 
 private:
     int id;

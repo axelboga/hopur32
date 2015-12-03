@@ -44,6 +44,9 @@ bool Computer::getWasBuilt() const {
     return wasBuilt;
 }
 
-void Computer::setWasBuilt(bool my_wasBuilt) {
-    wasBuilt = my_wasBuilt;
+void Computer::setWasBuilt(string my_wasBuilt) {
+    if (my_wasBuilt == "yes") {
+        wasBuilt = true;
+    }
+    wasBuilt = false;
 }

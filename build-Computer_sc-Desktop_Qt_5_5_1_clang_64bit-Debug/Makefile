@@ -50,14 +50,22 @@ OBJECTS_DIR   = ./
 
 SOURCES       = ../Computer_sc/main.cpp \
 		../Computer_sc/ui.cpp \
-		../Computer_sc/logic.cpp \
+		../Computer_sc/computer.cpp \
+		../Computer_sc/scientistrepository.cpp \
+		../Computer_sc/scientistservices.cpp \
+		../Computer_sc/computerservices.cpp \
 		../Computer_sc/computerscientist.cpp \
-		../Computer_sc/repository.cpp 
+		../Computer_sc/computerrepository.cpp \
+		../Computer_sc/baserepository.cpp 
 OBJECTS       = main.o \
 		ui.o \
-		logic.o \
+		computer.o \
+		scientistrepository.o \
+		scientistservices.o \
+		computerservices.o \
 		computerscientist.o \
-		repository.o
+		computerrepository.o \
+		baserepository.o
 DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../../../Qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -179,6 +187,7 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		../Computer_sc/.qmake.stash \
 		../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -198,13 +207,21 @@ DIST          = ../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/yacc.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/lex.prf \
 		../Computer_sc/Computer_sc.pro ../Computer_sc/ui.h \
-		../Computer_sc/logic.h \
+		../Computer_sc/computer.h \
 		../Computer_sc/computerscientist.h \
-		../Computer_sc/repository.h ../Computer_sc/main.cpp \
+		../Computer_sc/scientistrepository.h \
+		../Computer_sc/scientistservices.h \
+		../Computer_sc/computerservices.h \
+		../Computer_sc/computerrepository.h \
+		../Computer_sc/baserepository.h ../Computer_sc/main.cpp \
 		../Computer_sc/ui.cpp \
-		../Computer_sc/logic.cpp \
+		../Computer_sc/computer.cpp \
+		../Computer_sc/scientistrepository.cpp \
+		../Computer_sc/scientistservices.cpp \
+		../Computer_sc/computerservices.cpp \
 		../Computer_sc/computerscientist.cpp \
-		../Computer_sc/repository.cpp
+		../Computer_sc/computerrepository.cpp \
+		../Computer_sc/baserepository.cpp
 QMAKE_TARGET  = Computer_sc
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = Computer_sc
@@ -366,6 +383,7 @@ Makefile: ../Computer_sc/Computer_sc.pro ../../../Qt/5.5/clang_64/mkspecs/macx-c
 		../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -508,6 +526,7 @@ Makefile: ../Computer_sc/Computer_sc.pro ../../../Qt/5.5/clang_64/mkspecs/macx-c
 ../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf:
 ../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf:
 ../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -542,8 +561,8 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../Computer_sc/ui.h ../Computer_sc/logic.h ../Computer_sc/computerscientist.h ../Computer_sc/repository.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../Computer_sc/main.cpp ../Computer_sc/ui.cpp ../Computer_sc/logic.cpp ../Computer_sc/computerscientist.cpp ../Computer_sc/repository.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../Computer_sc/ui.h ../Computer_sc/computer.h ../Computer_sc/computerscientist.h ../Computer_sc/scientistrepository.h ../Computer_sc/scientistservices.h ../Computer_sc/computerservices.h ../Computer_sc/computerrepository.h ../Computer_sc/baserepository.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../Computer_sc/main.cpp ../Computer_sc/ui.cpp ../Computer_sc/computer.cpp ../Computer_sc/scientistrepository.cpp ../Computer_sc/scientistservices.cpp ../Computer_sc/computerservices.cpp ../Computer_sc/computerscientist.cpp ../Computer_sc/computerrepository.cpp ../Computer_sc/baserepository.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -586,28 +605,44 @@ compiler_clean:
 ####### Compile
 
 main.o: ../Computer_sc/main.cpp ../Computer_sc/ui.h \
-		../Computer_sc/logic.h \
+		../Computer_sc/scientistservices.h \
 		../Computer_sc/computerscientist.h \
-		../Computer_sc/repository.h
+		../Computer_sc/scientistrepository.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../Computer_sc/main.cpp
 
 ui.o: ../Computer_sc/ui.cpp ../Computer_sc/ui.h \
-		../Computer_sc/logic.h \
+		../Computer_sc/scientistservices.h \
 		../Computer_sc/computerscientist.h \
-		../Computer_sc/repository.h
+		../Computer_sc/scientistrepository.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ui.o ../Computer_sc/ui.cpp
 
-logic.o: ../Computer_sc/logic.cpp ../Computer_sc/logic.h \
+computer.o: ../Computer_sc/computer.cpp ../Computer_sc/computer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o computer.o ../Computer_sc/computer.cpp
+
+scientistrepository.o: ../Computer_sc/scientistrepository.cpp ../Computer_sc/scientistrepository.h \
+		../Computer_sc/computerscientist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scientistrepository.o ../Computer_sc/scientistrepository.cpp
+
+scientistservices.o: ../Computer_sc/scientistservices.cpp ../Computer_sc/scientistservices.h \
 		../Computer_sc/computerscientist.h \
-		../Computer_sc/repository.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o logic.o ../Computer_sc/logic.cpp
+		../Computer_sc/scientistrepository.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scientistservices.o ../Computer_sc/scientistservices.cpp
+
+computerservices.o: ../Computer_sc/computerservices.cpp ../Computer_sc/computerservices.h \
+		../Computer_sc/computer.h \
+		../Computer_sc/computerrepository.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o computerservices.o ../Computer_sc/computerservices.cpp
 
 computerscientist.o: ../Computer_sc/computerscientist.cpp ../Computer_sc/computerscientist.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o computerscientist.o ../Computer_sc/computerscientist.cpp
 
-repository.o: ../Computer_sc/repository.cpp ../Computer_sc/repository.h \
-		../Computer_sc/computerscientist.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o repository.o ../Computer_sc/repository.cpp
+computerrepository.o: ../Computer_sc/computerrepository.cpp ../Computer_sc/computerrepository.h \
+		../Computer_sc/baserepository.h \
+		../Computer_sc/computer.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o computerrepository.o ../Computer_sc/computerrepository.cpp
+
+baserepository.o: ../Computer_sc/baserepository.cpp ../Computer_sc/baserepository.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o baserepository.o ../Computer_sc/baserepository.cpp
 
 ####### Install
 

@@ -10,7 +10,7 @@ void UI::start() {
     cout << "Welcome to the Computer Scientists Program." << endl;
     do {
         char input;
-        menu();
+        scientistMenu();
         cin >> input;
         cout << endl;
         clearScreen();
@@ -28,7 +28,7 @@ void UI::start() {
             char ch;
             cout << endl;
             do {
-                sortUI();
+                scientistSortUI();
                 cin >> ch;
                 clearScreen();
                 if (ch == '1') {
@@ -101,7 +101,7 @@ void UI::banner(){
     cout << endl << endl << endl << endl;
 }
 
-void UI::sortUI() {
+void UI::scientistSortUI() {
 
     cout << "Sort list by:" << endl;
     cout << " _____________________________________________________________________" << endl;
@@ -116,7 +116,7 @@ void UI::sortUI() {
     cout << "Enter your Selection: ";
 }
 
-void UI::menu() {
+void UI::scientistMenu() {
     cout << " _____________________________________________________________________" << endl;
     cout << " 1\t" << "Add Scientist" << endl;
     cout << " 2\t" << "Remove Scientist" << endl;
@@ -130,4 +130,28 @@ void UI::menu() {
 void UI::clearScreen()
 {
    if (system("CLS")) system("clear");
+}
+void UI::computerSortUI() {
+
+    cout << "Sort list by:" << endl;
+    cout << " _____________________________________________________________________" << endl;
+    cout << " 1\t" << "Name of Computer (a-z)" << endl;
+    cout << " 2\t" << "Name of Computer (z-a)" << endl;
+    cout << " 3\t" << "Year built" << endl;
+    cout << " 4\t" << "Computer Type" << endl;
+    cout << " _____________________________________________________________________" << endl;
+    cout << endl;
+    cout << "Enter your Selection: ";
+}
+
+void UI::computerMenu() {
+    cout << " _____________________________________________________________________" << endl;
+    cout << " 1\t" << "Add Computer" << endl;
+    cout << " 2\t" << "Remove Computer" << endl;
+    cout << " 3\t" << "View Computer" << endl;
+    cout << " 4\t" << "Search for Computer" << endl;
+    cout << " 5\t" << "Exit" << endl;
+    cout << " _____________________________________________________________________" << endl;
+    cout << endl;
+    cout << "Enter your Selection: ";
 }

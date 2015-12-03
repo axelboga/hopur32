@@ -9,9 +9,12 @@ public:
     UI();
     void start();
     void banner();
-    void sortUI();
-    void menu();
+    void scientistSortUI();
+    void scientistMenu();
     void clearScreen();
+    void computerSortUI();
+    void computerMenu();
+
 private:
     ScientistServices CompSciServices;
 };

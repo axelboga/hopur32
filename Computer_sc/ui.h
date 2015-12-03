@@ -9,7 +9,11 @@ class UI {
 public:
     UI();
     void start();
+    void mainMenu();
     void banner();
+    void banner2();
+    void scientistLoop();
+    void computerLoop();
     void scientistSortUI();
     void scientistMenu();
     void clearScreen();

@@ -173,7 +173,7 @@ bool ScientistServices::checkDeath(string d, string b) {
         if(d.length() != 4){
             return false;
         }
-        if(yearOfDeath > 2015){
+        if(yearOfDeath > CURRENT_YEAR){
             return false;
         }
         if(yearOfBirth > yearOfDeath){

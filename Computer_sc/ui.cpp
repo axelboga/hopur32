@@ -125,6 +125,7 @@ void UI::computerMenu() {
     cout << endl;
     cout << "Enter your Selection: ";
 }
+<<<<<<< HEAD
 void UI::mainMenu(){
     banner2();
     cout << "Welcome to the Computers & Scientists Program." << endl;
@@ -232,4 +233,29 @@ void UI::banner2()
     cout << "  \\/_____/   \\/_____/   \\/_/   \\/_____/   \\/_/ \\/_/     \\/_/   \\/_/   \\/_____/     \\/_/   \\/_____/ " << endl;
 
 
+=======
+
+void UI::addComputer(Computer& c){
+    string my_year;
+    cout << "Year built: ";
+    cin >> my_year;
+    if(compServices.checkYear(my_year)){
+        c.setYear(my_year);
+    }
+    else{
+        cout << "Invalid year!" << endl;
+        cout << "Please try again." << endl;
+    }
+
+    string my_type;
+    cout << "Type: ";
+    cin >> my_type;
+    if(compServices.checkType(my_type)){
+        c.setType(my_type);
+    }
+    else{
+        cout << "Types may only contain alphabetic characters!" << endl;
+        cout << "Please try again." << endl;
+    }
+>>>>>>> 8a82514efc5e6611df3eb5110d7f3b7b8dec91c0
 }

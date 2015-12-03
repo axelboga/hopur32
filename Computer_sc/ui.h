@@ -19,6 +19,7 @@ public:
     void clearScreen();
     void computerSortUI();
     void computerMenu();
+    void addComputer(Computer& c);
 
 private:
     ScientistServices sciServices;

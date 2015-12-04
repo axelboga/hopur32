@@ -10,7 +10,6 @@ UI::UI() {
 void UI::start() {
 
     do {
-
         clearScreen();
         char input;
         mainMenu();
@@ -48,7 +47,8 @@ void UI::start() {
             cout << "Please try again." << endl;
         }
 
-    }while(true);
+    }
+    while(true);
 
 }
 void UI::banner(){

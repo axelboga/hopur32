@@ -68,3 +68,9 @@ void ScientistRepository::removeScientist(int number) {
 
     cout << "The scientist " << name << " has been removed from the list" << endl;
 }
+
+vector<ComputerScientist> ScientistRepository::search(string input) {
+    vector<ComputerScientist> v;
+    string s = "SELECT * FROM Scientists WHERE id LIKE '%" + input + "%' OR Firstname LIKE '%" + input + "%' OR Lastname LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
+    return v;
+}

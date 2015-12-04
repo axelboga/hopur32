@@ -12,6 +12,7 @@ public:
     void outputList(vector<ComputerScientist>& v);
     void removeScientist(int number);
     void fillVectorFromList(istream& ins, ComputerScientist& c);
+    vector<ComputerScientist> search(string input);
 private:
     vector<ComputerScientist> compSciVector;
     QSqlDatabase datab;

@@ -1,6 +1,7 @@
 #ifndef SCIENTISTREPOSITORY_H
 #define SCIENTISTREPOSITORY_H
 #include "computerscientist.h"
+
 #include <QtSql>
 
 class ScientistRepository {
@@ -9,7 +10,7 @@ public:
     ~ScientistRepository() ;
     void add(ComputerScientist scientist);
     vector<ComputerScientist> getVector();
-    void outputList(vector<ComputerScientist>& v);
+    void output(vector<ComputerScientist>& v);
     void removeScientist(int number);
     void fillVectorFromList(istream& ins, ComputerScientist& c);
     vector<ComputerScientist> search(string input);

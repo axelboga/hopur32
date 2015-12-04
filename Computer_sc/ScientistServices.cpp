@@ -102,13 +102,13 @@ bool ScientistServices::checkDeath(string d, string b) {
 }
 
 void ScientistServices::view(vector<ComputerScientist>& v) {
-    compSciRepo.outputList(v);
+    compSciRepo.output(v);
 }
 
 void ScientistServices::view() {
     vector<ComputerScientist> v;
     v = compSciRepo.getVector();
-    compSciRepo.outputList(v);
+    compSciRepo.output(v);
 }
 
 bool compareByName(ComputerScientist a, ComputerScientist b){

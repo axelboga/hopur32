@@ -218,7 +218,7 @@ void UI::computerLoop() {
                 if (input == '1') {
                         Computer c = Computer();
                         readComputer(c);
-                        //compServices.add(c);
+                        compServices.add(c);
                 } else if (input == '2') {
                         //compServices.view();
                         //compServices.removeComputer();
@@ -226,6 +226,7 @@ void UI::computerLoop() {
                         vector<Computer> v;
                         char ch;
                         cout << endl;
+                        compServices.view();
 
                         do {
                                 computerSortUI();
@@ -252,8 +253,13 @@ void UI::computerLoop() {
 
                 } else if (input == '4') {
                         clearScreen();
+                        string searchTerm;
                         cout << "Search word: ";
-                        //compServices.searching();
+                        cin >> searchTerm;
+                        transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
+                        compServices.searchComputer(searchTerm);
+                        compServices.view();
+
                 } else if (input == '5') {
                         cout << "Returning to Main Menu." << endl;
                         cout << endl;

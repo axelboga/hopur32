@@ -1,8 +1,11 @@
 #include "computerrepository.h"
+#include <iostream>
+using namespace std;
 
 ComputerRepository::ComputerRepository(){ 
     datab = QSqlDatabase::addDatabase("QSQLITE");
-    datab.setDatabaseName("Database.sqlite");
+    QString dbName = "Database.sqlite";
+    datab.setDatabaseName(dbName);
     //datab.open();
 }
 ComputerRepository::~ComputerRepository(){
@@ -12,7 +15,7 @@ ComputerRepository::~ComputerRepository(){
 void ComputerRepository::add(Computer computer) {
 
     //datab = QSqlDatabase::addDatabase("QSQLITE");
-    //datab.setDatabaseName("Database.sqlite");
+    //datab.setDatabaseName("/Users/hafdisinga/Desktop/hopur32/build-Computer_sc-Desktop_Qt_5_5_1_clang_64bit-Debug");
     datab.open();
 
     QSqlQuery query(datab);
@@ -23,10 +26,11 @@ void ComputerRepository::add(Computer computer) {
     query.bindValue(":YearBuilt", QString::fromStdString(computer.getYear()));
     query.exec();
 
-    //datab.close();
+    datab.close();
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {
+    datab.open();
     Computer c;
     QSqlQuery query;
     query.prepare(QString::fromStdString(sql));
@@ -34,7 +38,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     //Ef við viljum birta allan listann þá látum við string sql = "SELECT * FROM computers".
     //En t.d. ef bara birta lista yfir þá sem hafa ákv saerch term er sql = search term.
     while(query.next()){
-        c.setId(query.value("ID").toUInt());
+        c.setId(query.value("rowid").toUInt());
         c.setName(query.value("Name").toString().toStdString());
         c.setWasBuilt(query.value("WasBuilt").toString().toStdString());
         c.setYear(query.value("YearBuilt").toString().toStdString());
@@ -44,8 +48,26 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
 }
 
 vector<Computer> ComputerRepository::search(string input) {
+    datab.open();
     vector<Computer> v;
     string s = "SELECT * FROM Computers WHERE id LIKE '%" + input + "%' OR name LIKE '%" + input + "%' OR yearbuilt LIKE '%" + input + "%' OR type LIKE '%" + input + "%' OR wasbuilt LIKE '%" + input + "%'";
+    fillVectorFromDatabase(v, s);
     return v;
+}
+
+
+void ComputerRepository::output(vector<Computer>& v) {
+    cout << " _____________________________________________________________________ " << endl;
+    cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
+    cout << " ___|_________________________|________|_______________|______________ " << endl;
+    for (unsigned int i = 0; i < v.size(); i++){
+        cout<< " " << left << setw(5)<< setfill(' ');
+        cout << i+1 << v[i];
+    }
+    cout << " _____________________________________________________________________" << endl;
+}
+
+void ComputerRepository::view() {
+    datab.open();
 }
 

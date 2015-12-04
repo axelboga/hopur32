@@ -3,8 +3,8 @@
 #include <algorithm>
 
 ScientistRepository::ScientistRepository() {
-    datab = QSqlDatabase::addDatabase("QSQLITE");
-    datab.setDatabaseName("Database.sqlite");
+    //datab = QSqlDatabase::addDatabase("QSQLITE");
+    //datab.setDatabaseName("Database.sqlite");
     //datab.open();
 }
 
@@ -19,11 +19,7 @@ void ScientistRepository::add(ComputerScientist scientist){
     datab.open();
 
     QSqlQuery query(datab);
-<<<<<<< HEAD
     query.prepare("INSERT INTO Scientist VALUES (:FirstName, :LastName, :Gender, :BirthYear, :DeathYear)");
-=======
-    query.prepare("INSERT INTO Scientists VALUES (:FirstName, :LastName, :Gender, :BirthYear, :DeathYear)");
->>>>>>> 174fe26f718941902a3cdf220a4240df25e831bb
     query.bindValue(":FirstName", QString::fromStdString(scientist.getFirstName()));
     query.bindValue(":LastName", QString::fromStdString(scientist.getLastName()));
     query.bindValue(":Gender", QString::fromStdString(scientist.getSex()));
@@ -38,7 +34,7 @@ vector<ComputerScientist> ScientistRepository::getVector(){
     return compSciVector;
 }
 
-void ScientistRepository::outputList(vector<ComputerScientist>& v) {
+void ScientistRepository::output(vector<ComputerScientist>& v) {
     cout << " _____________________________________________________________________ " << endl;
     cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
     cout << " ___|_________________________|________|_______________|______________ " << endl;

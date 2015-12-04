@@ -53,8 +53,14 @@ bool ComputerServices::checkWasBuilt(string& answ){
 }
 
 vector<Computer> ComputerServices::view() {
+    compRepo.view();
     vector<Computer> v;
     string sql = "SELECT * FROM Computers";
     compRepo.fillVectorFromDatabase(v, sql);
     return v;
+    compRepo.output(v);
+}
+
+void ComputerServices::searchComputer(string searchTerm) {
+    compRepo.search(searchTerm);
 }

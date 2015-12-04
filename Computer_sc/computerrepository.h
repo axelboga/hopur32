@@ -11,6 +11,9 @@ public:
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
     vector<Computer> search(string input);
     ~ComputerRepository();
+    void output(vector<Computer>& v);
+    void view();
+
 private:
     //BaseRepository baseRepo;
     QSqlDatabase datab;

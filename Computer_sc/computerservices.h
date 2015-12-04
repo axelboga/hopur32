@@ -9,7 +9,7 @@ public:
     ComputerServices();
     void add(Computer computer);
     void removeComputer(string id);
-    vector<Computer> searchComputer(string searchTerm);
+    void searchComputer(string searchTerm);
     bool checkYear(string my_year);
     bool checkType(string my_type);
     bool checkWasBuilt(string& answ);

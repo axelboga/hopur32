@@ -205,58 +205,6 @@ void UI::scientistLoop() {
 
         } while (true);
 
-        clearScreen();
-
-        if (input == '1') {
-            ComputerScientist c;
-            readScientist(c);
-            sciServices.add(c);
-        } else if (input == '2') {
-            sciServices.view();
-            sciServices.removeScientist();
-        } else if (input == '3') {
-            vector<ComputerScientist> v;
-            char ch;
-            cout << endl;
-            do {
-                scientistSortUI();
-                cin >> ch;
-                clearScreen();
-                if (ch == '1') {
-                    sciServices.sortByFirstName(v);
-                    sciServices.view(v);
-                } else if (ch == '2') {
-                    sciServices.sortReverseByFirstName(v);
-                    sciServices.view(v);
-                } else if (ch == '3') {
-                    sciServices.sortByLastName(v);
-                    sciServices.view(v);
-                } else if (ch == '4') {
-                    sciServices.sortReverseByLastName(v);
-                    sciServices.view(v);
-                } else if (ch == '5') {
-                    sciServices.sortBySex(v);
-                    sciServices.view(v);
-                } else if (ch == '6') {
-                    sciServices.sortByBirthYear(v);
-                    sciServices.view(v);
-                } else
-                    cout << "Wrong input. Try again" << endl;
-            } while (ch != '1' && ch!= '2' && ch != '3' &&
-                     ch != '4' && ch != '5' && ch!= '6');
-        }
-        else if (input == '4') {
-            clearScreen();
-            cout << "Search word: ";
-            sciServices.searching();
-        } else if (input == '5') {
-            cout << "Returning to Main Menu." << endl;
-            cout << endl;
-            return;
-        } else {
-            cout << "Invalid input, try again: " << endl;
-        }
-    } while (true);
 }
 void UI::computerLoop() {
 
@@ -270,10 +218,10 @@ void UI::computerLoop() {
                 if (input == '1') {
                         Computer c = Computer();
                         readComputer(c);
-                        compServices.add(c);
+                        //compServices.add(c);
                 } else if (input == '2') {
-                        compServices.view();
-                        compServices.removeComputer();
+                        //compServices.view();
+                        //compServices.removeComputer();
                 } else if (input == '3') {
                         vector<Computer> v;
                         char ch;
@@ -285,17 +233,17 @@ void UI::computerLoop() {
                                 clearScreen();
 
                                 if (ch == '1') {
-                                        compServices.sortByName(v);
-                                        compServices.view(v);
+                                        //compServices.sortByName(v);
+                                        //compServices.view(v);
                                 } else if (ch == '2') {
-                                        compServices.sortByReverseName(v);
-                                        compServices.view(v);
+                                        //compServices.sortByReverseName(v);
+                                        //compServices.view(v);
                                 } else if (ch == '3') {
-                                        compServices.sortByType(v);
-                                        compServices.view(v);
+                                        //compServices.sortByType(v);
+                                        //compServices.view(v);
                                 } else if (ch == '4') {
-                                        compServices.sortByYearBuilt(v);
-                                        compServices.view(v);
+                                        //compServices.sortByYearBuilt(v);
+                                        //compServices.view(v);
                                 } else
                                         cout << "Wrong input. Try again" << endl;
 
@@ -305,7 +253,7 @@ void UI::computerLoop() {
                 } else if (input == '4') {
                         clearScreen();
                         cout << "Search word: ";
-                        compServices.searching();
+                        //compServices.searching();
                 } else if (input == '5') {
                         cout << "Returning to Main Menu." << endl;
                         cout << endl;

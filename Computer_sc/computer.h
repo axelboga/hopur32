@@ -15,7 +15,7 @@ public:
     void setYear(string my_year);
     string getType() const;
     void setType(string my_type);
-    bool getWasBuilt() const;
+    string getWasBuilt() const;
     void setWasBuilt(string my_wasBuilt);
 
 private:
@@ -23,7 +23,7 @@ private:
     string name;
     string year;
     string type;
-    bool wasBuilt;
+    string wasBuilt;
 };
 
 #endif // COMPUTER_H

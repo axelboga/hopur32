@@ -20,6 +20,7 @@ public:
     void computerSortUI();
     void computerMenu();
     void readComputer(Computer& c);
+    void readScientist(ComputerScientist& c);
 
 private:
     ScientistServices sciServices;

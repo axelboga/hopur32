@@ -1,23 +1,29 @@
 #include "computerrepository.h"
 
 ComputerRepository::ComputerRepository(){ 
-    datab.open();
+    datab = QSqlDatabase::addDatabase("QSQLITE");
+    datab.setDatabaseName("Database.sqlite");
+    //datab.open();
+}
+ComputerRepository::~ComputerRepository(){
+    datab.close();
 }
 
 void ComputerRepository::add(Computer computer) {
-    /*
-    datab = QSqlDatabase::addDatabase("QSQLITE");
-    datab.setDatabaseName("Database.sqlite");
+
+    //datab = QSqlDatabase::addDatabase("QSQLITE");
+    //datab.setDatabaseName("Database.sqlite");
     datab.open();
-    */
 
     QSqlQuery query(datab);
-    query.prepare("INSERT INTO Computers VALUES (:name,:yearbuilt,:type,:wasbuilt)");
-    query.bindValue(":name", QString::fromStdString(computer.getName()));
-    query.bindValue(":yearbuilt", QString::fromStdString(computer.getYear()));
-    query.bindValue(":type", QString::fromStdString(computer.getType()));
-    query.bindValue(":wasbuilt", computer.getWasBuilt());
+    query.prepare("INSERT INTO Computers VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
+    query.bindValue(":Name", QString::fromStdString(computer.getName()));
+    query.bindValue(":Type", QString::fromStdString(computer.getType()));
+    query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
+    query.bindValue(":YearBuilt", QString::fromStdString(computer.getYear()));
     query.exec();
+
+    //datab.close();
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {
@@ -28,11 +34,11 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     //Ef við viljum birta allan listann þá látum við string sql = "SELECT * FROM computers".
     //En t.d. ef bara birta lista yfir þá sem hafa ákv saerch term er sql = search term.
     while(query.next()){
-        c.setId(query.value("id").toUInt());
-        c.setName(query.value("name").toString().toStdString());
-        c.setYear(query.value("yearbuilt").toString().toStdString());
-        //c.setWasBuilt(query.value("wasbuilt"));
-        c.setType(query.value("type").toString().toStdString());
+        c.setId(query.value("ID").toUInt());
+        c.setName(query.value("Name").toString().toStdString());
+        //c.setWasBuilt(query.value("WasBuilt"));
+        c.setYear(query.value("YearBuilt").toString().toStdString());
+        c.setType(query.value("Type").toString().toStdString());
         v.push_back(c);
     }
 }
@@ -42,3 +48,4 @@ vector<Computer> ComputerRepository::search(string input) {
     string s = "SELECT * FROM Computers WHERE id LIKE '%" + input + "%' OR name LIKE '%" + input + "%' OR yearbuilt LIKE '%" + input + "%' OR type LIKE '%" + input + "%' OR wasbuilt LIKE '%" + input + "%'";
     return v;
 }
+

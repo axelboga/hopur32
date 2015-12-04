@@ -6,19 +6,8 @@ ScientistServices::ScientistServices() {
     compSciRepo = ScientistRepository();
  }
 
-void ScientistServices::add(ComputerScientist& c) {
-    addFirstName(c);
-    addLastName(c);
-    c.setName();
-    addSex(c);
-    addYearOfBirth(c);
-    addYearOfDeath(c);
-    if (okToAdd(c)){
-        compSciRepo.add(c);
-    }
-    else{
-        cout << "This Computer Scientist is already listed" << endl;
-    }
+void ScientistServices::add(ComputerScientist c) {
+    compSciRepo.add(c);
 }
 
 bool ScientistServices::okToAdd(ComputerScientist& c) { //returns true if the object c is not equal to any other objects in the vector
@@ -30,101 +19,6 @@ bool ScientistServices::okToAdd(ComputerScientist& c) { //returns true if the ob
         }
     }
     return true;
-}
-
-void ScientistServices::addFirstName(ComputerScientist& c) {
-    string f_name;
-    bool valid = false;
-    while (!valid){
-        cout << "Input first name: ";
-        cin >> f_name;
-        transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
-        // ^ converts to lowercase
-
-        c.setFirstName(f_name);
-        valid = checkName(c.getFirstName());
-        if (!valid){
-            cout << "Names may only contain alphabetic characters!" << endl;
-            cout << "Please try again." << endl;
-        }
-    }
-}
-
-void ScientistServices::addLastName(ComputerScientist& c) {
-    string l_name;
-    bool valid = false;
-    while (!valid){
-        cout << "Input last name: ";
-        cin >> l_name;
-        transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
-        // ^ converts to lowercase
-        c.setLastName(l_name);
-        valid = checkName(c.getLastName());
-        if (!valid){
-            cout << "Names may only contain alphabetic characters!" << endl;
-            cout << "Please try again." << endl;
-        }
-    }
-}
-
-void ScientistServices::addSex(ComputerScientist& c) {
-    string gender;
-    do{
-        cout << "Input gender(female / male): ";
-        cin >> gender;
-        transform(gender.begin(), gender.end(), gender.begin(), ::tolower);
-        // ^ converts to lowercase
-
-        if(gender == "m" || gender  == "ma" || gender  == "mal" || gender  == "male"){
-            gender = "male";
-            c.setSex(gender);
-        }
-        else if(gender == "f" || gender  == "fe" || gender  == "fem" || gender  == "fema"
-              || gender == "femal" || gender == "female"){
-            gender = "female";
-            c.setSex(gender);
-        }
-        else{
-            cout << "Sex must be either female or male." << endl;
-            cout << "Please try again." << endl;
-        }
-    }while(c.getSex() != "male" && c.getSex() != "female");
-
-}
-
-void ScientistServices::addYearOfBirth(ComputerScientist& c) {
-    string b_year;
-    bool valid = false;
-    while (!valid){
-        cout << "Input year of birth: ";
-        cin >> b_year;
-        c.setYearOfBirth(b_year);
-        valid = checkBirth(c.getYearOfBirth());
-        if (!valid){
-            cout << "Invalid year!" << endl;
-            cout << "Please try again." << endl;
-        }
-    }
-}
-
-void ScientistServices::addYearOfDeath(ComputerScientist& c) {
-    string d_year;
-    bool valid = false;
-    string answ = isAlive(c);
-    transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
-    // ^ converts to lowercase
-    if (answ != "y" && answ != "ye" && answ != "yes"){
-        while (!valid){
-            cout << "Input year of death: ";
-            cin >> d_year;
-            c.setYearOfDeath(d_year);
-            valid = checkDeath(c.getYearOfDeath(), c.getYearOfBirth());
-            if (!valid){
-                cout << "Invalid year!" << endl;
-                cout << "Please try again." << endl;
-            }
-        }
-    }
 }
 
 string ScientistServices::isAlive(ComputerScientist& c) {
@@ -143,6 +37,30 @@ string ScientistServices::isAlive(ComputerScientist& c) {
     while(answ != "y" && answ != "ye" && answ != "yes" && answ != "n" && answ != "no");
 
     return answ;
+}
+
+bool ScientistServices::checkName(string s) {
+    for (unsigned int i = 0; i < s.length(); i++){
+        if (!isalpha(s[i])) {
+            if (s[i] != ' ' && s[i] != '\''){
+                return false;
+            }
+        }
+    }
+   return true;
+}
+
+
+bool ScientistServices::checkGender(string& s) {
+    if(s == "m" || s  == "ma" || s  == "mal" || s  == "male"){
+        s = "male";
+        return true;
+    }
+    else if(s == "f" || s == "fe" || s == "fem" || s == "fema" || s == "femal" || s == "female"){
+        s = "female";
+        return true;
+    }
+    return false;
 }
 
 bool ScientistServices::checkBirth(string s) {//returns false if user inputs non-digits, wrong length or year greater than 2015
@@ -178,17 +96,6 @@ bool ScientistServices::checkDeath(string d, string b) {
         }
         if(yearOfBirth > yearOfDeath){
             return false;
-        }
-    }
-   return true;
-}
-
-bool ScientistServices::checkName(string s) {
-    for (unsigned int i = 0; i < s.length(); i++){
-        if (!isalpha(s[i])) {
-            if (s[i] != ' ' && s[i] != '\''){
-                return false;
-            }
         }
     }
    return true;

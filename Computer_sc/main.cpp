@@ -1,6 +1,6 @@
 #include "ui.h"
 
-int main(int argc, char *argv[]) {
+int main() {
     UI ui = UI();
     ui.banner();
     ui.start();

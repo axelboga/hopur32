@@ -1,7 +1,8 @@
 #ifndef COMPUTERREPOSITORY_H
 #define COMPUTERREPOSITORY_H
-#include "baserepository.h"
+//#include "baserepository.h"
 #include "computer.h"
+#include <QtSql>
 
 class ComputerRepository {
 public:
@@ -9,8 +10,9 @@ public:
     void add(Computer computer);
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
     vector<Computer> search(string input);
+    ~ComputerRepository();
 private:
-    BaseRepository baseRepo;
+    //BaseRepository baseRepo;
     QSqlDatabase datab;
 };
 

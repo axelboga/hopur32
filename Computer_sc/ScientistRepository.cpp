@@ -3,9 +3,9 @@
 #include <algorithm>
 
 ScientistRepository::ScientistRepository() {
-    //datab = QSqlDatabase::addDatabase("QSQLITE");
-    //datab.setDatabaseName("Database.sqlite");
-    //datab.open();
+    datab = QSqlDatabase::addDatabase("QSQLITE");
+   datab.setDatabaseName("Database.sqlite");
+    datab.open();
 }
 
 ScientistRepository::~ScientistRepository() {

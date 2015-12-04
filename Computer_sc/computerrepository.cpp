@@ -36,7 +36,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     while(query.next()){
         c.setId(query.value("ID").toUInt());
         c.setName(query.value("Name").toString().toStdString());
-        //c.setWasBuilt(query.value("WasBuilt"));
+        c.setWasBuilt(query.value("WasBuilt").toString().toStdString());
         c.setYear(query.value("YearBuilt").toString().toStdString());
         c.setType(query.value("Type").toString().toStdString());
         v.push_back(c);
@@ -48,3 +48,4 @@ vector<Computer> ComputerRepository::search(string input) {
     string s = "SELECT * FROM Computers WHERE id LIKE '%" + input + "%' OR name LIKE '%" + input + "%' OR yearbuilt LIKE '%" + input + "%' OR type LIKE '%" + input + "%' OR wasbuilt LIKE '%" + input + "%'";
     return v;
 }
+

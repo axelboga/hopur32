@@ -13,6 +13,7 @@ public:
     void removeScientist(int number);
     void fillVectorFromList(istream& ins, ComputerScientist& c);
     vector<ComputerScientist> search(string input);
+    void fillVectorFromDatabase(vector<ComputerScientist>& v, string sql);
 private:
     vector<ComputerScientist> compSciVector;
     QSqlDatabase datab;

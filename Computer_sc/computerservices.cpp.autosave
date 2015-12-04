@@ -59,3 +59,4 @@ vector<Computer> ComputerServices::view() {
     compRepo.fillVectorFromDatabase(v, sql);
     return v;
 }
+

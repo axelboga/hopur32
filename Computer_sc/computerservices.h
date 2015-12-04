@@ -13,7 +13,7 @@ public:
     bool checkYear(string my_year);
     bool checkType(string my_type);
     bool checkWasBuilt(string& answ);
-    vector<Computer> view();
+    void view();
 private:
     ComputerRepository compRepo;
 };

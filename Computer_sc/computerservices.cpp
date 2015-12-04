@@ -52,12 +52,12 @@ bool ComputerServices::checkWasBuilt(string& answ){
     return false;
 }
 
-vector<Computer> ComputerServices::view() {
+void ComputerServices::view() {
     compRepo.view();
     vector<Computer> v;
     string sql = "SELECT * FROM Computers";
     compRepo.fillVectorFromDatabase(v, sql);
-    return v;
+    //return v;
     compRepo.output(v);
 }
 

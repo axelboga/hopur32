@@ -27,5 +27,6 @@
 *.out
 *.app
 
-# User files
+# User files and build folders
 Computer_sc.pro.user*
+build-Computer_sc*

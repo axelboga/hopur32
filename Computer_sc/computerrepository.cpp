@@ -3,21 +3,15 @@
 using namespace std;
 
 ComputerRepository::ComputerRepository(){ 
-    datab = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbName = "Database.sqlite";
-    datab.setDatabaseName(dbName);
-    //datab.open();
+    baseRepo = BaseRepository();
+    baseRepo.datab.open();
 }
+
 ComputerRepository::~ComputerRepository(){
-    datab.close();
+    //baseRepo.datab.close();
 }
 
 void ComputerRepository::add(Computer computer) {
-
-    //datab = QSqlDatabase::addDatabase("QSQLITE");
-    //datab.setDatabaseName("/Users/hafdisinga/Desktop/hopur32/build-Computer_sc-Desktop_Qt_5_5_1_clang_64bit-Debug");
-    datab.open();
-
     QSqlQuery query(datab);
     query.prepare("INSERT INTO Computers VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
     query.bindValue(":Name", QString::fromStdString(computer.getName()));
@@ -25,14 +19,11 @@ void ComputerRepository::add(Computer computer) {
     query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
     query.bindValue(":YearBuilt", QString::fromStdString(computer.getYear()));
     query.exec();
-
-    datab.close();
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {
-    datab.open();
     Computer c;
-    QSqlQuery query;
+    QSqlQuery query(datab);
     query.prepare(QString::fromStdString(sql));
     query.exec();
     //Ef við viljum birta allan listann þá látum við string sql = "SELECT * FROM computers".
@@ -48,11 +39,11 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
 }
 
 vector<Computer> ComputerRepository::search(string input) {
-    datab.open();
     vector<Computer> v;
-    string s = "SELECT * FROM Computers WHERE id LIKE '%" + input + "%' OR name LIKE '%" + input + "%' OR yearbuilt LIKE '%" + input + "%' OR type LIKE '%" + input + "%' OR wasbuilt LIKE '%" + input + "%'";
+    string s = "SELECT * FROM Computers WHERE rowid LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%'";
     fillVectorFromDatabase(v, s);
     return v;
+
 }
 
 
@@ -68,6 +59,12 @@ void ComputerRepository::output(vector<Computer>& v) {
 }
 
 void ComputerRepository::view() {
-    datab.open();
+    //baseRepo.datab.open();
 }
 
+vector<Computer> ComputerRepository::sort(string sortBy){
+    vector<Computer> v;
+    string s = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER"+sortBy;
+    fillVectorFromDatabase(v, s);
+    return v;
+}

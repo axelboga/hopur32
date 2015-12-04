@@ -11,7 +11,7 @@ UI::UI() {
 void UI::start() {
 
         do {
-                clearScreen();
+                //clearScreen();
 
                 char input;
                 mainMenu();
@@ -226,25 +226,21 @@ void UI::computerLoop() {
                         vector<Computer> v;
                         char ch;
                         cout << endl;
-                        compServices.view();
+                        //compServices.view();
 
                         do {
                                 computerSortUI();
                                 cin >> ch;
                                 clearScreen();
-
+                                cout << "The sorted list is: " << endl;
                                 if (ch == '1') {
-                                        //compServices.sortByName(v);
-                                        //compServices.view(v);
+                                        compServices.sort("Name");
                                 } else if (ch == '2') {
-                                        //compServices.sortByReverseName(v);
-                                        //compServices.view(v);
+                                        //compServices.sortReverse("Name");
                                 } else if (ch == '3') {
-                                        //compServices.sortByType(v);
-                                        //compServices.view(v);
+                                        compServices.sort("Type");
                                 } else if (ch == '4') {
-                                        //compServices.sortByYearBuilt(v);
-                                        //compServices.view(v);
+                                        compServices.sort("YearBuilt");
                                 } else
                                         cout << "Wrong input. Try again" << endl;
 
@@ -257,9 +253,14 @@ void UI::computerLoop() {
                         cout << "Search word: ";
                         cin >> searchTerm;
                         transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
-                        compServices.searchComputer(searchTerm);
-                        compServices.view();
 
+                        if (!compServices.checkSearch(searchTerm)) {
+                            cout << "Nothing found" << endl;
+                        }
+                        else {
+                            cout << "Search results for computers:" << endl;
+                            compServices.search(searchTerm);
+                        }
                 } else if (input == '5') {
                         cout << "Returning to Main Menu." << endl;
                         cout << endl;
@@ -273,6 +274,7 @@ void UI::readComputer(Computer& c) {
         cout << "Name: ";
         cin.ignore();
         getline(cin, my_name);
+        transform(my_name.begin(), my_name.end(), my_name.begin(), ::tolower);
         c.setName(my_name);
 
         string my_type;
@@ -294,23 +296,25 @@ void UI::readComputer(Computer& c) {
                 cin >> answ;
                 transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
                 if (compServices.checkWasBuilt(answ)) {
-                        c.setWasBuilt(my_type);
+                    c.setWasBuilt(answ);
                 } else {
                         cout << "Invalid answer!" << endl;
                         cout << "Please try again." << endl;
                 }
         } while (!compServices.checkWasBuilt(answ));
 
-        string my_year;
-        do {
-                cout << "Year built: ";
-                cin >> my_year;
-                transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
-                if (compServices.checkYear(my_year)) {
-                        c.setYear(my_year);
-                } else {
-                        cout << "Invalid year!" << endl;
-                        cout << "Please try again." << endl;
-                }
-        } while (!compServices.checkYear(my_year));
+        if (answ == "yes"){
+            string my_year;
+            do {
+                    cout << "Year built: ";
+                    cin >> my_year;
+                    transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
+                    if (compServices.checkYear(my_year)) {
+                            c.setYear(my_year);
+                    } else {
+                            cout << "Invalid year!" << endl;
+                            cout << "Please try again." << endl;
+                    }
+            } while (!compServices.checkYear(my_year));
+     }
 }

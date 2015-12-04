@@ -9,7 +9,9 @@ public:
     ComputerServices();
     void add(Computer computer);
     void removeComputer(string id);
-    void searchComputer(string searchTerm);
+    bool checkSearch(string searchTerm);
+    void search(string searchTerm);
+    void sort(string sortBy);
     bool checkYear(string my_year);
     bool checkType(string my_type);
     bool checkWasBuilt(string& answ);

@@ -1,21 +1,23 @@
 #ifndef COMPUTERREPOSITORY_H
 #define COMPUTERREPOSITORY_H
-//#include "baserepository.h"
+#include <string>
+#include "baserepository.h"
 #include "computer.h"
 #include <QtSql>
+using namespace std;
 
 class ComputerRepository {
 public:
     ComputerRepository();
+    ~ComputerRepository();
     void add(Computer computer);
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
     vector<Computer> search(string input);
-    ~ComputerRepository();
     void output(vector<Computer>& v);
     void view();
-
+    vector<Computer> sort(string sortBy);
 private:
-    //BaseRepository baseRepo;
+    BaseRepository baseRepo;
     QSqlDatabase datab;
 };
 

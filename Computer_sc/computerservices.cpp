@@ -42,12 +42,12 @@ bool ComputerServices::checkType(string my_type) {
 
 bool ComputerServices::checkWasBuilt(string& answ){
     if (answ == "y" || answ == "yes" || answ == "ye") {
-        return true;
         answ = "yes";
+        return true;
     }
     else if (answ == "n" || answ == "no"){
-        return true;
         answ = "no";
+        return true;
     }
     return false;
 }
@@ -61,6 +61,25 @@ void ComputerServices::view() {
     compRepo.output(v);
 }
 
-void ComputerServices::searchComputer(string searchTerm) {
-    compRepo.search(searchTerm);
+bool ComputerServices::checkSearch(string searchTerm) {
+    vector<Computer> v;
+    v = compRepo.search(searchTerm);
+    if (v.size() < 1) {
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
+void ComputerServices::search(string searchTerm) {
+    vector<Computer> v;
+    v = compRepo.search(searchTerm);
+    compRepo.output(v);
+}
+
+void ComputerServices::sort(string sortBy){
+    vector<Computer> v;
+    v = compRepo.sort(sortBy);
+    compRepo.output(v);
 }

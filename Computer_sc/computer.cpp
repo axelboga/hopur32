@@ -5,7 +5,7 @@ Computer::Computer(){
     name = "";
     year = "";
     type = "",
-    wasBuilt = false;
+    wasBuilt = "";
 }
 
 int Computer::getId() const {
@@ -40,13 +40,10 @@ void Computer::setType(string my_type) {
     type = my_type;
 }
 
-bool Computer::getWasBuilt() const {
+string Computer::getWasBuilt() const {
     return wasBuilt;
 }
 
 void Computer::setWasBuilt(string my_wasBuilt) {
-    if (my_wasBuilt == "yes") {
-        wasBuilt = true;
-    }
-    wasBuilt = false;
+    wasBuilt = my_wasBuilt;
 }

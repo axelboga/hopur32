@@ -9,25 +9,21 @@ ComputerRepository::~ComputerRepository(){
     datab.close();
 }
 
-
 void ComputerRepository::add(Computer computer) {
 
     //datab = QSqlDatabase::addDatabase("QSQLITE");
     //datab.setDatabaseName("Database.sqlite");
     datab.open();
 
-
     QSqlQuery query(datab);
     query.prepare("INSERT INTO Computers VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
     query.bindValue(":Name", QString::fromStdString(computer.getName()));
     query.bindValue(":Type", QString::fromStdString(computer.getType()));
-    query.bindValue(":WasBuilt", computer.getWasBuilt());
+    query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
     query.bindValue(":YearBuilt", QString::fromStdString(computer.getYear()));
     query.exec();
 
     //datab.close();
-
-
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {

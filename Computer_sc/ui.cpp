@@ -24,7 +24,6 @@ void UI::start() {
             //CompSciServices.add(c);
             Computer c;
             compServices.add(c);
-
        }
         else if(input == '2')
         {
@@ -153,9 +152,9 @@ void UI::scientistLoop(){
         clearScreen();
 
         if (input == '1'){
-            ComputerScientist c = ComputerScientist();
+            ComputerScientist c;
+            readScientist(c);
             sciServices.add(c);
-
         }
         else if(input == '2'){
             sciServices.view();
@@ -405,17 +404,21 @@ void UI::readScientist(ComputerScientist& c){
     }
     while(!sciServices.checkBirth(b_year));
 
-    string d_year;
-    do{
-        cout << "Enter year of death: ";
-        cin >> d_year;
-        if(sciServices.checkDeath(d_year, b_year)){
-            c.setYearOfDeath(d_year);
+    string answ = sciServices.isAlive(c);
+    transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
+    if(answ != "y" && answ != "ye" && answ != "yes"){
+        string d_year;
+        do{
+            cout << "Enter year of death: ";
+            cin >> d_year;
+            if(sciServices.checkDeath(d_year, b_year)){
+                c.setYearOfDeath(d_year);
+            }
+            else{
+                cout << "Invalid year!" << endl;
+                cout << "Please try again." << endl;
+            }
         }
-        else{
-            cout << "Invalid year!" << endl;
-            cout << "Please try again." << endl;
-        }
+        while(!sciServices.checkDeath(d_year, b_year));
     }
-    while(!sciServices.checkDeath(d_year, b_year));
 }

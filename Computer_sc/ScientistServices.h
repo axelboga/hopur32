@@ -11,12 +11,7 @@ using namespace std;
 class ScientistServices {
 public:
     ScientistServices();
-    void add(ComputerScientist& c);
-    void addFirstName(ComputerScientist& c);
-    void addLastName(ComputerScientist& c);
-    void addSex(ComputerScientist& c);
-    void addYearOfBirth(ComputerScientist& c);
-    void addYearOfDeath(ComputerScientist& c);
+    void add(ComputerScientist c);
     void view(vector<ComputerScientist>& v);
     void view();
     bool checkName(string s);
@@ -24,6 +19,7 @@ public:
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
     bool okToAdd(ComputerScientist& c);
+    string isAlive(ComputerScientist& c);
     void sortByFirstName(vector<ComputerScientist>& v);
     void sortByLastName(vector<ComputerScientist>& v);
     void sortReverseByFirstName(vector<ComputerScientist>& v);
@@ -36,7 +32,7 @@ public:
     void footer();
 private:
     ScientistRepository compSciRepo;
-    string isAlive(ComputerScientist& c);
+
 };
 
 #endif // LOGIC_H

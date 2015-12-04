@@ -338,3 +338,84 @@ void UI::readComputer(Computer& c){
     }
     while(!compServices.checkYear(my_year));
 }
+
+
+void UI::readScientist(ComputerScientist& c){
+    string f_name;
+    do{
+        cout << "Input first name: ";
+        cin >> f_name;
+        transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
+        // ^ converts to lowercase
+        if(sciServices.checkName(f_name)){
+            c.setFirstName(f_name);
+        }
+        else{
+            cout << "Names may only contain alphabetic characters!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+    while(!sciServices.checkName(f_name));
+
+    string l_name;
+    do{
+        cout << "Input last name: ";
+        cin >> l_name;
+        transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
+        // ^ converts to lowercase
+        if(sciServices.checkName(l_name)){
+            c.setLastName(l_name);
+        }
+        else{
+            cout << "Names may only contain alphabetic characters!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+    while(!sciServices.checkName(l_name));
+
+    string my_gender;
+    do{
+        cout << "Input gender(female / male): ";
+        cin >> my_gender;
+        transform(my_gender.begin(), my_gender.end(), my_gender.begin(), ::tolower);
+        // ^ converts to lowercase
+
+        if(sciServices.checkGender(my_gender)){
+            c.setSex(my_gender);
+        }
+        else{
+            cout << "Sex must be either female or male." << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+    while(c.getSex() != "male" && c.getSex() != "female");
+
+
+    string b_year;
+    do{
+        cout << "Enter year of birth: ";
+        cin >> b_year;
+        if(sciServices.checkBirth(b_year)){
+            c.setYearOfBirth(b_year);
+        }
+        else{
+            cout << "Invalid year!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+    while(!sciServices.checkBirth(b_year));
+
+    string d_year;
+    do{
+        cout << "Enter year of death: ";
+        cin >> d_year;
+        if(sciServices.checkDeath(d_year, b_year)){
+            c.setYearOfDeath(d_year);
+        }
+        else{
+            cout << "Invalid year!" << endl;
+            cout << "Please try again." << endl;
+        }
+    }
+    while(!sciServices.checkDeath(d_year, b_year));
+}

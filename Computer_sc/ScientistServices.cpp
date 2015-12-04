@@ -145,6 +145,18 @@ string ScientistServices::isAlive(ComputerScientist& c) {
     return answ;
 }
 
+bool ScientistServices::checkGender(string& s) {
+    if(s == "m" || s  == "ma" || s  == "mal" || s  == "male"){
+        s = "male";
+        return true;
+    }
+    else if(s == "f" || s == "fe" || s == "fem" || s == "fema" || s == "femal" || s == "female"){
+        s = "female";
+        return true;
+    }
+    return false;
+}
+
 bool ScientistServices::checkBirth(string s) {//returns false if user inputs non-digits, wrong length or year greater than 2015
     int  year = atoi(s.c_str());
 

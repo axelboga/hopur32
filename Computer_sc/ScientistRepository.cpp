@@ -19,7 +19,11 @@ void ScientistRepository::add(ComputerScientist scientist){
     datab.open();
 
     QSqlQuery query(datab);
+<<<<<<< HEAD
     query.prepare("INSERT INTO Scientist VALUES (:FirstName, :LastName, :Gender, :BirthYear, :DeathYear)");
+=======
+    query.prepare("INSERT INTO Scientists VALUES (:FirstName, :LastName, :Gender, :BirthYear, :DeathYear)");
+>>>>>>> 174fe26f718941902a3cdf220a4240df25e831bb
     query.bindValue(":FirstName", QString::fromStdString(scientist.getFirstName()));
     query.bindValue(":LastName", QString::fromStdString(scientist.getLastName()));
     query.bindValue(":Gender", QString::fromStdString(scientist.getSex()));

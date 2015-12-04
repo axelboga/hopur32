@@ -41,7 +41,6 @@ bool ComputerServices::checkType(string my_type) {
 }
 
 bool ComputerServices::checkWasBuilt(string& answ){
-    transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
     if (answ == "y" || answ == "yes" || answ == "ye") {
         return true;
         answ = "yes";

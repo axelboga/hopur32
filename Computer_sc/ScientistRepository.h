@@ -1,23 +1,16 @@
 #ifndef SCIENTISTREPOSITORY_H
 #define SCIENTISTREPOSITORY_H
 #include "computerscientist.h"
-
 #include <QtSql>
 
 class ScientistRepository {
 public:
     ScientistRepository();
-    ~ScientistRepository() ;
-    void add(ComputerScientist scientist);
-    vector<ComputerScientist> getVector();
-    void output(vector<ComputerScientist>& v);
-    void removeScientist(int number);
-    void fillVectorFromList(istream& ins, ComputerScientist& c);
-    vector<ComputerScientist> search(string input);
-    void fillVectorFromDatabase(vector<ComputerScientist>& v, string sql);
-private:
-    vector<ComputerScientist> compSciVector;
+    ~ScientistRepository();
     QSqlDatabase datab;
+    void fillVectorFromDatabase(vector<ComputerScientist>& v, string sql);
+    void add(ComputerScientist scientist);
+    vector<ComputerScientist> search(string input);
 };
 
 #endif // REPOSITORY_H

@@ -8,10 +8,6 @@ ComputerServices::ComputerServices(){
     compRepo = ComputerRepository();
 }
 
-void ComputerServices::add(Computer computer){
-    compRepo.add(computer);
-}
-
 bool ComputerServices::checkYear(string my_year) {
     int  year = atoi(my_year.c_str());
 
@@ -52,15 +48,6 @@ bool ComputerServices::checkWasBuilt(string& answ){
     return false;
 }
 
-void ComputerServices::view() {
-    compRepo.view();
-    vector<Computer> v;
-    string sql = "SELECT * FROM Computers";
-    compRepo.fillVectorFromDatabase(v, sql);
-    //return v;
-    compRepo.output(v);
-}
-
 bool ComputerServices::checkSearch(string searchTerm) {
     vector<Computer> v;
     v = compRepo.search(searchTerm);
@@ -72,14 +59,36 @@ bool ComputerServices::checkSearch(string searchTerm) {
     }
 }
 
+void ComputerServices::view() {
+    vector<Computer> v;
+    string sql = "SELECT * FROM Computers";
+    compRepo.fillVectorFromDatabase(v, sql);
+    output(v);
+}
+
+void ComputerServices::add(Computer computer){
+    compRepo.add(computer);
+}
+
 void ComputerServices::search(string searchTerm) {
     vector<Computer> v;
     v = compRepo.search(searchTerm);
-    compRepo.output(v);
+   output(v);
 }
 
 void ComputerServices::sort(string sortBy){
     vector<Computer> v;
     v = compRepo.sort(sortBy);
-    compRepo.output(v);
+    output(v);
+}
+
+void ComputerServices::output(vector<Computer>& v) {
+    cout << " _____________________________________________________________________ " << endl;
+    cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
+    cout << " ___|_________________________|________|_______________|______________ " << endl;
+    for (unsigned int i = 0; i < v.size(); i++){
+        cout<< " " << left << setw(5)<< setfill(' ');
+        cout << i+1 << v[i];
+    }
+    cout << " _____________________________________________________________________" << endl;
 }

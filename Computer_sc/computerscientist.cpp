@@ -77,7 +77,6 @@ void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientis
     while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath){
         name = firstName+" "+lastName;
         v.push_back(*this);
-
     }
 }
 

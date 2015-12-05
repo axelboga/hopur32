@@ -1,10 +1,8 @@
 #include "scientistrepository.h"
 
 ScientistRepository::ScientistRepository() {
-    datab = QSqlDatabase::addDatabase("QSQLITE");
-    QString dbname = "Database.sqlite";
-    datab.setDatabaseName(dbname);
-    datab.open();
+    datab = baseRepo.CreateConnection();
+    //datab.open();
 }
 
 ScientistRepository::~ScientistRepository() {

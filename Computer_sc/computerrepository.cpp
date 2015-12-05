@@ -1,11 +1,11 @@
 #include "computerrepository.h"
 
 ComputerRepository::ComputerRepository(){
-    datab.open();
+    datab = baseRepo.CreateConnection();
 }
 
 ComputerRepository::~ComputerRepository(){
-    datab.close();
+    //datab.close();
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {

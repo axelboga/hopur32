@@ -21,6 +21,12 @@ public:
     void computerMenu();
     void readComputer(Computer& c);
     void readScientist(ComputerScientist& c);
+    void computerArt();
+    void computerArtAdd();
+    void computerArtSortByName();
+    void computerArtSortByType();
+    void computerArtSortByYearBuilt();
+
 
 private:
     ScientistServices sciServices;

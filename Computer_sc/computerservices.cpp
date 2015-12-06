@@ -83,12 +83,18 @@ void ComputerServices::sort(string sortBy){
 }
 
 void ComputerServices::output(vector<Computer>& v) {
-    cout << " _____________________________________________________________________ " << endl;
-    cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
-    cout << " ___|_________________________|________|_______________|______________ " << endl;
+    cout << " _______________________________________________________________________ " << endl;
+    cout << " No.| Name                    |       Type         | Built? | Year Built " << endl;
+    cout << " ___|_________________________|____________________|________|___________ " << endl;
+    cout << setfill(' ');
     for (unsigned int i = 0; i < v.size(); i++){
-        cout<< " " << left << setw(5)<< setfill(' ');
-        cout << i+1 << v[i];
+        cout << setw(4) << right << i+1;
+        cout << "| " << left << setw(24) << v[i].getName();
+        cout << "| " << left << setw(19) << v[i].getType();
+        cout << "| " << left << setw(7) << v[i].getWasBuilt();
+        cout << "| " << left << setw(6) << v[i].getYear() << endl;
+
+
     }
-    cout << " _____________________________________________________________________" << endl;
+    cout << " _______________________________________________________________________" << endl;
 }

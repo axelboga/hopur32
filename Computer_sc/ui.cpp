@@ -198,8 +198,11 @@ void UI::computerLoop() {
             compServices.add(c);
         }
         else if (input == '2') {
-            //compServices.view();
-            //compServices.removeComputer();
+            compServices.view();
+            string my_id;
+            cout << "Enter the name of the computer you wish to remove: ";
+            cin >> my_id;
+            compServices.remove(my_id);
         }
         else if (input == '3') {
             char ch;
@@ -242,7 +245,8 @@ void UI::computerLoop() {
             } while (ch != '1' && ch!= '2' && ch != '3' &&
                      ch != '4');
 
-        } else if (input == '4') {
+        }
+        else if (input == '4') {
             clearScreen();
             string searchTerm;
             cout << "Search word: ";

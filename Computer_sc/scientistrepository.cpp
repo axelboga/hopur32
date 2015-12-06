@@ -41,7 +41,7 @@ void ScientistRepository::add(ComputerScientist scientist){
 
 vector<ComputerScientist> ScientistRepository::search(string input) {
     vector<ComputerScientist> v;
-    string s = "SELECT * FROM Scientists WHERE rowid LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
+    string s = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear  FROM Scientists WHERE rowid LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
     datab.close();
     return v;
 }

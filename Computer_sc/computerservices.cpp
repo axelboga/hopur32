@@ -61,7 +61,7 @@ bool ComputerServices::checkSearch(string searchTerm) {
 
 void ComputerServices::view() {
     vector<Computer> v;
-    string sql = "SELECT * FROM Computers";
+    string sql = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers";
     compRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }
@@ -82,6 +82,11 @@ void ComputerServices::sort(string sortBy){
     output(v);
 }
 
+void ComputerServices::remove(string my_id) {
+    cout << "inni í ComServ remove";
+    compRepo.remove(my_id);
+}
+
 void ComputerServices::output(vector<Computer>& v) {
     cout << " _______________________________________________________________________ " << endl;
     cout << " No.| Name                    |       Type         | Built? | Year Built " << endl;
@@ -89,6 +94,7 @@ void ComputerServices::output(vector<Computer>& v) {
     cout << setfill(' ');
     for (unsigned int i = 0; i < v.size(); i++){
         cout << setw(4) << right << i+1;
+        cout << "| " << left << setw(24) << v[i].getId();
         cout << "| " << left << setw(24) << v[i].getName();
         cout << "| " << left << setw(19) << v[i].getType();
         cout << "| " << left << setw(7) << v[i].getWasBuilt();

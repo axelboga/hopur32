@@ -85,7 +85,7 @@ void ScientistServices::add(ComputerScientist c) {
 
 void ScientistServices::view() {
     vector<ComputerScientist> v;
-    string sql = "SELECT * FROM Scientists";
+    string sql = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
     compSciRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }

@@ -17,6 +17,7 @@ public:
     void add(Computer computer);
     vector<Computer> search(string input);
     vector<Computer> sort(string sortBy);
+    void remove (string my_id);
 private:
     BaseRepository baseRepo;
 };

@@ -17,7 +17,7 @@ public:
     void search(string searchTerm);
     void sort(string sortBy);
     void output(vector<Computer>& v);
-    void removeComputer(string id);
+    void remove(string my_id);
 private:
     ComputerRepository compRepo;
 };

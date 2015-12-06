@@ -14,7 +14,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     query.prepare(QString::fromStdString(sql));
     query.exec();
     while(query.next()){
-        //c.setId(query.value("rowid").toUInt());
+        c.setId(query.value("rowid").toUInt());
         c.setName(query.value("Name").toString().toStdString());
         c.setWasBuilt(query.value("WasBuilt").toString().toStdString());
         c.setYear(query.value("YearBuilt").toString().toStdString());
@@ -33,9 +33,9 @@ void ComputerRepository::add(Computer computer) {
     query.exec();
 }
 
-vector<Computer> ComputerRepository::search(string input) {
+vector<Computer> ComputerRepository::search(string input){
     vector<Computer> v;
-    string s = "SELECT * FROM Computers WHERE rowid LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%'";
+    string s = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE rowid LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%'";
     fillVectorFromDatabase(v, s);
     return v;
 }
@@ -45,4 +45,14 @@ vector<Computer> ComputerRepository::sort(string sortBy){
     string s = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;
+}
+
+void ComputerRepository::remove(string my_id) {
+    /*QSqlQuery query(datab);
+    string s = "DELETE FROM Computers WHERE Name= '" + my_id + "'";
+    query.exec(QString(s.c_str()));
+    */
+    QSqlQuery query(datab);
+    string s = "DELETE FROM Computers WHERE rowid = '" + my_id + "'";
+    query.exec(QString(s.c_str()));
 }

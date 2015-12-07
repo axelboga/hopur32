@@ -136,8 +136,12 @@ void UI::scientistLoop() {
             sciServices.add(c);
         }
         else if (input == '2') {
-            //sciServices.view();
-            //sciServices.removeScientist();
+            sciServices.view();
+            string my_id;
+            cout << "Enter the ID of the scientist you wish to remove: ";
+            cin >> my_id;
+            sciServices.remove(my_id);
+            cout << "The scientist has been successfully removed!" << endl;
         }
         else if (input == '3') {
             char ch;
@@ -211,9 +215,10 @@ void UI::computerLoop() {
         else if (input == '2') {
             compServices.view();
             string my_id;
-            cout << "Enter the name of the computer you wish to remove: ";
+            cout << "Enter the ID of the computer you wish to remove: ";
             cin >> my_id;
             compServices.remove(my_id);
+            cout << "The computer has been successfully removed!" << endl;
         }
         else if (input == '3') {
             char ch;

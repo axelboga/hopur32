@@ -102,6 +102,10 @@ void ScientistServices::sort(string sortBy) {
     output(v);
 }
 
+void ScientistServices::remove(string my_id) {
+    compSciRepo.remove(my_id);
+}
+
 void ScientistServices::output(vector<ComputerScientist>& v) {
     cout << " _____________________________________________________________________ " << endl;
     cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;

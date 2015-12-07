@@ -52,3 +52,10 @@ vector<ComputerScientist> ScientistRepository::sort(string sortBy) {
     return v;
 }
 
+void ScientistRepository::remove(string my_id) {
+    QSqlQuery query(datab);
+
+    query.prepare("DELETE FROM Scientists WHERE rowid = :my_id");
+    query.bindValue(":my_id", std::atoi(my_id.c_str()));
+    query.exec();
+}

@@ -21,6 +21,7 @@ public:
     void search(string searchTerm);
     void sort(string sortBy);
     void output(vector<ComputerScientist>& v);
+    void remove(string my_id);
 private:
     ScientistRepository compSciRepo;
 };

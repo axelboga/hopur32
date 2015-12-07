@@ -13,6 +13,7 @@ public:
     void add(ComputerScientist scientist);
     vector<ComputerScientist> search(string input);
     vector<ComputerScientist> sort(string sortBy);
+    void remove(string my_id);
 private:
     BaseRepository baseRepo;
 };

@@ -48,11 +48,9 @@ vector<Computer> ComputerRepository::sort(string sortBy){
 }
 
 void ComputerRepository::remove(string my_id) {
-    /*QSqlQuery query(datab);
-    string s = "DELETE FROM Computers WHERE Name= '" + my_id + "'";
-    query.exec(QString(s.c_str()));
-    */
     QSqlQuery query(datab);
-    string s = "DELETE FROM Computers WHERE rowid = '" + my_id + "'";
-    query.exec(QString(s.c_str()));
+
+    query.prepare("DELETE FROM Computers WHERE rowid = :my_id");
+    query.bindValue(":my_id", std::atoi(my_id.c_str()));
+    query.exec();
 }

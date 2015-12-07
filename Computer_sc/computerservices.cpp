@@ -83,7 +83,6 @@ void ComputerServices::sort(string sortBy){
 }
 
 void ComputerServices::remove(string my_id) {
-    cout << "inni í ComServ remove";
     compRepo.remove(my_id);
 }
 

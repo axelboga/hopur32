@@ -9,12 +9,14 @@ using namespace std;
 class ComputerScientist {
 public:
     ComputerScientist();
+    int getId() const;
     string getFirstName() const;
     string getLastName() const;
     string getName() const;
     string getSex() const;
     string getYearOfBirth() const;
     string getYearOfDeath() const;
+    void setId(int my_id);
     void setFirstName(string f_name);
     void setLastName(string l_name);
     void setName();
@@ -33,6 +35,7 @@ public:
     bool compareBySex(ComputerScientist a, ComputerScientist b);
     bool compareByYear(ComputerScientist a, ComputerScientist b);
 private:
+    int id;
     string firstName;
     string lastName;
     string name;

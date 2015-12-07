@@ -90,6 +90,18 @@ void ScientistServices::view() {
     output(v);
 }
 
+void ScientistServices::search(string searchTerm) {
+    vector<ComputerScientist> v;
+    v = compSciRepo.search(searchTerm);
+    output(v);
+}
+
+void ScientistServices::sort(string sortBy) {
+    vector<ComputerScientist> v;
+    v = compSciRepo.sort(sortBy);
+    output(v);
+}
+
 void ScientistServices::output(vector<ComputerScientist>& v) {
     cout << " _____________________________________________________________________ " << endl;
     cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;

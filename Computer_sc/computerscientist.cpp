@@ -9,6 +9,10 @@ ComputerScientist::ComputerScientist(){
     yearOfDeath = "-";
 }
 
+int ComputerScientist::getId() const {
+    return id;
+}
+
 string ComputerScientist::getFirstName() const {
    return firstName;
 }
@@ -31,6 +35,10 @@ string ComputerScientist::getYearOfBirth() const {
 
 string ComputerScientist::getYearOfDeath() const {
     return yearOfDeath;
+}
+
+void ComputerScientist::setId(int my_id) {
+    id = my_id;
 }
 
 void ComputerScientist::setFirstName(string f_name) {

@@ -17,6 +17,7 @@ void ScientistRepository::fillVectorFromDatabase(vector<ComputerScientist>& v, s
     //Ef við viljum birta allan listann þá látum við string sql = "SELECT * FROM computers".
     //En t.d. ef bara birta lista yfir þá sem hafa ákv saerch term er sql = search term.
     while(query.next()){
+        c.setId(query.value("rowid").toInt());
         c.setFirstName(query.value("FirstName").toString().toStdString());
         c.setLastName(query.value("LastName").toString().toStdString());
         c.setSex(query.value("Gender").toString().toStdString());
@@ -24,7 +25,6 @@ void ScientistRepository::fillVectorFromDatabase(vector<ComputerScientist>& v, s
         c.setYearOfDeath(query.value("DeathYear").toString().toStdString());
         v.push_back(c);
     }
-    datab.close();
 }
 
 void ScientistRepository::add(ComputerScientist scientist){
@@ -36,12 +36,19 @@ void ScientistRepository::add(ComputerScientist scientist){
     query.bindValue(":BirthYear", QString::fromStdString(scientist.getYearOfBirth()));
     query.bindValue(":DeathYear", QString::fromStdString(scientist.getYearOfDeath()));
     query.exec();
-    datab.close();
 }
 
 vector<ComputerScientist> ScientistRepository::search(string input) {
     vector<ComputerScientist> v;
-    string s = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear  FROM Scientists WHERE rowid LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
-    datab.close();
+    string s = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists WHERE rowid LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
+    fillVectorFromDatabase(v, s);
     return v;
 }
+
+vector<ComputerScientist> ScientistRepository::sort(string sortBy) {
+    vector<ComputerScientist> v;
+    string s = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY " + sortBy;
+    fillVectorFromDatabase(v, s);
+    return v;
+}
+

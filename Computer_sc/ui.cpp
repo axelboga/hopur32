@@ -81,7 +81,7 @@ void UI::scientistMenu() {
     cout << " 2\t" << "Remove Scientist" << endl;
     cout << " 3\t" << "View Scientists" << endl;
     cout << " 4\t" << "Search for Scientists" << endl;
-    cout << " 5\t" << "Back" << endl;
+    cout << " 5\t" << "Back to Menu" << endl;
     cout << " _____________________________________________________________________" << endl;
     cout << endl;
     cout << "Enter your Selection: ";
@@ -142,23 +142,30 @@ void UI::scientistLoop() {
         else if (input == '3') {
             char ch;
             cout << endl;
-            sciServices.view();
             do {
                 scientistSortUI();
                 cin >> ch;
                 clearScreen();
 
                 if (ch == '1') {
+                    sciServices.sort("FirstName");
+
                 }
                 else if (ch == '2') {
+                    sciServices.sort("FirstName DESC");
                 }
                 else if (ch == '3') {
+                    sciServices.sort("LastName");
+
                 }
                 else if (ch == '4') {
+                    sciServices.sort("LastName DESC");
                 }
                 else if (ch == '5') {
+                    sciServices.sort("Gender");
                 }
                 else if (ch == '6') {
+                    sciServices.sort("BirthYear");
                 }
                 else {
                     cout << "Wrong input. Try again" << endl;
@@ -168,8 +175,12 @@ void UI::scientistLoop() {
         }
         else if (input == '4') {
             clearScreen();
+            string searchTerm;
             cout << "Search word: ";
-            //sciServices.searching();
+            cin >> searchTerm;
+            transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
+            sciServices.search(searchTerm);
+
         }
         else if (input == '5') {
             cout << "Returning to Main Menu." << endl;

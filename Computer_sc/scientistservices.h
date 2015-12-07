@@ -18,6 +18,8 @@ public:
     bool isAlive(string& answ);
     void add(ComputerScientist c);
     void view();
+    void search(string searchTerm);
+    void sort(string sortBy);
     void output(vector<ComputerScientist>& v);
 private:
     ScientistRepository compSciRepo;

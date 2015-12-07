@@ -12,6 +12,7 @@ public:
     void fillVectorFromDatabase(vector<ComputerScientist>& v, string sql);
     void add(ComputerScientist scientist);
     vector<ComputerScientist> search(string input);
+    vector<ComputerScientist> sort(string sortBy);
 private:
     BaseRepository baseRepo;
 };

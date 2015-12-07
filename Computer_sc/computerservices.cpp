@@ -73,7 +73,7 @@ void ComputerServices::add(Computer computer){
 void ComputerServices::search(string searchTerm) {
     vector<Computer> v;
     v = compRepo.search(searchTerm);
-   output(v);
+    output(v);
 }
 
 void ComputerServices::sort(string sortBy){

@@ -131,7 +131,7 @@ void UI::scientistLoop() {
         cout << endl;
 
         if (input == '1') {
-            ComputerScientist c;
+            Scientist c;
             readScientist(c);
             sciServices.add(c);
         }
@@ -333,7 +333,7 @@ void UI::readComputer(Computer& c) {
     }
 }
 
-void UI::readScientist(ComputerScientist& c) {
+void UI::readScientist(Scientist& c) {
     string f_name;
     do{
         cout << "Input first name: ";

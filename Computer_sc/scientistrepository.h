@@ -1,6 +1,6 @@
 #ifndef SCIENTISTREPOSITORY_H
 #define SCIENTISTREPOSITORY_H
-#include "computerscientist.h"
+#include "Scientist.h"
 #include "baserepository.h"
 #include <QtSql>
 
@@ -9,10 +9,10 @@ public:
     ScientistRepository();
     ~ScientistRepository();
     QSqlDatabase datab;
-    void fillVectorFromDatabase(vector<ComputerScientist>& v, string sql);
-    void add(ComputerScientist scientist);
-    vector<ComputerScientist> search(string input);
-    vector<ComputerScientist> sort(string sortBy);
+    void fillVectorFromDatabase(vector<Scientist>& v, string sql);
+    void add(Scientist scientist);
+    vector<Scientist> search(string input);
+    vector<Scientist> sort(string sortBy);
 private:
     BaseRepository baseRepo;
 };

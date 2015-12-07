@@ -1,6 +1,6 @@
-#include "computerscientist.h"
+#include "Scientist.h"
 
-ComputerScientist::ComputerScientist(){
+Scientist::Scientist(){
     firstName = "";
     lastName = "";
     name = "";
@@ -9,63 +9,63 @@ ComputerScientist::ComputerScientist(){
     yearOfDeath = "-";
 }
 
-int ComputerScientist::getId() const {
+int Scientist::getId() const {
     return id;
 }
 
-string ComputerScientist::getFirstName() const {
+string Scientist::getFirstName() const {
    return firstName;
 }
 
-string ComputerScientist::getLastName() const {
+string Scientist::getLastName() const {
    return lastName;
 }
 
-string ComputerScientist::getName() const {
+string Scientist::getName() const {
    return name;
 }
 
-string ComputerScientist::getSex() const {
+string Scientist::getSex() const {
     return sex;
 }
 
-string ComputerScientist::getYearOfBirth() const {
+string Scientist::getYearOfBirth() const {
     return yearOfBirth;
 }
 
-string ComputerScientist::getYearOfDeath() const {
+string Scientist::getYearOfDeath() const {
     return yearOfDeath;
 }
 
-void ComputerScientist::setId(int my_id) {
+void Scientist::setId(int my_id) {
     id = my_id;
 }
 
-void ComputerScientist::setFirstName(string f_name) {
+void Scientist::setFirstName(string f_name) {
    firstName = f_name;
 }
 
-void ComputerScientist::setLastName(string l_name) {
+void Scientist::setLastName(string l_name) {
    lastName = l_name;
 }
 
-void ComputerScientist::setName(){
+void Scientist::setName(){
     name = firstName+" "+lastName;
 }
 
-void ComputerScientist::setSex(string gender) {
+void Scientist::setSex(string gender) {
     sex = gender;
 }
 
-void ComputerScientist::setYearOfBirth(string b_year) {
+void Scientist::setYearOfBirth(string b_year) {
     yearOfBirth = b_year;
 }
 
-void ComputerScientist::setYearOfDeath(string d_year) {
+void Scientist::setYearOfDeath(string d_year) {
     yearOfDeath = d_year;
 }
 
-ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the object computerScientist
+ostream& operator <<(ostream& outs, Scientist& c) { //how to output the object computerScientist
     string tempF = c.getFirstName();
     tempF[0] = toupper(tempF[0]);
     string tempL = c.getLastName();
@@ -75,20 +75,20 @@ ostream& operator <<(ostream& outs, ComputerScientist& c) { //how to output the 
     return outs;
 }
 
-ostream& readToFile(ostream& outs, ComputerScientist& c) { //put the scientist into the file
+ostream& readToFile(ostream& outs, Scientist& c) { //put the scientist into the file
     outs << left << setw(11) << c.firstName << left << setw(12) << c.lastName << left << setw(14)
          << c.sex << left << setw(16)<< c.yearOfBirth << left <<setw(4) << c.yearOfDeath << endl;
     return outs;
 }
 
-void ComputerScientist::fillVectorFromList(istream& ins, vector<ComputerScientist>& v) {
+void Scientist::fillVectorFromList(istream& ins, vector<Scientist>& v) {
     while(ins >> firstName >> lastName >> sex >> yearOfBirth >> yearOfDeath){
         name = firstName+" "+lastName;
         v.push_back(*this);
     }
 }
 
-bool operator == (ComputerScientist& c1, ComputerScientist& c2) { //returns true if two objects are exactly the same
+bool operator == (Scientist& c1, Scientist& c2) { //returns true if two objects are exactly the same
     if (c1.name == c2.name && c1.yearOfBirth == c2.yearOfBirth && c1.yearOfDeath == c2.yearOfDeath){
         return true;
     }
@@ -97,7 +97,7 @@ bool operator == (ComputerScientist& c1, ComputerScientist& c2) { //returns true
     }
 }
 
-bool operator == (string s, ComputerScientist& c) { //return true if string, s, is a substring in any of the object's variables
+bool operator == (string s, Scientist& c) { //return true if string, s, is a substring in any of the object's variables
     if (c.found(c.name, s) || c.found(c.yearOfBirth, s) || c.found(c.yearOfDeath, s)){
         return true;
     }
@@ -106,7 +106,7 @@ bool operator == (string s, ComputerScientist& c) { //return true if string, s, 
     }
 }
 
-bool ComputerScientist::found(string a, string b) { //returns true if a certain substring exists in a string
+bool Scientist::found(string a, string b) { //returns true if a certain substring exists in a string
    int n;
    n = a.find(b);
    if (n < 0){

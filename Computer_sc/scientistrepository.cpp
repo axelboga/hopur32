@@ -9,8 +9,8 @@ ScientistRepository::~ScientistRepository() {
     //datab.close();
 }
 
-void ScientistRepository::fillVectorFromDatabase(vector<ComputerScientist>& v, string sql) {
-    ComputerScientist c;
+void ScientistRepository::fillVectorFromDatabase(vector<Scientist>& v, string sql) {
+    Scientist c;
     QSqlQuery query(datab);
     query.prepare(QString::fromStdString(sql));
     query.exec();
@@ -27,7 +27,7 @@ void ScientistRepository::fillVectorFromDatabase(vector<ComputerScientist>& v, s
     }
 }
 
-void ScientistRepository::add(ComputerScientist scientist){
+void ScientistRepository::add(Scientist scientist){
     QSqlQuery query(datab);
     query.prepare("INSERT INTO Scientists VALUES (:FirstName, :LastName, :Gender, :BirthYear, :DeathYear)");
     query.bindValue(":FirstName", QString::fromStdString(scientist.getFirstName()));
@@ -38,15 +38,15 @@ void ScientistRepository::add(ComputerScientist scientist){
     query.exec();
 }
 
-vector<ComputerScientist> ScientistRepository::search(string input) {
-    vector<ComputerScientist> v;
+vector<Scientist> ScientistRepository::search(string input) {
+    vector<Scientist> v;
     string s = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists WHERE rowid LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-vector<ComputerScientist> ScientistRepository::sort(string sortBy) {
-    vector<ComputerScientist> v;
+vector<Scientist> ScientistRepository::sort(string sortBy) {
+    vector<Scientist> v;
     string s = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;

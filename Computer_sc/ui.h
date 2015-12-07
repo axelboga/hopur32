@@ -20,7 +20,7 @@ public:
     void computerSortUI();
     void computerMenu();
     void readComputer(Computer& c);
-    void readScientist(ComputerScientist& c);
+    void readScientist(Scientist& c);
     void computerArt();
     void computerArtAdd();
     void computerArtSortByName();

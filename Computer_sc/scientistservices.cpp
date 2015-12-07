@@ -124,12 +124,21 @@ void ScientistServices::remove(string my_id) {
 }
 
 void ScientistServices::output(vector<Scientist>& v) {
-    cout << " _____________________________________________________________________ " << endl;
-    cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
-    cout << " ___|_________________________|________|_______________|______________ " << endl;
+    cout << " _____________________________________________________________________________ " << endl;
+    cout << " ID | Name                          |  Gender  | Date of Birth | Date of Death   " << endl;
+    cout << " ___|_______________________________|__________|_______________|______________" << endl;
     for (unsigned int i = 0; i < v.size(); i++){
-        cout<< " " << left << setw(5)<< setfill(' ');
-        cout << i+1 << v[i];
+        cout << right << setw(4) << v[i].getId();
+        string tempF = v[i].getFirstName();
+        tempF[0] = toupper(tempF[0]); //Capitalize first name
+        string tempL = v[i].getLastName();
+        tempL[0] = toupper(tempL[0]); //Capitalize last name
+        string fullName = tempF + " " + tempL; //Combine names with space inbetween
+        cout << "| " << left << setw(30) << fullName;
+        cout << "| " << left << setw(9) << v[i].getSex();
+        cout << "|     " << left << setw(10) << v[i].getYearOfBirth();
+        cout << "|      " << left << setw(9) << v[i].getYearOfDeath() << endl;
+
     }
-    cout << " _____________________________________________________________________" << endl;
+    cout << " _____________________________________________________________________________" << endl;
 }

@@ -223,12 +223,22 @@ void UI::computerLoop() {
             compServices.add(c);
         }
         else if (input == '2') {
-            compServices.view();
             string my_id;
-            cout << "Enter the ID of the computer you wish to remove: ";
-            cin >> my_id;
-            compServices.remove(my_id);
-            cout << "The computer has been successfully removed!" << endl;
+            string name;
+            do{
+                compServices.view();
+                cout << "Enter the ID of the computer you wish to remove: ";
+                cin >> my_id;
+                if(compServices.checkRemove(my_id, name)){
+                    compServices.remove(my_id);
+                    cout << "The computer " << name << " has been successfully removed!" << endl;
+                }
+                else{
+                    cout << "This is not a valid ID!" << endl;
+                    cout << "Please try again." << endl;
+                }
+            }
+            while(!compServices.checkRemove(my_id, name));
         }
         else if (input == '3') {
             char ch;

@@ -59,6 +59,23 @@ bool ComputerServices::checkSearch(string searchTerm) {
     }
 }
 
+bool ComputerServices::checkRemove(string my_id, string& name) {
+    vector<Computer> v;
+    string sql = "SELECT rowid, Name, Type, WasBuilt, YearBuilt FROM Computers";
+    compRepo.fillVectorFromDatabase(v, sql);
+
+    int temp = atoi(my_id.c_str());
+
+    for(unsigned int i = 0; i < v.size(); i++){
+        if(v[i].getId() == temp){
+            name = v[i].getName();
+            name[0] = toupper(name[0]);
+            return true;
+        }
+    }
+    return false;
+}
+
 void ComputerServices::view() {
     vector<Computer> v;
     string sql = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers";

@@ -22,7 +22,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     }
 }
 
-void ComputerRepository::add(Computer computer) {
+void ComputerRepository::addToDatabase(Computer computer) {
     QSqlQuery query(datab);
     query.prepare("INSERT INTO Computers(Name, Type, WasBuilt, YearBuilt) VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
     query.bindValue(":Name", QString::fromStdString(computer.getName()));
@@ -32,21 +32,21 @@ void ComputerRepository::add(Computer computer) {
     query.exec();
 }
 
-vector<Computer> ComputerRepository::search(string input){
+vector<Computer> ComputerRepository::searchInDatabase(string input){
     vector<Computer> v;
     string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE ID LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%'";
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-vector<Computer> ComputerRepository::sort(string sortBy){
+vector<Computer> ComputerRepository::sortDatabase(string sortBy){
     vector<Computer> v;
     string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-void ComputerRepository::remove(string my_id) {
+void ComputerRepository::removeFromDatabase(string my_id) {
     QSqlQuery query(datab);
 
     query.prepare("DELETE FROM Computers WHERE ID = :my_id");
@@ -76,4 +76,3 @@ vector<Computer> ComputerRepository::getComputersByScientistId(string id){
     fillVectorFromDatabase(v, sql);
     return v;
 }
-

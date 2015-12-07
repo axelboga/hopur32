@@ -13,10 +13,10 @@ public:
     ComputerRepository();
     ~ComputerRepository();
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
-    void add(Computer computer);
-    vector<Computer> search(string input);
-    vector<Computer> sort(string sortBy);
-    void remove (string ID);
+    void addToDatabase(Computer computer);
+    vector<Computer> searchInDatabase(string input);
+    vector<Computer> sortDatabase(string sortBy);
+    void removeFromDatabase (string ID);
     void addConnection(string sci_id, string comp_id);
     vector<Computer> getComputersByScientistId(string id);
 private:

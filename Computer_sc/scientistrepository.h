@@ -1,6 +1,6 @@
 #ifndef SCIENTISTREPOSITORY_H
 #define SCIENTISTREPOSITORY_H
-#include "Scientist.h"
+#include "scientist.h"
 #include "baserepository.h"
 #include <QtSql>
 

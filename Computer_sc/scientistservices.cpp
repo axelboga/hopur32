@@ -67,6 +67,23 @@ bool ScientistServices::checkDeath(string d, string b) {
    return true;
 }
 
+bool ScientistServices::checkRemove(string my_id, string& name) {
+    vector<Scientist> v;
+    string sql = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
+    compSciRepo.fillVectorFromDatabase(v, sql);
+
+    int temp = atoi(my_id.c_str());
+
+    for(unsigned int i = 0; i < v.size(); i++){
+        if(v[i].getId() == temp){
+            name = v[i].getFirstName();
+            name[0] = toupper(name[0]);
+            return true;
+        }
+    }
+    return false;
+}
+
 bool ScientistServices::isAlive(string& answ) {
     transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
     if (answ == "n" || answ == "no"){

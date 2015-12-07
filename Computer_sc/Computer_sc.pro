@@ -26,5 +26,5 @@ HEADERS += \
     computerservices.h \
     computerrepository.h \
     baserepository.h \
-    Scientist.h
+    scientist.h
 

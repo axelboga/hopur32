@@ -1,6 +1,6 @@
 #ifndef SCIENTISTSERVICES_H
 #define SCIENTISTSERVICES_H
-#include "Scientist.h"
+#include "scientist.h"
 #include "scientistrepository.h"
 #include <cctype>
 #include <algorithm>
@@ -15,6 +15,7 @@ public:
     bool checkGender(string& s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
+    bool checkRemove(string my_id, string& name);
     bool isAlive(string& answ);
     void add(Scientist c);
     void view();

@@ -1,9 +1,8 @@
-#include "Scientist.h"
+#include "scientist.h"
 
 Scientist::Scientist(){
     firstName = "";
     lastName = "";
-    name = "";
     sex = "";
     yearOfBirth = "";
     yearOfDeath = "-";
@@ -19,10 +18,6 @@ string Scientist::getFirstName() const {
 
 string Scientist::getLastName() const {
    return lastName;
-}
-
-string Scientist::getName() const {
-   return name;
 }
 
 string Scientist::getSex() const {
@@ -47,10 +42,6 @@ void Scientist::setFirstName(string f_name) {
 
 void Scientist::setLastName(string l_name) {
    lastName = l_name;
-}
-
-void Scientist::setName(){
-    name = firstName+" "+lastName;
 }
 
 void Scientist::setSex(string gender) {

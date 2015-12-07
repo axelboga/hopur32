@@ -12,14 +12,12 @@ public:
     int getId() const;
     string getFirstName() const;
     string getLastName() const;
-    string getName() const;
     string getSex() const;
     string getYearOfBirth() const;
     string getYearOfDeath() const;
     void setId(int my_id);
     void setFirstName(string f_name);
     void setLastName(string l_name);
-    void setName();
     void setSex(string gender);
     void setYearOfBirth(string b_year);
     void setYearOfDeath(string d_year);

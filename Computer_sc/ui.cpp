@@ -136,12 +136,22 @@ void UI::scientistLoop() {
             sciServices.add(c);
         }
         else if (input == '2') {
-            sciServices.view();
             string my_id;
-            cout << "Enter the ID of the scientist you wish to remove: ";
-            cin >> my_id;
-            sciServices.remove(my_id);
-            cout << "The scientist has been successfully removed!" << endl;
+            string name;
+            do{
+                sciServices.view();
+                cout << "Enter the ID of the scientist you wish to remove: ";
+                cin >> my_id;
+                if(sciServices.checkRemove(my_id, name)){
+                    sciServices.remove(my_id);
+                    cout << "The scientist " << name << " has been successfully removed!" << endl;
+                }
+                else{
+                    cout << "This is not a valid ID!" << endl;
+                    cout << "Please try again." << endl;
+                }
+            }
+            while(!sciServices.checkRemove(my_id, name));
         }
         else if (input == '3') {
             char ch;

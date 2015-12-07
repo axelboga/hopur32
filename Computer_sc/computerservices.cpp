@@ -61,7 +61,7 @@ bool ComputerServices::checkSearch(string searchTerm) {
 
 bool ComputerServices::checkRemove(string my_id, string& name) {
     vector<Computer> v;
-    string sql = "SELECT rowid, Name, Type, WasBuilt, YearBuilt FROM Computers";
+    string sql = "SELECT ID, Name, Type, WasBuilt, YearBuilt FROM Computers";
     compRepo.fillVectorFromDatabase(v, sql);
 
     int temp = atoi(my_id.c_str());
@@ -78,7 +78,7 @@ bool ComputerServices::checkRemove(string my_id, string& name) {
 
 void ComputerServices::view() {
     vector<Computer> v;
-    string sql = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers";
+    string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers";
     compRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }

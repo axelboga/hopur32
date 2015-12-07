@@ -69,7 +69,7 @@ bool ScientistServices::checkDeath(string d, string b) {
 
 bool ScientistServices::checkRemove(string my_id, string& name) {
     vector<Scientist> v;
-    string sql = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
+    string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
     compSciRepo.fillVectorFromDatabase(v, sql);
 
     int temp = atoi(my_id.c_str());
@@ -102,7 +102,7 @@ void ScientistServices::add(Scientist c) {
 
 void ScientistServices::view() {
     vector<Scientist> v;
-    string sql = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
+    string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
     compSciRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }

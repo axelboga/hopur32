@@ -14,7 +14,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     query.prepare(QString::fromStdString(sql));
     query.exec();
     while(query.next()){
-        c.setId(query.value("rowid").toUInt());
+        c.setId(query.value("Id").toUInt());
         c.setName(query.value("Name").toString().toStdString());
         c.setWasBuilt(query.value("WasBuilt").toString().toStdString());
         c.setYear(query.value("YearBuilt").toString().toStdString());
@@ -25,7 +25,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
 
 void ComputerRepository::add(Computer computer) {
     QSqlQuery query(datab);
-    query.prepare("INSERT INTO Computers VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
+    query.prepare("INSERT INTO Computers(Name, Type, WasBuilt, YearBuilt) VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
     query.bindValue(":Name", QString::fromStdString(computer.getName()));
     query.bindValue(":Type", QString::fromStdString(computer.getType()));
     query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
@@ -35,14 +35,14 @@ void ComputerRepository::add(Computer computer) {
 
 vector<Computer> ComputerRepository::search(string input){
     vector<Computer> v;
-    string s = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE rowid LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%'";
+    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE ID LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%'";
     fillVectorFromDatabase(v, s);
     return v;
 }
 
 vector<Computer> ComputerRepository::sort(string sortBy){
     vector<Computer> v;
-    string s = "SELECT rowid, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY " + sortBy;
+    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;
 }
@@ -50,7 +50,7 @@ vector<Computer> ComputerRepository::sort(string sortBy){
 void ComputerRepository::remove(string my_id) {
     QSqlQuery query(datab);
 
-    query.prepare("DELETE FROM Computers WHERE rowid = :my_id");
+    query.prepare("DELETE FROM Computers WHERE ID = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
 }

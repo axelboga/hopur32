@@ -120,3 +120,9 @@ void ComputerServices::output(vector<Computer>& v) {
     }
     cout << " _______________________________________________________________________" << endl;
 }
+
+/*
+void ComputerServices::addConnection(string sci_id, string comp_id) {
+    connectRepo.addConnection(sci_id, comp_id);
+}
+*/

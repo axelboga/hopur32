@@ -54,3 +54,5 @@ void ComputerRepository::remove(string my_id) {
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
 }
+
+

@@ -2,6 +2,7 @@
 #define SCIENTISTSERVICES_H
 #include "scientist.h"
 #include "scientistrepository.h"
+#include "compsciconnectionsrepository.h"
 #include <cctype>
 #include <algorithm>
 #include <stdlib.h>
@@ -18,11 +19,13 @@ public:
     bool checkRemove(string my_id, string& name);
     bool isAlive(string& answ);
     void add(Scientist c);
+    void getScientistsByComputerId(string c_id);
     void view();
     void search(string searchTerm);
     void sort(string sortBy);
     void remove(string my_id);
     void output(vector<Scientist>& v);
+    void addConnection(string sci_id, string comp_id);
 private:
     ScientistRepository compSciRepo;
 };

@@ -23,8 +23,23 @@ void UI::start() {
             computerLoop();
         }
         else if (input == '3') {
+            /*
+            string sci_id;
+            string comp_id;
+            cout << "Enter the ID of the scientist to connect: ";
+            cin >> sci_id;
+            cout << "Enter the ID of the computer to connect: ";
+            cin >> comp_id;
+            compServices.addConnection(sci_id, comp_id);
+
             cout << "Sorry!" << endl;
             cout << "Feature not ready!" << endl;
+            */
+
+            string c_id;
+            cout << "input the ID of the computer you wish to see the scientist that made it: ";
+            cin >> c_id;
+            sciServices.getScientistsByComputerId(c_id);
         }
         else if (input == '4') {
             cout << "Terminating Program" << endl;

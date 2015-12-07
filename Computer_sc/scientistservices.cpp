@@ -142,3 +142,13 @@ void ScientistServices::output(vector<Scientist>& v) {
     }
     cout << " _____________________________________________________________________________" << endl;
 }
+
+void ScientistServices::addConnection(string sci_id, string comp_id) {
+    compSciRepo.addConnection(sci_id, comp_id);
+}
+
+void ScientistServices::getScientistsByComputerId(string c_id) {
+    vector<Scientist> v;
+    v = compSciRepo.getScientistsByComputerId(c_id);
+    output(v);
+}

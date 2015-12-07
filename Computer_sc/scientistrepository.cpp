@@ -59,3 +59,24 @@ void ScientistRepository::remove(string my_id) {
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
 }
+
+/*********************************CONNECTIONS********************************************/
+
+void ScientistRepository::addConnection(string sci_id, string comp_id){
+    QSqlQuery query(datab);
+    query.prepare("INSERT INTO ScientistComputerConnections2 (sId, cId) VALUES(:sId, :cId)");
+    query.bindValue(":sId", atoi(sci_id.c_str()));
+    query.bindValue(":cId", atoi(comp_id.c_str()));
+    query.exec();
+}
+
+vector<Scientist> ScientistRepository::getScientistsByComputerId(string id){
+    vector<Scientist> v;
+    QSqlQuery query(datab);
+    string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists s "
+                  "INNER JOIN ScientistComputerConnections2 scc "
+                  "ON s.ID = scc.sId "
+                  "WHERE scc.cId = '" + id + "'";
+    fillVectorFromDatabase(v, sql);
+    return v;
+}

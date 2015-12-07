@@ -14,6 +14,8 @@ public:
     void add(Scientist scientist);
     vector<Scientist> search(string input);
     vector<Scientist> sort(string sortBy);
+    vector<Scientist> getScientistsByComputerId(string id);
+    void addConnection(string sci_id, string comp_id);
 private:
     BaseRepository baseRepo;
 };

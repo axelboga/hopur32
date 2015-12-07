@@ -19,6 +19,7 @@ public:
     void output(vector<Computer>& v);
     void remove(string my_id);
     bool checkRemove(string my_id, string& name);
+    void addConnection(string sci_id, string comp_id);
 private:
     ComputerRepository compRepo;
 };

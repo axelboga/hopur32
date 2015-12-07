@@ -5,7 +5,6 @@ ComputerRepository::ComputerRepository(){
 }
 
 ComputerRepository::~ComputerRepository(){
-    //datab.close();
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {
@@ -55,4 +54,26 @@ void ComputerRepository::remove(string my_id) {
     query.exec();
 }
 
+
+/*************************************CONNECTIONS********************************************/
+
+
+void ComputerRepository::addConnection(string sci_id, string comp_id){
+    QSqlQuery query(datab);
+    query.prepare("INSERT INTO ScientistComputerConnections2 (sId, cId) VALUES(:sId, :cId)");
+    query.bindValue(":sId", atoi(sci_id.c_str()));
+    query.bindValue(":cId", atoi(comp_id.c_str()));
+    query.exec();
+}
+
+vector<Computer> ComputerRepository::getComputersByScientistId(string id){
+    vector<Computer> v;
+    QSqlQuery query(datab);
+    string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers c "
+                  "INNER JOIN ScientistComputerConnections2 scc "
+                  "ON c.ID = scc.cId "
+                  "WHERE scc.sId = '" + id + "'";
+    fillVectorFromDatabase(v, sql);
+    return v;
+}
 

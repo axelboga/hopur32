@@ -12,14 +12,16 @@ class ComputerRepository {
 public:
     ComputerRepository();
     ~ComputerRepository();
-    QSqlDatabase datab;
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
     void add(Computer computer);
     vector<Computer> search(string input);
     vector<Computer> sort(string sortBy);
     void remove (string ID);
+    void addConnection(string sci_id, string comp_id);
+    vector<Computer> getComputersByScientistId(string id);
 private:
     BaseRepository baseRepo;
+    QSqlDatabase datab;
 };
 
 #endif // COMPUTERREPOSITORY_H

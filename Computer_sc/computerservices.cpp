@@ -8,6 +8,9 @@ ComputerServices::ComputerServices(){
     compRepo = ComputerRepository();
 }
 
+
+/*********************************** "CHECK"-FUNCTIONS *************************************/
+
 bool ComputerServices::checkYear(string my_year) {
     int  year = atoi(my_year.c_str());
 
@@ -76,6 +79,8 @@ bool ComputerServices::checkRemove(string my_id, string& name) {
     return false;
 }
 
+/********************************** MAIN FUNCTIONS **************************************/
+
 void ComputerServices::view() {
     vector<Computer> v;
     string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers";
@@ -121,8 +126,15 @@ void ComputerServices::output(vector<Computer>& v) {
     cout << " _______________________________________________________________________" << endl;
 }
 
-/*
+/******************************** CONNECTIONS **************************************/
+
 void ComputerServices::addConnection(string sci_id, string comp_id) {
-    connectRepo.addConnection(sci_id, comp_id);
+    compRepo.addConnection(sci_id, comp_id);
 }
-*/
+
+void ComputerServices::getComputersByScientistId(string s_id) {
+    vector<Computer> v;
+    v = compRepo.getComputersByScientistId(s_id);
+    output(v);
+}
+

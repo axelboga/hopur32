@@ -6,6 +6,8 @@ ScientistServices::ScientistServices() {
     compSciRepo = ScientistRepository();
  }
 
+/*********************************** "CHECK"-FUNCTIONS *************************************/
+
 bool ScientistServices::checkName(string s) {
     for (unsigned int i = 0; i < s.length(); i++){
         if (!isalpha(s[i])) {
@@ -96,6 +98,8 @@ bool ScientistServices::isAlive(string& answ) {
     return false;
 }
 
+/*********************************** MAIN FUNCTIONS **************************************/
+
 void ScientistServices::add(Scientist c) {
     compSciRepo.add(c);
 }
@@ -142,6 +146,8 @@ void ScientistServices::output(vector<Scientist>& v) {
     }
     cout << " _____________________________________________________________________________" << endl;
 }
+
+/*************************************CONNECTIONS********************************************/
 
 void ScientistServices::addConnection(string sci_id, string comp_id) {
     compSciRepo.addConnection(sci_id, comp_id);

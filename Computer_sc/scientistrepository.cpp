@@ -2,11 +2,9 @@
 
 ScientistRepository::ScientistRepository() {
     datab = baseRepo.CreateConnection();
-    //datab.open();
 }
 
 ScientistRepository::~ScientistRepository() {
-    //datab.close();
 }
 
 void ScientistRepository::fillVectorFromDatabase(vector<Scientist>& v, string sql) {
@@ -14,8 +12,6 @@ void ScientistRepository::fillVectorFromDatabase(vector<Scientist>& v, string sq
     QSqlQuery query(datab);
     query.prepare(QString::fromStdString(sql));
     query.exec();
-    //Ef við viljum birta allan listann þá látum við string sql = "SELECT * FROM computers".
-    //En t.d. ef bara birta lista yfir þá sem hafa ákv saerch term er sql = search term.
     while(query.next()){
         c.setId(query.value("ID").toInt());
         c.setFirstName(query.value("FirstName").toString().toStdString());
@@ -60,7 +56,8 @@ void ScientistRepository::remove(string my_id) {
     query.exec();
 }
 
-/*********************************CONNECTIONS********************************************/
+/*************************************CONNECTIONS********************************************/
+
 
 void ScientistRepository::addConnection(string sci_id, string comp_id){
     QSqlQuery query(datab);

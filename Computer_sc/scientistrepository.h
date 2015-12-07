@@ -8,7 +8,6 @@ class ScientistRepository {
 public:
     ScientistRepository();
     ~ScientistRepository();
-    QSqlDatabase datab;
     void remove(string my_id);
     void fillVectorFromDatabase(vector<Scientist>& v, string sql);
     void add(Scientist scientist);
@@ -18,6 +17,7 @@ public:
     void addConnection(string sci_id, string comp_id);
 private:
     BaseRepository baseRepo;
+    QSqlDatabase datab;
 };
 
 #endif // REPOSITORY_H

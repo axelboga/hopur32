@@ -20,6 +20,7 @@ public:
     void remove(string my_id);
     bool checkRemove(string my_id, string& name);
     void addConnection(string sci_id, string comp_id);
+    void getComputersByScientistId(string s_id);
 private:
     ComputerRepository compRepo;
 };

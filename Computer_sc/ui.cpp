@@ -178,23 +178,35 @@ void UI::scientistLoop() {
 
                 if (ch == '1') {
                     sciServices.sort("FirstName");
+                    enterToContinue();
+
 
                 }
                 else if (ch == '2') {
                     sciServices.sort("FirstName DESC");
+                    enterToContinue();
+
                 }
                 else if (ch == '3') {
                     sciServices.sort("LastName");
+                    enterToContinue();
+
 
                 }
                 else if (ch == '4') {
                     sciServices.sort("LastName DESC");
+                    enterToContinue();
+
                 }
                 else if (ch == '5') {
                     sciServices.sort("Gender");
+                    enterToContinue();
+
                 }
                 else if (ch == '6') {
                     sciServices.sort("BirthYear");
+                    enterToContinue();
+
                 }
                 else {
                     cout << "Wrong input. Try again" << endl;
@@ -256,7 +268,6 @@ void UI::computerLoop() {
         }
         else if (input == '3') {
             char ch;
-            char toContinue;
             cout << endl;
 
             do {
@@ -266,24 +277,24 @@ void UI::computerLoop() {
                 //cout << "The sorted list is: " << endl;
                 if (ch == '1') {
                     compServices.sort("Name");
-                    cout << "Press any key to continue..." << endl;
-                    cin >> toContinue;
+                    enterToContinue();
+
 
                 }
                 else if (ch == '2') {
                     compServices.sort("Name DESC");
-                    cout << "Press any key to continue..." << endl;
-                    cin >> toContinue;
+                    enterToContinue();
+
                 }
                 else if (ch == '3') {
                     compServices.sort("YearBuilt");
-                    cout << "Press any key to continue..." << endl;
-                    cin >> toContinue;
+                    enterToContinue();
+
                 }
                 else if (ch == '4') {
                     compServices.sort("Type");
-                    cout << "Press any key to continue..." << endl;
-                    cin >> toContinue;
+                    enterToContinue();
+
                 }
                 else {
                     cout << "Wrong input. Try again" << endl;
@@ -488,6 +499,15 @@ void UI::computerArt() {
     cout << endl << endl;
 
 }
-
-
+void UI::flush(istream& in)
+{
+    in.ignore ( std::numeric_limits<std::streamsize>::max(), '\n' );
+    in.clear();
+}
+void UI::enterToContinue()
+{
+    flush(cin);
+    cout << "Press [Enter] to Continue...";
+    cin.get();
+}
 

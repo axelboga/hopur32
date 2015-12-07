@@ -434,7 +434,7 @@ void UI::readScientist(Scientist& c) {
             cin >> d_year;
             transform(d_year.begin(), d_year.end(), d_year.begin(), ::tolower);
             if (sciServices.checkDeath(d_year, b_year)) {
-                c.setYearOfBirth(d_year);
+                c.setYearOfDeath(d_year);
             }
             else {
                 cout << "Invalid year!" << endl;

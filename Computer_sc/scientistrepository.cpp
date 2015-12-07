@@ -23,7 +23,7 @@ void ScientistRepository::fillVectorFromDatabase(vector<Scientist>& v, string sq
     }
 }
 
-void ScientistRepository::add(Scientist scientist){
+void ScientistRepository::addToDatabase(Scientist scientist){
     QSqlQuery query(datab);
     query.prepare("INSERT INTO Scientists (FirstName, LastName, Gender, BirthYear, DeathYear) VALUES (:FirstName, :LastName, :Gender, :BirthYear, :DeathYear)");
     query.bindValue(":FirstName", QString::fromStdString(scientist.getFirstName()));
@@ -34,21 +34,21 @@ void ScientistRepository::add(Scientist scientist){
     query.exec();
 }
 
-vector<Scientist> ScientistRepository::search(string input) {
+vector<Scientist> ScientistRepository::searchInDatabase(string input) {
     vector<Scientist> v;
     string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists WHERE rowid LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%'";
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-vector<Scientist> ScientistRepository::sort(string sortBy) {
+vector<Scientist> ScientistRepository::sortDatabase(string sortBy) {
     vector<Scientist> v;
     string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-void ScientistRepository::remove(string my_id) {
+void ScientistRepository::removeFromDatabase(string my_id) {
     QSqlQuery query(datab);
 
     query.prepare("DELETE FROM Scientists WHERE ID = :my_id");

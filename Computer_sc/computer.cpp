@@ -50,6 +50,7 @@ void Computer::setWasBuilt(string my_wasBuilt) {
     wasBuilt = my_wasBuilt;
 }
 
+/*
 ostream& operator <<(ostream& outs, Computer& c) { //how to output the object computerScientist
     string tempN = c.getName();
     tempN[0] = toupper(tempN[0]);
@@ -57,3 +58,4 @@ ostream& operator <<(ostream& outs, Computer& c) { //how to output the object co
          << c.wasBuilt << left << setw(16)<< c.year << endl;
     return outs;
 }
+*/

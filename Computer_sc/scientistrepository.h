@@ -8,11 +8,11 @@ class ScientistRepository {
 public:
     ScientistRepository();
     ~ScientistRepository();
-    void remove(string my_id);
+    void removeFromDatabase(string my_id);
     void fillVectorFromDatabase(vector<Scientist>& v, string sql);
-    void add(Scientist scientist);
-    vector<Scientist> search(string input);
-    vector<Scientist> sort(string sortBy);
+    void addToDatabase(Scientist scientist);
+    vector<Scientist> searchInDatabase(string input);
+    vector<Scientist> sortDatabase(string sortBy);
     vector<Scientist> getScientistsByComputerId(string id);
     void addConnection(string sci_id, string comp_id);
 private:

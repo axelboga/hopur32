@@ -9,6 +9,7 @@ UI::UI() {
 
 void UI::start() {
   do {
+        clearScreen();
         char input;
         mainMenu();
         cin >> input;
@@ -135,6 +136,7 @@ void UI::mainMenu() {
 }
 void UI::scientistLoop() {
 do {
+      clearScreen();
       char input;
       scientistMenu();
       cin >> input;
@@ -145,6 +147,7 @@ do {
         readScientist(c);
         sciServices.add(c);
       } else if (input == '2') {
+        clearScreen();
         string my_id;
         string name;
         do {
@@ -154,12 +157,14 @@ do {
               if (sciServices.checkRemove(my_id, name)) {
                 sciServices.remove(my_id);
                 cout << "The scientist " << name << " has been successfully removed!" << endl;
-                enterToContinue();
+              } else if (my_id == "Q" || my_id == "q") {
+                  return;
               } else {
                 cout << "This is not a valid ID!" << endl;
                 cout << "Please try again." << endl;
+                cout << "If you wish to go back, type 'Q'." << endl;
               }
-            } while (!sciServices.checkRemove(my_id, name));
+            } while (!sciServices.checkRemove(my_id, name) &&  my_id != "Q" && my_id != "q");
 
       } else if (input == '3') {
         char ch;
@@ -202,6 +207,7 @@ do {
           cin >> searchTerm;
           transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
           sciServices.search(searchTerm);
+          enterToContinue();
 
       } else if (input == '5') {
           cout << "Returning to Main Menu." << endl;
@@ -237,12 +243,15 @@ do {
               if (compServices.checkRemove(my_id, name)) {
                 compServices.remove(my_id);
                 cout << "The computer " << name << " has been successfully removed!" << endl;
+              } else if (my_id == "Q" || my_id == "q") {
+                  return;
               } else {
                 cout << "This is not a valid ID!" << endl;
                 cout << "Please try again." << endl;
+                cout << "If you wish to go back, type 'Q'." << endl;
               }
 
-            } while (!compServices.checkRemove(my_id, name));
+            } while (!compServices.checkRemove(my_id, name) &&  my_id != "Q" && my_id != "q");
 
       } else if (input == '3') {
           char ch;
@@ -280,9 +289,11 @@ do {
 
         if (!compServices.checkSearch(searchTerm)) {
           cout << "Nothing found" << endl;
+          enterToContinue();
         } else {
           cout << "Search results for computers:" << endl;
           compServices.search(searchTerm);
+          enterToContinue();
         }
 
       } else if (input == '5') {

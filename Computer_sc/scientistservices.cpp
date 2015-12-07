@@ -79,25 +79,25 @@ bool ScientistServices::isAlive(string& answ) {
     return false;
 }
 
-void ScientistServices::add(ComputerScientist c) {
+void ScientistServices::add(Scientist c) {
     compSciRepo.add(c);
 }
 
 void ScientistServices::view() {
-    vector<ComputerScientist> v;
+    vector<Scientist> v;
     string sql = "SELECT rowid, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
     compSciRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }
 
 void ScientistServices::search(string searchTerm) {
-    vector<ComputerScientist> v;
+    vector<Scientist> v;
     v = compSciRepo.search(searchTerm);
     output(v);
 }
 
 void ScientistServices::sort(string sortBy) {
-    vector<ComputerScientist> v;
+    vector<Scientist> v;
     v = compSciRepo.sort(sortBy);
     output(v);
 }
@@ -106,7 +106,7 @@ void ScientistServices::remove(string my_id) {
     compSciRepo.remove(my_id);
 }
 
-void ScientistServices::output(vector<ComputerScientist>& v) {
+void ScientistServices::output(vector<Scientist>& v) {
     cout << " _____________________________________________________________________ " << endl;
     cout << " No.| Name                    | Gender | Date of Birth | Date of Death   " << endl;
     cout << " ___|_________________________|________|_______________|______________ " << endl;

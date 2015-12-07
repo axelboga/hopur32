@@ -14,17 +14,17 @@ SOURCES += main.cpp \
     scientistrepository.cpp \
     scientistservices.cpp \
     computerservices.cpp \
-    computerscientist.cpp \
     computerrepository.cpp \
-    baserepository.cpp
+    baserepository.cpp \
+    scientist.cpp
 
 HEADERS += \
     ui.h \
     computer.h \
-    computerscientist.h \
     scientistrepository.h \
     scientistservices.h \
     computerservices.h \
     computerrepository.h \
-    baserepository.h
+    baserepository.h \
+    Scientist.h
 

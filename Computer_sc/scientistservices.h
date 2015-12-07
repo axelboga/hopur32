@@ -1,6 +1,6 @@
 #ifndef SCIENTISTSERVICES_H
 #define SCIENTISTSERVICES_H
-#include "computerscientist.h"
+#include "Scientist.h"
 #include "scientistrepository.h"
 #include <cctype>
 #include <algorithm>
@@ -16,12 +16,12 @@ public:
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
     bool isAlive(string& answ);
-    void add(ComputerScientist c);
+    void add(Scientist c);
     void view();
     void search(string searchTerm);
     void sort(string sortBy);
-    void output(vector<ComputerScientist>& v);
     void remove(string my_id);
+    void output(vector<Scientist>& v);
 private:
     ScientistRepository compSciRepo;
 };

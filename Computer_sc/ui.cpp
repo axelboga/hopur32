@@ -217,7 +217,6 @@ void UI::computerLoop() {
         clearScreen();
 
         if (input == '1') {
-            computerArtAdd();
             Computer c = Computer();
             readComputer(c);
             compServices.add(c);
@@ -251,26 +250,22 @@ void UI::computerLoop() {
                 clearScreen();
                 //cout << "The sorted list is: " << endl;
                 if (ch == '1') {
-                    computerArtSortByName();
                     compServices.sort("Name");
                     cout << "Press any key to continue..." << endl;
                     cin >> toContinue;
 
                 }
                 else if (ch == '2') {
-                    computerArtSortByName();
                     compServices.sort("Name DESC");
                     cout << "Press any key to continue..." << endl;
                     cin >> toContinue;
                 }
                 else if (ch == '3') {
-                    computerArtSortByYearBuilt();
                     compServices.sort("YearBuilt");
                     cout << "Press any key to continue..." << endl;
                     cin >> toContinue;
                 }
                 else if (ch == '4') {
-                    computerArtSortByType();
                     compServices.sort("Type");
                     cout << "Press any key to continue..." << endl;
                     cin >> toContinue;
@@ -452,146 +447,6 @@ void UI::computerArt() {
     cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
     cout << "         !.........||||                     ||||                   " << endl;
     cout << "         !.........||||  ##                 ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         `.........||||                    ,||||                   " << endl;
-    cout << "          .;.......||||               _.-!!|||||                   " << endl;
-    cout << "   .,uodWBBBBb.....||||       _.-!!|||||||||!:\'                    " << endl;
-    cout << "!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               " << endl;
-    cout << "!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             " << endl;
-    cout << "!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           " << endl;
-    cout << "!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.         " << endl;
-    cout << "!........YBBBBBBBBBBRPFT?!::::::::::^\'\'...::::::;         iBBbo.   " << endl;
-    cout << "`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. " << endl;
-    cout << " `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^\' " << endl;
-    cout << "   `........::::::::::::::::;iof688888888888888888888b.     `      " << endl;
-    cout << "    `......:::::::::;iof688888888888888888888888888888b.           " << endl;
-    cout << "      `....:::;iof688888888888888888888888888888888899fT!          " << endl;
-    cout << "       `..::!8888888888888888888888888888888899fT|!^\"\'             " << endl;
-    cout << "         `\' !!988888888888888888888888899fT|!^\"\'                   " << endl;
-    cout << "           `!!8888888888888888899fT|!^\"\'                           " << endl;
-    cout << "              `!988888888899fT|!^\"\'                                " << endl;
-    cout << "                `!9899fT|!^\"\'                                      " << endl;
-    cout << "                  `!^\"\'                                            " << endl;
-    cout << endl << endl;
-
-}
-void UI::computerArtAdd() {
-
-    cout << "                         .,,uod8B8bou,,.                           " << endl;
-    cout << "              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    " << endl;
-    cout << "         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   " << endl;
-    cout << "         !...:!TVBBBRPFT||||||||||!!^^\"\"\'   ||||                   " << endl;
-    cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||  ## Adding Computer ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         `.........||||                    ,||||                   " << endl;
-    cout << "          .;.......||||               _.-!!|||||                   " << endl;
-    cout << "   .,uodWBBBBb.....||||       _.-!!|||||||||!:\'                    " << endl;
-    cout << "!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               " << endl;
-    cout << "!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             " << endl;
-    cout << "!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           " << endl;
-    cout << "!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.         " << endl;
-    cout << "!........YBBBBBBBBBBRPFT?!::::::::::^\'\'...::::::;         iBBbo.   " << endl;
-    cout << "`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. " << endl;
-    cout << " `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^\' " << endl;
-    cout << "   `........::::::::::::::::;iof688888888888888888888b.     `      " << endl;
-    cout << "    `......:::::::::;iof688888888888888888888888888888b.           " << endl;
-    cout << "      `....:::;iof688888888888888888888888888888888899fT!          " << endl;
-    cout << "       `..::!8888888888888888888888888888888899fT|!^\"\'             " << endl;
-    cout << "         `\' !!988888888888888888888888899fT|!^\"\'                   " << endl;
-    cout << "           `!!8888888888888888899fT|!^\"\'                           " << endl;
-    cout << "              `!988888888899fT|!^\"\'                                " << endl;
-    cout << "                `!9899fT|!^\"\'                                      " << endl;
-    cout << "                  `!^\"\'                                            " << endl;
-    cout << endl << endl;
-
-}
-void UI::computerArtSortByName() {
-
-    cout << "                         .,,uod8B8bou,,.                           " << endl;
-    cout << "              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    " << endl;
-    cout << "         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   " << endl;
-    cout << "         !...:!TVBBBRPFT||||||||||!!^^\"\"\'   ||||                   " << endl;
-    cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||  ## Sorted by Name  ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         `.........||||                    ,||||                   " << endl;
-    cout << "          .;.......||||               _.-!!|||||                   " << endl;
-    cout << "   .,uodWBBBBb.....||||       _.-!!|||||||||!:\'                    " << endl;
-    cout << "!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               " << endl;
-    cout << "!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             " << endl;
-    cout << "!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           " << endl;
-    cout << "!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.         " << endl;
-    cout << "!........YBBBBBBBBBBRPFT?!::::::::::^\'\'...::::::;         iBBbo.   " << endl;
-    cout << "`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. " << endl;
-    cout << " `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^\' " << endl;
-    cout << "   `........::::::::::::::::;iof688888888888888888888b.     `      " << endl;
-    cout << "    `......:::::::::;iof688888888888888888888888888888b.           " << endl;
-    cout << "      `....:::;iof688888888888888888888888888888888899fT!          " << endl;
-    cout << "       `..::!8888888888888888888888888888888899fT|!^\"\'             " << endl;
-    cout << "         `\' !!988888888888888888888888899fT|!^\"\'                   " << endl;
-    cout << "           `!!8888888888888888899fT|!^\"\'                           " << endl;
-    cout << "              `!988888888899fT|!^\"\'                                " << endl;
-    cout << "                `!9899fT|!^\"\'                                      " << endl;
-    cout << "                  `!^\"\'                                            " << endl;
-    cout << endl << endl;
-
-}
-void UI::computerArtSortByYearBuilt() {
-
-    cout << "                         .,,uod8B8bou,,.                           " << endl;
-    cout << "              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    " << endl;
-    cout << "         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   " << endl;
-    cout << "         !...:!TVBBBRPFT||||||||||!!^^\"\"\'   ||||                   " << endl;
-    cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||  ## Sorted by       ||||                   " << endl;
-    cout << "         !.........||||  ## Year Built      ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         `.........||||                    ,||||                   " << endl;
-    cout << "          .;.......||||               _.-!!|||||                   " << endl;
-    cout << "   .,uodWBBBBb.....||||       _.-!!|||||||||!:\'                    " << endl;
-    cout << "!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               " << endl;
-    cout << "!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             " << endl;
-    cout << "!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           " << endl;
-    cout << "!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.         " << endl;
-    cout << "!........YBBBBBBBBBBRPFT?!::::::::::^\'\'...::::::;         iBBbo.   " << endl;
-    cout << "`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. " << endl;
-    cout << " `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^\' " << endl;
-    cout << "   `........::::::::::::::::;iof688888888888888888888b.     `      " << endl;
-    cout << "    `......:::::::::;iof688888888888888888888888888888b.           " << endl;
-    cout << "      `....:::;iof688888888888888888888888888888888899fT!          " << endl;
-    cout << "       `..::!8888888888888888888888888888888899fT|!^\"\'             " << endl;
-    cout << "         `\' !!988888888888888888888888899fT|!^\"\'                   " << endl;
-    cout << "           `!!8888888888888888899fT|!^\"\'                           " << endl;
-    cout << "              `!988888888899fT|!^\"\'                                " << endl;
-    cout << "                `!9899fT|!^\"\'                                      " << endl;
-    cout << "                  `!^\"\'                                            " << endl;
-    cout << endl << endl;
-
-}
-void UI::computerArtSortByType() {
-
-    cout << "                         .,,uod8B8bou,,.                           " << endl;
-    cout << "              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    " << endl;
-    cout << "         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   " << endl;
-    cout << "         !...:!TVBBBRPFT||||||||||!!^^\"\"\'   ||||                   " << endl;
-    cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
-    cout << "         !.........||||                     ||||                   " << endl;
-    cout << "         !.........||||  ## Sorted by Type  ||||                   " << endl;
     cout << "         !.........||||                     ||||                   " << endl;
     cout << "         !.........||||                     ||||                   " << endl;
     cout << "         !.........||||                     ||||                   " << endl;

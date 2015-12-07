@@ -22,10 +22,7 @@ public:
     void readComputer(Computer& c);
     void readScientist(Scientist& c);
     void computerArt();
-    void computerArtAdd();
-    void computerArtSortByName();
-    void computerArtSortByType();
-    void computerArtSortByYearBuilt();
+
 
 
 private:

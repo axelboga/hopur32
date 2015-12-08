@@ -367,9 +367,8 @@ void UI::readComputer(Computer& c) {
       } while (!compServices.checkWasBuilt(answ));
 
   if (answ == "yes") {
-
-  string my_year;
-  do {
+    string my_year;
+    do {
          cout << "Year built: ";
          cin >> my_year;
          transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
@@ -380,7 +379,7 @@ void UI::readComputer(Computer& c) {
          else {
            cout << "Invalid year!" << endl;
            cout << "Please try again." << endl;
-          }
+         }
 
       } while (!compServices.checkYear(my_year));
   }
@@ -403,7 +402,6 @@ void UI::promptForRemoveComputer() {
           else {
             cout << "This is not a valid ID!" << endl;
             cout << "Please try again." << endl;
-            cout << "If you wish to go back, type 'Q'." << endl;
           }
 
        } while (!compServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
@@ -496,7 +494,7 @@ void UI::promptToRemoveConnections() {
     string name_c;
     do {
         sciServices.view();
-        cout << "Input the ID of the scientist to remove connections: ";
+        cout << "Input the ID of the scientist to disconnect: ";
         cin >> sci_id;
         if (!sciServices.checkIfIdExists(sci_id, name_s)) {
             clearScreen();
@@ -506,7 +504,7 @@ void UI::promptToRemoveConnections() {
 
     do {
         compServices.view();
-        cout << "Input the ID of the computer to remove connections: ";
+        cout << "Input the ID of the computer to disconnect: ";
         cin >> comp_id;
         if (!compServices.checkIfIdExists(comp_id, name_c)) {
             clearScreen();

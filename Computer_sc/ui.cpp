@@ -386,7 +386,7 @@ void UI::promptForRemoveComputer() {
     string name;
     do {
           compServices.view();
-          cout << "Enter the ID of the computer you wish to remove or type 'Q' to go back: ";
+          cout << "Input the ID of the computer you wish to remove or type 'Q' to go back: ";
           cin >> my_id;
           if (compServices.checkIfIdExists(my_id, name)) {
             compServices.remove(my_id);

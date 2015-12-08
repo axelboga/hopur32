@@ -28,7 +28,7 @@ public:
     void addConnection(string sci_id, string comp_id);
     void getScientistsByComputerId(string c_id);
 private:
-    ScientistRepository compSciRepo;
+    ScientistRepository sciRepo;
 };
 
 #endif // LOGIC_H

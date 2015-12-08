@@ -161,10 +161,6 @@ void ScientistServices::output(vector<Scientist>& v) {
 
 /*************************************CONNECTIONS********************************************/
 
-void ScientistServices::addConnection(string sci_id, string comp_id) {
-    sciRepo.addConnection(sci_id, comp_id);
-}
-
 void ScientistServices::getScientistsByComputerId(string c_id) {
     vector<Scientist> v;
     v = sciRepo.getScientistsByComputerId(c_id);

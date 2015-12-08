@@ -132,6 +132,10 @@ void ComputerServices::addConnection(string sci_id, string comp_id) {
     compRepo.addConnection(sci_id, comp_id);
 }
 
+void ComputerServices::removeConnection(string sci_id, string comp_id) {
+    compRepo.addConnection(sci_id, comp_id);
+}
+
 void ComputerServices::getComputersByScientistId(string s_id) {
     vector<Computer> v;
     v = compRepo.getComputersByScientistId(s_id);

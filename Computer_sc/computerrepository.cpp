@@ -52,6 +52,11 @@ void ComputerRepository::removeFromDatabase(string my_id) {
     query.prepare("DELETE FROM Computers WHERE ID = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
+
+    query.prepare("DELETE FROM ScientistComputerConnections WHERE cId = :my_id");
+    query.bindValue(":my_id", std::atoi(my_id.c_str()));
+    query.exec();
+    //^Also delete the connections
 }
 
 
@@ -60,9 +65,21 @@ void ComputerRepository::removeFromDatabase(string my_id) {
 
 void ComputerRepository::addConnection(string sci_id, string comp_id){
     QSqlQuery query(datab);
-    query.prepare("INSERT INTO ScientistComputerConnections2 (sId, cId) VALUES(:sId, :cId)");
+    query.prepare("INSERT INTO ScientistComputerConnections (sId, cId) VALUES(:sId, :cId)");
     query.bindValue(":sId", atoi(sci_id.c_str()));
     query.bindValue(":cId", atoi(comp_id.c_str()));
+    query.exec();
+}
+
+void ComputerRepository::removeConnection(string sci_id, string comp_id){
+    QSqlQuery query(datab);
+
+    query.prepare("DELETE FROM ScientistComputerConnections "
+                  "WHERE sId = :sci_id "
+                  "AND cId = :comp_id");
+    query.bindValue(":sci_id", atoi(sci_id.c_str()));
+    query.bindValue(":comp_id", atoi(comp_id.c_str()));
+
     query.exec();
 }
 
@@ -70,7 +87,7 @@ vector<Computer> ComputerRepository::getComputersByScientistId(string id){
     vector<Computer> v;
     QSqlQuery query(datab);
     string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers c "
-                  "INNER JOIN ScientistComputerConnections2 scc "
+                  "INNER JOIN ScientistComputerConnections scc "
                   "ON c.ID = scc.cId "
                   "WHERE scc.sId = '" + id + "'";
     fillVectorFromDatabase(v, sql);

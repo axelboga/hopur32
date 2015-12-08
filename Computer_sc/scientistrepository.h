@@ -14,7 +14,6 @@ public:
     vector<Scientist> searchInDatabase(string input);
     vector<Scientist> sortDatabase(string sortBy);
     vector<Scientist> getScientistsByComputerId(string id);
-    void addConnection(string sci_id, string comp_id);
 private:
     BaseRepository baseRepo;
     QSqlDatabase datab;

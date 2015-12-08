@@ -506,8 +506,6 @@ void UI::promtForViewingScientistComputerConnections(){
 
 }
 
-
-
 void UI::promtForRemoveScientist(){
     string my_id;
     string name;

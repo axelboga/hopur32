@@ -18,6 +18,7 @@ public:
     vector<Computer> sortDatabase(string sortBy);
     void removeFromDatabase (string ID);
     void addConnection(string sci_id, string comp_id);
+    void removeConnection(string sci_id, string comp_id);
     vector<Computer> getComputersByScientistId(string id);
 private:
     BaseRepository baseRepo;

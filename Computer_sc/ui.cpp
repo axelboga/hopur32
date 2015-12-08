@@ -84,9 +84,11 @@ void UI::scientistMenu() {
   cout << endl;
   cout << "Enter your Selection: ";
 }
+
 void UI::clearScreen() {
   if (system("CLS")) system("clear");
 }
+
 void UI::computerSortUI() {
   cout << "Sort list by:" << endl;
   cout << " _____________________________________________________________________" << endl;
@@ -110,6 +112,7 @@ void UI::computerMenu() {
   cout << endl;
   cout << "Enter your Selection: ";
 }
+
 void UI::mainMenu() {
   banner();
   cout << "Welcome to the Computers & Scientists Program." << endl << endl;
@@ -121,6 +124,7 @@ void UI::mainMenu() {
   cout << " _____________________________________________________________________" << endl;
   cout << "Enter your Selection: ";
 }
+
 void UI::scientistLoop() {
   do {
       clearScreen();
@@ -153,8 +157,8 @@ void UI::scientistLoop() {
           cout << "Invalid input, try again: " << endl;
       }
     } while (true);
-
 }
+
 void UI::computerLoop() {
   do {
         clearScreen();
@@ -196,7 +200,6 @@ void UI::readComputer(Computer& c) {
   cout << "Name: ";
   cin.ignore();
   getline(cin, my_name);
-  //transform(my_name.begin(), my_name.end(), my_name.begin(), ::tolower);
   c.setName(my_name);
 
   string my_type;
@@ -428,8 +431,8 @@ void UI::promptToRemoveConnections() {
         cin >> comp_id;
     } while(!compServices.checkIfIdExists(comp_id, name_c));
 
-    connectionServices.removeConnection(sci_id,comp_id);
-    cout << "The scientist " << name_s << " and the computer " << name_c << " have now been removed!" << endl;
+    connectionServices.removeConnection(sci_id, comp_id);
+    cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed!" << endl;
 }
 
 void UI::promtForViewingComputerScientistConnections() {
@@ -465,11 +468,7 @@ void UI::promtForRemoveScientist() {
     string name;
     do {
         sciServices.view();
-<<<<<<< HEAD
-        cout << "Enter the ID of the scientist you wish to remove: ";
-=======
-        cout << "Enter the ID of the scientist you wish to remove or type 'Q' to back: ";
->>>>>>> 539daca095835f695b156228ac1e0d2b42d70873
+        cout << "Enter the ID of the scientist you wish to remove or type 'Q' to go back: ";
         cin >> my_id;
         if (sciServices.checkIfIdExists(my_id, name)) {
           sciServices.remove(my_id);
@@ -548,7 +547,7 @@ void UI::promptForRemoveComputer() {
     string name;
     do {
           compServices.view();
-          cout << "Enter the ID of the computer you wish to remove or type 'Q' to back: ";
+          cout << "Enter the ID of the computer you wish to remove or type 'Q' to go back: ";
           cin >> my_id;
           if (compServices.checkIfIdExists(my_id, name)) {
             compServices.remove(my_id);

@@ -29,7 +29,7 @@
 ### Aðrar upplýsingar
 Þegar notandi bætir við nýjum tölvunarfræðingi / nýrri tölvu / nýrri tengingu þá er fyllt inn í viðeigandi töflu í SQLite gagnagrunninum með upplýsingunum frá notenda. Aðgerðir, svo sem leit (search) og uppröðun (sort) eru framkvæmdar á gögnunum í SQLite gagnagrunninum og eru þannig SQL skipanir nýttar. Gögnin eru svo færð úr gagnagrunninum yfir í vektor í lok hverrar aðgerðar. Innihald vektorsins er svo skrifað út á skjáinn.
 
-Allar upplýsingar um tölvunarfræðinga eru geymdar með lágstöfum í gagnagrunninum til þess að leit og uppröðun sé óháð há-og lágstöfum. Fyrsti stafur í fornafni og eftirnafni er þó skrifaður út með stórum staf. Við ákváðum hins vegar að geyma nafn tölvanna ekki með lágstöfum í gagnagrunninum (það er geymt á sama formi og skrifað er inn) því að þau hafa ekki endilega bara hástaf fremst í nafninu (sbr. iPhone). Leit og uppröðun í þeim lista er þó háð há- og lágstöfum.
+Allar upplýsingar um tölvunarfræðinga eru geymdar með lágstöfum í gagnagrunninum til þess að leit og uppröðun sé óháð há-og lágstöfum. Fyrsti stafur í fornafni og eftirnafni er þó skrifaður út með stórum staf. Við ákváðum hins vegar að geyma nafn tölvanna ekki með lágstöfum í gagnagrunninum (það er geymt á sama formi og skrifað er inn) því að þau hafa ekki endilega bara hástaf fremst í nafninu (sbr. iPhone).
 
 Athugað er eftir villum í öllu sem notandi slær inn. Ef notandi slær inn rangt inntak eru viðeigandi villuskilaboð skrifuð út á skjáinn og votandi fær að slá inn aftur (ath ef notandi slær t.d. inn 'y' eða 'ye' þegar er í boði að svara yes eða no, er það túlkað sem "yes" en ef notandi slær t.d. 'k' er það túlkað sem villa). 
 
@@ -39,6 +39,7 @@ Athugað er eftir villum í öllu sem notandi slær inn. Ef notandi slær inn ra
 *	Business Layer: 
   *	ComputerServices
   *	ScientistServices
+  *	CompSciConnectionServices
 *	Buisness Layer:
   *	Computer
   *	Scientist
@@ -46,20 +47,20 @@ Athugað er eftir villum í öllu sem notandi slær inn. Ef notandi slær inn ra
   *	BaseRepository
   *	ComputerRepository
   *	ScientistRepository
+  *	CompSciConnectionRepository
 
 Einungis er skrifað út í UI klasanum. 
-Tengingar fyrir tölvur eru tæklaðar í ComputerServices og ComputerRepository og tengingar fyrir tölvunnarfræðinga í ScientistServices og ScientistRepository.
 
 ##### Hvernig maður fer inn í tengingarnar: 
 * Í menu er slegið inn 3 fyrir Connections
   * Þar er valið 1 (add connections) til að bæta við tengingu milli tölva og tölvunarfræðinga
-  * Þar er valið 2 (remove connections) til að fjarlægja tengingar milli tölva og tölvunarfræinga
+  * Þar er valið 2 (remove connections) til að fjarlægja tengingar milli tölva og tölvunarfræðinga
   * Þar er valið 3 (view connections) til að sjá tenginar 
 
-Til þess að nota gagnagrunninn okkar þarf að færa skránna Database.sqlite í eigin build möppu og passa að hafa engar aðrar build möppur.
+Til þess að nota gagnagrunninn okkar þarf að færa skrána Database.sqlite í eigin build möppu og passa að hafa engar aðrar build möppur.
 
-#### Known bugs
-Search valmöguleikinn fyrir  tölvur er case sensitive þannig að þegar leitað er eftir tölvum þarf að skrifa sömu há- og lástafi og gert var þegar tölvan var slegin inn í byrjun.
+#### "Known bugs"
+Search valmöguleikinn fyrir  tölvur er "case sensitive" þannig að þegar leitað er eftir tölvum þarf að skrifa sömu há- og lástafi og gert var þegar tölvan var slegin inn í byrjun.
 Sort valmöguleikinn fyrir tölvur raðar tölvunum í stafrófsröð en gerir greinamun á há- og lágstöfum. Þegar raðað er eftir stafrófsröð koma fyrst þær tölvur sem byrja á hástaf og þá eftir stafrófsröð og síðan koma þær tölvur sem byrja á lástaf. Þetta virkar akkurat öfugt þegar raðað er eftir öfugri stafrófsröð.
 
 

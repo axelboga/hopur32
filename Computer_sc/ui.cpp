@@ -18,20 +18,22 @@ void UI::start() {
 
         if (input == '1') {
           scientistLoop();
-        } else if (input == '2') {
+        }
+        else if (input == '2') {
           computerLoop();
-        } else if (input == '3') {
-
-        } else if (input == '4') {
+        }
+        else if (input == '3') {
+        }
+        else if (input == '4') {
           cout << "Terminating Program" << endl;
           cout << "Goodbye." << endl;
           exit(1);
-        } else {
+        }
+        else {
           cout << "Invalid input!" << endl;
           cout << "Please try again." << endl;
         }
-
-      } while (true);
+     } while (true);
 }
 void UI::banner() {
         cout << " .d8888b.                                           888                       " << endl;
@@ -119,7 +121,7 @@ void UI::mainMenu() {
   cout << "Enter your Selection: ";
 }
 void UI::scientistLoop() {
-do {
+  do {
       clearScreen();
       char input;
       scientistMenu();
@@ -130,115 +132,64 @@ do {
         Scientist c;
         readScientist(c);
         sciServices.add(c);
-      } else if (input == '2') {
+      }
+      else if (input == '2') {
         clearScreen();
         promtForRemoveScientist();
-      } else if (input == '3') {
-        char ch;
-        cout << endl;
-
-        do {
-              scientistSortUI();
-              cin >> ch;
-              clearScreen();
-
-              if (ch == '1') {
-                  sciServices.sort("FirstName");
-                  enterToContinue();
-              } else if (ch == '2') {
-                  sciServices.sort("FirstName DESC");
-                  enterToContinue();
-              } else if (ch == '3') {
-                  sciServices.sort("LastName");
-                  enterToContinue();
-              } else if (ch == '4') {
-                  sciServices.sort("LastName DESC");
-                  enterToContinue();
-              } else if (ch == '5') {
-                  sciServices.sort("Gender");
-                  enterToContinue();
-              } else if (ch == '6') {
-                  sciServices.sort("BirthYear");
-                  enterToContinue();
-              } else {
-                  cout << "Wrong input. Try again" << endl;
-              }
-
-            } while (ch != '1' && ch!= '2' && ch != '3'
-                  && ch != '4' && ch != '5' && ch!= '6');
-
-      } else if (input == '4') {
+      }
+      else if (input == '3') {
+        promptToSortScientist();
+      }
+      else if (input == '4') {
           clearScreen();
           promtToSearchScientist();
-
-      } else if (input == '5') {
+      }
+      else if (input == '5') {
           cout << "Returning to Main Menu." << endl;
           return;
-      } else {
+      }
+      else {
           cout << "Invalid input, try again: " << endl;
       }
-
     } while (true);
 
 }
 void UI::computerLoop() {
-do {
-      clearScreen();
-      computerArt();
-      char input;
-      computerMenu();
-      cin >> input;
-      cout << endl;
-      clearScreen();
-
-      if (input == '1') {
-        Computer c = Computer();
-        readComputer(c);
-        compServices.add(c);
-      } else if (input == '2') {
-        promptForRemoveComputer();
-      } else if (input == '3') {
-          char ch;
-          cout << endl;
-
-          do {
-                computerSortUI();
-                cin >> ch;
-                clearScreen();
-
-                if (ch == '1') {
-                  compServices.sort("Name");
-                  enterToContinue();
-                } else if (ch == '2') {
-                  compServices.sort("Name DESC");
-                  enterToContinue();
-                } else if (ch == '3') {
-                  compServices.sort("YearBuilt");
-                  enterToContinue();
-                } else if (ch == '4') {
-                  compServices.sort("Type");
-                  enterToContinue();
-                } else {
-                  cout << "Wrong input. Try again" << endl;
-                }
-
-              } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4');
-
-      } else if (input == '4') {
+  do {
         clearScreen();
-        promptToSearchComputer();
-
-      } else if (input == '5') {
-        cout << "Returning to Main Menu." << endl;
+        computerArt();
+        char input;
+        computerMenu();
+        cin >> input;
         cout << endl;
-        return;
+        clearScreen();
 
-      } else {
-        cout << "Invalid input, try again: " << endl;
-      }
-
-    } while (true);
+        if (input == '1') {
+           Computer c = Computer();
+           readComputer(c);
+           compServices.add(c);
+        }
+        else if (input == '2') {
+           promptForRemoveComputer();
+        }
+        else if (input == '3') {
+           promptToSortComputer();
+        }
+        else if (input == '4') {
+           clearScreen();
+           promptToSearchComputer();
+        }
+        else if (input == '5') {
+           cout << "Returning to Main Menu." << endl;
+           cout << endl;
+           return;
+        }
+        else {
+           cout << "Invalid input, try again: " << endl;
+        }
+     } while (true);
 }
+
 void UI::readComputer(Computer& c) {
   string my_name;
   cout << "Name: ";
@@ -255,11 +206,11 @@ void UI::readComputer(Computer& c) {
 
         if (compServices.checkType(my_type)) {
           c.setType(my_type);
-        } else {
+        }
+        else {
           cout << "Types may only contain alphabetic characters!" << endl;
           cout << "Please try again." << endl;
         }
-
       } while (!compServices.checkType(my_type));
 
   string answ;
@@ -270,7 +221,8 @@ void UI::readComputer(Computer& c) {
 
         if (compServices.checkWasBuilt(answ)) {
           c.setWasBuilt(answ);
-        } else {
+        }
+        else {
           cout << "Invalid answer!" << endl;
           cout << "Please try again." << endl;
         }
@@ -279,51 +231,52 @@ void UI::readComputer(Computer& c) {
 
   if (answ == "yes") {
 
-    string my_year;
-    do {
-          cout << "Year built: ";
-          cin >> my_year;
-          transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
+  string my_year;
+  do {
+         cout << "Year built: ";
+         cin >> my_year;
+         transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
 
-          if (compServices.checkYear(my_year)) {
-            c.setYear(my_year);
-          } else {
-            cout << "Invalid year!" << endl;
-            cout << "Please try again." << endl;
+         if (compServices.checkYear(my_year)) {
+           c.setYear(my_year);
+         }
+         else {
+           cout << "Invalid year!" << endl;
+           cout << "Please try again." << endl;
           }
 
-        } while (!compServices.checkYear(my_year));
+      } while (!compServices.checkYear(my_year));
   }
 }
 
 void UI::readScientist(Scientist& c) {
   string f_name;
   do {
-        cout << "Input first name: ";
-        cin >> f_name;
-        transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
+         cout << "Input first name: ";
+         cin >> f_name;
+         transform(f_name.begin(), f_name.end(), f_name.begin(), ::tolower);
 
-          if (sciServices.checkName(f_name)) {
+         if (sciServices.checkName(f_name)) {
             c.setFirstName(f_name);
-          } else {
-            cout << "Name may only contain alphabetic charachters!" << endl;
-          }
-
-      } while (!sciServices.checkName(f_name));
+         }
+         else {
+           cout << "Name may only contain alphabetic charachters!" << endl;
+         }
+     } while (!sciServices.checkName(f_name));
 
   string l_name;
   do {
-        cout << "Input last name: ";
-        cin >> l_name;
-        transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
+         cout << "Input last name: ";
+         cin >> l_name;
+         transform(l_name.begin(), l_name.end(), l_name.begin(), ::tolower);
 
-          if (sciServices.checkName(l_name)) {
-            c.setLastName(l_name);
-          } else {
-            cout << "Name may only contain alphabetic charachters!" << endl;
-            cout << "Please try again" << endl;
-          }
-
+         if (sciServices.checkName(l_name)) {
+           c.setLastName(l_name);
+         }
+         else {
+           cout << "Name may only contain alphabetic charachters!" << endl;
+           cout << "Please try again" << endl;
+         }
       } while(!sciServices.checkName(l_name));
 
   string my_gender;
@@ -334,11 +287,11 @@ void UI::readScientist(Scientist& c) {
 
           if (sciServices.checkGender(my_gender)) {
             c.setSex(my_gender);
-          } else {
+          }
+          else {
             cout << "Invalid input!" << endl;
             cout << "Please try again." << endl;
           }
-
       } while (!sciServices.checkGender(my_gender));
 
   string b_year;
@@ -349,11 +302,11 @@ void UI::readScientist(Scientist& c) {
 
           if (sciServices.checkBirth(b_year)) {
             c.setYearOfBirth(b_year);
-          } else {
+          }
+          else {
             cout << "Invalid year!" << endl;
             cout << "Please try again." << endl;
           }
-
       } while (!sciServices.checkBirth(b_year));
 
   string answ;
@@ -375,20 +328,21 @@ void UI::readScientist(Scientist& c) {
     string d_year;
 
     do {
-            cout << "Input year of death: ";
-            cin >> d_year;
-            transform(d_year.begin(), d_year.end(), d_year.begin(), ::tolower);
+           cout << "Input year of death: ";
+           cin >> d_year;
+           transform(d_year.begin(), d_year.end(), d_year.begin(), ::tolower);
 
-            if (sciServices.checkDeath(d_year, b_year)) {
+           if (sciServices.checkDeath(d_year, b_year)) {
               c.setYearOfDeath(d_year);
-            } else {
-              cout << "Invalid year!" << endl;
-              cout << "Please try again." << endl;
-            }
-
+           }
+           else {
+             cout << "Invalid year!" << endl;
+             cout << "Please try again." << endl;
+           }
         } while (!sciServices.checkDeath(d_year, b_year));
   }
 }
+
 void UI::computerArt() {
 
 cout << "                         .,,uod8B8bou,,.                           " << endl;
@@ -422,15 +376,14 @@ cout << "              `!988888888899fT|!^\"\'                                " 
 cout << "                `!9899fT|!^\"\'                                      " << endl;
 cout << "                  `!^\"\'                                            " << endl;
 cout << endl << endl;
-
 }
-void UI::flush(istream& in)
-{
+
+void UI::flush(istream& in) {
   in.ignore ( std::numeric_limits<std::streamsize>::max(), '\n' );
   in.clear();
 }
-void UI::enterToContinue()
-{
+
+void UI::enterToContinue() {
   flush(cin); //Clears the buffer
   cout << "Press [Enter] to Continue...";
   cin.get();
@@ -447,6 +400,7 @@ void UI::promtForAddingConnections() {
     cin >> comp_id;
     compServices.addConnection(sci_id, comp_id);
 }
+
 void UI::promtForViewingComputerScientistConnections() {
     string c_id;
     string name;
@@ -472,15 +426,10 @@ void UI::promtForViewingScientistComputerConnections() {
             cout << "The computers connected to the scientist " << name << " are:" << endl;
             compServices.getComputersByScientistId(s_id);
         }
-    }while(!sciServices.checkIfIdExists(s_id, name));
-
+    } while(!sciServices.checkIfIdExists(s_id, name));
 }
 
-<<<<<<< HEAD
 void UI::promtForRemoveScientist() {
-=======
-void UI::promtForRemoveScientist(){
->>>>>>> 30caba251c448d28644ce1ed9a1da2b0ca6223d0
     string my_id;
     string name;
     do {
@@ -501,12 +450,52 @@ void UI::promtForRemoveScientist(){
   } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 }
 
+void UI::promptToSortScientist() {
+    char ch;
+    cout << endl;
+
+    do {
+          scientistSortUI();
+          cin >> ch;
+          clearScreen();
+
+          if (ch == '1') {
+              sciServices.sort("FirstName");
+              enterToContinue();
+          }
+          else if (ch == '2') {
+              sciServices.sort("FirstName DESC");
+              enterToContinue();
+          }
+          else if (ch == '3') {
+              sciServices.sort("LastName");
+              enterToContinue();
+          }
+          else if (ch == '4') {
+              sciServices.sort("LastName DESC");
+              enterToContinue();
+          }
+          else if (ch == '5') {
+              sciServices.sort("Gender");
+              enterToContinue();
+          }
+          else if (ch == '6') {
+              sciServices.sort("BirthYear");
+              enterToContinue();
+          }
+          else {
+              cout << "Wrong input. Try again" << endl;
+          }
+
+       } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
+}
 
 void UI::promtToSearchScientist() {
     string searchTerm;
     cout << "Search word: ";
     cin >> searchTerm;
     transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
+
     if (!sciServices.checkSearch(searchTerm)) {
       cout << "Nothing found" << endl;
       enterToContinue();
@@ -528,27 +517,61 @@ void UI::promptForRemoveComputer() {
           if (compServices.checkIfIdExists(my_id, name)) {
             compServices.remove(my_id);
             cout << "The computer " << name << " has been successfully removed!" << endl;
-          } else if (my_id == "Q" || my_id == "q") {
+          }
+          else if (my_id == "Q" || my_id == "q") {
               return;
-          } else {
+          }
+          else {
             cout << "This is not a valid ID!" << endl;
             cout << "Please try again." << endl;
             cout << "If you wish to go back, type 'Q'." << endl;
           }
 
-        } while (!compServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
+       } while (!compServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
+}
+
+void UI::promptToSortComputer() {
+    char ch;
+    cout << endl;
+
+    do {
+          computerSortUI();
+          cin >> ch;
+          clearScreen();
+
+          if (ch == '1') {
+            compServices.sort("Name");
+            enterToContinue();
+          }
+          else if (ch == '2') {
+            compServices.sort("Name DESC");
+            enterToContinue();
+          }
+          else if (ch == '3') {
+            compServices.sort("YearBuilt");
+            enterToContinue();
+          }
+          else if (ch == '4') {
+            compServices.sort("Type");
+            enterToContinue();
+          }
+          else {
+            cout << "Wrong input. Try again" << endl;
+          }
+
+       } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4');
 }
 
 void UI::promptToSearchComputer() {
     string searchTerm;
     cout << "Search word: ";
     cin >> searchTerm;
-    transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
 
     if (!compServices.checkSearch(searchTerm)) {
       cout << "Nothing found" << endl;
       enterToContinue();
-    } else {
+    }
+    else {
       cout << "Search results for computers:" << endl;
       compServices.search(searchTerm);
       enterToContinue();

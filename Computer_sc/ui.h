@@ -28,8 +28,10 @@ public:
     void promtForViewingComputerScientistConnections();
     void promtForAddingConnections();
     void promtForRemoveScientist();
+    void promptToSortScientist();
     void promtToSearchScientist();
     void promptForRemoveComputer();
+    void promptToSortComputer();
     void promptToSearchComputer();
     void computerArt();
     void flush (istream& in);

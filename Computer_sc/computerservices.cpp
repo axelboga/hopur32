@@ -116,21 +116,21 @@ void ComputerServices::remove(string my_id) {
 }
 
 void ComputerServices::output(vector<Computer>& v) {
-    cout << " _______________________________________________________________________ " << endl;
-    cout << " ID | Name                    |       Type         | Built? | Year Built " << endl;
-    cout << " ___|_________________________|____________________|________|___________ " << endl;
+    cout << " _____________________________________________________________________________ " << endl;
+    cout << " ID | Name                          |       Type         | Built? | Year Built " << endl;
+    cout << " ___|_______________________________|____________________|________|___________ " << endl;
     cout << setfill(' ');
     for (unsigned int i = 0; i < v.size(); i++){
 
         cout << right << setw(4) << v[i].getId();
-        cout << "| " << left << setw(24) << v[i].getName();
+        cout << "| " << left << setw(30) << v[i].getName();
         cout << "| " << left << setw(19) << v[i].getType();
         cout << "| " << left << setw(7) << v[i].getWasBuilt();
         cout << "| " << left << setw(6) << v[i].getYear() << endl;
 
 
     }
-    cout << " _______________________________________________________________________" << endl;
+    cout << " _____________________________________________________________________________" << endl;
 }
 
 /************************************* CONNECTIONS ****************************************/

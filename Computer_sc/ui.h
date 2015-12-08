@@ -47,6 +47,8 @@ public:
     void connectionViewUI();
 
     void computerArt();
+    void scientistArt();
+    void connectionArt();
 
 private:
     ScientistServices sciServices;

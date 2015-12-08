@@ -42,6 +42,7 @@ void UI::start() {
 void UI::scientistLoop() {
   do {
       clearScreen();
+      scientistArt();
       char input;
       scientistMenu();
       cin >> input;
@@ -109,7 +110,8 @@ void UI::computerLoop() {
 }
 void UI::connectionLoop() {
     do {
-        //clearScreen();
+        clearScreen();
+        connectionArt();
         char input;
         connectionMenu();
         cin >> input;
@@ -306,7 +308,7 @@ void UI::promptToSortScientist() {
               cout << "Wrong input. Try again" << endl;
           }
 
-       } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
+       } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6' && ch!= '7');
 }
 
 void UI::promptToSearchScientist() {
@@ -432,7 +434,7 @@ void UI::promptToSortComputer() {
             compServices.sort("Type");
             enterToContinue();
           }
-          else if (ch == '7') {
+          else if (ch == '5') {
               compServices.sort("ID");
               enterToContinue();
           }
@@ -440,7 +442,7 @@ void UI::promptToSortComputer() {
             cout << "Wrong input. Try again" << endl;
           }
 
-       } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4');
+       } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5');
 }
 
 void UI::promptToSearchComputer() {
@@ -587,49 +589,49 @@ void UI::enterToContinue() {
 void UI::mainMenu() {
   banner();
   cout << "Welcome to the Computers & Scientists Program." << endl << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "Scientists" << endl;
   cout << " 2\t" << "Computers" << endl;
   cout << " 3\t" << "Connections" << endl;
   cout << " 4\t" << "Quit" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << "Enter your Selection: ";
 }
 void UI::scientistMenu() {
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "Add Scientist" << endl;
   cout << " 2\t" << "Remove Scientist" << endl;
   cout << " 3\t" << "View Scientists" << endl;
   cout << " 4\t" << "Search for Scientists" << endl;
   cout << " 5\t" << "Back to Main Menu" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
 }
 void UI::computerMenu() {
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "Add Computer" << endl;
   cout << " 2\t" << "Remove Computer" << endl;
   cout << " 3\t" << "View Computer" << endl;
   cout << " 4\t" << "Search for Computer" << endl;
   cout << " 5\t" << "Back to Main Menu" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
 }
 void UI::connectionMenu() {
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "Add Connections" << endl;
   cout << " 2\t" << "Remove Connections" << endl;
   cout << " 3\t" << "View Connections" << endl;
   cout << " 4\t" << "Back to Main Menu" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
 }
 void UI::scientistSortUI() {
   cout << "Sort list by:" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "First Name (a-z)" << endl;
   cout << " 2\t" << "First Name (z-a)" << endl;
   cout << " 3\t" << "Last Name (a-z)" << endl;
@@ -637,53 +639,64 @@ void UI::scientistSortUI() {
   cout << " 5\t" << "Gender" << endl;
   cout << " 6\t" << "Year of Birth" << endl;
   cout << " 7\t" << "ID" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
 }
 void UI::computerSortUI() {
   cout << "Sort list by:" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "Name of Computer (a-z)" << endl;
   cout << " 2\t" << "Name of Computer (z-a)" << endl;
   cout << " 3\t" << "Year built" << endl;
   cout << " 4\t" << "Computer Type" << endl;
-  cout << " 7\t" << "ID" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " 5\t" << "ID" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
 }
 void UI::connectionViewUI() {
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << " 1\t" << "View Scientist -> Computer connection" << endl;
   cout << " 2\t" << "View Computer -> Scientist connection" << endl;
   cout << " 3\t" << "Go Back" << endl;
-  cout << " _____________________________________________________________________" << endl;
+  cout << " _____________________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
 }
 /*********************************** GRAPHICS *************************************/
 void UI::banner() {
-        cout << " .d8888b.                                           888                       " << endl;
-        cout << "d88P  Y88b                                          888                       " << endl;
-        cout << "888    888                                          888                       " << endl;
-        cout << "888         .d88b.  88888b.d88b.  88888b.  888  888 888888 .d88b.  888d888    " << endl;
-        cout << "888        d88\"\"88b 888 \"888 \"88b 888 \"88b 888  888 888   d8P  Y8b 888P\"      " << endl;
-        cout << "888    888 888  888 888  888  888 888  888 888  888 888   88888888 888        " << endl;
-        cout << "Y88b  d88P Y88..88P 888  888  888 888 d88P Y88b 888 Y88b. Y8b.     888        " << endl;
-        cout << " \"Y8888P\"   \"Y88P\"  888  888  888 88888P\"   \"Y88888  \"Y888 \"Y8888  888        " << endl;
-        cout << "                                  888                                         " << endl;
-        cout << "                                  888                                         " << endl;
-        cout << "                                  888                                         " << endl;
-        cout << " .d8888b.           d8b                   888    d8b          888             " << endl;
-        cout << "d88P  Y88b          Y8P                   888    Y8P          888             " << endl;
-        cout << "Y88b.                                     888                 888             " << endl;
-        cout << " \"Y888b.    .d8888b 888  .d88b.  88888b.  888888 888 .d8888b  888888 .d8888b  " << endl;
-        cout << "    \"Y88b. d88P\"    888 d8P  Y8b 888 \"88b 888    888 88K      888    88K      " << endl;
-        cout << "      \"888 888      888 88888888 888  888 888    888 \"Y8888b. 888    \"Y8888b. " << endl;
-        cout << "Y88b  d88P Y88b.    888 Y8b.     888  888 Y88b.  888      X88 Y88b.       X88 " << endl;
-        cout << " \"Y8888P\"   \"Y8888P 888  \"Y8888  888  888  \"Y888 888  88888P'  \"Y888  88888P' " << endl;
-        cout << endl << endl << endl << endl;
+    cout << "  .d8888b.                                           888                            " << endl;
+    cout << " d88P  Y88b                                          888                            " << endl;
+    cout << " 888    888                                          888                            " << endl;
+    cout << " 888         .d88b.  88888b.d88b.  88888b.  888  888 888888 .d88b.  888d888 .d8888b " << endl;
+    cout << " 888        d88\"\"88b 888 \"888 \"88b 888 \"88b 888  888 888   d8P  Y8b 888P\"   88K     " << endl;
+    cout << " 888    888 888  888 888  888  888 888  888 888  888 888   88888888 888     \"Y8888b." << endl;
+    cout << " Y88b  d88P Y88..88P 888  888  888 888 d88P Y88b 888 Y88b. Y8b.     888          X88" << endl;
+    cout << "  \"Y8888P\"   \"Y88P\"  888  888  888 88888P\"   \"Y88888  \"Y888 \"Y8888  888      88888P' " << endl;
+    cout << "                                   888                                               " << endl;
+    cout << "                                   888                                               " << endl;
+    cout << "                                   888                                               " << endl;
+    cout << "                                                 888                                " << endl;
+    cout << "                                                 888                                " << endl;
+    cout << "                           8888b.  88888b.   .d88888                                " << endl;
+    cout << "                              \"88b 888 \"88b d88\" 888                                " << endl;
+    cout << "                          .d888888 888  888 888  888                                " << endl;
+    cout << "                          888  888 888  888 Y88b 888                                " << endl;
+    cout << "                          \"Y888888 888  888  \"Y88888                                " << endl;
+    cout << "                                                                                    " << endl;
+    cout << "                                                                                    " << endl;
+    cout << "       .d8888b.           d8b                   888    d8b          888             " << endl;
+    cout << "      d88P  Y88b          Y8P                   888    Y8P          888             " << endl;
+    cout << "      Y88b.                                     888                 888             " << endl;
+    cout << "       \"Y888b.    .d8888b 888  .d88b.  88888b.  888888 888 .d8888b  888888 .d8888b  " << endl;
+    cout << "          \"Y88b. d88P\"    888 d8P  Y8b 888 \"88b 888    888 88K      888    88K      " << endl;
+    cout << "            \"888 888      888 88888888 888  888 888    888 \"Y8888b. 888    \"Y8888b. " << endl;
+    cout << "      Y88b  d88P Y88b.    888 Y8b.     888  888 Y88b.  888      X88 Y88b.       X88 " << endl;
+    cout << "       \"Y8888P\"   \"Y8888P 888  \"Y8888  888  888  \"Y888 888  88888P'  \"Y888  88888P' " << endl;
+    cout << endl << endl << endl;
+
+
 }
 void UI::computerArt() {
 
@@ -718,4 +731,34 @@ cout << "              `!988888888899fT|!^\"\'                                " 
 cout << "                `!9899fT|!^\"\'                                      " << endl;
 cout << "                  `!^\"\'                                            " << endl;
 cout << endl << endl;
+}
+void UI::scientistArt() {
+    cout << endl << endl << endl;
+    cout << "            //////\\\\                       " << endl;
+    cout << "___.___    (.)(.)-|| ???_____________      " << endl;
+    cout << "\\  \\\\  \\   | L    )|   |        \'\\\\\\\\\\\\    " << endl;
+    cout << " \\  \\\\  \\  | _    /    |        \' ____|_   " << endl;
+    cout << "  --\\//,-  |____.\'     |        \'||::::::  " << endl;
+    cout << "      o-   ___| |___   |        \'||_____|  " << endl;
+    cout << "      | \\ \'          \\ \'________|_____|    " << endl;
+    cout << "      |  )-         <  ___/____|___\\___    " << endl;
+    cout << "      `_/\'------------|    _    \'  <<<:|   " << endl;
+    cout << "          /________\\| |_________\'___o_o|   " << endl << endl << endl;
+}
+void UI::connectionArt() {
+
+cout << "  +-------------------+                                  " << endl;
+cout << "  |                   |                                  " << endl;
+cout << "  | Difference Engine +-----------> Charles Babbage      " << endl;
+cout << "  |                   |                     ^            " << endl;
+cout << "  +-------------------+                     |            " << endl;
+cout << "                                            |            " << endl;
+cout << "                                            |            " << endl;
+cout << "                                            |            " << endl;
+cout << "                                            |            " << endl;
+cout << "                                 +----------+----------+ " << endl;
+cout << "                                 |                     | " << endl;
+cout << "      Ada Lovelace <-------------+  Analytical Engine  | " << endl;
+cout << "                                 |                     | " << endl;
+cout << "                                 +---------------------+ " << endl;
 }

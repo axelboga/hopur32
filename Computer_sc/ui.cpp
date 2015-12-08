@@ -7,7 +7,7 @@ UI::UI() {
         compServices = ComputerServices();
         connectionServices = CompSciConnectionServices();
 }
-
+/************************ MAIN FUNCTION ********************************/
 void UI::start() {
   do {
         clearScreen();
@@ -37,95 +37,8 @@ void UI::start() {
         }
      } while (true);
 }
-void UI::banner() {
-        cout << " .d8888b.                                           888                       " << endl;
-        cout << "d88P  Y88b                                          888                       " << endl;
-        cout << "888    888                                          888                       " << endl;
-        cout << "888         .d88b.  88888b.d88b.  88888b.  888  888 888888 .d88b.  888d888    " << endl;
-        cout << "888        d88\"\"88b 888 \"888 \"88b 888 \"88b 888  888 888   d8P  Y8b 888P\"      " << endl;
-        cout << "888    888 888  888 888  888  888 888  888 888  888 888   88888888 888        " << endl;
-        cout << "Y88b  d88P Y88..88P 888  888  888 888 d88P Y88b 888 Y88b. Y8b.     888        " << endl;
-        cout << " \"Y8888P\"   \"Y88P\"  888  888  888 88888P\"   \"Y88888  \"Y888 \"Y8888  888        " << endl;
-        cout << "                                  888                                         " << endl;
-        cout << "                                  888                                         " << endl;
-        cout << "                                  888                                         " << endl;
-        cout << " .d8888b.           d8b                   888    d8b          888             " << endl;
-        cout << "d88P  Y88b          Y8P                   888    Y8P          888             " << endl;
-        cout << "Y88b.                                     888                 888             " << endl;
-        cout << " \"Y888b.    .d8888b 888  .d88b.  88888b.  888888 888 .d8888b  888888 .d8888b  " << endl;
-        cout << "    \"Y88b. d88P\"    888 d8P  Y8b 888 \"88b 888    888 88K      888    88K      " << endl;
-        cout << "      \"888 888      888 88888888 888  888 888    888 \"Y8888b. 888    \"Y8888b. " << endl;
-        cout << "Y88b  d88P Y88b.    888 Y8b.     888  888 Y88b.  888      X88 Y88b.       X88 " << endl;
-        cout << " \"Y8888P\"   \"Y8888P 888  \"Y8888  888  888  \"Y888 888  88888P'  \"Y888  88888P' " << endl;
-        cout << endl << endl << endl << endl;
-}
 
-void UI::scientistSortUI() {
-  cout << "Sort list by:" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << " 1\t" << "First Name (a-z)" << endl;
-  cout << " 2\t" << "First Name (z-a)" << endl;
-  cout << " 3\t" << "Last Name (a-z)" << endl;
-  cout << " 4\t" << "Last Name (z-a)" << endl;
-  cout << " 5\t" << "Gender" << endl;
-  cout << " 6\t" << "Year of Birth" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << endl;
-  cout << "Enter your Selection: ";
-}
-
-void UI::scientistMenu() {
-  cout << " _____________________________________________________________________" << endl;
-  cout << " 1\t" << "Add Scientist" << endl;
-  cout << " 2\t" << "Remove Scientist" << endl;
-  cout << " 3\t" << "View Scientists" << endl;
-  cout << " 4\t" << "Search for Scientists" << endl;
-  cout << " 5\t" << "Back to Main Menu" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << endl;
-  cout << "Enter your Selection: ";
-}
-
-void UI::clearScreen() {
-  if (system("CLS")) system("clear");
-}
-
-void UI::computerSortUI() {
-  cout << "Sort list by:" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << " 1\t" << "Name of Computer (a-z)" << endl;
-  cout << " 2\t" << "Name of Computer (z-a)" << endl;
-  cout << " 3\t" << "Year built" << endl;
-  cout << " 4\t" << "Computer Type" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << endl;
-  cout << "Enter your Selection: ";
-}
-
-void UI::computerMenu() {
-  cout << " _____________________________________________________________________" << endl;
-  cout << " 1\t" << "Add Computer" << endl;
-  cout << " 2\t" << "Remove Computer" << endl;
-  cout << " 3\t" << "View Computer" << endl;
-  cout << " 4\t" << "Search for Computer" << endl;
-  cout << " 5\t" << "Back to Main Menu" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << endl;
-  cout << "Enter your Selection: ";
-}
-
-void UI::mainMenu() {
-  banner();
-  cout << "Welcome to the Computers & Scientists Program." << endl << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << " 1\t" << "Scientists" << endl;
-  cout << " 2\t" << "Computers" << endl;
-  cout << " 3\t" << "View Connections" << endl;
-  cout << " 4\t" << "Quit" << endl;
-  cout << " _____________________________________________________________________" << endl;
-  cout << "Enter your Selection: ";
-}
-
+/*********************************** MAIN LOOPS *************************************/
 void UI::scientistLoop() {
   do {
       clearScreen();
@@ -159,7 +72,6 @@ void UI::scientistLoop() {
       }
     } while (true);
 }
-
 void UI::computerLoop() {
   do {
         clearScreen();
@@ -195,65 +107,51 @@ void UI::computerLoop() {
         }
      } while (true);
 }
+void UI::connectionLoop() {
 
-void UI::readComputer(Computer& c) {
-  string my_name;
-  cout << "Name: ";
-  cin.ignore();
-  getline(cin, my_name);
-  c.setName(my_name);
+    do {
+        clearScreen();
+        char input;
+        connectionMenu();
+        cin >> input;
 
-  string my_type;
-  do {
-        cout << "Type: ";
-        cin >> my_type;
-        transform(my_type.begin(), my_type.end(), my_type.begin(), ::tolower);
+        if (input == '1') {
+            promptForAddingConnections();
+        }
+        else if (input == '2') {
+            promptToRemoveConnections();
+        }
+        else if (input == '3') {
+            char viewInput;
+            do {
+                connectionViewUI();
+                cin >> viewInput;
+                if (viewInput == '1') {
+                    promptForViewingScientistComputerConnections();
+                }
+                else if (viewInput == '2') {
+                    promptForViewingComputerScientistConnections();
+                }
+                else if (viewInput == '3') {
+                    break;
+                }
+                else {
+                    cout << "Invalid input. Please try again." << endl;
+                }
 
-        if (compServices.checkType(my_type)) {
-          c.setType(my_type);
+            } while (viewInput != '3');
+        }
+        else if (input == '4') {
+           return;
         }
         else {
-          cout << "Types may only contain alphabetic characters!" << endl;
-          cout << "Please try again." << endl;
-        }
-      } while (!compServices.checkType(my_type));
-
-  string answ;
-  do {
-        cout << "Was the computer ever built (yes/no) ? ";
-        cin >> answ;
-        transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
-
-        if (compServices.checkWasBuilt(answ)) {
-          c.setWasBuilt(answ);
-        }
-        else {
-          cout << "Invalid answer!" << endl;
-          cout << "Please try again." << endl;
+            cout << "Invalid input, try again." << endl;
         }
 
-      } while (!compServices.checkWasBuilt(answ));
+    } while (true);
 
-  if (answ == "yes") {
-
-  string my_year;
-  do {
-         cout << "Year built: ";
-         cin >> my_year;
-         transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
-
-         if (compServices.checkYear(my_year)) {
-           c.setYear(my_year);
-         }
-         else {
-           cout << "Invalid year!" << endl;
-           cout << "Please try again." << endl;
-          }
-
-      } while (!compServices.checkYear(my_year));
-  }
 }
-
+/********************** SCIENTIST HELPER FUNCTIONS AND PROMPTS ************************/
 void UI::readScientist(Scientist& c) {
   string f_name;
   do {
@@ -347,128 +245,6 @@ void UI::readScientist(Scientist& c) {
         } while (!sciServices.checkDeath(d_year, b_year));
   }
 }
-
-void UI::computerArt() {
-
-cout << "                         .,,uod8B8bou,,.                           " << endl;
-cout << "              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    " << endl;
-cout << "         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   " << endl;
-cout << "         !...:!TVBBBRPFT||||||||||!!^^\"\"\'   ||||                   " << endl;
-cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
-cout << "         !.........||||                     ||||                   " << endl;
-cout << "         !.........||||  ##                 ||||                   " << endl;
-cout << "         !.........||||                     ||||                   " << endl;
-cout << "         !.........||||                     ||||                   " << endl;
-cout << "         !.........||||                     ||||                   " << endl;
-cout << "         !.........||||                     ||||                   " << endl;
-cout << "         `.........||||                    ,||||                   " << endl;
-cout << "          .;.......||||               _.-!!|||||                   " << endl;
-cout << "   .,uodWBBBBb.....||||       _.-!!|||||||||!:\'                    " << endl;
-cout << "!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               " << endl;
-cout << "!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             " << endl;
-cout << "!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           " << endl;
-cout << "!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.         " << endl;
-cout << "!........YBBBBBBBBBBRPFT?!::::::::::^\'\'...::::::;         iBBbo.   " << endl;
-cout << "`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. " << endl;
-cout << " `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^\' " << endl;
-cout << "   `........::::::::::::::::;iof688888888888888888888b.     `      " << endl;
-cout << "    `......:::::::::;iof688888888888888888888888888888b.           " << endl;
-cout << "      `....:::;iof688888888888888888888888888888888899fT!          " << endl;
-cout << "       `..::!8888888888888888888888888888888899fT|!^\"\'             " << endl;
-cout << "         `\' !!988888888888888888888888899fT|!^\"\'                   " << endl;
-cout << "           `!!8888888888888888899fT|!^\"\'                           " << endl;
-cout << "              `!988888888899fT|!^\"\'                                " << endl;
-cout << "                `!9899fT|!^\"\'                                      " << endl;
-cout << "                  `!^\"\'                                            " << endl;
-cout << endl << endl;
-}
-
-void UI::flush(istream& in) {
-  in.ignore ( std::numeric_limits<std::streamsize>::max(), '\n' );
-  in.clear();
-}
-
-void UI::enterToContinue() {
-  flush(cin); //Clears the buffer
-  cout << "Press [Enter] to Continue...";
-  cin.get();
-}
-
-void UI::promptForAddingConnections() {
-    string sci_id;
-    string comp_id;
-    string name_s;
-    string name_c;
-    do {
-        sciServices.view();
-        cout << "Input the ID of the scientist to connect: ";
-        cin >> sci_id;
-    } while(!sciServices.checkIfIdExists(sci_id, name_s));
-
-    do {
-        compServices.view();
-        cout << "Input the ID of the computer to connect: ";
-        cin >> comp_id;
-    } while(!compServices.checkIfIdExists(comp_id, name_c));
-
-    connectionServices.addConnection(sci_id, comp_id);
-    cout << "The scientist " << name_s << " and the computer " << name_c << " have now been linked!" << endl;
-}
-
-void UI::promptToRemoveConnections() {
-
-    string sci_id;
-    string comp_id;
-    string name_s;
-    string name_c;
-    do {
-        sciServices.view();
-        cout << "Input the ID of the scientist to remove: ";
-        cin >> sci_id;
-    } while(!sciServices.checkIfIdExists(sci_id, name_s));
-
-    do {
-        compServices.view();
-        cout << "Input the ID of the computer to remove: ";
-        cin >> comp_id;
-    } while(!compServices.checkIfIdExists(comp_id, name_c));
-
-    connectionServices.removeConnection(sci_id, comp_id);
-    cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed! ";
-}
-
-void UI::promptForViewingComputerScientistConnections() {
-    clearScreen();
-    string c_id;
-    string name;
-    do {
-        compServices.view();
-        cout << "Input a computer-ID from the list above to see what scientists" << endl << "are connected to it: ";
-        cin >> c_id;
-        cout << endl;
-        if (compServices.checkIfIdExists(c_id, name)) {
-            cout << "The scientists that are connected to the computer " << name << " are:" << endl;
-            sciServices.getScientistsByComputerId(c_id);
-       }
-    } while (!compServices.checkIfIdExists(c_id, name));
-}
-
-void UI::promptForViewingScientistComputerConnections() {
-    clearScreen();
-    string s_id;
-    string name;
-    do {
-        sciServices.view();
-        cout << "Input a scientist-ID from the list above to see what computers" << endl << "are connected to it: ";
-        cin >> s_id;
-        cout << endl;
-        if (sciServices.checkIfIdExists(s_id, name)){
-            cout << "The computers that are connected to the scientist " << name << " are:" << endl;
-            compServices.getComputersByScientistId(s_id);
-       }
-    } while(!sciServices.checkIfIdExists(s_id, name));
-}
-
 void UI::promptForRemoveScientist() {
     string my_id;
     string name;
@@ -490,7 +266,6 @@ void UI::promptForRemoveScientist() {
         }
     } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 }
-
 void UI::promptToSortScientist() {
     char ch;
     cout << endl;
@@ -547,6 +322,64 @@ void UI::promptToSearchScientist() {
       enterToContinue();
     }
 }
+/********************** COMPUTER HELPER FUNCTIONS AND PROMPTS ************************/
+void UI::readComputer(Computer& c) {
+  string my_name;
+  cout << "Name: ";
+  cin.ignore();
+  getline(cin, my_name);
+  c.setName(my_name);
+
+  string my_type;
+  do {
+        cout << "Type: ";
+        cin >> my_type;
+        transform(my_type.begin(), my_type.end(), my_type.begin(), ::tolower);
+
+        if (compServices.checkType(my_type)) {
+          c.setType(my_type);
+        }
+        else {
+          cout << "Types may only contain alphabetic characters!" << endl;
+          cout << "Please try again." << endl;
+        }
+      } while (!compServices.checkType(my_type));
+
+  string answ;
+  do {
+        cout << "Was the computer ever built (yes/no) ? ";
+        cin >> answ;
+        transform(answ.begin(), answ.end(), answ.begin(), ::tolower);
+
+        if (compServices.checkWasBuilt(answ)) {
+          c.setWasBuilt(answ);
+        }
+        else {
+          cout << "Invalid answer!" << endl;
+          cout << "Please try again." << endl;
+        }
+
+      } while (!compServices.checkWasBuilt(answ));
+
+  if (answ == "yes") {
+
+  string my_year;
+  do {
+         cout << "Year built: ";
+         cin >> my_year;
+         transform(my_year.begin(), my_year.end(), my_year.begin(), ::tolower);
+
+         if (compServices.checkYear(my_year)) {
+           c.setYear(my_year);
+         }
+         else {
+           cout << "Invalid year!" << endl;
+           cout << "Please try again." << endl;
+          }
+
+      } while (!compServices.checkYear(my_year));
+  }
+}
 
 void UI::promptForRemoveComputer() {
     string my_id;
@@ -570,7 +403,6 @@ void UI::promptForRemoveComputer() {
 
        } while (!compServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 }
-
 void UI::promptToSortComputer() {
     char ch;
     cout << endl;
@@ -618,49 +450,126 @@ void UI::promptToSearchComputer() {
       enterToContinue();
     }
 }
-void UI::connectionLoop() {
+/********************** CONNECTIONS HELPER FUNCTIONS AND PROMPTS ************************/
+void UI::promptForAddingConnections() {
+    string sci_id;
+    string comp_id;
+    string name_s;
+    string name_c;
+    do {
+        sciServices.view();
+        cout << "Input the ID of the scientist to connect: ";
+        cin >> sci_id;
+    } while(!sciServices.checkIfIdExists(sci_id, name_s));
 
     do {
-        clearScreen();
-        char input;
-        connectionMenu();
-        cin >> input;
+        compServices.view();
+        cout << "Input the ID of the computer to connect: ";
+        cin >> comp_id;
+    } while(!compServices.checkIfIdExists(comp_id, name_c));
 
-        if (input == '1') {
-            promptForAddingConnections();
-        }
-        else if (input == '2') {
-            promptToRemoveConnections();
-        }
-        else if (input == '3') {
-            char viewInput;
-            do {
-                connectionViewUI();
-                cin >> viewInput;
-                if (viewInput == '1') {
-                    promptForViewingScientistComputerConnections();
-                }
-                else if (viewInput == '2') {
-                    promptForViewingComputerScientistConnections();
-                }
-                else if (viewInput == '3') {
-                    break;
-                }
-                else {
-                    cout << "Invalid input. Please try again." << endl;
-                }
+    connectionServices.addConnection(sci_id, comp_id);
+    cout << "The scientist " << name_s << " and the computer " << name_c << " have now been linked!" << endl;
+}
+void UI::promptToRemoveConnections() {
 
-            } while (viewInput != '3');
-        }
-        else if (input == '4') {
-           return;
-        }
-        else {
-            cout << "Invalid input, try again." << endl;
-        }
+    string sci_id;
+    string comp_id;
+    string name_s;
+    string name_c;
+    do {
+        sciServices.view();
+        cout << "Input the ID of the scientist to remove: ";
+        cin >> sci_id;
+    } while(!sciServices.checkIfIdExists(sci_id, name_s));
 
-    } while (true);
+    do {
+        compServices.view();
+        cout << "Input the ID of the computer to remove: ";
+        cin >> comp_id;
+    } while(!compServices.checkIfIdExists(comp_id, name_c));
 
+    connectionServices.removeConnection(sci_id, comp_id);
+    cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed! ";
+}
+
+void UI::promptForViewingComputerScientistConnections() {
+    clearScreen();
+    string c_id;
+    string name;
+    do {
+        compServices.view();
+        cout << "Input a computer-ID from the list above to see what scientists" << endl << "are connected to it: ";
+        cin >> c_id;
+        cout << endl;
+        if (compServices.checkIfIdExists(c_id, name)) {
+            cout << "The scientists that are connected to the computer " << name << " are:" << endl;
+            sciServices.getScientistsByComputerId(c_id);
+       }
+    } while (!compServices.checkIfIdExists(c_id, name));
+}
+
+void UI::promptForViewingScientistComputerConnections() {
+    clearScreen();
+    string s_id;
+    string name;
+    do {
+        sciServices.view();
+        cout << "Input a scientist-ID from the list above to see what computers" << endl << "are connected to it: ";
+        cin >> s_id;
+        cout << endl;
+        if (sciServices.checkIfIdExists(s_id, name)){
+            cout << "The computers that are connected to the scientist " << name << " are:" << endl;
+            compServices.getComputersByScientistId(s_id);
+       }
+    } while(!sciServices.checkIfIdExists(s_id, name));
+}
+/******************************** CONSOLE MANIPULATION *********************************/
+void UI::clearScreen() {
+  if (system("clear")) system("CLS");
+}
+void UI::flush(istream& in) {
+  in.ignore ( std::numeric_limits<std::streamsize>::max(), '\n' );
+  in.clear();
+}
+void UI::enterToContinue() {
+  flush(cin); //Clears the buffer
+  cout << "Press [Enter] to Continue...";
+  cin.get();
+}
+/*********************************** MENUS AND INTERFACES *************************************/
+void UI::mainMenu() {
+  banner();
+  cout << "Welcome to the Computers & Scientists Program." << endl << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "Scientists" << endl;
+  cout << " 2\t" << "Computers" << endl;
+  cout << " 3\t" << "View Connections" << endl;
+  cout << " 4\t" << "Quit" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << "Enter your Selection: ";
+}
+void UI::scientistMenu() {
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "Add Scientist" << endl;
+  cout << " 2\t" << "Remove Scientist" << endl;
+  cout << " 3\t" << "View Scientists" << endl;
+  cout << " 4\t" << "Search for Scientists" << endl;
+  cout << " 5\t" << "Back to Main Menu" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << endl;
+  cout << "Enter your Selection: ";
+}
+void UI::computerMenu() {
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "Add Computer" << endl;
+  cout << " 2\t" << "Remove Computer" << endl;
+  cout << " 3\t" << "View Computer" << endl;
+  cout << " 4\t" << "Search for Computer" << endl;
+  cout << " 5\t" << "Back to Main Menu" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << endl;
+  cout << "Enter your Selection: ";
 }
 void UI::connectionMenu() {
   cout << " _____________________________________________________________________" << endl;
@@ -668,6 +577,30 @@ void UI::connectionMenu() {
   cout << " 2\t" << "Remove Connections" << endl;
   cout << " 3\t" << "View Connections" << endl;
   cout << " 4\t" << "Back to Main Menu" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << endl;
+  cout << "Enter your Selection: ";
+}
+void UI::scientistSortUI() {
+  cout << "Sort list by:" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "First Name (a-z)" << endl;
+  cout << " 2\t" << "First Name (z-a)" << endl;
+  cout << " 3\t" << "Last Name (a-z)" << endl;
+  cout << " 4\t" << "Last Name (z-a)" << endl;
+  cout << " 5\t" << "Gender" << endl;
+  cout << " 6\t" << "Year of Birth" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << endl;
+  cout << "Enter your Selection: ";
+}
+void UI::computerSortUI() {
+  cout << "Sort list by:" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "Name of Computer (a-z)" << endl;
+  cout << " 2\t" << "Name of Computer (z-a)" << endl;
+  cout << " 3\t" << "Year built" << endl;
+  cout << " 4\t" << "Computer Type" << endl;
   cout << " _____________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
@@ -680,4 +613,61 @@ void UI::connectionViewUI() {
   cout << " _____________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
+}
+/*********************************** GRAPHICS *************************************/
+void UI::banner() {
+        cout << " .d8888b.                                           888                       " << endl;
+        cout << "d88P  Y88b                                          888                       " << endl;
+        cout << "888    888                                          888                       " << endl;
+        cout << "888         .d88b.  88888b.d88b.  88888b.  888  888 888888 .d88b.  888d888    " << endl;
+        cout << "888        d88\"\"88b 888 \"888 \"88b 888 \"88b 888  888 888   d8P  Y8b 888P\"      " << endl;
+        cout << "888    888 888  888 888  888  888 888  888 888  888 888   88888888 888        " << endl;
+        cout << "Y88b  d88P Y88..88P 888  888  888 888 d88P Y88b 888 Y88b. Y8b.     888        " << endl;
+        cout << " \"Y8888P\"   \"Y88P\"  888  888  888 88888P\"   \"Y88888  \"Y888 \"Y8888  888        " << endl;
+        cout << "                                  888                                         " << endl;
+        cout << "                                  888                                         " << endl;
+        cout << "                                  888                                         " << endl;
+        cout << " .d8888b.           d8b                   888    d8b          888             " << endl;
+        cout << "d88P  Y88b          Y8P                   888    Y8P          888             " << endl;
+        cout << "Y88b.                                     888                 888             " << endl;
+        cout << " \"Y888b.    .d8888b 888  .d88b.  88888b.  888888 888 .d8888b  888888 .d8888b  " << endl;
+        cout << "    \"Y88b. d88P\"    888 d8P  Y8b 888 \"88b 888    888 88K      888    88K      " << endl;
+        cout << "      \"888 888      888 88888888 888  888 888    888 \"Y8888b. 888    \"Y8888b. " << endl;
+        cout << "Y88b  d88P Y88b.    888 Y8b.     888  888 Y88b.  888      X88 Y88b.       X88 " << endl;
+        cout << " \"Y8888P\"   \"Y8888P 888  \"Y8888  888  888  \"Y888 888  88888P'  \"Y888  88888P' " << endl;
+        cout << endl << endl << endl << endl;
+}
+void UI::computerArt() {
+
+cout << "                         .,,uod8B8bou,,.                           " << endl;
+cout << "              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    " << endl;
+cout << "         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   " << endl;
+cout << "         !...:!TVBBBRPFT||||||||||!!^^\"\"\'   ||||                   " << endl;
+cout << "         !.......:!?|||||!!^^\"\"\'            ||||                   " << endl;
+cout << "         !.........||||                     ||||                   " << endl;
+cout << "         !.........||||  ##                 ||||                   " << endl;
+cout << "         !.........||||                     ||||                   " << endl;
+cout << "         !.........||||                     ||||                   " << endl;
+cout << "         !.........||||                     ||||                   " << endl;
+cout << "         !.........||||                     ||||                   " << endl;
+cout << "         `.........||||                    ,||||                   " << endl;
+cout << "          .;.......||||               _.-!!|||||                   " << endl;
+cout << "   .,uodWBBBBb.....||||       _.-!!|||||||||!:\'                    " << endl;
+cout << "!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               " << endl;
+cout << "!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             " << endl;
+cout << "!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           " << endl;
+cout << "!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^\"`;:::       `.         " << endl;
+cout << "!........YBBBBBBBBBBRPFT?!::::::::::^\'\'...::::::;         iBBbo.   " << endl;
+cout << "`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. " << endl;
+cout << " `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^\' " << endl;
+cout << "   `........::::::::::::::::;iof688888888888888888888b.     `      " << endl;
+cout << "    `......:::::::::;iof688888888888888888888888888888b.           " << endl;
+cout << "      `....:::;iof688888888888888888888888888888888899fT!          " << endl;
+cout << "       `..::!8888888888888888888888888888888899fT|!^\"\'             " << endl;
+cout << "         `\' !!988888888888888888888888899fT|!^\"\'                   " << endl;
+cout << "           `!!8888888888888888899fT|!^\"\'                           " << endl;
+cout << "              `!988888888899fT|!^\"\'                                " << endl;
+cout << "                `!9899fT|!^\"\'                                      " << endl;
+cout << "                  `!^\"\'                                            " << endl;
+cout << endl << endl;
 }

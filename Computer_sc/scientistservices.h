@@ -25,7 +25,6 @@ public:
     void sort(string sortBy);
     void remove(string my_id);
     void output(vector<Scientist>& v);
-    void addConnection(string sci_id, string comp_id);
     void getScientistsByComputerId(string c_id);
 private:
     ScientistRepository sciRepo;

@@ -476,7 +476,11 @@ void UI::promtForViewingScientistComputerConnections() {
 
 }
 
+<<<<<<< HEAD
 void UI::promtForRemoveScientist() {
+=======
+void UI::promtForRemoveScientist(){
+>>>>>>> 30caba251c448d28644ce1ed9a1da2b0ca6223d0
     string my_id;
     string name;
     do {

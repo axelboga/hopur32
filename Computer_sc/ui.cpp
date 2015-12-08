@@ -507,7 +507,8 @@ void UI::promptToRemoveConnections() {
     } while(!compServices.checkIfIdExists(comp_id, name_c));
 
     connectionServices.removeConnection(sci_id, comp_id);
-    cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed! ";
+    cout << "The connection between the scientist " << name_s << " and the" << endl;
+    cout << "computer " << name_c << " have now been removed! ";
 }
 
 void UI::promptForViewingComputerScientistConnections() {

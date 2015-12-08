@@ -2,7 +2,6 @@
 #define SCIENTISTSERVICES_H
 #include "scientist.h"
 #include "scientistrepository.h"
-#include "compsciconnectionsrepository.h"
 #include <cctype>
 #include <algorithm>
 #include <stdlib.h>

@@ -62,27 +62,6 @@ void ComputerRepository::removeFromDatabase(string my_id) {
 
 /*************************************CONNECTIONS********************************************/
 
-
-void ComputerRepository::addConnection(string sci_id, string comp_id){
-    QSqlQuery query(datab);
-    query.prepare("INSERT INTO ScientistComputerConnections (sId, cId) VALUES(:sId, :cId)");
-    query.bindValue(":sId", atoi(sci_id.c_str()));
-    query.bindValue(":cId", atoi(comp_id.c_str()));
-    query.exec();
-}
-
-void ComputerRepository::removeConnection(string sci_id, string comp_id){
-    QSqlQuery query(datab);
-
-    query.prepare("DELETE FROM ScientistComputerConnections "
-                  "WHERE sId = :sci_id "
-                  "AND cId = :comp_id");
-    query.bindValue(":sci_id", atoi(sci_id.c_str()));
-    query.bindValue(":comp_id", atoi(comp_id.c_str()));
-
-    query.exec();
-}
-
 vector<Computer> ComputerRepository::getComputersByScientistId(string id){
     vector<Computer> v;
     QSqlQuery query(datab);

@@ -5,6 +5,7 @@ using namespace std;
 UI::UI() {
         sciServices = ScientistServices();
         compServices = ComputerServices();
+        connectionServices = CompSciConnectionServices();
 }
 
 void UI::start() {
@@ -129,16 +130,16 @@ void UI::scientistLoop() {
       cout << endl;
 
       if (input == '1') {
-        Scientist c;
-        readScientist(c);
-        sciServices.add(c);
+          Scientist c;
+          readScientist(c);
+          sciServices.add(c);
       }
       else if (input == '2') {
-        clearScreen();
-        promtForRemoveScientist();
+          clearScreen();
+          promtForRemoveScientist();
       }
       else if (input == '3') {
-        promptToSortScientist();
+          promptToSortScientist();
       }
       else if (input == '4') {
           clearScreen();
@@ -165,27 +166,27 @@ void UI::computerLoop() {
         clearScreen();
 
         if (input == '1') {
-           Computer c = Computer();
-           readComputer(c);
-           compServices.add(c);
+            Computer c = Computer();
+            readComputer(c);
+            compServices.add(c);
         }
         else if (input == '2') {
-           promptForRemoveComputer();
+            promptForRemoveComputer();
         }
         else if (input == '3') {
-           promptToSortComputer();
+            promptToSortComputer();
         }
         else if (input == '4') {
-           clearScreen();
-           promptToSearchComputer();
+            clearScreen();
+            promptToSearchComputer();
         }
         else if (input == '5') {
-           cout << "Returning to Main Menu." << endl;
-           cout << endl;
-           return;
+            cout << "Returning to Main Menu." << endl;
+            cout << endl;
+            return;
         }
         else {
-           cout << "Invalid input, try again: " << endl;
+            cout << "Invalid input, try again: " << endl;
         }
      } while (true);
 }
@@ -392,25 +393,43 @@ void UI::enterToContinue() {
 void UI::promtForAddingConnections() {
     string sci_id;
     string comp_id;
-    sciServices.view();
-    cout << "Enter the ID of the scientist to connect: ";
-    cin >> sci_id;
-    compServices.view();
-    cout << "Enter the ID of the computer to connect: ";
-    cin >> comp_id;
-    compServices.addConnection(sci_id, comp_id);
+    string name_s;
+    string name_c;
+    do {
+        sciServices.view();
+        cout << "Enter the ID of the scientist to connect: ";
+        cin >> sci_id;
+    } while(!sciServices.checkIfIdExists(sci_id, name_s));
+
+    do {
+        compServices.view();
+        cout << "Enter the ID of the computer to connect: ";
+        cin >> comp_id;
+    } while(!compServices.checkIfIdExists(comp_id, name_c));
+
+    connectionServices.addConnection(sci_id, comp_id);
+    cout << "The scientist " << name_s << " and the computer " << name_c << " have now been linked!" << endl;
 }
 
 void UI::promptToRemoveConnections() {
     string sci_id;
     string comp_id;
-    sciServices.view();
-    cout << "Enter the ID of the scientist to remove: ";
-    cin >> sci_id;
-    compServices.view();
-    cout << "Enter the ID of the computer to remove: ";
-    cin >> comp_id;
-    compServices.removeConnection(sci_id,comp_id);
+    string name_s;
+    string name_c;
+    do {
+        sciServices.view();
+        cout << "Enter the ID of the scientist to remove: ";
+        cin >> sci_id;
+    } while(!sciServices.checkIfIdExists(sci_id, name_s));
+
+    do {
+        compServices.view();
+        cout << "Enter the ID of the computer to remove: ";
+        cin >> comp_id;
+    } while(!compServices.checkIfIdExists(comp_id, name_c));
+
+    connectionServices.removeConnection(sci_id,comp_id);
+    cout << "The scientist " << name_s << " and the computer " << name_c << " have now been removed!" << endl;
 }
 
 void UI::promtForViewingComputerScientistConnections() {
@@ -445,6 +464,7 @@ void UI::promtForRemoveScientist() {
     string my_id;
     string name;
     do {
+        sciServices.view();
         cout << "Enter the ID of the scientist you wish to remove: ";
         cin >> my_id;
         if (sciServices.checkIfIdExists(my_id, name)) {

@@ -19,8 +19,6 @@ public:
     void output(vector<Computer>& v);
     void remove(string my_id);
     bool checkIfIdExists(string my_id, string& name);
-    void addConnection(string sci_id, string comp_id);
-    void removeConnection(string sci_id, string comp_id);
     void getComputersByScientistId(string s_id);
 private:
     ComputerRepository compRepo;

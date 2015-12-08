@@ -16,7 +16,9 @@ SOURCES += main.cpp \
     computerservices.cpp \
     computerrepository.cpp \
     baserepository.cpp \
-    scientist.cpp
+    scientist.cpp \
+    compsciconnectionrepository.cpp \
+    compsciconnectionservices.cpp
 
 HEADERS += \
     ui.h \
@@ -26,5 +28,7 @@ HEADERS += \
     computerservices.h \
     computerrepository.h \
     baserepository.h \
-    scientist.h
+    scientist.h \
+    compsciconnectionrepository.h \
+    compsciconnectionservices.h
 

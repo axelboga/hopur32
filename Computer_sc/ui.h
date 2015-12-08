@@ -2,6 +2,7 @@
 #define UI_H
 #include "scientistservices.h"
 #include "computerservices.h"
+#include "compsciconnectionservices.h"
 #include <string>
 #include <iostream>
 #include <ios>
@@ -40,6 +41,7 @@ public:
 private:
     ScientistServices sciServices;
     ComputerServices compServices;
+    CompSciConnectionServices connectionServices;
 };
 
 #endif // UI_H

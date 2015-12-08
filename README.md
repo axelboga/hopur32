@@ -56,7 +56,11 @@ Tengingar fyrir tölvur eru tæklaðar í ComputerServices og ComputerRepository
   * Þar er valið 2 (remove connections) til að fjarlægja tengingar milli tölva og tölvunarfræinga
   * Þar er valið 3 (view connections) til að sjá tenginar 
 
-Til þess að nota gagnagrunninn okkar þarf að vista Database.sqlite í eigin build möppu og passa að hafa ekki aðrar build möppur. 
+Til þess að nota gagnagrunninn okkar þarf að færa skránna Database.sqlite í eigin build möppu og passa að hafa engar aðrar build möppur.
+
+#### Known bugs
+Search valmöguleikinn fyrir  tölvur er case sensitive þannig að þegar leitað er eftir tölvum þarf að skrifa sömu há- og lástafi og gert var þegar tölvan var slegin inn í byrjun.
+Sort valmöguleikinn fyrir tölvur raðar tölvunum í stafrófsröð en gerir greinamun á há- og lágstöfum. Þegar raðað er eftir stafrófsröð koma fyrst þær tölvur sem byrja á hástaf og þá eftir stafrófsröð og síðan koma þær tölvur sem byrja á lástaf. Þetta virkar akkurat öfugt þegar raðað er eftir öfugri stafrófsröð.
 
 ### Meðlimir:
 *	Axel Bogason

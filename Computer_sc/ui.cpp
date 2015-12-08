@@ -401,13 +401,13 @@ void UI::promptForAddingConnections() {
     string name_c;
     do {
         sciServices.view();
-        cout << "Enter the ID of the scientist to connect: ";
+        cout << "Input the ID of the scientist to connect: ";
         cin >> sci_id;
     } while(!sciServices.checkIfIdExists(sci_id, name_s));
 
     do {
         compServices.view();
-        cout << "Enter the ID of the computer to connect: ";
+        cout << "Input the ID of the computer to connect: ";
         cin >> comp_id;
     } while(!compServices.checkIfIdExists(comp_id, name_c));
 
@@ -423,18 +423,18 @@ void UI::promptToRemoveConnections() {
     string name_c;
     do {
         sciServices.view();
-        cout << "Enter the ID of the scientist to remove: ";
+        cout << "Input the ID of the scientist to remove: ";
         cin >> sci_id;
     } while(!sciServices.checkIfIdExists(sci_id, name_s));
 
     do {
         compServices.view();
-        cout << "Enter the ID of the computer to remove: ";
+        cout << "Input the ID of the computer to remove: ";
         cin >> comp_id;
     } while(!compServices.checkIfIdExists(comp_id, name_c));
 
     connectionServices.removeConnection(sci_id, comp_id);
-    cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed!" << endl;
+    cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed! ";
 }
 
 void UI::promptForViewingComputerScientistConnections() {
@@ -443,12 +443,13 @@ void UI::promptForViewingComputerScientistConnections() {
     string name;
     do {
         compServices.view();
-        cout << "input a computer-ID to see what scientists are connected to it: ";
+        cout << "Input a computer-ID from the list above to see what scientists" << endl << "are connected to it: ";
         cin >> c_id;
+        cout << endl;
         if (compServices.checkIfIdExists(c_id, name)) {
-            cout << "The scientists connected to the computer " << name << " are:" << endl;
+            cout << "The scientists that are connected to the computer " << name << " are:" << endl;
             sciServices.getScientistsByComputerId(c_id);
-        }
+       }
     } while (!compServices.checkIfIdExists(c_id, name));
 }
 
@@ -458,12 +459,13 @@ void UI::promptForViewingScientistComputerConnections() {
     string name;
     do {
         sciServices.view();
-        cout << "input a scientist-ID to see what computers are connected to it: ";
+        cout << "Input a scientist-ID from the list above to see what computers" << endl << "are connected to it: ";
         cin >> s_id;
+        cout << endl;
         if (sciServices.checkIfIdExists(s_id, name)){
-            cout << "The computers connected to the scientist " << name << " are:" << endl;
+            cout << "The computers that are connected to the scientist " << name << " are:" << endl;
             compServices.getComputersByScientistId(s_id);
-        }
+       }
     } while(!sciServices.checkIfIdExists(s_id, name));
 }
 
@@ -472,7 +474,7 @@ void UI::promptForRemoveScientist() {
     string name;
     do {
         sciServices.view();
-        cout << "Enter the ID of the scientist you wish to remove or type 'Q' to go back: ";
+        cout << "Input the ID of the scientist you wish to remove or type 'Q' to go back: ";
         cin >> my_id;
         if (sciServices.checkIfIdExists(my_id, name)) {
           sciServices.remove(my_id);
@@ -480,13 +482,13 @@ void UI::promptForRemoveScientist() {
         }
         else if (my_id == "Q" || my_id == "q") {
             return;
-        }
+       }
         else {
           cout << "This is not a valid ID!" << endl;
           cout << "Please try again." << endl;
           cout << "If you wish to go back, type 'Q'." << endl;
         }
-  } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
+    } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 }
 
 void UI::promptToSortScientist() {
@@ -625,22 +627,16 @@ void UI::connectionLoop() {
         cin >> input;
 
         if (input == '1') {
-
-            //Add connections
+            promptForAddingConnections();
         }
         else if (input == '2') {
-
-            //Remove connections
+            promptToRemoveConnections();
         }
         else if (input == '3') {
             char viewInput;
             do {
-
-
                 connectionViewUI();
-
                 cin >> viewInput;
-
                 if (viewInput == '1') {
                     promptForViewingScientistComputerConnections();
                 }
@@ -657,7 +653,6 @@ void UI::connectionLoop() {
             } while (viewInput != '3');
         }
         else if (input == '4') {
-
            return;
         }
         else {

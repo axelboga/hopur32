@@ -5,7 +5,7 @@ using namespace std;
 Computer::Computer(){
     id = 0;
     name = "";
-    year = "";
+    year = "-";
     type = "",
     wasBuilt = "";
 }

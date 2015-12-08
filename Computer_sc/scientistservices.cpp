@@ -3,7 +3,7 @@
 const int CURRENT_YEAR = 2015;
 
 ScientistServices::ScientistServices() {
-    compSciRepo = ScientistRepository();
+    sciRepo = ScientistRepository();
  }
 
 /*********************************** "CHECK"-FUNCTIONS *************************************/
@@ -72,7 +72,7 @@ bool ScientistServices::checkDeath(string d, string b) {
 bool ScientistServices::checkIfIdExists(string my_id, string& name) {
     vector<Scientist> v;
     string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
-    compSciRepo.fillVectorFromDatabase(v, sql);
+    sciRepo.fillVectorFromDatabase(v, sql);
     //^put all the data from the table "Scientists"  in a vector
 
     int int_id = atoi(my_id.c_str());
@@ -102,30 +102,30 @@ bool ScientistServices::isAlive(string& answ) {
 /*********************************** MAIN FUNCTIONS **************************************/
 
 void ScientistServices::add(Scientist c) {
-    compSciRepo.addToDatabase(c);
+    sciRepo.addToDatabase(c);
 }
 
 void ScientistServices::view() {
     vector<Scientist> v;
     string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
-    compSciRepo.fillVectorFromDatabase(v, sql);
+    sciRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }
 
 void ScientistServices::search(string searchTerm) {
     vector<Scientist> v;
-    v = compSciRepo.searchInDatabase(searchTerm);
+    v = sciRepo.searchInDatabase(searchTerm);
     output(v);
 }
 
 void ScientistServices::sort(string sortBy) {
     vector<Scientist> v;
-    v = compSciRepo.sortDatabase(sortBy);
+    v = sciRepo.sortDatabase(sortBy);
     output(v);
 }
 
 void ScientistServices::remove(string my_id) {
-    compSciRepo.removeFromDatabase(my_id);
+    sciRepo.removeFromDatabase(my_id);
 }
 
 void ScientistServices::output(vector<Scientist>& v) {
@@ -151,11 +151,11 @@ void ScientistServices::output(vector<Scientist>& v) {
 /*************************************CONNECTIONS********************************************/
 
 void ScientistServices::addConnection(string sci_id, string comp_id) {
-    compSciRepo.addConnection(sci_id, comp_id);
+    sciRepo.addConnection(sci_id, comp_id);
 }
 
 void ScientistServices::getScientistsByComputerId(string c_id) {
     vector<Scientist> v;
-    v = compSciRepo.getScientistsByComputerId(c_id);
+    v = sciRepo.getScientistsByComputerId(c_id);
     output(v);
 }

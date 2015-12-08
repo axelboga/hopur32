@@ -54,7 +54,7 @@ bool ComputerServices::checkWasBuilt(string& answ){
 bool ComputerServices::checkSearch(string searchTerm) {
     vector<Computer> v;
     v = compRepo.searchInDatabase(searchTerm);
-    if (v.size() < 1) {
+    if (v.size() < 1) { //if the vector is empty, nothing has been found
         return false;
     }
     else {
@@ -62,17 +62,17 @@ bool ComputerServices::checkSearch(string searchTerm) {
     }
 }
 
-bool ComputerServices::checkRemove(string my_id, string& name) {
+bool ComputerServices::checkIfIdExists(string my_id, string& name) {
     vector<Computer> v;
     string sql = "SELECT ID, Name, Type, WasBuilt, YearBuilt FROM Computers";
     compRepo.fillVectorFromDatabase(v, sql);
+    //^put all the data from the "Computers" table in a vector
 
-    int temp = atoi(my_id.c_str());
+    int int_id = atoi(my_id.c_str());
 
     for(unsigned int i = 0; i < v.size(); i++){
-        if(v[i].getId() == temp){
-            name = v[i].getName();
-            name[0] = toupper(name[0]);
+        if(v[i].getId() == int_id){
+            name = v[i].getName();  //getting the name of the computer with the ID my_id.
             return true;
         }
     }
@@ -126,7 +126,7 @@ void ComputerServices::output(vector<Computer>& v) {
     cout << " _______________________________________________________________________" << endl;
 }
 
-/******************************** CONNECTIONS **************************************/
+/************************************* CONNECTIONS ****************************************/
 
 void ComputerServices::addConnection(string sci_id, string comp_id) {
     compRepo.addConnection(sci_id, comp_id);

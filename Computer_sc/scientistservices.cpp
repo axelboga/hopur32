@@ -69,16 +69,17 @@ bool ScientistServices::checkDeath(string d, string b) {
    return true;
 }
 
-bool ScientistServices::checkRemove(string my_id, string& name) {
+bool ScientistServices::checkIfIdExists(string my_id, string& name) {
     vector<Scientist> v;
     string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
     compSciRepo.fillVectorFromDatabase(v, sql);
+    //^put all the data from the table "Scientists"  in a vector
 
-    int temp = atoi(my_id.c_str());
+    int int_id = atoi(my_id.c_str());
 
     for(unsigned int i = 0; i < v.size(); i++){
-        if(v[i].getId() == temp){
-            name = v[i].getFirstName();
+        if(v[i].getId() == int_id){
+            name = v[i].getFirstName(); //get the name of the scientist with the ID my_id.
             name[0] = toupper(name[0]);
             return true;
         }

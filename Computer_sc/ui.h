@@ -24,12 +24,12 @@ public:
     void computerMenu();
     void readComputer(Computer& c);
     void readScientist(Scientist& c);
+    void promtForViewingScientistComputerConnections();
+    void promtForViewingComputerScientistConnections();
+    void promtForAddingConnections();
     void computerArt();
     void flush (istream& in);
     void enterToContinue();
-
-
-
 private:
     ScientistServices sciServices;
     ComputerServices compServices;

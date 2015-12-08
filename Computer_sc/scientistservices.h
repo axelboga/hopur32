@@ -16,7 +16,7 @@ public:
     bool checkGender(string& s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
-    bool checkRemove(string my_id, string& name);
+    bool checkIfIdExists(string my_id, string& name);
     bool isAlive(string& answ);
     void add(Scientist c);
     void view();

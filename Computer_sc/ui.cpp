@@ -21,18 +21,6 @@ void UI::start() {
         } else if (input == '2') {
           computerLoop();
         } else if (input == '3') {
-        /*
-           string sci_id;
-           string comp_id;
-           cout << "Enter the ID of the scientist to connect: ";
-           cin >> sci_id;
-           cout << "Enter the ID of the computer to connect: ";
-           cin >> comp_id;
-           compServices.addConnection(sci_id, comp_id);
-
-           cout << "Sorry!" << endl;
-           cout << "Feature not ready!" << endl;
-         */
 
           string c_id;
           cout << "input the ID of the computer you wish to see the scientist that made it: ";
@@ -154,7 +142,7 @@ do {
               sciServices.view();
               cout << "Enter the ID of the scientist you wish to remove: ";
               cin >> my_id;
-              if (sciServices.checkRemove(my_id, name)) {
+              if (sciServices.checkIfIdExists(my_id, name)) {
                 sciServices.remove(my_id);
                 cout << "The scientist " << name << " has been successfully removed!" << endl;
               } else if (my_id == "Q" || my_id == "q") {
@@ -164,7 +152,7 @@ do {
                 cout << "Please try again." << endl;
                 cout << "If you wish to go back, type 'Q'." << endl;
               }
-            } while (!sciServices.checkRemove(my_id, name) &&  my_id != "Q" && my_id != "q");
+            } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 
       } else if (input == '3') {
         char ch;
@@ -240,7 +228,7 @@ do {
               compServices.view();
               cout << "Enter the ID of the computer you wish to remove: ";
               cin >> my_id;
-              if (compServices.checkRemove(my_id, name)) {
+              if (compServices.checkIfIdExists(my_id, name)) {
                 compServices.remove(my_id);
                 cout << "The computer " << name << " has been successfully removed!" << endl;
               } else if (my_id == "Q" || my_id == "q") {
@@ -251,7 +239,7 @@ do {
                 cout << "If you wish to go back, type 'Q'." << endl;
               }
 
-            } while (!compServices.checkRemove(my_id, name) &&  my_id != "Q" && my_id != "q");
+            } while (!compServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 
       } else if (input == '3') {
           char ch;
@@ -502,4 +490,44 @@ void UI::enterToContinue()
   flush(cin); //Clears the buffer
   cout << "Press [Enter] to Continue...";
   cin.get();
+}
+
+void UI::promtForAddingConnections(){
+    string sci_id;
+    string comp_id;
+    sciServices.view();
+    cout << "Enter the ID of the scientist to connect: ";
+    cin >> sci_id;
+    compServices.view();
+    cout << "Enter the ID of the computer to connect: ";
+    cin >> comp_id;
+    compServices.addConnection(sci_id, comp_id);
+}
+void UI::promtForViewingComputerScientistConnections(){
+    string c_id;
+    string name;
+    do {
+        compServices.view();
+        cout << "input a computer-ID to see what scientists are connected to it: ";
+        cin >> c_id;
+        if (compServices.checkIfIdExists(c_id, name)) {
+            cout << "The scientists connected to the computer " << name << " are:" << endl;
+            sciServices.getScientistsByComputerId(c_id);
+        }
+    } while (!compServices.checkIfIdExists(c_id, name));
+}
+
+void UI::promtForViewingScientistComputerConnections(){
+    string s_id;
+    string name;
+    do {
+        sciServices.view();
+        cout << "input a scientist-ID to see what computers are connected to it: ";
+        cin >> s_id;
+        if (sciServices.checkIfIdExists(s_id, name)){
+            cout << "The computers connected to the scientist " << name << " are:" << endl;
+            compServices.getComputersByScientistId(s_id);
+        }
+    }while(!sciServices.checkIfIdExists(s_id, name));
+
 }

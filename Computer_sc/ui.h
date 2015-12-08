@@ -27,6 +27,7 @@ public:
     void promtForViewingScientistComputerConnections();
     void promtForViewingComputerScientistConnections();
     void promtForAddingConnections();
+    void promptToRemoveConnections();
     void promtForRemoveScientist();
     void promptToSortScientist();
     void promtToSearchScientist();

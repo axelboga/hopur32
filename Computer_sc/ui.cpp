@@ -401,6 +401,18 @@ void UI::promtForAddingConnections() {
     compServices.addConnection(sci_id, comp_id);
 }
 
+void UI::promptToRemoveConnections() {
+    string sci_id;
+    string comp_id;
+    sciServices.view();
+    cout << "Enter the ID of the scientist to remove: ";
+    cin >> sci_id;
+    compServices.view();
+    cout << "Enter the ID of the computer to remove: ";
+    cin >> comp_id;
+    compServices.removeConnection(sci_id,comp_id);
+}
+
 void UI::promtForViewingComputerScientistConnections() {
     string c_id;
     string name;

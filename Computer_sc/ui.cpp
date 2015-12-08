@@ -108,9 +108,8 @@ void UI::computerLoop() {
      } while (true);
 }
 void UI::connectionLoop() {
-
     do {
-        clearScreen();
+        //clearScreen();
         char input;
         connectionMenu();
         cin >> input;
@@ -299,6 +298,10 @@ void UI::promptToSortScientist() {
               sciServices.sort("BirthYear");
               enterToContinue();
           }
+          else if (ch == '7') {
+              sciServices.sort("ID");
+              enterToContinue();
+          }
           else {
               cout << "Wrong input. Try again" << endl;
           }
@@ -429,6 +432,10 @@ void UI::promptToSortComputer() {
             compServices.sort("Type");
             enterToContinue();
           }
+          else if (ch == '7') {
+              compServices.sort("ID");
+              enterToContinue();
+          }
           else {
             cout << "Wrong input. Try again" << endl;
           }
@@ -471,7 +478,7 @@ void UI::promptForAddingConnections() {
         compServices.view();
         cout << "Input the ID of the computer to connect: ";
         cin >> comp_id;
-        if (!compServices.checkIfIdExists(sci_id, name_s)) {
+        if (!compServices.checkIfIdExists(comp_id, name_c)) {
             clearScreen();
             cout << "Sorry, this is not a valid ID, please try again!" << endl;
         }
@@ -481,14 +488,13 @@ void UI::promptForAddingConnections() {
     cout << "The scientist " << name_s << " and the computer " << name_c << " have now been linked!" << endl;
 }
 void UI::promptToRemoveConnections() {
-
     string sci_id;
     string comp_id;
     string name_s;
     string name_c;
     do {
         sciServices.view();
-        cout << "Input the ID of the scientist to remove: ";
+        cout << "Input the ID of the scientist to remove connections: ";
         cin >> sci_id;
         if (!sciServices.checkIfIdExists(sci_id, name_s)) {
             clearScreen();
@@ -498,9 +504,9 @@ void UI::promptToRemoveConnections() {
 
     do {
         compServices.view();
-        cout << "Input the ID of the computer to remove: ";
+        cout << "Input the ID of the computer to remove connections: ";
         cin >> comp_id;
-        if (!compServices.checkIfIdExists(sci_id, name_s)) {
+        if (!compServices.checkIfIdExists(comp_id, name_c)) {
             clearScreen();
             cout << "Sorry, this is not a valid ID, please try again!" << endl;
         }
@@ -508,8 +514,9 @@ void UI::promptToRemoveConnections() {
 
     connectionServices.removeConnection(sci_id, comp_id);
     cout << "The connection between the scientist " << name_s << " and the" << endl;
-    cout << "computer " << name_c << " have now been removed! ";
+    cout << "computer " << name_c << " have now been removed!";
 }
+
 
 void UI::promptForViewingComputerScientistConnections() {
     clearScreen();
@@ -552,7 +559,7 @@ void UI::promptForViewingScientistComputerConnections() {
                 compServices.getComputersByScientistId(s_id);
             }
             else{
-                cout << cout << "Sorry! There aren't any computers connected to the scientist " << name << endl;
+                cout << "Sorry! There aren't any computers connected to the scientist " << name << endl;
             }
        }
         else {
@@ -629,6 +636,7 @@ void UI::scientistSortUI() {
   cout << " 4\t" << "Last Name (z-a)" << endl;
   cout << " 5\t" << "Gender" << endl;
   cout << " 6\t" << "Year of Birth" << endl;
+  cout << " 7\t" << "ID" << endl;
   cout << " _____________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
@@ -640,6 +648,7 @@ void UI::computerSortUI() {
   cout << " 2\t" << "Name of Computer (z-a)" << endl;
   cout << " 3\t" << "Year built" << endl;
   cout << " 4\t" << "Computer Type" << endl;
+  cout << " 7\t" << "ID" << endl;
   cout << " _____________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";

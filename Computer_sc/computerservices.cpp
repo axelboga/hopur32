@@ -90,7 +90,7 @@ bool ComputerServices::checkSciCompConnections(string s_id) {
 
 void ComputerServices::view() {
     vector<Computer> v;
-    string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers";
+    string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY Name";
     compRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }

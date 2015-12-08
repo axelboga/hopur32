@@ -125,7 +125,7 @@ void ScientistServices::add(Scientist c) {
 
 void ScientistServices::view() {
     vector<Scientist> v;
-    string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";
+    string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY FirstName";
     sciRepo.fillVectorFromDatabase(v, sql);
     output(v);
 }

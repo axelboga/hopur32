@@ -403,6 +403,7 @@ void UI::promptForRemoveComputer() {
 
        } while (!compServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
 }
+
 void UI::promptToSortComputer() {
     char ch;
     cout << endl;
@@ -460,12 +461,20 @@ void UI::promptForAddingConnections() {
         sciServices.view();
         cout << "Input the ID of the scientist to connect: ";
         cin >> sci_id;
+        if (!sciServices.checkIfIdExists(sci_id, name_s)) {
+            clearScreen();
+            cout << "Sorry, this is not a valid ID, please try again!" << endl;
+        }
     } while(!sciServices.checkIfIdExists(sci_id, name_s));
 
     do {
         compServices.view();
         cout << "Input the ID of the computer to connect: ";
         cin >> comp_id;
+        if (!compServices.checkIfIdExists(sci_id, name_s)) {
+            clearScreen();
+            cout << "Sorry, this is not a valid ID, please try again!" << endl;
+        }
     } while(!compServices.checkIfIdExists(comp_id, name_c));
 
     connectionServices.addConnection(sci_id, comp_id);
@@ -481,12 +490,20 @@ void UI::promptToRemoveConnections() {
         sciServices.view();
         cout << "Input the ID of the scientist to remove: ";
         cin >> sci_id;
+        if (!sciServices.checkIfIdExists(sci_id, name_s)) {
+            clearScreen();
+            cout << "Sorry, this is not a valid ID, please try again!" << endl;
+        }
     } while(!sciServices.checkIfIdExists(sci_id, name_s));
 
     do {
         compServices.view();
         cout << "Input the ID of the computer to remove: ";
         cin >> comp_id;
+        if (!compServices.checkIfIdExists(sci_id, name_s)) {
+            clearScreen();
+            cout << "Sorry, this is not a valid ID, please try again!" << endl;
+        }
     } while(!compServices.checkIfIdExists(comp_id, name_c));
 
     connectionServices.removeConnection(sci_id, comp_id);
@@ -503,9 +520,19 @@ void UI::promptForViewingComputerScientistConnections() {
         cin >> c_id;
         cout << endl;
         if (compServices.checkIfIdExists(c_id, name)) {
-            cout << "The scientists that are connected to the computer " << name << " are:" << endl;
-            sciServices.getScientistsByComputerId(c_id);
-       }
+            if (sciServices.checkCompSciConnections(c_id)){
+                cout << "The scientists that are connected to the computer " << name << " are:" << endl;
+                sciServices.getScientistsByComputerId(c_id);
+            }
+            else {
+                cout << "Sorry! There aren't any scientists connected to the computer " << name << endl;
+            }
+        }
+        else {
+            clearScreen();
+            cout << "This is not a valid ID!" << endl;
+            cout << "Please try again." << endl;
+        }
     } while (!compServices.checkIfIdExists(c_id, name));
 }
 
@@ -519,11 +546,22 @@ void UI::promptForViewingScientistComputerConnections() {
         cin >> s_id;
         cout << endl;
         if (sciServices.checkIfIdExists(s_id, name)){
-            cout << "The computers that are connected to the scientist " << name << " are:" << endl;
-            compServices.getComputersByScientistId(s_id);
+            if (compServices.checkSciCompConnections(s_id)){
+                cout << "The computers that are connected to the scientist " << name << " are:" << endl;
+                compServices.getComputersByScientistId(s_id);
+            }
+            else{
+                cout << cout << "Sorry! There aren't any computers connected to the scientist " << name << endl;
+            }
        }
+        else {
+            clearScreen();
+            cout << "This is not a valid ID!" << endl;
+            cout << "Please try again." << endl;
+        }
     } while(!sciServices.checkIfIdExists(s_id, name));
 }
+
 /******************************** CONSOLE MANIPULATION *********************************/
 void UI::clearScreen() {
   if (system("clear")) system("CLS");

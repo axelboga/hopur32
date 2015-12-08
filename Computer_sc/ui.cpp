@@ -7,7 +7,9 @@ UI::UI() {
         compServices = ComputerServices();
         connectionServices = CompSciConnectionServices();
 }
+
 /************************ MAIN FUNCTION ********************************/
+
 void UI::start() {
   do {
         clearScreen();
@@ -39,6 +41,7 @@ void UI::start() {
 }
 
 /*********************************** MAIN LOOPS *************************************/
+
 void UI::scientistLoop() {
   do {
       clearScreen();
@@ -153,6 +156,7 @@ void UI::connectionLoop() {
 
 }
 /********************** SCIENTIST HELPER FUNCTIONS AND PROMPTS ************************/
+
 void UI::readScientist(Scientist& c) {
   string f_name;
   do {
@@ -327,7 +331,9 @@ void UI::promptToSearchScientist() {
       enterToContinue();
     }
 }
+
 /********************** COMPUTER HELPER FUNCTIONS AND PROMPTS ************************/
+
 void UI::readComputer(Computer& c) {
   string my_name;
   cout << "Name: ";
@@ -458,7 +464,9 @@ void UI::promptToSearchComputer() {
       enterToContinue();
     }
 }
+
 /********************** CONNECTIONS HELPER FUNCTIONS AND PROMPTS ************************/
+
 void UI::promptForAddingConnections() {
     string sci_id;
     string comp_id;
@@ -486,6 +494,7 @@ void UI::promptForAddingConnections() {
 
     connectionServices.addConnection(sci_id, comp_id);
     cout << "The scientist " << name_s << " and the computer " << name_c << " have now been linked!" << endl;
+    enterToContinue();
 }
 void UI::promptToRemoveConnections() {
     string sci_id;
@@ -572,6 +581,7 @@ void UI::promptForViewingScientistComputerConnections() {
 }
 
 /******************************** CONSOLE MANIPULATION *********************************/
+
 void UI::clearScreen() {
   if (system("clear")) system("CLS");
 }
@@ -584,7 +594,9 @@ void UI::enterToContinue() {
   cout << "Press [Enter] to Continue...";
   cin.get();
 }
+
 /*********************************** MENUS AND INTERFACES *************************************/
+
 void UI::mainMenu() {
   banner();
   cout << "Welcome to the Computers & Scientists Program." << endl << endl;
@@ -663,7 +675,9 @@ void UI::connectionViewUI() {
   cout << endl;
   cout << "Enter your Selection: ";
 }
+
 /*********************************** GRAPHICS *************************************/
+
 void UI::banner() {
     cout << "  .d8888b.                                           888                            " << endl;
     cout << " d88P  Y88b                                          888                            " << endl;

@@ -62,6 +62,10 @@ Til þess að nota gagnagrunninn okkar þarf að færa skránna Database.sqlite 
 Search valmöguleikinn fyrir  tölvur er case sensitive þannig að þegar leitað er eftir tölvum þarf að skrifa sömu há- og lástafi og gert var þegar tölvan var slegin inn í byrjun.
 Sort valmöguleikinn fyrir tölvur raðar tölvunum í stafrófsröð en gerir greinamun á há- og lágstöfum. Þegar raðað er eftir stafrófsröð koma fyrst þær tölvur sem byrja á hástaf og þá eftir stafrófsröð og síðan koma þær tölvur sem byrja á lástaf. Þetta virkar akkurat öfugt þegar raðað er eftir öfugri stafrófsröð.
 
+
+### Punktar um hópastarfið
+Samstarfið gekk vel og allir lögðu sitt af mörkum. Við viljum taka það fram að Ármann Ari gat ekki pushað neinum kóða frá sér þar sem QT virkaði ekki. Við reyndum að laga það og Bjarni Leifsson sem er skósveinninn okkar lenti í sama veseni með QT hjá sér og reyndi að laga það en án árangurs. Ármann tók því að sér önnur verkefni í ferlinu.
+
 ### Meðlimir:
 *	Axel Bogason
 *	Ármann Ari Árnason

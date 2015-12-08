@@ -75,9 +75,7 @@ bool ScientistServices::checkSearch(string searchTerm) {
     if (v.size() < 1) { //if the vector is empty, nothing has been found
         return false;
     }
-    else {
-        return true;
-    }
+    return true;
 }
 
 bool ScientistServices::checkIfIdExists(string my_id, string& name) {
@@ -96,6 +94,15 @@ bool ScientistServices::checkIfIdExists(string my_id, string& name) {
         }
     }
     return false;
+}
+
+bool ScientistServices::checkCompSciConnections(string c_id) {
+    vector<Scientist> v;
+    v = sciRepo.getScientistsByComputerId(c_id);
+    if (v.size() < 1) { //if the vector is empty, nothing has been found
+        return false;
+    }
+    return true;
 }
 
 bool ScientistServices::isAlive(string& answ) {

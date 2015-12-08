@@ -17,6 +17,7 @@ public:
     bool checkDeath(string d, string b);
     bool checkSearch(string searchTerm);
     bool checkIfIdExists(string my_id, string& name);
+    bool checkCompSciConnections(string c_id);
     bool isAlive(string& answ);
     void add(Scientist c);
     void view();

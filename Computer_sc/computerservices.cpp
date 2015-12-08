@@ -57,9 +57,7 @@ bool ComputerServices::checkSearch(string searchTerm) {
     if (v.size() < 1) { //if the vector is empty, nothing has been found
         return false;
     }
-    else {
-        return true;
-    }
+    return true;
 }
 
 bool ComputerServices::checkIfIdExists(string my_id, string& name) {
@@ -77,6 +75,15 @@ bool ComputerServices::checkIfIdExists(string my_id, string& name) {
         }
     }
     return false;
+}
+
+bool ComputerServices::checkSciCompConnections(string s_id) {
+    vector<Computer> v;
+    v = compRepo.getComputersByScientistId(s_id);
+    if (v.size() < 1) { //if the vector is empty, nothing has been found
+        return false;
+    }
+    return true;
 }
 
 /********************************** MAIN FUNCTIONS **************************************/

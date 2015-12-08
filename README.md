@@ -1,7 +1,7 @@
 # Computers and Computer Scientists
 ## Hópur 32
 ### Tilgangur
-Þetta forrit var unnið í T-113-VLN1, Verklegt námskeið 1 á haustönn 2015 í Háskólanum í Reykjavík. Forritið leyfir notanda að skrá tölvunarfræðinga (kyn, fæðingarár og dánarár ef við á) og  tölvur (tegund, hvort hún hafi verið smíðuð og þá byggingarár). Einnig gerir forritið notanda kleyft að skoða tengingar (many-to-many) milli tölva og tölvunarfræðinga.  
+Þetta forrit var unnið í T-113-VLN1, Verklegt námskeið 1 á haustönn 2015 í Háskólanum í Reykjavík. Forritið leyfir notanda að skrá tölvunarfræðinga (nafn, kyn, fæðingarár og dánarár ef við á) og  tölvur (nafn, tegund og byggingarár ef við á). Einnig gerir forritið notanda kleyft að skoða tengingar (many-to-many) milli tölva og tölvunarfræðinga.  
 ### Yfirlit
 Áætlað er að notandi skrái inn þekktar persónur úr sögu tölvunarfræðinnar, sem og tölvur. Þessar upplýsingar eru geymdar í þremur töflum í SQLite gagnagrunni. Ein sem geymir upplýsingar um tölvunarfræðinga, önnur sem geymir upplýsingar um tölvurnar og sú þriðja er tengitafla sem geymir ID fyrir tölvunarfræðingana og tölvunar úr hinum tveimur töflunum. 
 ### Eiginleikar forritsins:
@@ -26,7 +26,7 @@
   *	Sjá alla tölvunarfræðinga sem eru tengdir ákveðinni tölvu (m.v. ID)
   *	Sjá allar tölvur sem eru tengdir ákveðnum tölvunarfræðingi (m.v. ID)
   
-### Aðrar upplýsingar um forritið
+### Aðrar upplýsingar
 Þegar notandi bætir við nýjum tölvunarfræðingi / nýrri tölvu / nýrri tengingu þá er fyllt inn í viðeigandi töflu í SQLite gagnagrunninum með upplýsingunum frá notenda. Aðgerðir, svo sem leit (search) og uppröðun (sort) eru framkvæmdar á gögnunum í SQLite gagnagrunninum og eru þannig SQL skipanir nýttar. Gögnin eru svo færð úr gagnagrunninum yfir í vektor í lok hverrar aðgerðar. Innihald vektorsins er svo skrifað út á skjáinn.
 
 Allar upplýsingar um tölvunarfræðinga eru geymdar með lágstöfum í gagnagrunninum til þess að leit og uppröðun sé óháð há-og lágstöfum. Fyrsti stafur í fornafni og eftirnafni er þó skrifaður út með stórum staf. Við ákváðum hins vegar að geyma nafn tölvanna ekki með lágstöfum í gagnagrunninum (það er geymt á sama formi og skrifað er inn) því að þau hafa ekki endilega bara hástaf fremst í nafninu (sbr. iPhone). Leit og uppröðun í þeim lista er þó háð há- og lágstöfum.

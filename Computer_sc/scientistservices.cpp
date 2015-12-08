@@ -69,6 +69,17 @@ bool ScientistServices::checkDeath(string d, string b) {
    return true;
 }
 
+bool ScientistServices::checkSearch(string searchTerm) {
+    vector<Scientist> v;
+    v = compSciRepo.searchInDatabase(searchTerm);
+    if (v.size() < 1) { //if the vector is empty, nothing has been found
+        return false;
+    }
+    else {
+        return true;
+    }
+}
+
 bool ScientistServices::checkIfIdExists(string my_id, string& name) {
     vector<Scientist> v;
     string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists";

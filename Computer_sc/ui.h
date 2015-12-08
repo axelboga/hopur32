@@ -27,6 +27,8 @@ public:
     void promtForViewingScientistComputerConnections();
     void promtForViewingComputerScientistConnections();
     void promtForAddingConnections();
+    void promtForRemoveScientist();
+    void promtToSearchScientist();
     void computerArt();
     void flush (istream& in);
     void enterToContinue();

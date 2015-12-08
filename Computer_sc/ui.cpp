@@ -22,10 +22,6 @@ void UI::start() {
           computerLoop();
         } else if (input == '3') {
 
-          string c_id;
-          cout << "input the ID of the computer you wish to see the scientist that made it: ";
-          cin >> c_id;
-          sciServices.getScientistsByComputerId(c_id);
         } else if (input == '4') {
           cout << "Terminating Program" << endl;
           cout << "Goodbye." << endl;
@@ -136,24 +132,7 @@ do {
         sciServices.add(c);
       } else if (input == '2') {
         clearScreen();
-        string my_id;
-        string name;
-        do {
-              sciServices.view();
-              cout << "Enter the ID of the scientist you wish to remove: ";
-              cin >> my_id;
-              if (sciServices.checkIfIdExists(my_id, name)) {
-                sciServices.remove(my_id);
-                cout << "The scientist " << name << " has been successfully removed!" << endl;
-              } else if (my_id == "Q" || my_id == "q") {
-                  return;
-              } else {
-                cout << "This is not a valid ID!" << endl;
-                cout << "Please try again." << endl;
-                cout << "If you wish to go back, type 'Q'." << endl;
-              }
-            } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
-
+        promtForRemoveScientist();
       } else if (input == '3') {
         char ch;
         cout << endl;
@@ -190,12 +169,7 @@ do {
 
       } else if (input == '4') {
           clearScreen();
-          string searchTerm;
-          cout << "Search word: ";
-          cin >> searchTerm;
-          transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
-          sciServices.search(searchTerm);
-          enterToContinue();
+          promtToSearchScientist();
 
       } else if (input == '5') {
           cout << "Returning to Main Menu." << endl;
@@ -530,4 +504,44 @@ void UI::promtForViewingScientistComputerConnections(){
         }
     }while(!sciServices.checkIfIdExists(s_id, name));
 
+}
+
+
+
+void UI::promtForRemoveScientist(){
+    string my_id;
+    string name;
+    do {
+        cout << "Enter the ID of the scientist you wish to remove: ";
+        cin >> my_id;
+        if (sciServices.checkIfIdExists(my_id, name)) {
+          sciServices.remove(my_id);
+          cout << "The scientist " << name << " has been successfully removed!" << endl;
+        }
+        else if (my_id == "Q" || my_id == "q") {
+            return;
+        }
+        else {
+          cout << "This is not a valid ID!" << endl;
+          cout << "Please try again." << endl;
+          cout << "If you wish to go back, type 'Q'." << endl;
+        }
+  } while (!sciServices.checkIfIdExists(my_id, name) &&  my_id != "Q" && my_id != "q");
+}
+
+
+void UI::promtToSearchScientist(){
+    string searchTerm;
+    cout << "Search word: ";
+    cin >> searchTerm;
+    transform(searchTerm.begin(), searchTerm.end(), searchTerm.begin(), ::tolower);
+    if (!sciServices.checkSearch(searchTerm)) {
+      cout << "Nothing found" << endl;
+      enterToContinue();
+    }
+    else {
+      cout << "Search results for scientists:" << endl;
+      sciServices.search(searchTerm);
+      enterToContinue();
+    }
 }

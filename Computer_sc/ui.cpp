@@ -79,7 +79,7 @@ void UI::scientistMenu() {
   cout << " 2\t" << "Remove Scientist" << endl;
   cout << " 3\t" << "View Scientists" << endl;
   cout << " 4\t" << "Search for Scientists" << endl;
-  cout << " 5\t" << "Back to Menu" << endl;
+  cout << " 5\t" << "Back to Main Menu" << endl;
   cout << " _____________________________________________________________________" << endl;
   cout << endl;
   cout << "Enter your Selection: ";
@@ -117,7 +117,7 @@ void UI::mainMenu() {
   cout << " 1\t" << "Scientists" << endl;
   cout << " 2\t" << "Computers" << endl;
   cout << " 3\t" << "View Connections" << endl;
-  cout << " 4\t" << "Back to Main Menu" << endl;
+  cout << " 4\t" << "Quit" << endl;
   cout << " _____________________________________________________________________" << endl;
   cout << "Enter your Selection: ";
 }
@@ -465,7 +465,11 @@ void UI::promtForRemoveScientist() {
     string name;
     do {
         sciServices.view();
+<<<<<<< HEAD
         cout << "Enter the ID of the scientist you wish to remove: ";
+=======
+        cout << "Enter the ID of the scientist you wish to remove or type 'Q' to back: ";
+>>>>>>> 539daca095835f695b156228ac1e0d2b42d70873
         cin >> my_id;
         if (sciServices.checkIfIdExists(my_id, name)) {
           sciServices.remove(my_id);
@@ -544,7 +548,7 @@ void UI::promptForRemoveComputer() {
     string name;
     do {
           compServices.view();
-          cout << "Enter the ID of the computer you wish to remove: ";
+          cout << "Enter the ID of the computer you wish to remove or type 'Q' to back: ";
           cin >> my_id;
           if (compServices.checkIfIdExists(my_id, name)) {
             compServices.remove(my_id);

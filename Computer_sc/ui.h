@@ -18,6 +18,7 @@ public:
     void banner2();
     void scientistLoop();
     void computerLoop();
+    void connectionLoop();
     void scientistSortUI();
     void scientistMenu();
     void clearScreen();
@@ -25,19 +26,22 @@ public:
     void computerMenu();
     void readComputer(Computer& c);
     void readScientist(Scientist& c);
-    void promtForViewingScientistComputerConnections();
-    void promtForViewingComputerScientistConnections();
-    void promtForAddingConnections();
+    void promptForViewingScientistComputerConnections();
+    void promptForViewingComputerScientistConnections();
+    void promptForAddingConnections();
     void promptToRemoveConnections();
-    void promtForRemoveScientist();
+    void promptForRemoveScientist();
     void promptToSortScientist();
-    void promtToSearchScientist();
+    void promptToSearchScientist();
     void promptForRemoveComputer();
     void promptToSortComputer();
     void promptToSearchComputer();
     void computerArt();
     void flush (istream& in);
     void enterToContinue();
+    void connectionMenu();
+    void connectionViewUI();
+
 private:
     ScientistServices sciServices;
     ComputerServices compServices;

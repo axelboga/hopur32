@@ -24,6 +24,7 @@ void UI::start() {
           computerLoop();
         }
         else if (input == '3') {
+          connectionLoop();
         }
         else if (input == '4') {
           cout << "Terminating Program" << endl;
@@ -140,14 +141,14 @@ void UI::scientistLoop() {
       }
       else if (input == '2') {
           clearScreen();
-          promtForRemoveScientist();
+          promptForRemoveScientist();
       }
       else if (input == '3') {
           promptToSortScientist();
       }
       else if (input == '4') {
           clearScreen();
-          promtToSearchScientist();
+          promptToSearchScientist();
       }
       else if (input == '5') {
           cout << "Returning to Main Menu." << endl;
@@ -190,7 +191,7 @@ void UI::computerLoop() {
             return;
         }
         else {
-            cout << "Invalid input, try again: " << endl;
+            cout << "Invalid input, try again." << endl;
         }
      } while (true);
 }
@@ -393,7 +394,7 @@ void UI::enterToContinue() {
   cin.get();
 }
 
-void UI::promtForAddingConnections() {
+void UI::promptForAddingConnections() {
     string sci_id;
     string comp_id;
     string name_s;
@@ -415,6 +416,7 @@ void UI::promtForAddingConnections() {
 }
 
 void UI::promptToRemoveConnections() {
+
     string sci_id;
     string comp_id;
     string name_s;
@@ -435,7 +437,8 @@ void UI::promptToRemoveConnections() {
     cout << "The connection between the scientist " << name_s << " and the computer " << name_c << " have now been removed!" << endl;
 }
 
-void UI::promtForViewingComputerScientistConnections() {
+void UI::promptForViewingComputerScientistConnections() {
+    clearScreen();
     string c_id;
     string name;
     do {
@@ -449,7 +452,8 @@ void UI::promtForViewingComputerScientistConnections() {
     } while (!compServices.checkIfIdExists(c_id, name));
 }
 
-void UI::promtForViewingScientistComputerConnections() {
+void UI::promptForViewingScientistComputerConnections() {
+    clearScreen();
     string s_id;
     string name;
     do {
@@ -463,7 +467,7 @@ void UI::promtForViewingScientistComputerConnections() {
     } while(!sciServices.checkIfIdExists(s_id, name));
 }
 
-void UI::promtForRemoveScientist() {
+void UI::promptForRemoveScientist() {
     string my_id;
     string name;
     do {
@@ -525,7 +529,7 @@ void UI::promptToSortScientist() {
        } while (ch != '1' && ch!= '2' && ch != '3' && ch != '4' && ch != '5' && ch!= '6');
 }
 
-void UI::promtToSearchScientist() {
+void UI::promptToSearchScientist() {
     string searchTerm;
     cout << "Search word: ";
     cin >> searchTerm;
@@ -611,4 +615,74 @@ void UI::promptToSearchComputer() {
       compServices.search(searchTerm);
       enterToContinue();
     }
+}
+void UI::connectionLoop() {
+
+    do {
+        clearScreen();
+        char input;
+        connectionMenu();
+        cin >> input;
+
+        if (input == '1') {
+
+            //Add connections
+        }
+        else if (input == '2') {
+
+            //Remove connections
+        }
+        else if (input == '3') {
+            char viewInput;
+            do {
+
+
+                connectionViewUI();
+
+                cin >> viewInput;
+
+                if (viewInput == '1') {
+                    promptForViewingScientistComputerConnections();
+                }
+                else if (viewInput == '2') {
+                    promptForViewingComputerScientistConnections();
+                }
+                else if (viewInput == '3') {
+                    break;
+                }
+                else {
+                    cout << "Invalid input. Please try again." << endl;
+                }
+
+            } while (viewInput != '3');
+        }
+        else if (input == '4') {
+
+           return;
+        }
+        else {
+            cout << "Invalid input, try again." << endl;
+        }
+
+    } while (true);
+
+}
+void UI::connectionMenu() {
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "Add Connections" << endl;
+  cout << " 2\t" << "Remove Connections" << endl;
+  cout << " 3\t" << "View Connections" << endl;
+  cout << " 4\t" << "Back to Main Menu" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << endl;
+  cout << "Enter your Selection: ";
+}
+void UI::connectionViewUI() {
+  cout << " _____________________________________________________________________" << endl;
+  cout << " 1\t" << "View Scientist -> Computer connection" << endl;
+  cout << " 2\t" << "View Computer -> Scientist connection" << endl;
+  cout << " 3\t" << "Go Back" << endl;
+  cout << " _____________________________________________________________________" << endl;
+  cout << endl;
+  cout << "Enter your Selection: ";
 }

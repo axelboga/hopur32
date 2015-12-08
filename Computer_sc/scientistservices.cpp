@@ -71,7 +71,7 @@ bool ScientistServices::checkDeath(string d, string b) {
 
 bool ScientistServices::checkSearch(string searchTerm) {
     vector<Scientist> v;
-    v = compSciRepo.searchInDatabase(searchTerm);
+    v = sciRepo.searchInDatabase(searchTerm);
     if (v.size() < 1) { //if the vector is empty, nothing has been found
         return false;
     }

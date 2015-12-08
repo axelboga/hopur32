@@ -544,7 +544,7 @@ void UI::mainMenu() {
   cout << " _____________________________________________________________________" << endl;
   cout << " 1\t" << "Scientists" << endl;
   cout << " 2\t" << "Computers" << endl;
-  cout << " 3\t" << "View Connections" << endl;
+  cout << " 3\t" << "Connections" << endl;
   cout << " 4\t" << "Quit" << endl;
   cout << " _____________________________________________________________________" << endl;
   cout << "Enter your Selection: ";

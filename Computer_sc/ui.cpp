@@ -15,6 +15,9 @@ void UI::start() {
         clearScreen();
         char input;
         mainMenu();
+        if (input == 'W') {  //W for wrong input. See the last "else" condition.
+            cout << "The input was invalid: " << endl;
+        }
         cin >> input;
 
         clearScreen();
@@ -34,8 +37,7 @@ void UI::start() {
           exit(1);
         }
         else {
-          cout << "Invalid input!" << endl;
-          cout << "Please try again." << endl;
+          input = 'W';
         }
      } while (true);
 }
@@ -47,6 +49,9 @@ void UI::scientistLoop() {
       clearScreen();
       scientistArt();
       char input;
+      if (input == 'W') {  //W for wrong input. See the last "else" condition.
+          cout << "Invalid input, try again! " << endl;
+      }
       scientistMenu();
       cin >> input;
       cout << endl;
@@ -72,7 +77,7 @@ void UI::scientistLoop() {
           return;
       }
       else {
-          cout << endl;
+          input = 'W';
       }
     } while (true);
 }
@@ -147,7 +152,8 @@ void UI::connectionLoop() {
                     break;
                 }
                 else {
-                    cout << endl;
+                    cout << "Invalid input!" << endl;
+                    cout << "Please try again." << endl;
                 }
 
             } while (viewInput != '3');

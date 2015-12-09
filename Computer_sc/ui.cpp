@@ -72,7 +72,7 @@ void UI::scientistLoop() {
           return;
       }
       else {
-          cout << "Invalid input, try again: " << endl;
+          cout << endl;
       }
     } while (true);
 }
@@ -81,6 +81,9 @@ void UI::computerLoop() {
         clearScreen();
         computerArt();
         char input;
+        if (input == 'W') {  //W for wrong input. See the last "else" condition.
+            cout << "Invalid input, try again! " << endl;
+        }
         computerMenu();
         cin >> input;
         cout << endl;
@@ -107,15 +110,19 @@ void UI::computerLoop() {
             return;
         }
         else {
-            cout << "Invalid input, try again." << endl;
+            input = 'W'; //W for wrong input
         }
      } while (true);
 }
+
 void UI::connectionLoop() {
     do {
         clearScreen();
         connectionArt();
         char input;
+        if (input == 'W') {  //W for wrong input. See the last "else" condition.
+            cout << "Invalid input, try again! " << endl;
+        }
         connectionMenu();
         cin >> input;
 
@@ -140,7 +147,7 @@ void UI::connectionLoop() {
                     break;
                 }
                 else {
-                    cout << "Invalid input. Please try again." << endl;
+                    cout << endl;
                 }
 
             } while (viewInput != '3');
@@ -149,7 +156,7 @@ void UI::connectionLoop() {
            return;
         }
         else {
-            cout << "Invalid input, try again." << endl;
+            input = 'W';
         }
 
     } while (true);

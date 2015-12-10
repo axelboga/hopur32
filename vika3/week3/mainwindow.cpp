@@ -57,23 +57,21 @@ void MainWindow::on_pushButton_clicked(){
         ui->label_error_computer_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
 
         thereWasAnError = true;
-        return;
     }
 
     if (yearBuilt.isEmpty()){
-        //ui->label_error_student_year_born->setText("<span style='color: #ED1C58'>He has to be born</span>");
+        ui->label_error_computer_year_built->setText("<span style='color: #ED1C58'>Year built cannot be emty </span>");
 
-        //QMessageBox::warning(this, "Super serious error", "Student needs year born");
+        //QMessageBox::warning(this, "Super serious error", "Computer needs year born");
 
-        //thereWasAnError = true;
-        return;
+        thereWasAnError = true;
     }
 
-    /*
+
     if (thereWasAnError){
         return;
     }
-    */
+
 
     Computer c;
     c.setName(name.toStdString());

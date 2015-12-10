@@ -29,6 +29,8 @@ private slots:
 
     void on_input_filter_computers_textChanged(const QString &arg1);
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
     ComputerServices compService;

@@ -22,14 +22,16 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     }
 }
 
-void ComputerRepository::addToDatabase(Computer computer) {
+bool ComputerRepository::addToDatabase(Computer computer) {
     QSqlQuery query(datab);
     query.prepare("INSERT INTO Computers(Name, Type, WasBuilt, YearBuilt) VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
     query.bindValue(":Name", QString::fromStdString(computer.getName()));
     query.bindValue(":Type", QString::fromStdString(computer.getType()));
     query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
     query.bindValue(":YearBuilt", QString::fromStdString(computer.getYear()));
-    query.exec();
+
+    bool success = query.exec();
+    return success;
 }
 
 vector<Computer> ComputerRepository::searchInDatabase(string input){

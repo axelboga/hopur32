@@ -13,7 +13,7 @@ public:
     ComputerRepository();
     ~ComputerRepository();
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
-    void addToDatabase(Computer computer);
+    bool addToDatabase(Computer computer);
     vector<Computer> searchInDatabase(string input);
     vector<Computer> sortDatabase(string sortBy);
     void removeFromDatabase (string ID);

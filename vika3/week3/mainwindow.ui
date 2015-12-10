@@ -51,7 +51,7 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>340</y>
+      <y>330</y>
       <width>161</width>
       <height>19</height>
      </rect>
@@ -74,9 +74,9 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>360</y>
+      <y>351</y>
       <width>68</width>
-      <height>19</height>
+      <height>20</height>
      </rect>
     </property>
     <property name="text">
@@ -153,6 +153,30 @@
       <width>531</width>
       <height>20</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>350</y>
+      <width>531</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout"/>
+   </widget>
+   <widget class="QLabel" name="label_error_computer_name">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>350</y>
+      <width>211</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
     </property>
    </widget>
   </widget>

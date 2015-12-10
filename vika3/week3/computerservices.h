@@ -15,7 +15,7 @@ public:
     bool checkIfIdExists(string my_id, string& name);
     bool checkSciCompConnections(string s_id);
     vector<Computer> view();
-    void add(Computer computer);
+    bool add(Computer computer);
     vector<Computer> search(string searchTerm);
     void sort(string sortBy);
     void output(vector<Computer>& v);

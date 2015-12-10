@@ -96,8 +96,8 @@ vector<Computer> ComputerServices::view() {
     return v;
 }
 
-void ComputerServices::add(Computer computer){
-    compRepo.addToDatabase(computer);
+bool ComputerServices::add(Computer computer){
+    return compRepo.addToDatabase(computer);
 }
 
 vector<Computer> ComputerServices::search(string searchTerm) {

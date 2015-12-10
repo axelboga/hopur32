@@ -51,12 +51,12 @@ void MainWindow::on_pushButton_clicked(){
     QString wasBuilt = ui->input_computer_was_built->text();
     QString yearBuilt = ui->input_computer_year_built->text();
 
-    //bool thereWasAnError = false;
+    bool thereWasAnError = false;
 
     if (name.isEmpty()){
-        //ui->label_error_student_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
+        ui->label_error_computer_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
 
-        //thereWasAnError = true;
+        thereWasAnError = true;
         return;
     }
 
@@ -81,21 +81,23 @@ void MainWindow::on_pushButton_clicked(){
     c.setWasBuilt(wasBuilt.toStdString());
     c.setYear(yearBuilt.toStdString());
 
-    compService.add(c);
-    ui->input_filter_computers->setText("");
-    displayAllComputers();
+    bool success = compService.add(c);
+    //ui->input_filter_computers->setText("");
+    //displayAllComputers();
 
-    /*
+
     if (success){
-        ui->input_filter_students->setText("");
-        displayAllStudents();
+        ui->input_filter_computers->setText("");
+        displayAllComputers();
 
-        //ui->input_student_name->setText("");
-        //ui->input_student_year_born->setText("");
+        ui->input_computer_name->setText("");
+        ui->input_computer_type->setText("");
+        ui->input_computer_was_built->setText("");
+        ui->input_computer_year_built->setText("");
     }
     else{
         // there was some error, tell the user
     }
-    */
+
 }
 

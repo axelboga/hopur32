@@ -100,10 +100,10 @@ void ComputerServices::add(Computer computer){
     compRepo.addToDatabase(computer);
 }
 
-void ComputerServices::search(string searchTerm) {
+vector<Computer> ComputerServices::search(string searchTerm) {
     vector<Computer> v;
     v = compRepo.searchInDatabase(searchTerm);
-    output(v);
+    return v;
 }
 
 void ComputerServices::sort(string sortBy){

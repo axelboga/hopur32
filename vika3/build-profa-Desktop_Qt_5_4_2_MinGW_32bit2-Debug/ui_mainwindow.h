@@ -14,6 +14,7 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLineEdit>
 #include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
@@ -28,6 +29,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QListWidget *list_computers;
+    QLineEdit *input_filter_computers;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -36,16 +38,19 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(456, 350);
+        MainWindow->resize(584, 523);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         list_computers = new QListWidget(centralWidget);
         list_computers->setObjectName(QStringLiteral("list_computers"));
-        list_computers->setGeometry(QRect(30, 20, 391, 281));
+        list_computers->setGeometry(QRect(30, 60, 551, 411));
+        input_filter_computers = new QLineEdit(centralWidget);
+        input_filter_computers->setObjectName(QStringLiteral("input_filter_computers"));
+        input_filter_computers->setGeometry(QRect(30, 30, 551, 31));
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 456, 31));
+        menuBar->setGeometry(QRect(0, 0, 584, 31));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -62,6 +67,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
+        input_filter_computers->setPlaceholderText(QApplication::translate("MainWindow", "filter_computers", 0));
     } // retranslateUi
 
 };

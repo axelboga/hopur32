@@ -27,8 +27,17 @@ void MainWindow::displayComputer(vector<Computer> computers){
         Computer currentComputer = computers.at(i);
 
         ui->list_computers->addItem(QString::fromStdString(currentComputer.getName()));
+        ui->list_computers->addItem(QString::fromStdString(currentComputer.getType()));
+        ui->list_computers->addItem(QString::fromStdString(currentComputer.getWasBuilt()));
+        ui->list_computers->addItem(QString::fromStdString(currentComputer.getYear()));
+
     }
 
     currentlyDisplayedComputers = computers;
 }
 
+void MainWindow::on_input_filter_computers_textChanged(const QString& arg1){
+    string userInput = ui->input_filter_computers->text().toStdString();
+    vector<Computer> computers = compService.search(userInput);
+    displayComputer(computers);
+}

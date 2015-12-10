@@ -25,6 +25,10 @@ private slots:
     //void on_list_computers_clicked(const QModelIndex &index);
     //void on_button_remove_computer_clicked();
 
+    //void on_button_filter_computers_clicked();
+
+    void on_input_filter_computers_textChanged(const QString &arg1);
+
 private:
     Ui::MainWindow *ui;
     ComputerServices compService;

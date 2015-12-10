@@ -16,7 +16,7 @@ public:
     bool checkSciCompConnections(string s_id);
     vector<Computer> view();
     void add(Computer computer);
-    void search(string searchTerm);
+    vector<Computer> search(string searchTerm);
     void sort(string sortBy);
     void output(vector<Computer>& v);
     void remove(string my_id);

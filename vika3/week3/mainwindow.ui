@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>456</width>
-    <height>350</height>
+    <width>584</width>
+    <height>523</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -18,10 +18,23 @@
     <property name="geometry">
      <rect>
       <x>30</x>
-      <y>20</y>
-      <width>391</width>
-      <height>281</height>
+      <y>60</y>
+      <width>551</width>
+      <height>411</height>
      </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="input_filter_computers">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>30</y>
+      <width>551</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="placeholderText">
+     <string>filter_computers</string>
     </property>
    </widget>
   </widget>
@@ -30,7 +43,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>456</width>
+     <width>584</width>
      <height>31</height>
     </rect>
    </property>

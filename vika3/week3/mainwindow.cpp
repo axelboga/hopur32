@@ -7,8 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
-    ui->dropdown_order_by->addItem("Name");
-    ui->dropdown_order_by->addItem("YearBuilt");
+    ui->dropdown_order_by_computers->addItem("Name");
+    ui->dropdown_order_by_computers->addItem("YearBuilt");
     displayAllComputers();
 }
 
@@ -119,7 +119,7 @@ void MainWindow::on_dropdown_order_by_currentIndexChanged(int index){
 }
 
 string MainWindow::getCurrentOrderBy() {
-    string currentValueInOrderBy = ui->dropdown_order_by->currentText().toStdString();
+    string currentValueInOrderBy = ui->dropdown_order_by_computers->currentText().toStdString();
     if (currentValueInOrderBy == "Name"){
         return "Name";
     }

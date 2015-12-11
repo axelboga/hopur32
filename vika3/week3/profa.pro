@@ -33,3 +33,5 @@ HEADERS  += mainwindow.h \
         baserepository.h
 
 FORMS    += mainwindow.ui
+
+DISTFILES +=

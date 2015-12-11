@@ -53,12 +53,12 @@ void MainWindow::on_pushButton_clicked(){
     bool thereWasAnError = false;
 
     if (name.isEmpty()){
-        ui->label_error_computer_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
+        ui->label_error_computer_name_2->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
         thereWasAnError = true;
     }
 
     if (yearBuilt.isEmpty()){
-        ui->label_error_computer_year_built->setText("<span style='color: #ED1C58'>Year built cannot be emty </span>");
+        ui->label_error_computer_year_built_2->setText("<span style='color: #ED1C58'>Year built cannot be emty </span>");
         thereWasAnError = true;
     }
 

@@ -35,9 +35,9 @@ bool ComputerRepository::addToDatabase(Computer computer) {
     return success;
 }
 
-vector<Computer> ComputerRepository::searchInDatabase(string input){
+vector<Computer> ComputerRepository::searchInDatabase(string input, string sortBy){
     vector<Computer> v;
-    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE ID LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%' ORDER BY Name";
+    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE ID LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%' ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;
 }

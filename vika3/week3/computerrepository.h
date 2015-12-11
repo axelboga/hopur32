@@ -14,7 +14,7 @@ public:
     ~ComputerRepository();
     void fillVectorFromDatabase(vector<Computer>& v, string sql);
     bool addToDatabase(Computer computer);
-    vector<Computer> searchInDatabase(string input);
+    vector<Computer> searchInDatabase(string input, string sortBy);
     vector<Computer> sortDatabase(string sortBy);
     bool removeFromDatabase (string my_id);
     vector<Computer> getComputersByScientistId(string id);

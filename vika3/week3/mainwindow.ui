@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>595</width>
-    <height>627</height>
+    <height>649</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -21,6 +21,9 @@
        <string>filter_computers</string>
       </property>
      </widget>
+    </item>
+    <item>
+     <widget class="QComboBox" name="dropdown_order_by"/>
     </item>
     <item>
      <widget class="QListWidget" name="list_computers"/>
@@ -165,6 +168,7 @@
    <zorder>input_computer_was_built</zorder>
    <zorder>verticalSpacer</zorder>
    <zorder>button_remove_computer</zorder>
+   <zorder>dropdown_order_by</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">

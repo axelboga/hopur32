@@ -51,9 +51,10 @@ bool ComputerServices::checkWasBuilt(string& answ){
     return false;
 }
 
-bool ComputerServices::checkSearch(string searchTerm) {
+bool ComputerServices::checkSearch(string searchTerm, string orderBy) {
+    orderBy = "Name";
     vector<Computer> v;
-    v = compRepo.searchInDatabase(searchTerm);
+    v = compRepo.searchInDatabase(searchTerm, orderBy);
     if (v.size() < 1) { //if the vector is empty, nothing has been found
         return false;
     }
@@ -88,9 +89,9 @@ bool ComputerServices::checkSciCompConnections(string s_id) {
 
 /********************************** MAIN FUNCTIONS **************************************/
 
-vector<Computer> ComputerServices::view() {
+vector<Computer> ComputerServices::view(string sortBy) {
     vector<Computer> v;
-    string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY Name";
+    string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY" + sortBy;
     compRepo.fillVectorFromDatabase(v, sql);
     //output(v);
     return v;
@@ -100,9 +101,9 @@ bool ComputerServices::add(Computer computer){
     return compRepo.addToDatabase(computer);
 }
 
-vector<Computer> ComputerServices::search(string searchTerm) {
+vector<Computer> ComputerServices::search(string searchTerm, string sortBy) {
     vector<Computer> v;
-    v = compRepo.searchInDatabase(searchTerm);
+    v = compRepo.searchInDatabase(searchTerm, sortBy);
     return v;
 }
 

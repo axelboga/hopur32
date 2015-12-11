@@ -13,6 +13,7 @@
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
+#include <QtWidgets/QComboBox>
 #include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
@@ -35,6 +36,7 @@ public:
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_6;
     QLineEdit *input_filter_computers;
+    QComboBox *dropdown_order_by;
     QListWidget *list_computers;
     QPushButton *button_remove_computer;
     QSpacerItem *verticalSpacer;
@@ -67,7 +69,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(595, 627);
+        MainWindow->resize(595, 649);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_6 = new QVBoxLayout(centralWidget);
@@ -78,6 +80,11 @@ public:
         input_filter_computers->setObjectName(QStringLiteral("input_filter_computers"));
 
         verticalLayout_6->addWidget(input_filter_computers);
+
+        dropdown_order_by = new QComboBox(centralWidget);
+        dropdown_order_by->setObjectName(QStringLiteral("dropdown_order_by"));
+
+        verticalLayout_6->addWidget(dropdown_order_by);
 
         list_computers = new QListWidget(centralWidget);
         list_computers->setObjectName(QStringLiteral("list_computers"));
@@ -217,6 +224,7 @@ public:
         pushButton->raise();
         input_computer_was_built->raise();
         button_remove_computer->raise();
+        dropdown_order_by->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
         menuBar->setGeometry(QRect(0, 0, 595, 31));

@@ -28,12 +28,16 @@ private slots:
 
     void on_button_remove_computer_clicked();
 
+    void on_dropdown_order_by_currentIndexChanged(int index);
+
 private:
+    string getCurrentOrderBy();
+    void displayAllComputers();
+    void displayComputer(vector<Computer> computers);
     Ui::MainWindow *ui;
     ComputerServices compService;
     vector<Computer> currentlyDisplayedComputers;
-    void displayAllComputers();
-    void displayComputer(vector<Computer> computers);
+
 };
 
 #endif // MAINWINDOW_H

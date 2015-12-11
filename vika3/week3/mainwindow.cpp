@@ -7,6 +7,8 @@ MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow){
     ui->setupUi(this);
+    ui->dropdown_order_by->addItem("Name");
+    ui->dropdown_order_by->addItem("YearBuilt");
     displayAllComputers();
 }
 
@@ -15,7 +17,7 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::displayAllComputers(){
-    vector<Computer> computers = compService.view();
+    vector<Computer> computers = compService.view(getCurrentOrderBy());
     displayComputer(computers);
 }
 
@@ -29,7 +31,6 @@ void MainWindow::displayComputer(vector<Computer> computers){
         //ui->list_computers->addItem(QString::fromStdString(currentComputer.getType()));
         //ui->list_computers->addItem(QString::fromStdString(currentComputer.getWasBuilt()));
         //ui->list_computers->addItem(QString::fromStdString(currentComputer.getYear()));
-
     }
 
     currentlyDisplayedComputers = computers;
@@ -38,7 +39,7 @@ void MainWindow::displayComputer(vector<Computer> computers){
 
 void MainWindow::on_input_filter_computers_textChanged(const QString& arg1){
     string userInput = ui->input_filter_computers->text().toStdString();
-    vector<Computer> computers = compService.search(userInput);
+    vector<Computer> computers = compService.search(userInput, getCurrentOrderBy());
     displayComputer(computers);
 }
 
@@ -110,5 +111,22 @@ void MainWindow::on_button_remove_computer_clicked(){
     }
     else{
      // display some error
+    }
+}
+
+void MainWindow::on_dropdown_order_by_currentIndexChanged(int index){
+   on_input_filter_computers_textChanged("");
+}
+
+string MainWindow::getCurrentOrderBy() {
+    string currentValueInOrderBy = ui->dropdown_order_by->currentText().toStdString();
+    if (currentValueInOrderBy == "Name"){
+        return "Name";
+    }
+    else if(currentValueInOrderBy == "YearBuilt"){
+        return "YearBuilt";
+    }
+    else {
+        return "Name";
     }
 }

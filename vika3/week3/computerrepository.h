@@ -16,7 +16,7 @@ public:
     bool addToDatabase(Computer computer);
     vector<Computer> searchInDatabase(string input);
     vector<Computer> sortDatabase(string sortBy);
-    void removeFromDatabase (string ID);
+    bool removeFromDatabase (string my_id);
     vector<Computer> getComputersByScientistId(string id);
 private:
     BaseRepository baseRepo;

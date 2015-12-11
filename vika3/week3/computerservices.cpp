@@ -112,8 +112,8 @@ void ComputerServices::sort(string sortBy){
     output(v);
 }
 
-void ComputerServices::remove(string my_id) {
-    compRepo.removeFromDatabase(my_id);
+bool ComputerServices::remove(string my_id) {
+    return compRepo.removeFromDatabase(my_id);
 }
 
 void ComputerServices::output(vector<Computer>& v) {

@@ -12,7 +12,7 @@ QSqlDatabase BaseRepository::CreateConnection(){
         database.setDatabaseName("Database.sqlite");                     //and opening it
         database.open();
 
-        QSqlQuery query;
+        QSqlQuery query(database);
         query.exec("PRAGMA FOREIGN_KEYS = ON");
     }
     return database;

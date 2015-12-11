@@ -26,6 +26,16 @@
      <widget class="QListWidget" name="list_computers"/>
     </item>
     <item>
+     <widget class="QPushButton" name="button_remove_computer">
+      <property name="enabled">
+       <bool>false</bool>
+      </property>
+      <property name="text">
+       <string>Remove selected computer</string>
+      </property>
+     </widget>
+    </item>
+    <item>
      <spacer name="verticalSpacer">
       <property name="orientation">
        <enum>Qt::Vertical</enum>
@@ -153,13 +163,8 @@
    <zorder>input_computer_year_built</zorder>
    <zorder>pushButton</zorder>
    <zorder>input_computer_was_built</zorder>
-   <zorder>verticalLayoutWidget</zorder>
-   <zorder>verticalLayoutWidget_2</zorder>
-   <zorder>verticalLayoutWidget_3</zorder>
-   <zorder>verticalLayoutWidget_4</zorder>
-   <zorder>verticalLayoutWidget_5</zorder>
-   <zorder>label_add_computer</zorder>
    <zorder>verticalSpacer</zorder>
+   <zorder>button_remove_computer</zorder>
   </widget>
   <widget class="QMenuBar" name="menuBar">
    <property name="geometry">
@@ -167,7 +172,7 @@
      <x>0</x>
      <y>0</y>
      <width>595</width>
-     <height>25</height>
+     <height>31</height>
     </rect>
    </property>
   </widget>

@@ -1,4 +1,5 @@
 #include "computerrepository.h"
+#include <sstream>
 
 ComputerRepository::ComputerRepository(){
     datab = baseRepo.CreateConnection();
@@ -48,17 +49,19 @@ vector<Computer> ComputerRepository::sortDatabase(string sortBy){
     return v;
 }
 
-void ComputerRepository::removeFromDatabase(string my_id) {
+bool ComputerRepository::removeFromDatabase(string my_id) {
     QSqlQuery query(datab);
 
     query.prepare("DELETE FROM Computers WHERE ID = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
-    query.exec();
-
+    bool success = query.exec();
+/*
     query.prepare("DELETE FROM ScientistComputerConnections WHERE cId = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
     //^Also delete the connections
+*/
+    return success;
 }
 
 

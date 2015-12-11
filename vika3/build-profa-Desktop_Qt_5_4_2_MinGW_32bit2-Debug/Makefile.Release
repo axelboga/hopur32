@@ -907,29 +907,6 @@ release/mainwindow.o: ../week3/mainwindow.cpp ../week3/mainwindow.h \
 		C:/Qt/5.4/mingw491_32/include/QtSql/qsqltablemodel.h \
 		C:/Qt/5.4/mingw491_32/include/QtSql/qtsqlversion.h \
 		ui_mainwindow.h \
-		C:/Qt/5.4/mingw491_32/include/QtCore/QVariant \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QAction \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qaction.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qactiongroup.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QApplication \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qapplication.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qdesktopwidget.h \
-		C:/Qt/5.4/mingw491_32/include/QtGui/qguiapplication.h \
-		C:/Qt/5.4/mingw491_32/include/QtGui/qinputmethod.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QButtonGroup \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qbuttongroup.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QHeaderView \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qheaderview.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QListWidget \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qlistwidget.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QMenuBar \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qmenubar.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qmenu.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QStatusBar \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qstatusbar.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QToolBar \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/qtoolbar.h \
-		C:/Qt/5.4/mingw491_32/include/QtWidgets/QWidget \
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/QMessageBox \
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/qmessagebox.h \
 		C:/Qt/5.4/mingw491_32/include/QtWidgets/qdialog.h

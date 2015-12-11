@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMessageBox>
+#include <sstream>
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -19,16 +20,15 @@ void MainWindow::displayAllComputers(){
 }
 
 void MainWindow::displayComputer(vector<Computer> computers){
-
     ui->list_computers->clear();
 
     for (unsigned int i = 0; i < computers.size(); i++){
         Computer currentComputer = computers.at(i);
 
         ui->list_computers->addItem(QString::fromStdString(currentComputer.getName()));
-        ui->list_computers->addItem(QString::fromStdString(currentComputer.getType()));
-        ui->list_computers->addItem(QString::fromStdString(currentComputer.getWasBuilt()));
-        ui->list_computers->addItem(QString::fromStdString(currentComputer.getYear()));
+        //ui->list_computers->addItem(QString::fromStdString(currentComputer.getType()));
+        //ui->list_computers->addItem(QString::fromStdString(currentComputer.getWasBuilt()));
+        //ui->list_computers->addItem(QString::fromStdString(currentComputer.getYear()));
 
     }
 
@@ -43,8 +43,6 @@ void MainWindow::on_input_filter_computers_textChanged(const QString& arg1){
 }
 
 void MainWindow::on_pushButton_clicked(){
-    //ui->label_error_student_name->setText("");
-    //ui->label_error_student_year_born->setText("");
 
     QString name = ui->input_computer_name->text();
     QString type = ui->input_computer_type->text();
@@ -55,23 +53,17 @@ void MainWindow::on_pushButton_clicked(){
 
     if (name.isEmpty()){
         ui->label_error_computer_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
-
         thereWasAnError = true;
     }
 
     if (yearBuilt.isEmpty()){
         ui->label_error_computer_year_built->setText("<span style='color: #ED1C58'>Year built cannot be emty </span>");
-
-        //QMessageBox::warning(this, "Super serious error", "Computer needs year born");
-
         thereWasAnError = true;
     }
-
 
     if (thereWasAnError){
         return;
     }
-
 
     Computer c;
     c.setName(name.toStdString());
@@ -80,14 +72,10 @@ void MainWindow::on_pushButton_clicked(){
     c.setYear(yearBuilt.toStdString());
 
     bool success = compService.add(c);
-    //ui->input_filter_computers->setText("");
-    //displayAllComputers();
-
 
     if (success){
         ui->input_filter_computers->setText("");
         displayAllComputers();
-
         ui->input_computer_name->setText("");
         ui->input_computer_type->setText("");
         ui->input_computer_was_built->setText("");
@@ -99,3 +87,28 @@ void MainWindow::on_pushButton_clicked(){
 
 }
 
+void MainWindow::on_list_computers_clicked(const QModelIndex &index){
+    ui->button_remove_computer->setEnabled(true);
+}
+
+
+void MainWindow::on_button_remove_computer_clicked(){
+    int currentlySelectedComputerIndex = ui->list_computers->currentIndex().row();
+
+    Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
+
+    int idToRemove = currentlySelectedComputer.getId();
+    string stringIdToRemove = static_cast<ostringstream*>( &(ostringstream() << idToRemove) )->str();
+
+    bool success = compService.remove(stringIdToRemove);
+
+    if (success){
+     ui->input_filter_computers->setText("");
+     displayAllComputers();
+
+     ui->button_remove_computer->setEnabled(false);
+    }
+    else{
+     // display some error
+    }
+}

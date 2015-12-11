@@ -21,8 +21,10 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QToolBar>
+#include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
 QT_BEGIN_NAMESPACE
@@ -31,24 +33,32 @@ class Ui_MainWindow
 {
 public:
     QWidget *centralWidget;
-    QListWidget *list_computers;
+    QVBoxLayout *verticalLayout_6;
     QLineEdit *input_filter_computers;
-    QLineEdit *input_computer_name;
+    QListWidget *list_computers;
+    QPushButton *button_remove_computer;
+    QSpacerItem *verticalSpacer;
+    QVBoxLayout *verticalLayout_5;
     QLabel *label_add_computer;
-    QLineEdit *input_computer_type;
+    QVBoxLayout *verticalLayout;
+    QHBoxLayout *horizontalLayout;
     QLabel *label_computer_name;
+    QLabel *label_error_computer_name;
+    QLineEdit *input_computer_name;
+    QVBoxLayout *verticalLayout_2;
+    QHBoxLayout *horizontalLayout_3;
     QLabel *label_computer_type;
-    QLabel *label_computer_year_built;
-    QLineEdit *input_computer_year_built;
-    QPushButton *pushButton;
+    QLineEdit *input_computer_type;
+    QVBoxLayout *verticalLayout_3;
+    QHBoxLayout *horizontalLayout_4;
     QLabel *label_computer_was_built;
     QLineEdit *input_computer_was_built;
-    QWidget *horizontalLayoutWidget;
-    QHBoxLayout *horizontalLayout;
-    QLabel *label_error_computer_name;
-    QWidget *horizontalLayoutWidget_2;
+    QVBoxLayout *verticalLayout_4;
     QHBoxLayout *horizontalLayout_2;
+    QLabel *label_computer_year_built;
     QLabel *label_error_computer_year_built;
+    QLineEdit *input_computer_year_built;
+    QPushButton *pushButton;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -57,73 +67,159 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(709, 634);
+        MainWindow->resize(595, 627);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
-        list_computers = new QListWidget(centralWidget);
-        list_computers->setObjectName(QStringLiteral("list_computers"));
-        list_computers->setGeometry(QRect(30, 30, 531, 281));
+        verticalLayout_6 = new QVBoxLayout(centralWidget);
+        verticalLayout_6->setSpacing(6);
+        verticalLayout_6->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
         input_filter_computers = new QLineEdit(centralWidget);
         input_filter_computers->setObjectName(QStringLiteral("input_filter_computers"));
-        input_filter_computers->setGeometry(QRect(30, 0, 531, 31));
-        input_computer_name = new QLineEdit(centralWidget);
-        input_computer_name->setObjectName(QStringLiteral("input_computer_name"));
-        input_computer_name->setGeometry(QRect(30, 370, 531, 21));
+
+        verticalLayout_6->addWidget(input_filter_computers);
+
+        list_computers = new QListWidget(centralWidget);
+        list_computers->setObjectName(QStringLiteral("list_computers"));
+
+        verticalLayout_6->addWidget(list_computers);
+
+        button_remove_computer = new QPushButton(centralWidget);
+        button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
+        button_remove_computer->setEnabled(false);
+
+        verticalLayout_6->addWidget(button_remove_computer);
+
+        verticalSpacer = new QSpacerItem(20, 20, QSizePolicy::Minimum, QSizePolicy::MinimumExpanding);
+
+        verticalLayout_6->addItem(verticalSpacer);
+
+        verticalLayout_5 = new QVBoxLayout();
+        verticalLayout_5->setSpacing(6);
+        verticalLayout_5->setObjectName(QStringLiteral("verticalLayout_5"));
         label_add_computer = new QLabel(centralWidget);
         label_add_computer->setObjectName(QStringLiteral("label_add_computer"));
-        label_add_computer->setGeometry(QRect(30, 330, 161, 19));
-        input_computer_type = new QLineEdit(centralWidget);
-        input_computer_type->setObjectName(QStringLiteral("input_computer_type"));
-        input_computer_type->setGeometry(QRect(30, 410, 531, 21));
+
+        verticalLayout_5->addWidget(label_add_computer);
+
+
+        verticalLayout_6->addLayout(verticalLayout_5);
+
+        verticalLayout = new QVBoxLayout();
+        verticalLayout->setSpacing(6);
+        verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
         label_computer_name = new QLabel(centralWidget);
         label_computer_name->setObjectName(QStringLiteral("label_computer_name"));
-        label_computer_name->setGeometry(QRect(30, 351, 68, 20));
-        label_computer_type = new QLabel(centralWidget);
-        label_computer_type->setObjectName(QStringLiteral("label_computer_type"));
-        label_computer_type->setGeometry(QRect(30, 390, 61, 19));
-        label_computer_year_built = new QLabel(centralWidget);
-        label_computer_year_built->setObjectName(QStringLiteral("label_computer_year_built"));
-        label_computer_year_built->setGeometry(QRect(30, 480, 68, 19));
-        input_computer_year_built = new QLineEdit(centralWidget);
-        input_computer_year_built->setObjectName(QStringLiteral("input_computer_year_built"));
-        input_computer_year_built->setGeometry(QRect(30, 500, 531, 21));
-        pushButton = new QPushButton(centralWidget);
-        pushButton->setObjectName(QStringLiteral("pushButton"));
-        pushButton->setGeometry(QRect(30, 520, 521, 31));
-        label_computer_was_built = new QLabel(centralWidget);
-        label_computer_was_built->setObjectName(QStringLiteral("label_computer_was_built"));
-        label_computer_was_built->setGeometry(QRect(30, 430, 68, 19));
-        input_computer_was_built = new QLineEdit(centralWidget);
-        input_computer_was_built->setObjectName(QStringLiteral("input_computer_was_built"));
-        input_computer_was_built->setGeometry(QRect(30, 450, 531, 20));
-        horizontalLayoutWidget = new QWidget(centralWidget);
-        horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));
-        horizontalLayoutWidget->setGeometry(QRect(30, 350, 531, 21));
-        horizontalLayout = new QHBoxLayout(horizontalLayoutWidget);
-        horizontalLayout->setSpacing(6);
-        horizontalLayout->setContentsMargins(11, 11, 11, 11);
-        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
-        horizontalLayout->setContentsMargins(0, 0, 0, 0);
+
+        horizontalLayout->addWidget(label_computer_name);
+
         label_error_computer_name = new QLabel(centralWidget);
         label_error_computer_name->setObjectName(QStringLiteral("label_error_computer_name"));
-        label_error_computer_name->setGeometry(QRect(350, 350, 211, 20));
-        horizontalLayoutWidget_2 = new QWidget(centralWidget);
-        horizontalLayoutWidget_2->setObjectName(QStringLiteral("horizontalLayoutWidget_2"));
-        horizontalLayoutWidget_2->setGeometry(QRect(30, 479, 541, 21));
-        horizontalLayout_2 = new QHBoxLayout(horizontalLayoutWidget_2);
+
+        horizontalLayout->addWidget(label_error_computer_name);
+
+
+        verticalLayout->addLayout(horizontalLayout);
+
+
+        verticalLayout_6->addLayout(verticalLayout);
+
+        input_computer_name = new QLineEdit(centralWidget);
+        input_computer_name->setObjectName(QStringLiteral("input_computer_name"));
+
+        verticalLayout_6->addWidget(input_computer_name);
+
+        verticalLayout_2 = new QVBoxLayout();
+        verticalLayout_2->setSpacing(6);
+        verticalLayout_2->setObjectName(QStringLiteral("verticalLayout_2"));
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_computer_type = new QLabel(centralWidget);
+        label_computer_type->setObjectName(QStringLiteral("label_computer_type"));
+
+        horizontalLayout_3->addWidget(label_computer_type);
+
+
+        verticalLayout_2->addLayout(horizontalLayout_3);
+
+
+        verticalLayout_6->addLayout(verticalLayout_2);
+
+        input_computer_type = new QLineEdit(centralWidget);
+        input_computer_type->setObjectName(QStringLiteral("input_computer_type"));
+
+        verticalLayout_6->addWidget(input_computer_type);
+
+        verticalLayout_3 = new QVBoxLayout();
+        verticalLayout_3->setSpacing(6);
+        verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        label_computer_was_built = new QLabel(centralWidget);
+        label_computer_was_built->setObjectName(QStringLiteral("label_computer_was_built"));
+
+        horizontalLayout_4->addWidget(label_computer_was_built);
+
+
+        verticalLayout_3->addLayout(horizontalLayout_4);
+
+
+        verticalLayout_6->addLayout(verticalLayout_3);
+
+        input_computer_was_built = new QLineEdit(centralWidget);
+        input_computer_was_built->setObjectName(QStringLiteral("input_computer_was_built"));
+
+        verticalLayout_6->addWidget(input_computer_was_built);
+
+        verticalLayout_4 = new QVBoxLayout();
+        verticalLayout_4->setSpacing(6);
+        verticalLayout_4->setObjectName(QStringLiteral("verticalLayout_4"));
+        horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setSpacing(6);
-        horizontalLayout_2->setContentsMargins(11, 11, 11, 11);
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
-        horizontalLayout_2->setContentsMargins(0, 0, 0, 0);
-        label_error_computer_year_built = new QLabel(horizontalLayoutWidget_2);
+        label_computer_year_built = new QLabel(centralWidget);
+        label_computer_year_built->setObjectName(QStringLiteral("label_computer_year_built"));
+
+        horizontalLayout_2->addWidget(label_computer_year_built);
+
+        label_error_computer_year_built = new QLabel(centralWidget);
         label_error_computer_year_built->setObjectName(QStringLiteral("label_error_computer_year_built"));
 
         horizontalLayout_2->addWidget(label_error_computer_year_built);
 
+
+        verticalLayout_4->addLayout(horizontalLayout_2);
+
+
+        verticalLayout_6->addLayout(verticalLayout_4);
+
+        input_computer_year_built = new QLineEdit(centralWidget);
+        input_computer_year_built->setObjectName(QStringLiteral("input_computer_year_built"));
+
+        verticalLayout_6->addWidget(input_computer_year_built);
+
+        pushButton = new QPushButton(centralWidget);
+        pushButton->setObjectName(QStringLiteral("pushButton"));
+
+        verticalLayout_6->addWidget(pushButton);
+
         MainWindow->setCentralWidget(centralWidget);
+        list_computers->raise();
+        input_filter_computers->raise();
+        input_computer_name->raise();
+        input_computer_type->raise();
+        input_computer_year_built->raise();
+        pushButton->raise();
+        input_computer_was_built->raise();
+        button_remove_computer->raise();
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 709, 31));
+        menuBar->setGeometry(QRect(0, 0, 595, 31));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -141,14 +237,15 @@ public:
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", 0));
         input_filter_computers->setPlaceholderText(QApplication::translate("MainWindow", "filter_computers", 0));
-        label_add_computer->setText(QApplication::translate("MainWindow", "Add a new computer", 0));
+        button_remove_computer->setText(QApplication::translate("MainWindow", "Remove selected computer", 0));
+        label_add_computer->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Add a new computer</span></p></body></html>", 0));
         label_computer_name->setText(QApplication::translate("MainWindow", "Name:", 0));
-        label_computer_type->setText(QApplication::translate("MainWindow", "Type:", 0));
-        label_computer_year_built->setText(QApplication::translate("MainWindow", "YearBuilt:", 0));
-        pushButton->setText(QApplication::translate("MainWindow", "AddComputer", 0));
-        label_computer_was_built->setText(QApplication::translate("MainWindow", "WasBuilt:", 0));
         label_error_computer_name->setText(QString());
+        label_computer_type->setText(QApplication::translate("MainWindow", "Type:", 0));
+        label_computer_was_built->setText(QApplication::translate("MainWindow", "WasBuilt:", 0));
+        label_computer_year_built->setText(QApplication::translate("MainWindow", "YearBuilt:", 0));
         label_error_computer_year_built->setText(QString());
+        pushButton->setText(QApplication::translate("MainWindow", "Add", 0));
     } // retranslateUi
 
 };

@@ -24,7 +24,6 @@
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
-#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolBar>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -36,7 +35,7 @@ class Ui_MainWindow
 public:
     QWidget *centralWidget;
     QVBoxLayout *verticalLayout_6;
-    QTabWidget *input_filter_scientists;
+    QTabWidget *tabWidget;
     QWidget *tab_computer;
     QLineEdit *input_computer_was_built;
     QListWidget *list_computers;
@@ -45,7 +44,7 @@ public:
     QHBoxLayout *horizontalLayout_8;
     QLabel *label_computer_name_2;
     QLabel *label_error_computer_name_2;
-    QComboBox *dropdown_order_by_computers;
+    QComboBox *dropdown_order_by;
     QLineEdit *input_computer_name;
     QPushButton *pushButton;
     QLineEdit *input_computer_year_built;
@@ -70,12 +69,6 @@ public:
     QWidget *layoutWidget_3;
     QVBoxLayout *verticalLayout_9;
     QWidget *tab_scientist;
-    QLineEdit *lineEdit;
-    QComboBox *dropdown_order_by_scientists;
-    QTableWidget *table_scientists;
-    QPushButton *button_remove_scientist;
-    QLabel *label;
-    QLabel *label_2;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -91,10 +84,8 @@ public:
         verticalLayout_6->setSpacing(6);
         verticalLayout_6->setContentsMargins(11, 11, 11, 11);
         verticalLayout_6->setObjectName(QStringLiteral("verticalLayout_6"));
-        input_filter_scientists = new QTabWidget(centralWidget);
-        input_filter_scientists->setObjectName(QStringLiteral("input_filter_scientists"));
-        input_filter_scientists->setTabShape(QTabWidget::Rounded);
-        input_filter_scientists->setTabsClosable(false);
+        tabWidget = new QTabWidget(centralWidget);
+        tabWidget->setObjectName(QStringLiteral("tabWidget"));
         tab_computer = new QWidget();
         tab_computer->setObjectName(QStringLiteral("tab_computer"));
         input_computer_was_built = new QLineEdit(tab_computer);
@@ -102,7 +93,7 @@ public:
         input_computer_was_built->setGeometry(QRect(10, 390, 551, 21));
         list_computers = new QListWidget(tab_computer);
         list_computers->setObjectName(QStringLiteral("list_computers"));
-        list_computers->setGeometry(QRect(6, 81, 551, 79));
+        list_computers->setGeometry(QRect(6, 81, 571, 79));
         layoutWidget_2 = new QWidget(tab_computer);
         layoutWidget_2->setObjectName(QStringLiteral("layoutWidget_2"));
         layoutWidget_2->setGeometry(QRect(10, 260, 541, 21));
@@ -127,9 +118,9 @@ public:
 
         verticalLayout_8->addLayout(horizontalLayout_8);
 
-        dropdown_order_by_computers = new QComboBox(tab_computer);
-        dropdown_order_by_computers->setObjectName(QStringLiteral("dropdown_order_by_computers"));
-        dropdown_order_by_computers->setGeometry(QRect(3, 49, 561, 26));
+        dropdown_order_by = new QComboBox(tab_computer);
+        dropdown_order_by->setObjectName(QStringLiteral("dropdown_order_by"));
+        dropdown_order_by->setGeometry(QRect(3, 49, 577, 26));
         input_computer_name = new QLineEdit(tab_computer);
         input_computer_name->setObjectName(QStringLiteral("input_computer_name"));
         input_computer_name->setGeometry(QRect(10, 290, 551, 21));
@@ -141,11 +132,11 @@ public:
         input_computer_year_built->setGeometry(QRect(10, 450, 551, 21));
         input_filter_computers = new QLineEdit(tab_computer);
         input_filter_computers->setObjectName(QStringLiteral("input_filter_computers"));
-        input_filter_computers->setGeometry(QRect(6, 20, 551, 21));
+        input_filter_computers->setGeometry(QRect(6, 20, 571, 21));
         button_remove_computer = new QPushButton(tab_computer);
         button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
         button_remove_computer->setEnabled(false);
-        button_remove_computer->setGeometry(QRect(0, 170, 561, 32));
+        button_remove_computer->setGeometry(QRect(0, 170, 583, 32));
         input_computer_type = new QLineEdit(tab_computer);
         input_computer_type->setObjectName(QStringLiteral("input_computer_type"));
         input_computer_type->setGeometry(QRect(10, 340, 551, 21));
@@ -222,31 +213,12 @@ public:
         verticalLayout_9->setContentsMargins(11, 11, 11, 11);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
         verticalLayout_9->setContentsMargins(0, 0, 0, 0);
-        input_filter_scientists->addTab(tab_computer, QString());
+        tabWidget->addTab(tab_computer, QString());
         tab_scientist = new QWidget();
         tab_scientist->setObjectName(QStringLiteral("tab_scientist"));
-        lineEdit = new QLineEdit(tab_scientist);
-        lineEdit->setObjectName(QStringLiteral("lineEdit"));
-        lineEdit->setGeometry(QRect(0, 10, 561, 21));
-        dropdown_order_by_scientists = new QComboBox(tab_scientist);
-        dropdown_order_by_scientists->setObjectName(QStringLiteral("dropdown_order_by_scientists"));
-        dropdown_order_by_scientists->setGeometry(QRect(0, 40, 561, 26));
-        table_scientists = new QTableWidget(tab_scientist);
-        table_scientists->setObjectName(QStringLiteral("table_scientists"));
-        table_scientists->setGeometry(QRect(0, 70, 561, 231));
-        button_remove_scientist = new QPushButton(tab_scientist);
-        button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
-        button_remove_scientist->setGeometry(QRect(0, 310, 561, 41));
-        label = new QLabel(tab_scientist);
-        label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(240, 360, 101, 16));
-        label->setLineWidth(0);
-        label_2 = new QLabel(tab_scientist);
-        label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 380, 71, 16));
-        input_filter_scientists->addTab(tab_scientist, QString());
+        tabWidget->addTab(tab_scientist, QString());
 
-        verticalLayout_6->addWidget(input_filter_scientists);
+        verticalLayout_6->addWidget(tabWidget);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
@@ -262,7 +234,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        input_filter_scientists->setCurrentIndex(1);
+        tabWidget->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -274,19 +246,15 @@ public:
         label_computer_name_2->setText(QApplication::translate("MainWindow", "Name:", 0));
         label_error_computer_name_2->setText(QString());
         pushButton->setText(QApplication::translate("MainWindow", "Add", 0));
-        input_filter_computers->setPlaceholderText(QApplication::translate("MainWindow", "Type search term here", 0));
+        input_filter_computers->setPlaceholderText(QApplication::translate("MainWindow", "filter_computers", 0));
         button_remove_computer->setText(QApplication::translate("MainWindow", "Remove selected computer", 0));
         label_computer_type_2->setText(QApplication::translate("MainWindow", "Type:", 0));
         label_computer_was_built_2->setText(QApplication::translate("MainWindow", "WasBuilt:", 0));
         label_computer_year_built_2->setText(QApplication::translate("MainWindow", "YearBuilt:", 0));
         label_error_computer_year_built_2->setText(QString());
         label_add_computer_2->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Add a new computer</span></p></body></html>", 0));
-        input_filter_scientists->setTabText(input_filter_scientists->indexOf(tab_computer), QApplication::translate("MainWindow", "Computers", 0));
-        lineEdit->setPlaceholderText(QApplication::translate("MainWindow", "Type search term here", 0));
-        button_remove_scientist->setText(QApplication::translate("MainWindow", "Remove selected scientist", 0));
-        label->setText(QApplication::translate("MainWindow", "Add scientist", 0));
-        label_2->setText(QApplication::translate("MainWindow", "FirstName", 0));
-        input_filter_scientists->setTabText(input_filter_scientists->indexOf(tab_scientist), QApplication::translate("MainWindow", "Scientists", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_computer), QApplication::translate("MainWindow", "Tab 1", 0));
+        tabWidget->setTabText(tabWidget->indexOf(tab_scientist), QApplication::translate("MainWindow", "Tab 2", 0));
     } // retranslateUi
 
 };

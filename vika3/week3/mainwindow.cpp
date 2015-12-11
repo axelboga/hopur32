@@ -9,8 +9,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->dropdown_order_by_computers->addItem("Name");
     ui->dropdown_order_by_computers->addItem("YearBuilt");
-    ui->dropdown_order_by_scientists->addItem("Name");
-    ui->dropdown_order_by_scientists->addItem("YearBuilt");
     displayAllComputers();
 }
 

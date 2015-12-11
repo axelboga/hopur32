@@ -21,8 +21,7 @@ SOURCES += main.cpp \
         scientist.cpp \
         scientistservices.cpp \
         scientistrepository.cpp \
-        baserepository.cpp \
-    addscientistdialog.cpp
+        baserepository.cpp
 
 HEADERS  += mainwindow.h \
         computer.h \
@@ -31,10 +30,8 @@ HEADERS  += mainwindow.h \
         scientist.h \
         scientistservices.h \
         scientistrepository.h \
-        baserepository.h \
-    addscientistdialog.h
+        baserepository.h
 
-FORMS    += mainwindow.ui \
-    addscientistdialog.ui
+FORMS    += mainwindow.ui
 
 DISTFILES +=

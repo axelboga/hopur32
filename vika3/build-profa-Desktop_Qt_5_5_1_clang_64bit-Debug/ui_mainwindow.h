@@ -233,17 +233,17 @@ public:
         dropdown_order_by_scientists->setGeometry(QRect(0, 40, 561, 26));
         table_scientists = new QTableWidget(tab_scientist);
         table_scientists->setObjectName(QStringLiteral("table_scientists"));
-        table_scientists->setGeometry(QRect(0, 70, 561, 231));
+        table_scientists->setGeometry(QRect(0, 70, 561, 111));
         button_remove_scientist = new QPushButton(tab_scientist);
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
-        button_remove_scientist->setGeometry(QRect(0, 310, 561, 41));
+        button_remove_scientist->setGeometry(QRect(0, 190, 561, 41));
         label = new QLabel(tab_scientist);
         label->setObjectName(QStringLiteral("label"));
-        label->setGeometry(QRect(240, 360, 101, 16));
+        label->setGeometry(QRect(230, 240, 101, 16));
         label->setLineWidth(0);
         label_2 = new QLabel(tab_scientist);
         label_2->setObjectName(QStringLiteral("label_2"));
-        label_2->setGeometry(QRect(10, 380, 71, 16));
+        label_2->setGeometry(QRect(10, 270, 71, 16));
         input_filter_scientists->addTab(tab_scientist, QString());
 
         verticalLayout_6->addWidget(input_filter_scientists);
@@ -262,7 +262,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        input_filter_scientists->setCurrentIndex(1);
+        input_filter_scientists->setCurrentIndex(0);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

@@ -16,13 +16,19 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_6">
     <item>
-     <widget class="QTabWidget" name="tabWidget">
+     <widget class="QTabWidget" name="tabs">
+      <property name="tabShape">
+       <enum>QTabWidget::Rounded</enum>
+      </property>
       <property name="currentIndex">
        <number>0</number>
       </property>
+      <property name="tabsClosable">
+       <bool>false</bool>
+      </property>
       <widget class="QWidget" name="tab_computer">
        <attribute name="title">
-        <string>Tab 1</string>
+        <string>Computers</string>
        </attribute>
        <widget class="QLineEdit" name="input_computer_was_built">
         <property name="geometry">
@@ -271,7 +277,7 @@
       </widget>
       <widget class="QWidget" name="tab_scientist">
        <attribute name="title">
-        <string>Tab 2</string>
+        <string>Scientists</string>
        </attribute>
       </widget>
      </widget>

@@ -18,12 +18,18 @@ SOURCES += main.cpp \
         computer.cpp \
         computerservices.cpp \
         computerrepository.cpp \
+        scientist.cpp \
+        scientistservices.cpp \
+        scientistrepository.cpp \
         baserepository.cpp
 
 HEADERS  += mainwindow.h \
         computer.h \
         computerservices.h \
         computerrepository.h \
+        scientist.h \
+        scientistservices.h \
+        scientistrepository.h \
         baserepository.h
 
 FORMS    += mainwindow.ui

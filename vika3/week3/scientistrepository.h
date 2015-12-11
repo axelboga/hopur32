@@ -10,8 +10,8 @@ public:
     ~ScientistRepository();
     void removeFromDatabase(string my_id);
     void fillVectorFromDatabase(vector<Scientist>& v, string sql);
-    void addToDatabase(Scientist scientist);
-    vector<Scientist> searchInDatabase(string input);
+    bool addToDatabase(Scientist scientist);
+    vector<Scientist> searchInDatabase(string input, string sortBy);
     vector<Scientist> sortDatabase(string sortBy);
     vector<Scientist> getScientistsByComputerId(string id);
 private:

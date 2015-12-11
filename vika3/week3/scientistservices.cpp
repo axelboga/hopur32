@@ -69,9 +69,9 @@ bool ScientistServices::checkDeath(string d, string b) {
    return true;
 }
 
-bool ScientistServices::checkSearch(string searchTerm) {
+bool ScientistServices::checkSearch(string searchTerm, string sortBy) {
     vector<Scientist> v;
-    v = sciRepo.searchInDatabase(searchTerm);
+    v = sciRepo.searchInDatabase(searchTerm, sortBy );
     if (v.size() < 1) { //if the vector is empty, nothing has been found
         return false;
     }
@@ -130,9 +130,9 @@ void ScientistServices::view() {
     output(v);
 }
 
-void ScientistServices::search(string searchTerm) {
+void ScientistServices::search(string searchTerm, string sortBy) {
     vector<Scientist> v;
-    v = sciRepo.searchInDatabase(searchTerm);
+    v = sciRepo.searchInDatabase(searchTerm, sortBy);
     output(v);
 }
 

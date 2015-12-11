@@ -1,6 +1,6 @@
 #ifndef SCIENTISTSERVICES_H
 #define SCIENTISTSERVICES_H
-#include "computerscientist.h"
+#include "scientist.h"
 #include "scientistrepository.h"
 #include <cctype>
 #include <algorithm>
@@ -15,12 +15,19 @@ public:
     bool checkGender(string& s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
+    bool checkSearch(string searchTerm, string sortBy);
+    bool checkIfIdExists(string my_id, string& name);
+    bool checkCompSciConnections(string c_id);
     bool isAlive(string& answ);
-    void add(ComputerScientist c);
+    void add(Scientist c);
     void view();
-    void output(vector<ComputerScientist>& v);
+    void search(string searchTerm, string sortBy);
+    void sort(string sortBy);
+    void remove(string my_id);
+    void output(vector<Scientist>& v);
+    void getScientistsByComputerId(string c_id);
 private:
-    ScientistRepository compSciRepo;
+    ScientistRepository sciRepo;
 };
 
 #endif // LOGIC_H

@@ -69,6 +69,7 @@ void MainWindow::on_button_remove_computer_clicked(){
     if (success){
      ui->input_filter_computers->setText("");
      displayAllComputers();
+     ui->statusBar->showMessage("Successfully removed computer", 2500);
 
      ui->button_remove_computer->setEnabled(false);
     }
@@ -110,6 +111,7 @@ void MainWindow::on_button_add_computer_clicked(){
     if(addCompReturnValue == 0){
         ui->input_filter_computers->setText("");
         displayAllComputers();
+        ui->statusBar->showMessage("Successfully added computer", 2500);
     }
     else {
         //there was an error

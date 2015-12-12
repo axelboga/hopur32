@@ -43,9 +43,9 @@
        <widget class="QPushButton" name="button_add_computer">
         <property name="geometry">
          <rect>
-          <x>0</x>
+          <x>140</x>
           <y>450</y>
-          <width>561</width>
+          <width>281</width>
           <height>32</height>
          </rect>
         </property>

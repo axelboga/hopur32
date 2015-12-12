@@ -1,0 +1,14 @@
+INPUT(
+./release\main.o
+./release\mainwindow.o
+./release\computer.o
+./release\computerservices.o
+./release\computerrepository.o
+./release\scientist.o
+./release\scientistservices.o
+./release\scientistrepository.o
+./release\baserepository.o
+./release\addcomputerdialog.o
+./release\moc_mainwindow.o
+./release\moc_addcomputerdialog.o
+);

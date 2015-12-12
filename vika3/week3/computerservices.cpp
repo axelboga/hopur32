@@ -107,10 +107,11 @@ vector<Computer> ComputerServices::search(string searchTerm, string sortBy) {
     return v;
 }
 
-void ComputerServices::sort(string sortBy){
+vector<Computer> ComputerServices::sort(string sortBy){
     vector<Computer> v;
     v = compRepo.sortDatabase(sortBy);
-    output(v);
+    //output(v);
+    return v;
 }
 
 bool ComputerServices::remove(string my_id) {

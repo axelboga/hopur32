@@ -17,7 +17,7 @@ public:
     vector<Computer> view(string sortBy);
     bool add(Computer computer);
     vector<Computer> search(string searchTerm, string sortBy);
-    void sort(string sortBy);
+    vector<Computer> sort(string sortBy);
     void output(vector<Computer>& v);
     bool remove(string my_id);
     void getComputersByScientistId(string s_id);

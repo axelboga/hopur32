@@ -1,18 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.4.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../week3/mainwindow.h"
+#include "../../week3/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.4.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,11 +20,11 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
     QByteArrayData data[9];
-    char stringdata0[184];
+    char stringdata[194];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
@@ -33,18 +33,18 @@ QT_MOC_LITERAL(0, 0, 10), // "MainWindow"
 QT_MOC_LITERAL(1, 11, 37), // "on_input_filter_computers_tex..."
 QT_MOC_LITERAL(2, 49, 0), // ""
 QT_MOC_LITERAL(3, 50, 4), // "arg1"
-QT_MOC_LITERAL(4, 55, 21), // "on_pushButton_clicked"
-QT_MOC_LITERAL(5, 77, 25), // "on_list_computers_clicked"
-QT_MOC_LITERAL(6, 103, 5), // "index"
-QT_MOC_LITERAL(7, 109, 33), // "on_button_remove_computer_cli..."
-QT_MOC_LITERAL(8, 143, 40) // "on_dropdown_order_by_currentI..."
+QT_MOC_LITERAL(4, 55, 33), // "on_button_remove_computer_cli..."
+QT_MOC_LITERAL(5, 89, 40), // "on_dropdown_order_by_currentI..."
+QT_MOC_LITERAL(6, 130, 5), // "index"
+QT_MOC_LITERAL(7, 136, 26), // "on_table_computers_clicked"
+QT_MOC_LITERAL(8, 163, 30) // "on_button_add_computer_clicked"
 
     },
     "MainWindow\0on_input_filter_computers_textChanged\0"
-    "\0arg1\0on_pushButton_clicked\0"
-    "on_list_computers_clicked\0index\0"
-    "on_button_remove_computer_clicked\0"
-    "on_dropdown_order_by_currentIndexChanged"
+    "\0arg1\0on_button_remove_computer_clicked\0"
+    "on_dropdown_order_by_currentIndexChanged\0"
+    "index\0on_table_computers_clicked\0"
+    "on_button_add_computer_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -65,15 +65,15 @@ static const uint qt_meta_data_MainWindow[] = {
        1,    1,   39,    2, 0x08 /* Private */,
        4,    0,   42,    2, 0x08 /* Private */,
        5,    1,   43,    2, 0x08 /* Private */,
-       7,    0,   46,    2, 0x08 /* Private */,
-       8,    1,   47,    2, 0x08 /* Private */,
+       7,    1,   46,    2, 0x08 /* Private */,
+       8,    0,   49,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    3,
     QMetaType::Void,
+    QMetaType::Void, QMetaType::Int,    6,
     QMetaType::Void, QMetaType::QModelIndex,    6,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    6,
 
        0        // eod
 };
@@ -82,13 +82,12 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         MainWindow *_t = static_cast<MainWindow *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_input_filter_computers_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
-        case 1: _t->on_pushButton_clicked(); break;
-        case 2: _t->on_list_computers_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
-        case 3: _t->on_button_remove_computer_clicked(); break;
-        case 4: _t->on_dropdown_order_by_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 1: _t->on_button_remove_computer_clicked(); break;
+        case 2: _t->on_dropdown_order_by_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 3: _t->on_table_computers_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 4: _t->on_button_add_computer_clicked(); break;
         default: ;
         }
     }
@@ -108,7 +107,7 @@ const QMetaObject *MainWindow::metaObject() const
 void *MainWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata))
         return static_cast<void*>(const_cast< MainWindow*>(this));
     return QMainWindow::qt_metacast(_clname);
 }

@@ -1,0 +1,14 @@
+INPUT(
+./debug\main.o
+./debug\mainwindow.o
+./debug\computer.o
+./debug\computerservices.o
+./debug\computerrepository.o
+./debug\scientist.o
+./debug\scientistservices.o
+./debug\scientistrepository.o
+./debug\baserepository.o
+./debug\addcomputerdialog.o
+./debug\moc_mainwindow.o
+./debug\moc_addcomputerdialog.o
+);

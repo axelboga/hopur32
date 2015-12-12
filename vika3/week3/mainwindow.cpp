@@ -8,6 +8,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow){
     ui->setupUi(this);
     ui->dropdown_order_by->addItem("Name");
+    ui->dropdown_order_by->addItem("Type");
+    ui->dropdown_order_by->addItem("WasBuilt");
     ui->dropdown_order_by->addItem("YearBuilt");
     displayAllComputers();
 }
@@ -17,25 +19,30 @@ MainWindow::~MainWindow(){
 }
 
 void MainWindow::displayAllComputers(){
-    vector<Computer> computers = compService.view(getCurrentOrderBy());
+    vector<Computer> computers = compService.sort(getCurrentOrderBy());
     displayComputer(computers);
 }
 
 void MainWindow::displayComputer(vector<Computer> computers){
-    ui->list_computers->clear();
+    ui->table_computers->clearContents();
+    ui->table_computers->setRowCount(computers.size());
 
     for (unsigned int i = 0; i < computers.size(); i++){
-        Computer currentComputer = computers.at(i);
 
-        ui->list_computers->addItem(QString::fromStdString(currentComputer.getName()));
-        //ui->list_computers->addItem(QString::fromStdString(currentComputer.getType()));
-        //ui->list_computers->addItem(QString::fromStdString(currentComputer.getWasBuilt()));
-        //ui->list_computers->addItem(QString::fromStdString(currentComputer.getYear()));
+        Computer currentComputer = computers.at(i);
+        QString Name = QString::fromStdString(currentComputer.getName());
+        QString Type = QString::fromStdString(currentComputer.getType());
+        QString WasBuilt = QString::fromStdString(currentComputer.getWasBuilt());
+        QString Year = QString::fromStdString(currentComputer.getYear());
+
+        ui->table_computers->setItem(i, 0, new QTableWidgetItem(Name));
+        ui->table_computers->setItem(i, 1, new QTableWidgetItem(Type));
+        ui->table_computers->setItem(i, 2, new QTableWidgetItem(WasBuilt));
+        ui->table_computers->setItem(i, 3, new QTableWidgetItem(Year));
     }
 
     currentlyDisplayedComputers = computers;
 }
-
 
 void MainWindow::on_input_filter_computers_textChanged(const QString& arg1){
     string userInput = ui->input_filter_computers->text().toStdString();
@@ -43,58 +50,8 @@ void MainWindow::on_input_filter_computers_textChanged(const QString& arg1){
     displayComputer(computers);
 }
 
-void MainWindow::on_pushButton_clicked(){
-
-    QString name = ui->input_computer_name->text();
-    QString type = ui->input_computer_type->text();
-    QString wasBuilt = ui->input_computer_was_built->text();
-    QString yearBuilt = ui->input_computer_year_built->text();
-
-    bool thereWasAnError = false;
-
-    if (name.isEmpty()){
-        ui->label_error_computer_name_2->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
-        thereWasAnError = true;
-    }
-
-    if (yearBuilt.isEmpty()){
-        ui->label_error_computer_year_built_2->setText("<span style='color: #ED1C58'>Year built cannot be emty </span>");
-        thereWasAnError = true;
-    }
-
-    if (thereWasAnError){
-        return;
-    }
-
-    Computer c;
-    c.setName(name.toStdString());
-    c.setType(type.toStdString());
-    c.setWasBuilt(wasBuilt.toStdString());
-    c.setYear(yearBuilt.toStdString());
-
-    bool success = compService.add(c);
-
-    if (success){
-        ui->input_filter_computers->setText("");
-        displayAllComputers();
-        ui->input_computer_name->setText("");
-        ui->input_computer_type->setText("");
-        ui->input_computer_was_built->setText("");
-        ui->input_computer_year_built->setText("");
-    }
-    else{
-        // there was some error, tell the user
-    }
-
-}
-
-void MainWindow::on_list_computers_clicked(const QModelIndex &index){
-    ui->button_remove_computer->setEnabled(true);
-}
-
-
 void MainWindow::on_button_remove_computer_clicked(){
-    int currentlySelectedComputerIndex = ui->list_computers->currentIndex().row();
+    int currentlySelectedComputerIndex = ui->table_computers->currentIndex().row();
 
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
 
@@ -126,7 +83,29 @@ string MainWindow::getCurrentOrderBy() {
     else if(currentValueInOrderBy == "YearBuilt"){
         return "YearBuilt";
     }
+    else if(currentValueInOrderBy == "WasBuilt"){
+        return "WasBuilt";
+    }
+    else if(currentValueInOrderBy == "Type"){
+        return "Type";
+    }
     else {
         return "Name";
+    }
+}
+
+void MainWindow::on_table_computers_clicked(const QModelIndex &index){
+    ui->button_remove_computer->setEnabled(true);
+}
+
+void MainWindow::on_button_add_computer_clicked(){
+    AddComputerDialog addCompDialog;
+    int addCompReturnValue = addCompDialog.exec();
+    if(addCompReturnValue == 0){
+        ui->input_filter_computers->setText("");
+        displayAllComputers();
+    }
+    else {
+        //there was an error
     }
 }

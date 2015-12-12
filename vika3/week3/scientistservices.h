@@ -22,7 +22,7 @@ public:
     void add(Scientist c);
     void view();
     void search(string searchTerm, string sortBy);
-    void sort(string sortBy);
+    vector<Scientist> sort(string sortBy);
     void remove(string my_id);
     void output(vector<Scientist>& v);
     void getScientistsByComputerId(string c_id);

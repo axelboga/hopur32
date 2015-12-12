@@ -13,11 +13,16 @@ int Scientist::getId() const {
 }
 
 string Scientist::getFirstName() const {
-   return firstName;
+
+   string capitalized = firstName;
+   capitalized[0] = toupper(capitalized[0]);
+   return capitalized;
 }
 
 string Scientist::getLastName() const {
-   return lastName;
+    string capitalized = lastName;
+    capitalized[0] = toupper(capitalized[0]);
+    return capitalized;
 }
 
 string Scientist::getSex() const {

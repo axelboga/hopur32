@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 #include <QMainWindow>
 #include <computerservices.h>
+#include <scientistservices.h>
 #include <addcomputerdialog.h>
 #include <vector>
 #include <iostream>
@@ -34,6 +35,11 @@ private:
     Ui::MainWindow *ui;
     ComputerServices compService;
     vector<Computer> currentlyDisplayedComputers;
+
+    void displayAllScientists();
+    void displayScientist(vector<Scientist> scientists);
+    ScientistServices sciScervice;
+    vector<Scientist> currentlyDisplayedScientists;
 
 };
 

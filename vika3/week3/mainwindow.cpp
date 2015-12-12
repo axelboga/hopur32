@@ -12,6 +12,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->dropdown_order_by->addItem("WasBuilt");
     ui->dropdown_order_by->addItem("YearBuilt");
     displayAllComputers();
+    displayAllScientists();
 }
 
 MainWindow::~MainWindow(){
@@ -44,6 +45,37 @@ void MainWindow::displayComputer(vector<Computer> computers){
     currentlyDisplayedComputers = computers;
 }
 
+void MainWindow::displayAllScientists()
+{
+    vector<Scientist> scientists = sciScervice.sort("FirstName");
+    displayScientist(scientists);
+}
+void MainWindow::displayScientist(vector<Scientist> scientists){
+    ui->table_scientists->clearContents();
+    ui->table_scientists->setRowCount(scientists.size());
+
+    for (unsigned int i = 0; i < scientists.size(); i++){
+
+        Scientist currentScientist = scientists.at(i);
+        QString firstName = QString::fromStdString(currentScientist.getFirstName());
+        QString lastName = QString::fromStdString(currentScientist.getLastName());
+        QString sex = QString::fromStdString(currentScientist.getSex());
+        QString yearOfBirth = QString::fromStdString(currentScientist.getYearOfBirth());
+        QString yearOfDeath = QString::fromStdString(currentScientist.getYearOfDeath());
+
+
+        ui->table_scientists->setItem(i, 0, new QTableWidgetItem(firstName));
+        ui->table_scientists->setItem(i, 1, new QTableWidgetItem(lastName));
+        ui->table_scientists->setItem(i, 2, new QTableWidgetItem(sex));
+        ui->table_scientists->setItem(i, 3, new QTableWidgetItem(yearOfBirth));
+        ui->table_scientists->setItem(i, 4, new QTableWidgetItem(yearOfDeath));
+
+    }
+
+    currentlyDisplayedScientists = scientists;
+}
+
+
 void MainWindow::on_input_filter_computers_textChanged(const QString& arg1){
     string userInput = ui->input_filter_computers->text().toStdString();
     vector<Computer> computers = compService.search(userInput, getCurrentOrderBy());
@@ -58,7 +90,7 @@ void MainWindow::on_button_remove_computer_clicked(){
     int idToRemove = currentlySelectedComputer.getId();
     string stringIdToRemove = static_cast<ostringstream*>( &(ostringstream() << idToRemove) )->str();
 
-    int answer = QMessageBox::question(this, "confirm", "Are you sure?");
+    int answer = QMessageBox::question(this, "Confirm", "Are you sure?");
 
     if (answer == QMessageBox::No) {
         return;

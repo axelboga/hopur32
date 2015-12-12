@@ -58,6 +58,12 @@ void MainWindow::on_button_remove_computer_clicked(){
     int idToRemove = currentlySelectedComputer.getId();
     string stringIdToRemove = static_cast<ostringstream*>( &(ostringstream() << idToRemove) )->str();
 
+    int answer = QMessageBox::question(this, "confirm", "Are you sure?");
+
+    if (answer == QMessageBox::No) {
+        return;
+    }
+
     bool success = compService.remove(stringIdToRemove);
 
     if (success){

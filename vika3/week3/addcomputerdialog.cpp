@@ -1,5 +1,6 @@
 #include "addcomputerdialog.h"
 #include "ui_addcomputerdialog.h"
+#include <QMessageBox>
 
 AddComputerDialog::AddComputerDialog(QWidget *parent) :
     QDialog(parent),
@@ -46,6 +47,12 @@ void AddComputerDialog::on_button_add_computer_clicked(){
     }
 
     if (thereWasAnError){
+        return;
+    }
+
+    int answer = QMessageBox::question(this, "confirm", "Are you sure?");
+
+    if (answer == QMessageBox::No) {
         return;
     }
 

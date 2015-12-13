@@ -6,6 +6,7 @@
 #include <addcomputerdialog.h>
 #include <vector>
 #include <iostream>
+#include <addscientistdialog.h>
 using namespace std;
 
 
@@ -33,6 +34,8 @@ private slots:
     void on_table_scientists_clicked(const QModelIndex &index);
 
     void on_input_filter_scientists_textChanged(const QString &arg1);
+
+    void on_button_add_scientist_clicked();
 
 private:
     string getCurrentOrderBy();

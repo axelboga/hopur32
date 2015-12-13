@@ -19,7 +19,7 @@ public:
     bool checkIfIdExists(string my_id, string& name);
     bool checkCompSciConnections(string c_id);
     bool isAlive(string& answ);
-    void add(Scientist c);
+    bool add(Scientist c);
     void view();
     vector<Scientist> search(string searchTerm, string sortBy);
     vector<Scientist> sort(string sortBy);

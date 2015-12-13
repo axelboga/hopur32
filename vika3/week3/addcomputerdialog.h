@@ -22,6 +22,7 @@ private slots:
 private:
     Ui::AddComputerDialog *ui;
     ComputerServices compService;
+    bool checkInput();
 };
 
 #endif // ADDCOMPUTERDIALOG_H

@@ -1,9 +1,10 @@
 #ifndef SCIENTIST_H
 #define SCIENTIST_H
-#include <iostream>
-#include <string>
 #include <vector>
 #include <iomanip>
+#include <algorithm>
+#include <iostream>
+#include <string>
 using namespace std;
 
 class Scientist {

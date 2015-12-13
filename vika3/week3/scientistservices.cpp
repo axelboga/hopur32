@@ -119,8 +119,8 @@ bool ScientistServices::isAlive(string& answ) {
 
 /*********************************** MAIN FUNCTIONS **************************************/
 
-void ScientistServices::add(Scientist c) {
-    sciRepo.addToDatabase(c);
+bool ScientistServices::add(Scientist c) {
+    return sciRepo.addToDatabase(c);
 }
 
 void ScientistServices::view() {

@@ -223,7 +223,7 @@
            <item>
             <widget class="QPushButton" name="button_add_scientist">
              <property name="text">
-              <string>Add Scientist</string>
+              <string>Add a new scientist</string>
              </property>
             </widget>
            </item>

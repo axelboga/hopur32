@@ -55,13 +55,13 @@ bool ComputerRepository::removeFromDatabase(string my_id) {
     query.prepare("DELETE FROM Computers WHERE ID = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     bool success = query.exec();
-/*
+
     query.prepare("DELETE FROM ScientistComputerConnections WHERE cId = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
+    bool success2 = query.exec();
     //^Also delete the connections
-*/
-    return success;
+    return (success && success2);
 }
 
 

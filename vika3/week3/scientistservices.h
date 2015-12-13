@@ -21,9 +21,9 @@ public:
     bool isAlive(string& answ);
     void add(Scientist c);
     void view();
-    void search(string searchTerm, string sortBy);
-    void sort(string sortBy);
-    void remove(string my_id);
+    vector<Scientist> search(string searchTerm, string sortBy);
+    vector<Scientist> sort(string sortBy);
+    bool remove(string my_id);
     void output(vector<Scientist>& v);
     void getScientistsByComputerId(string c_id);
 private:

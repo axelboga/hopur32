@@ -16,7 +16,7 @@ AddComputerDialog::~AddComputerDialog()
 
 void AddComputerDialog::on_button_add_computer_clicked(){
     QString name = ui->input_computer_name->text();
-    QString type = ui->input_computer_type->text();
+    QString type = ui->input_computer_type->currentText();
     QString yearBuilt = ui->input_computer_year_built->text();
 
     bool thereWasAnError = false;
@@ -72,7 +72,7 @@ void AddComputerDialog::on_button_add_computer_clicked(){
 
     if (success){
         ui->input_computer_name->setText("");
-        ui->input_computer_type->setText("");
+        //ui->input_computer_type->setText("");
         ui->input_computer_year_built->setText("");
 
         this->done(0); //0 er gott;

@@ -2,13 +2,17 @@
 #define SCIENTISTREPOSITORY_H
 #include "scientist.h"
 #include "baserepository.h"
+#include <string>
+#include <vector>
 #include <QtSql>
+#include <iostream>
+using namespace std;
 
 class ScientistRepository {
 public:
     ScientistRepository();
     ~ScientistRepository();
-    void removeFromDatabase(string my_id);
+    bool removeFromDatabase(string my_id);
     void fillVectorFromDatabase(vector<Scientist>& v, string sql);
     bool addToDatabase(Scientist scientist);
     vector<Scientist> searchInDatabase(string input, string sortBy);

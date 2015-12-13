@@ -17,7 +17,6 @@ public:
 
 private slots:
     void on_button_add_computer_clicked();
-
     void on_checkbox_computer_was_built_toggled(bool checked);
 
 private:

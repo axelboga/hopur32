@@ -37,7 +37,7 @@ bool ScientistRepository::addToDatabase(Scientist scientist){
 
 vector<Scientist> ScientistRepository::searchInDatabase(string input, string sortBy) {
     vector<Scientist> v;
-    string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists WHERE ID LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%' ORDER BY" + sortBy;
+    string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists WHERE ID LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%" + input + "%' OR DeathYear LIKE '%" + input + "%' ORDER BY " + sortBy;
     fillVectorFromDatabase(v, s);
     return v;
 }
@@ -49,17 +49,18 @@ vector<Scientist> ScientistRepository::sortDatabase(string sortBy) {
     return v;
 }
 
-void ScientistRepository::removeFromDatabase(string my_id) {
+bool ScientistRepository::removeFromDatabase(string my_id) {
     QSqlQuery query(datab);
 
     query.prepare("DELETE FROM Scientists WHERE ID = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
-    query.exec();
-/*
+    bool success = query.exec();
+
     query.prepare("DELETE FROM ScientistComputerConnections WHERE sId = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
-    query.exec();
+    bool success2 = query.exec();
     //^Also delete the connections*/
+    return (success && success2);
 }
 
 /*************************************CONNECTIONS********************************************/

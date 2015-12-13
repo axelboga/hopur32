@@ -127,23 +127,25 @@ void ScientistServices::view() {
     vector<Scientist> v;
     string sql = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY FirstName";
     sciRepo.fillVectorFromDatabase(v, sql);
-    output(v);
+    //output(v);
 }
 
-void ScientistServices::search(string searchTerm, string sortBy) {
+vector<Scientist> ScientistServices::search(string searchTerm, string sortBy) {
     vector<Scientist> v;
     v = sciRepo.searchInDatabase(searchTerm, sortBy);
-    output(v);
+    //output(v);
+    return v;
 }
 
-void ScientistServices::sort(string sortBy) {
+vector<Scientist> ScientistServices::sort(string sortBy) {
     vector<Scientist> v;
     v = sciRepo.sortDatabase(sortBy);
-    output(v);
+    //output(v);
+    return v;
 }
 
-void ScientistServices::remove(string my_id) {
-    sciRepo.removeFromDatabase(my_id);
+bool ScientistServices::remove(string my_id) {
+    return sciRepo.removeFromDatabase(my_id);
 }
 
 void ScientistServices::output(vector<Scientist>& v) {

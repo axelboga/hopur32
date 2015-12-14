@@ -170,8 +170,8 @@ void ScientistServices::output(vector<Scientist>& v) {
 
 /*************************************CONNECTIONS********************************************/
 
-void ScientistServices::getScientistsByComputerId(string c_id) {
+vector<Scientist> ScientistServices::getScientistsByComputerId(string c_id) {
     vector<Scientist> v;
     v = sciRepo.getScientistsByComputerId(c_id);
-    output(v);
+    return v;
 }

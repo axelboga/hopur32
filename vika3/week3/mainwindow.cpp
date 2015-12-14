@@ -11,6 +11,9 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->dropdown_order_by->addItem("YearBuilt");
     displayAllComputers();
     displayAllScientists();
+    displayAllComputersForComputerConnections();
+    displayAllScientistsForScientistConnections();
+
 }
 
 MainWindow::~MainWindow(){
@@ -200,4 +203,92 @@ void MainWindow::on_button_add_scientist_clicked(){
     else {
         int answer = QMessageBox::warning(this, "FAIL", "Failed to add scientist");
     }
+}
+
+void MainWindow::on_button_see_connections_computer_clicked()
+{
+    int currentlySelectedComputerIndex = ui->computer_list_computer_connections->currentIndex().row();
+    Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
+    int idToRemove = currentlySelectedComputer.getId();
+    string stringIdToRemove = static_cast<ostringstream*>(&(ostringstream() << idToRemove) )->str();
+    vector<Scientist> scientists = sciService.getScientistsByComputerId(stringIdToRemove);
+
+    displayScientistsForComputerConnections(scientists);
+}
+
+void MainWindow::on_computer_list_computer_connections_clicked(const QModelIndex &index)
+{
+    ui->button_see_connections_computer->setEnabled(true);
+}
+
+void MainWindow::displayComputersForComputerConnections(vector<Computer> computers){
+    ui->computer_list_computer_connections->clear();
+    for(unsigned int i = 0; i < computers.size(); i++){
+        Computer currentComputer = computers.at(i);
+        QString name = QString::fromStdString(currentComputer.getName());
+
+        ui->computer_list_computer_connections->addItem(name);
+    }
+    currentlyDisplayedComputers = computers;
+}
+
+void MainWindow::displayAllComputersForComputerConnections(){
+    vector<Computer> computers = compService.sort("Name");
+    displayComputersForComputerConnections(computers);
+}
+
+void MainWindow::displayScientistsForComputerConnections(vector<Scientist> scientists){
+    ui->scientist_list_computer_connections->clear();
+    for(unsigned int i = 0; i < scientists.size(); i++){
+        Scientist currentScientist = scientists.at(i);
+        string name_temp = currentScientist.getFirstName() +  " " + currentScientist.getLastName();
+        QString name = QString::fromStdString(name_temp);
+
+        ui->scientist_list_computer_connections->addItem(name);
+    }
+    currentlyDisplayedScientists = scientists;
+}
+
+void MainWindow::on_button_see_connections_scientist_clicked()
+{
+    int currentlySelectedScientistIndex = ui->scientist_list_scientist_connections->currentIndex().row();
+    Scientist currentlySelectedScientist = currentlyDisplayedScientists.at(currentlySelectedScientistIndex);
+    int idToRemove = currentlySelectedScientist.getId();
+    string stringIdToRemove = static_cast<ostringstream*>(&(ostringstream() << idToRemove) )->str();
+    vector<Computer> computers = compService.getComputersByScientistId(stringIdToRemove);
+
+    displayComputersForScientistConnections(computers);
+}
+
+void MainWindow::on_scientist_list_scientist_connections_clicked(const QModelIndex &index)
+{
+    ui->button_see_connections_scientist->setEnabled(true);
+}
+
+void MainWindow::displayScientistsForScientistConnections(vector<Scientist> scientists){
+    ui->scientist_list_scientist_connections->clear();
+    for(unsigned int i = 0; i < scientists.size(); i++){
+        Scientist currentScientist = scientists.at(i);
+        string name_temp = currentScientist.getFirstName() +  " " + currentScientist.getLastName();
+        QString name = QString::fromStdString(name_temp);
+
+        ui->scientist_list_scientist_connections->addItem(name);
+    }
+    currentlyDisplayedScientists = scientists;
+}
+
+void MainWindow::displayAllScientistsForScientistConnections(){
+    vector<Scientist> scientists = sciService.sort("firstName");
+    displayScientistsForScientistConnections(scientists);
+}
+
+void MainWindow::displayComputersForScientistConnections(vector<Computer> computers){
+    ui->computer_list_scientist_connections->clear();
+    for(unsigned int i = 0; i < computers.size(); i++){
+        Computer currentComputer = computers.at(i);
+        QString name = QString::fromStdString(currentComputer.getName());
+
+        ui->computer_list_scientist_connections->addItem(name);
+    }
+    currentlyDisplayedComputers = computers;
 }

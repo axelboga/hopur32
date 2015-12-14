@@ -139,9 +139,9 @@ void ComputerServices::output(vector<Computer>& v) {
 /************************************* CONNECTIONS ****************************************/
 
 
-void ComputerServices::getComputersByScientistId(string s_id) {
+vector<Computer> ComputerServices::getComputersByScientistId(string s_id) {
     vector<Computer> v;
     v = compRepo.getComputersByScientistId(s_id);
-    output(v);
+    return v;
 }
 

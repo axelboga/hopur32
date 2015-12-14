@@ -21,7 +21,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -202,6 +202,10 @@
               </property>
               <property name="text">
                <string>Remove selected Scientist</string>
+              </property>
+              <property name="icon">
+               <iconset resource="myndir.qrc">
+                <normaloff>:/icons/minuskall.jpg</normaloff>:/icons/minuskall.jpg</iconset>
               </property>
              </widget>
             </item>

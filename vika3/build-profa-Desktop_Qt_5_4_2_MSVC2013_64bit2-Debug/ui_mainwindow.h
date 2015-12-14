@@ -242,14 +242,17 @@ public:
         button_remove_scientist = new QPushButton(tab_scientist);
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
         button_remove_scientist->setEnabled(false);
+        QIcon icon2;
+        icon2.addFile(QStringLiteral(":/icons/minuskall.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        button_remove_scientist->setIcon(icon2);
 
         verticalLayout_10->addWidget(button_remove_scientist);
 
         button_add_scientist = new QPushButton(tab_scientist);
         button_add_scientist->setObjectName(QStringLiteral("button_add_scientist"));
-        QIcon icon2;
-        icon2.addFile(QStringLiteral(":/icons/addkall.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        button_add_scientist->setIcon(icon2);
+        QIcon icon3;
+        icon3.addFile(QStringLiteral(":/icons/addkall.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        button_add_scientist->setIcon(icon3);
 
         verticalLayout_10->addWidget(button_add_scientist);
 
@@ -329,18 +332,18 @@ public:
         verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
         button_add_computer_connection = new QPushButton(tab_computer_connections);
         button_add_computer_connection->setObjectName(QStringLiteral("button_add_computer_connection"));
-        QIcon icon3;
-        icon3.addFile(QStringLiteral(":/icons/tengi1.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        button_add_computer_connection->setIcon(icon3);
+        QIcon icon4;
+        icon4.addFile(QStringLiteral(":/icons/tengi1.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        button_add_computer_connection->setIcon(icon4);
 
         verticalLayout_14->addWidget(button_add_computer_connection);
 
         button_remove_computer_connection = new QPushButton(tab_computer_connections);
         button_remove_computer_connection->setObjectName(QStringLiteral("button_remove_computer_connection"));
         button_remove_computer_connection->setEnabled(true);
-        QIcon icon4;
-        icon4.addFile(QStringLiteral(":/icons/tengi2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        button_remove_computer_connection->setIcon(icon4);
+        QIcon icon5;
+        icon5.addFile(QStringLiteral(":/icons/tengi2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        button_remove_computer_connection->setIcon(icon5);
 
         verticalLayout_14->addWidget(button_remove_computer_connection);
 
@@ -409,14 +412,14 @@ public:
         verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
         button_add_scientist_connection = new QPushButton(tab_scientist_connections);
         button_add_scientist_connection->setObjectName(QStringLiteral("button_add_scientist_connection"));
-        button_add_scientist_connection->setIcon(icon3);
+        button_add_scientist_connection->setIcon(icon4);
 
         verticalLayout_17->addWidget(button_add_scientist_connection);
 
         button_remove_scientist_connection = new QPushButton(tab_scientist_connections);
         button_remove_scientist_connection->setObjectName(QStringLiteral("button_remove_scientist_connection"));
         button_remove_scientist_connection->setEnabled(true);
-        button_remove_scientist_connection->setIcon(icon4);
+        button_remove_scientist_connection->setIcon(icon5);
 
         verticalLayout_17->addWidget(button_remove_scientist_connection);
 
@@ -451,7 +454,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(0);
+        tabs->setCurrentIndex(1);
         connections_tabs->setCurrentIndex(0);
 
 

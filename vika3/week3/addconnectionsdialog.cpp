@@ -1,6 +1,7 @@
 #include "addconnectionsdialog.h"
 #include "ui_addconnectionsdialog.h"
 #include <sstream>
+#include <qDebug>
 
 AddConnectionsDialog::AddConnectionsDialog(QWidget *parent) :
     QDialog(parent),
@@ -18,42 +19,40 @@ AddConnectionsDialog::~AddConnectionsDialog()
 
 void AddConnectionsDialog::on_button_add_connections_clicked()
 {
-    /*
+
     int currentlySelectedComputerIndex = ui->list_computers_add_connections->currentIndex().row();
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
     int idOfComputer = currentlySelectedComputer.getId();
     string stringIdOfComputer = static_cast<ostringstream*>(&(ostringstream() << idOfComputer) )->str();
-
+    qDebug() << currentlySelectedComputerIndex;
 
     int currentlySelectedScientistIndex = ui->list_scientists_add_connections->currentIndex().row();
     Scientist currentlySelectedScientist = currentlyDisplayedScientists.at(currentlySelectedScientistIndex);
     int idOfScientist = currentlySelectedScientist.getId();
     string stringIdOfScientist = static_cast<ostringstream*>(&(ostringstream() << idOfScientist) )->str();
+    qDebug() << currentlySelectedScientistIndex;
 
     bool success = connectionService.addConnection(stringIdOfScientist, stringIdOfComputer);
 
-    */
-    string computerId = on_button_connections_select_computer_clicked();
-    string scientistId = on_button_connections_select_scientist_clicked();
-
-    bool success = connectionService.addConnection(scientistId, computerId);
     if (success){
         this->done(0); //0 er gott, notum í on_button_add_computer í mainwindow.cpp
     }
-    else{
+   else{
         this->done(-1); //-1 er villa, notum í on_button_add_computer í mainwindow.cpp
     }
 }
 
+/*
 void AddConnectionsDialog::on_list_computers_add_connections_clicked(const QModelIndex &index)
 {
-    ui->button_connections_select_computer->setEnabled(true);
+
 }
 
 void AddConnectionsDialog::on_list_scientists_add_connections_clicked(const QModelIndex &index)
 {
-    ui->button_connections_select_scientist->setEnabled(true);
+
 }
+*/
 void AddConnectionsDialog::displayScientistsForAddConnections(vector<Scientist> scientists) {
     ui->list_scientists_add_connections->clear();
     for(unsigned int i = 0; i < scientists.size(); i++) {
@@ -63,6 +62,7 @@ void AddConnectionsDialog::displayScientistsForAddConnections(vector<Scientist> 
     
         ui->list_scientists_add_connections->addItem(name);
     }
+    currentlyDisplayedScientists = scientists;
 }
 
 void AddConnectionsDialog::displayAllScientistsForAddConnections() {
@@ -84,8 +84,7 @@ void AddConnectionsDialog::displayComputersForAddConnections(vector<Computer> co
 void AddConnectionsDialog::displayAllComputersForAddConnections() {
     vector<Computer> computers = compService.sort("Name");
     displayComputersForAddConnections(computers);
-}
-
+}/*
 string AddConnectionsDialog::on_button_connections_select_scientist_clicked()
 {
     int currentlySelectedScientistIndex = ui->list_scientists_add_connections->currentIndex().row();
@@ -102,4 +101,4 @@ string AddConnectionsDialog::on_button_connections_select_computer_clicked()
     int idOfComputer = currentlySelectedComputer.getId();
     string stringIdOfComputer = static_cast<ostringstream*>(&(ostringstream() << idOfComputer) )->str();
     return stringIdOfComputer;
-}
+}*/

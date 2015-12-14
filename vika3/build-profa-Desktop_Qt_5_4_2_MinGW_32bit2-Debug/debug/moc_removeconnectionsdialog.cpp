@@ -1,18 +1,18 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'removeconnectionsdialog.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.4.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../week3/removeconnectionsdialog.h"
+#include "../../week3/removeconnectionsdialog.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'removeconnectionsdialog.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.4.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -20,11 +20,11 @@
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_RemoveConnectionsDialog_t {
     QByteArrayData data[15];
-    char stringdata0[378];
+    char stringdata[378];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_RemoveConnectionsDialog_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_RemoveConnectionsDialog_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_RemoveConnectionsDialog_t qt_meta_stringdata_RemoveConnectionsDialog = {
@@ -100,7 +100,6 @@ void RemoveConnectionsDialog::qt_static_metacall(QObject *_o, QMetaObject::Call 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         RemoveConnectionsDialog *_t = static_cast<RemoveConnectionsDialog *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_button_remove_clicked(); break;
         case 1: _t->displayScientistsForRemoveConnections((*reinterpret_cast< vector<Scientist>(*)>(_a[1]))); break;
@@ -129,7 +128,7 @@ const QMetaObject *RemoveConnectionsDialog::metaObject() const
 void *RemoveConnectionsDialog::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_RemoveConnectionsDialog.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_RemoveConnectionsDialog.stringdata))
         return static_cast<void*>(const_cast< RemoveConnectionsDialog*>(this));
     return QDialog::qt_metacast(_clname);
 }

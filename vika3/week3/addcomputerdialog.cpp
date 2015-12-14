@@ -49,6 +49,7 @@ void AddComputerDialog::on_button_add_computer_clicked(){
 
     int answer = QMessageBox::question(this, "confirm", "Are you sure?");
     if (answer == QMessageBox::No) {
+        this->done(1);
         return;
     }
 

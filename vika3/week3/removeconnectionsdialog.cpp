@@ -38,6 +38,7 @@ void RemoveConnectionsDialog::on_button_remove_clicked()
 
     int answer = QMessageBox::question(this, "confirm", "Are you sure?");
     if (answer == QMessageBox::No) {
+        this->done(1);
         return;
     }
 

@@ -116,7 +116,7 @@ void MainWindow::on_button_add_computer_clicked() {
         displayAllComputers();
         ui->statusBar->showMessage("Successfully added computer", 2500);
     }
-    else {
+    else if (addCompReturnValue == -1){
         int answer = QMessageBox::warning(this, "FAIL", "Failed to add computer");
     }
 }
@@ -200,7 +200,7 @@ void MainWindow::on_button_add_scientist_clicked(){
         displayAllScientists();
         ui->statusBar->showMessage("Successfully added scientist", 2500);
     }
-    else {
+    else if (addSciReturnValue == -1){
         int answer = QMessageBox::warning(this, "FAIL", "Failed to add scientist");
     }
 }
@@ -249,8 +249,7 @@ void MainWindow::displayScientistsForComputerConnections(vector<Scientist> scien
     currentlyDisplayedScientists = scientists;
 }
 
-void MainWindow::on_button_see_connections_scientist_clicked()
-{
+void MainWindow::on_button_see_connections_scientist_clicked() {
     int currentlySelectedScientistIndex = ui->scientist_list_scientist_connections->currentIndex().row();
     Scientist currentlySelectedScientist = currentlyDisplayedScientists.at(currentlySelectedScientistIndex);
     int idToRemove = currentlySelectedScientist.getId();
@@ -260,12 +259,11 @@ void MainWindow::on_button_see_connections_scientist_clicked()
     displayComputersForScientistConnections(computers);
 }
 
-void MainWindow::on_scientist_list_scientist_connections_clicked(const QModelIndex &index)
-{
+void MainWindow::on_scientist_list_scientist_connections_clicked(const QModelIndex &index) {
     ui->button_see_connections_scientist->setEnabled(true);
 }
 
-void MainWindow::displayScientistsForScientistConnections(vector<Scientist> scientists){
+void MainWindow::displayScientistsForScientistConnections(vector<Scientist> scientists) {
     ui->scientist_list_scientist_connections->clear();
     for(unsigned int i = 0; i < scientists.size(); i++){
         Scientist currentScientist = scientists.at(i);
@@ -301,7 +299,7 @@ void MainWindow::on_button_add_computer_connection_clicked()
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully added connection", 2500);
     }
-    else {
+    else if (addConnectReturnValue == -1){
         QMessageBox::warning(this, "FAIL", "Failed to add connections");
     }
 }
@@ -313,7 +311,7 @@ void MainWindow::on_button_add_scientist_connection_clicked(){
         displayAllScientistsForScientistConnections();
         ui->statusBar->showMessage("Successfully added connection", 2500);
     }
-    else {
+    else if (addConnectReturnValue == -1) {
         QMessageBox::warning(this, "FAIL", "Failed to add connections");
     }
 }
@@ -326,7 +324,7 @@ void MainWindow::on_button_remove_scientist_connection_clicked()
         displayAllScientistsForScientistConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);
     }
-    else {
+    else if (removeConnectReturnValue == -1){
         QMessageBox::warning(this, "FAIL", "Failed to remove connections");
     }
 }
@@ -340,7 +338,7 @@ void MainWindow::on_button_remove_computer_connection_clicked()
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);
     }
-    else {
+    else if (removeConnectReturnValue == -1){
         QMessageBox::warning(this, "FAIL", "Failed to remove connections");
     }
 }

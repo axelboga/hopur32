@@ -1,0 +1,10 @@
+<RCC>
+    <qresource prefix="/icons">
+        <file>compu....jpg</file>
+        <file>compu-.jpg</file>
+        <file>compu+.jpg</file>
+        <file>addkall.jpg</file>
+        <file>tengi2.jpg</file>
+        <file>tengi1.jpg</file>
+    </qresource>
+</RCC>

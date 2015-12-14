@@ -21,7 +21,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -107,12 +107,20 @@
               <property name="text">
                <string>Remove selected computer</string>
               </property>
+              <property name="icon">
+               <iconset resource="myndir.qrc">
+                <normaloff>:/icons/compu-.jpg</normaloff>:/icons/compu-.jpg</iconset>
+              </property>
              </widget>
             </item>
             <item>
              <widget class="QPushButton" name="button_add_computer">
               <property name="text">
                <string>Add a new computer</string>
+              </property>
+              <property name="icon">
+               <iconset resource="myndir.qrc">
+                <normaloff>:/icons/compu+.jpg</normaloff>:/icons/compu+.jpg</iconset>
               </property>
              </widget>
             </item>
@@ -202,6 +210,10 @@
               <property name="text">
                <string>Add a new scientist</string>
               </property>
+              <property name="icon">
+               <iconset resource="myndir.qrc">
+                <normaloff>:/icons/addkall.jpg</normaloff>:/icons/addkall.jpg</iconset>
+              </property>
              </widget>
             </item>
            </layout>
@@ -281,6 +293,10 @@
                     <property name="text">
                      <string>Add Connection</string>
                     </property>
+                    <property name="icon">
+                     <iconset resource="myndir.qrc">
+                      <normaloff>:/icons/tengi1.jpg</normaloff>:/icons/tengi1.jpg</iconset>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -290,6 +306,10 @@
                     </property>
                     <property name="text">
                      <string>Remove Connection</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="myndir.qrc">
+                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -355,6 +375,10 @@
                     <property name="text">
                      <string>Add Connection</string>
                     </property>
+                    <property name="icon">
+                     <iconset resource="myndir.qrc">
+                      <normaloff>:/icons/tengi1.jpg</normaloff>:/icons/tengi1.jpg</iconset>
+                    </property>
                    </widget>
                   </item>
                   <item>
@@ -364,6 +388,10 @@
                     </property>
                     <property name="text">
                      <string>Remove Connection</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="myndir.qrc">
+                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -389,7 +417,7 @@
      <x>0</x>
      <y>0</y>
      <width>594</width>
-     <height>22</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -404,6 +432,8 @@
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="myndir.qrc"/>
+ </resources>
  <connections/>
 </ui>

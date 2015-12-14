@@ -51,3 +51,6 @@ FORMS    += mainwindow.ui \
     removeconnectionsdialog.ui
 
 DISTFILES +=
+
+RESOURCES += \
+    myndir.qrc

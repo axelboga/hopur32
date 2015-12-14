@@ -1,7 +1,6 @@
 #include "removeconnectionsdialog.h"
 #include "ui_removeconnectionsdialog.h"
 #include <sstream>
-#include <qDebug>
 
 RemoveConnectionsDialog::RemoveConnectionsDialog(QWidget *parent) :
     QDialog(parent),
@@ -10,11 +9,19 @@ RemoveConnectionsDialog::RemoveConnectionsDialog(QWidget *parent) :
     ui->setupUi(this);
     displayAllScientistsForRemoveConnections();
     displayAllComputersForRemoveConnections();
+
 }
 
 RemoveConnectionsDialog::~RemoveConnectionsDialog()
 {
     delete ui;
+}
+
+void RemoveConnectionsDialog::enableRemoveButton(){
+if((ui->list_computers_remove_connections->currentIndex().row()) >=0 &&
+        (ui->list_scientists_remove_connections->currentIndex().row()) >=0){
+    ui->button_remove->setEnabled(true);
+    }
 }
 
 void RemoveConnectionsDialog::on_button_remove_clicked()
@@ -23,13 +30,11 @@ void RemoveConnectionsDialog::on_button_remove_clicked()
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
     int idOfComputer = currentlySelectedComputer.getId();
     string stringIdOfComputer = static_cast<ostringstream*>(&(ostringstream() << idOfComputer) )->str();
-    qDebug() << currentlySelectedComputerIndex;
 
     int currentlySelectedScientistIndex = ui->list_scientists_remove_connections->currentIndex().row();
     Scientist currentlySelectedScientist = currentlyDisplayedScientists.at(currentlySelectedScientistIndex);
     int idOfScientist = currentlySelectedScientist.getId();
     string stringIdOfScientist = static_cast<ostringstream*>(&(ostringstream() << idOfScientist) )->str();
-    qDebug() << currentlySelectedScientistIndex;
 
     int answer = QMessageBox::question(this, "confirm", "Are you sure?");
     if (answer == QMessageBox::No) {
@@ -39,12 +44,14 @@ void RemoveConnectionsDialog::on_button_remove_clicked()
     bool success = connectionService.removeConnection(stringIdOfScientist, stringIdOfComputer);
 
     if (success){
-        this->done(0); //0 er gott, notum í on_button_add_computer í mainwindow.cpp
+        this->done(0); //0 er gott
     }
    else{
-        this->done(-1); //-1 er villa, notum í on_button_add_computer í mainwindow.cpp
+        this->done(-1); //-1 er villa
     }
 }
+
+
 
 void RemoveConnectionsDialog::displayScientistsForRemoveConnections(vector<Scientist> scientists) {
     ui->list_scientists_remove_connections->clear();
@@ -77,4 +84,14 @@ void RemoveConnectionsDialog::displayComputersForRemoveConnections(vector<Comput
 void RemoveConnectionsDialog::displayAllComputersForRemoveConnections() {
     vector<Computer> computers = compService.sort("Name");
     displayComputersForRemoveConnections(computers);
+}
+
+void RemoveConnectionsDialog::on_list_computers_remove_connections_clicked(const QModelIndex &index)
+{
+    enableRemoveButton();
+}
+
+void RemoveConnectionsDialog::on_list_scientists_remove_connections_clicked(const QModelIndex &index)
+{
+    enableRemoveButton();
 }

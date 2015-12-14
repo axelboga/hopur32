@@ -24,13 +24,14 @@ public:
 private slots:
     void on_button_add_connections_clicked();
     
-    //void on_list_computers_add_connections_clicked(const QModelIndex &index);
+    void on_list_computers_add_connections_clicked(const QModelIndex &index);
     
-    //void on_list_scientists_add_connections_clicked(const QModelIndex &index);
+    void on_list_scientists_add_connections_clicked(const QModelIndex &index);
     
     //string on_button_connections_select_scientist_clicked();
 
     //string on_button_connections_select_computer_clicked();
+    void enableAddButton();
 
 private:
     Ui::AddConnectionsDialog *ui;

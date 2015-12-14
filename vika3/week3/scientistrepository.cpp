@@ -52,15 +52,16 @@ vector<Scientist> ScientistRepository::sortDatabase(string sortBy) {
 bool ScientistRepository::removeFromDatabase(string my_id) {
     QSqlQuery query(datab);
 
-    query.prepare("DELETE FROM Scientists WHERE ID = :my_id");
-    query.bindValue(":my_id", std::atoi(my_id.c_str()));
-    bool success = query.exec();
-
     query.prepare("DELETE FROM ScientistComputerConnections WHERE sId = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
-    bool success2 = query.exec();
+    bool success1 = query.exec();
     //^Also delete the connections*/
-    return (success && success2);
+
+    query.prepare("DELETE FROM Scientists WHERE ID = :my_id");
+    query.bindValue(":my_id", std::atoi(my_id.c_str()));
+    bool success2 = query.exec();
+
+    return (success1 && success2);
 }
 
 /*************************************CONNECTIONS********************************************/

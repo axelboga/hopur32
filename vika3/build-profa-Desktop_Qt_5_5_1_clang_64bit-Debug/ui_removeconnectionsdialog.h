@@ -44,6 +44,7 @@ public:
         RemoveConnectionsDialog->resize(400, 363);
         button_remove = new QPushButton(RemoveConnectionsDialog);
         button_remove->setObjectName(QStringLiteral("button_remove"));
+        button_remove->setEnabled(false);
         button_remove->setGeometry(QRect(140, 320, 115, 32));
         horizontalLayoutWidget = new QWidget(RemoveConnectionsDialog);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));

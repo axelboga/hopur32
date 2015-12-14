@@ -335,6 +335,7 @@ void MainWindow::on_button_remove_computer_connection_clicked()
 {
     RemoveConnectionsDialog removeConnectDialog;
     int removeConnectReturnValue = removeConnectDialog.exec();
+
     if(removeConnectReturnValue == 0){
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);

@@ -44,7 +44,7 @@ public:
         AddConnectionsDialog->resize(400, 333);
         button_add_connections = new QPushButton(AddConnectionsDialog);
         button_add_connections->setObjectName(QStringLiteral("button_add_connections"));
-        button_add_connections->setEnabled(true);
+        button_add_connections->setEnabled(false);
         button_add_connections->setGeometry(QRect(140, 300, 115, 32));
         horizontalLayoutWidget = new QWidget(AddConnectionsDialog);
         horizontalLayoutWidget->setObjectName(QStringLiteral("horizontalLayoutWidget"));

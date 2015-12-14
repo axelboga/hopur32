@@ -25,6 +25,11 @@ private slots:
     void displayAllScientistsForRemoveConnections();
     void displayComputersForRemoveConnections(vector<Computer> computers);
     void displayAllComputersForRemoveConnections();
+    void enableRemoveButton();
+
+    void on_list_computers_remove_connections_clicked(const QModelIndex &index);
+
+    void on_list_scientists_remove_connections_clicked(const QModelIndex &index);
 
 private:
     Ui::RemoveConnectionsDialog *ui;

@@ -1,7 +1,6 @@
 #include "addconnectionsdialog.h"
 #include "ui_addconnectionsdialog.h"
 #include <sstream>
-#include <qDebug>
 
 AddConnectionsDialog::AddConnectionsDialog(QWidget *parent) :
     QDialog(parent),
@@ -17,19 +16,24 @@ AddConnectionsDialog::~AddConnectionsDialog()
     delete ui;
 }
 
+void AddConnectionsDialog::enableAddButton(){
+    if((ui->list_computers_add_connections->currentIndex().row()) >=0 &&
+            (ui->list_scientists_add_connections->currentIndex().row()) >=0){
+        ui->button_add_connections->setEnabled(true);
+    }
+}
+
 void AddConnectionsDialog::on_button_add_connections_clicked()
 {
     int currentlySelectedComputerIndex = ui->list_computers_add_connections->currentIndex().row();
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
     int idOfComputer = currentlySelectedComputer.getId();
     string stringIdOfComputer = static_cast<ostringstream*>(&(ostringstream() << idOfComputer) )->str();
-    qDebug() << currentlySelectedComputerIndex;
 
     int currentlySelectedScientistIndex = ui->list_scientists_add_connections->currentIndex().row();
     Scientist currentlySelectedScientist = currentlyDisplayedScientists.at(currentlySelectedScientistIndex);
     int idOfScientist = currentlySelectedScientist.getId();
     string stringIdOfScientist = static_cast<ostringstream*>(&(ostringstream() << idOfScientist) )->str();
-    qDebug() << currentlySelectedScientistIndex;
 
     int answer = QMessageBox::question(this, "confirm", "Are you sure?");
     if (answer == QMessageBox::No) {
@@ -46,17 +50,16 @@ void AddConnectionsDialog::on_button_add_connections_clicked()
     }
 }
 
-/*
 void AddConnectionsDialog::on_list_computers_add_connections_clicked(const QModelIndex &index)
 {
-
+    enableAddButton();
 }
 
 void AddConnectionsDialog::on_list_scientists_add_connections_clicked(const QModelIndex &index)
 {
-
+    enableAddButton();
 }
-*/
+
 void AddConnectionsDialog::displayScientistsForAddConnections(vector<Scientist> scientists) {
     ui->list_scientists_add_connections->clear();
     for(unsigned int i = 0; i < scientists.size(); i++) {

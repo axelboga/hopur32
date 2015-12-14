@@ -8,6 +8,7 @@
 #include <iostream>
 #include <addscientistdialog.h>
 #include <addconnectionsdialog.h>
+#include <removeconnectionsdialog.h>
 using namespace std;
 
 
@@ -45,6 +46,12 @@ private slots:
     void displayComputersForScientistConnections(vector<Computer> computers);
     
     void on_button_add_computer_connection_clicked();
+
+    void on_button_add_scientist_connection_clicked();
+
+    void on_button_remove_scientist_connection_clicked();
+
+    void on_button_remove_computer_connection_clicked();
 
 private:
     string getCurrentOrderBy();

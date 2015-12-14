@@ -10,7 +10,7 @@ class CompSciConnectionServices
 public:
     CompSciConnectionServices();
     bool addConnection(string sci_id, string comp_id);
-    void removeConnection(string sci_id, string comp_id);
+    bool removeConnection(string sci_id, string comp_id);
 private:
     CompSciConnectionRepository connectionRepo;
 };

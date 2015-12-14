@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created by: Qt User Interface Compiler version 5.5.1
+** Created by: Qt User Interface Compiler version 5.4.2
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -325,7 +325,7 @@ public:
 
         button_remove_computer_connection = new QPushButton(tab_computer_connections);
         button_remove_computer_connection->setObjectName(QStringLiteral("button_remove_computer_connection"));
-        button_remove_computer_connection->setEnabled(true);
+        button_remove_computer_connection->setEnabled(false);
 
         verticalLayout_14->addWidget(button_remove_computer_connection);
 
@@ -399,7 +399,7 @@ public:
 
         button_remove_scientist_connection = new QPushButton(tab_scientist_connections);
         button_remove_scientist_connection->setObjectName(QStringLiteral("button_remove_scientist_connection"));
-        button_remove_scientist_connection->setEnabled(true);
+        button_remove_scientist_connection->setEnabled(false);
 
         verticalLayout_17->addWidget(button_remove_scientist_connection);
 
@@ -423,7 +423,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 594, 22));
+        menuBar->setGeometry(QRect(0, 0, 594, 31));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -435,7 +435,7 @@ public:
         retranslateUi(MainWindow);
 
         tabs->setCurrentIndex(2);
-        connections_tabs->setCurrentIndex(0);
+        connections_tabs->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);

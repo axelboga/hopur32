@@ -26,7 +26,8 @@ SOURCES += main.cpp \
         baserepository.cpp \
     addcomputerdialog.cpp \
     addscientistdialog.cpp \
-    addconnectionsdialog.cpp
+    addconnectionsdialog.cpp \
+    removeconnectionsdialog.cpp
 
 HEADERS  += mainwindow.h \
         computer.h \
@@ -40,11 +41,13 @@ HEADERS  += mainwindow.h \
         baserepository.h \
     addcomputerdialog.h \
     addscientistdialog.h \
-    addconnectionsdialog.h
+    addconnectionsdialog.h \
+    removeconnectionsdialog.h
 
 FORMS    += mainwindow.ui \
     addcomputerdialog.ui \
     addscientistdialog.ui \
-    addconnectionsdialog.ui
+    addconnectionsdialog.ui \
+    removeconnectionsdialog.ui
 
 DISTFILES +=

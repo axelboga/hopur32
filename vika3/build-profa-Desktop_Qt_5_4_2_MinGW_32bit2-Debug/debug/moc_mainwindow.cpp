@@ -1,30 +1,30 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created by: The Qt Meta Object Compiler version 67 (Qt 5.5.1)
+** Created by: The Qt Meta Object Compiler version 67 (Qt 5.4.2)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
 
-#include "../week3/mainwindow.h"
+#include "../../week3/mainwindow.h"
 #include <QtCore/qbytearray.h>
 #include <QtCore/qmetatype.h>
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 67
-#error "This file was generated using the moc from 5.5.1. It"
+#error "This file was generated using the moc from 5.4.2. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[31];
-    char stringdata0[987];
+    QByteArrayData data[29];
+    char stringdata[896];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
-    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata0) + ofs \
+    qptrdiff(offsetof(qt_meta_stringdata_MainWindow_t, stringdata) + ofs \
         - idx * sizeof(QByteArrayData)) \
     )
 static const qt_meta_stringdata_MainWindow_t qt_meta_stringdata_MainWindow = {
@@ -57,9 +57,7 @@ QT_MOC_LITERAL(24, 686, 40), // "displayScientistsForScientist..."
 QT_MOC_LITERAL(25, 727, 43), // "displayAllScientistsForScient..."
 QT_MOC_LITERAL(26, 771, 39), // "displayComputersForScientistC..."
 QT_MOC_LITERAL(27, 811, 41), // "on_button_add_computer_connec..."
-QT_MOC_LITERAL(28, 853, 42), // "on_button_add_scientist_conne..."
-QT_MOC_LITERAL(29, 896, 45), // "on_button_remove_scientist_co..."
-QT_MOC_LITERAL(30, 942, 44) // "on_button_remove_computer_con..."
+QT_MOC_LITERAL(28, 853, 42) // "on_button_add_scientist_conne..."
 
     },
     "MainWindow\0on_input_filter_computers_textChanged\0"
@@ -84,9 +82,7 @@ QT_MOC_LITERAL(30, 942, 44) // "on_button_remove_computer_con..."
     "displayAllScientistsForScientistConnections\0"
     "displayComputersForScientistConnections\0"
     "on_button_add_computer_connection_clicked\0"
-    "on_button_add_scientist_connection_clicked\0"
-    "on_button_remove_scientist_connection_clicked\0"
-    "on_button_remove_computer_connection_clicked"
+    "on_button_add_scientist_connection_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -96,7 +92,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-      23,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -104,29 +100,27 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,  129,    2, 0x08 /* Private */,
-       4,    0,  132,    2, 0x08 /* Private */,
-       5,    1,  133,    2, 0x08 /* Private */,
-       7,    1,  136,    2, 0x08 /* Private */,
-       8,    0,  139,    2, 0x08 /* Private */,
-       9,    0,  140,    2, 0x08 /* Private */,
-      10,    1,  141,    2, 0x08 /* Private */,
-      11,    1,  144,    2, 0x08 /* Private */,
-      12,    0,  147,    2, 0x08 /* Private */,
-      13,    0,  148,    2, 0x08 /* Private */,
-      14,    1,  149,    2, 0x08 /* Private */,
-      15,    1,  152,    2, 0x08 /* Private */,
-      18,    0,  155,    2, 0x08 /* Private */,
-      19,    1,  156,    2, 0x08 /* Private */,
-      22,    1,  159,    2, 0x08 /* Private */,
-      23,    0,  162,    2, 0x08 /* Private */,
-      24,    1,  163,    2, 0x08 /* Private */,
-      25,    0,  166,    2, 0x08 /* Private */,
-      26,    1,  167,    2, 0x08 /* Private */,
-      27,    0,  170,    2, 0x08 /* Private */,
-      28,    0,  171,    2, 0x08 /* Private */,
-      29,    0,  172,    2, 0x08 /* Private */,
-      30,    0,  173,    2, 0x08 /* Private */,
+       1,    1,  119,    2, 0x08 /* Private */,
+       4,    0,  122,    2, 0x08 /* Private */,
+       5,    1,  123,    2, 0x08 /* Private */,
+       7,    1,  126,    2, 0x08 /* Private */,
+       8,    0,  129,    2, 0x08 /* Private */,
+       9,    0,  130,    2, 0x08 /* Private */,
+      10,    1,  131,    2, 0x08 /* Private */,
+      11,    1,  134,    2, 0x08 /* Private */,
+      12,    0,  137,    2, 0x08 /* Private */,
+      13,    0,  138,    2, 0x08 /* Private */,
+      14,    1,  139,    2, 0x08 /* Private */,
+      15,    1,  142,    2, 0x08 /* Private */,
+      18,    0,  145,    2, 0x08 /* Private */,
+      19,    1,  146,    2, 0x08 /* Private */,
+      22,    1,  149,    2, 0x08 /* Private */,
+      23,    0,  152,    2, 0x08 /* Private */,
+      24,    1,  153,    2, 0x08 /* Private */,
+      25,    0,  156,    2, 0x08 /* Private */,
+      26,    1,  157,    2, 0x08 /* Private */,
+      27,    0,  160,    2, 0x08 /* Private */,
+      28,    0,  161,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -150,8 +144,6 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void, 0x80000000 | 16,   17,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void,
-    QMetaType::Void,
 
        0        // eod
 };
@@ -160,7 +152,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
 {
     if (_c == QMetaObject::InvokeMetaMethod) {
         MainWindow *_t = static_cast<MainWindow *>(_o);
-        Q_UNUSED(_t)
         switch (_id) {
         case 0: _t->on_input_filter_computers_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 1: _t->on_button_remove_computer_clicked(); break;
@@ -183,8 +174,6 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 18: _t->displayComputersForScientistConnections((*reinterpret_cast< vector<Computer>(*)>(_a[1]))); break;
         case 19: _t->on_button_add_computer_connection_clicked(); break;
         case 20: _t->on_button_add_scientist_connection_clicked(); break;
-        case 21: _t->on_button_remove_scientist_connection_clicked(); break;
-        case 22: _t->on_button_remove_computer_connection_clicked(); break;
         default: ;
         }
     }
@@ -204,7 +193,7 @@ const QMetaObject *MainWindow::metaObject() const
 void *MainWindow::qt_metacast(const char *_clname)
 {
     if (!_clname) return Q_NULLPTR;
-    if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata0))
+    if (!strcmp(_clname, qt_meta_stringdata_MainWindow.stringdata))
         return static_cast<void*>(const_cast< MainWindow*>(this));
     return QMainWindow::qt_metacast(_clname);
 }
@@ -215,13 +204,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 23)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 23;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 23)
+        if (_id < 21)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 23;
+        _id -= 21;
     }
     return _id;
 }

@@ -286,7 +286,7 @@
                   <item>
                    <widget class="QPushButton" name="button_remove_computer_connection">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <property name="text">
                      <string>Remove Connection</string>
@@ -360,7 +360,7 @@
                   <item>
                    <widget class="QPushButton" name="button_remove_scientist_connection">
                     <property name="enabled">
-                     <bool>false</bool>
+                     <bool>true</bool>
                     </property>
                     <property name="text">
                      <string>Remove Connection</string>

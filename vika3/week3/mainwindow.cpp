@@ -302,6 +302,44 @@ void MainWindow::on_button_add_computer_connection_clicked()
         ui->statusBar->showMessage("Successfully added connection", 2500);
     }
     else {
-        int answer = QMessageBox::warning(this, "FAIL", "Failed to add connections");
+        QMessageBox::warning(this, "FAIL", "Failed to add connections");
+    }
+}
+
+void MainWindow::on_button_add_scientist_connection_clicked(){
+    AddConnectionsDialog addConnectDialog;
+    int addConnectReturnValue = addConnectDialog.exec();
+    if(addConnectReturnValue == 0){
+        displayAllScientistsForScientistConnections();
+        ui->statusBar->showMessage("Successfully added connection", 2500);
+    }
+    else {
+        QMessageBox::warning(this, "FAIL", "Failed to add connections");
+    }
+}
+
+void MainWindow::on_button_remove_scientist_connection_clicked()
+{
+    RemoveConnectionsDialog removeConnectDialog;
+    int removeConnectReturnValue = removeConnectDialog.exec();
+    if(removeConnectReturnValue == 0){
+        displayAllScientistsForScientistConnections();
+        ui->statusBar->showMessage("Successfully removed connection", 2500);
+    }
+    else {
+        QMessageBox::warning(this, "FAIL", "Failed to remove connections");
+    }
+}
+
+void MainWindow::on_button_remove_computer_connection_clicked()
+{
+    RemoveConnectionsDialog removeConnectDialog;
+    int removeConnectReturnValue = removeConnectDialog.exec();
+    if(removeConnectReturnValue == 0){
+        displayAllComputersForComputerConnections();
+        ui->statusBar->showMessage("Successfully removed connection", 2500);
+    }
+    else {
+        QMessageBox::warning(this, "FAIL", "Failed to remove connections");
     }
 }

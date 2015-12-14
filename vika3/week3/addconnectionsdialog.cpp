@@ -19,7 +19,6 @@ AddConnectionsDialog::~AddConnectionsDialog()
 
 void AddConnectionsDialog::on_button_add_connections_clicked()
 {
-
     int currentlySelectedComputerIndex = ui->list_computers_add_connections->currentIndex().row();
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
     int idOfComputer = currentlySelectedComputer.getId();
@@ -31,6 +30,11 @@ void AddConnectionsDialog::on_button_add_connections_clicked()
     int idOfScientist = currentlySelectedScientist.getId();
     string stringIdOfScientist = static_cast<ostringstream*>(&(ostringstream() << idOfScientist) )->str();
     qDebug() << currentlySelectedScientistIndex;
+
+    int answer = QMessageBox::question(this, "confirm", "Are you sure?");
+    if (answer == QMessageBox::No) {
+        return;
+    }
 
     bool success = connectionService.addConnection(stringIdOfScientist, stringIdOfComputer);
 

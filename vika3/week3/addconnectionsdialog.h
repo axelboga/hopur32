@@ -5,6 +5,7 @@
 #include <scientistservices.h>
 #include <computerservices.h>
 #include <compsciconnectionservices.h>
+#include <QMessageBox>
 
 
 

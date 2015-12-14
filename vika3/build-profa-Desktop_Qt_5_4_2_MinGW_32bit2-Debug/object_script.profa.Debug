@@ -9,6 +9,8 @@ INPUT(
 ./debug\scientistrepository.o
 ./debug\baserepository.o
 ./debug\addcomputerdialog.o
+./debug\addscientistdialog.o
 ./debug\moc_mainwindow.o
 ./debug\moc_addcomputerdialog.o
+./debug\moc_addscientistdialog.o
 );

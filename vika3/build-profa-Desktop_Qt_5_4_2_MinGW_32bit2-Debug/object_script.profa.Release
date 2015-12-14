@@ -9,6 +9,8 @@ INPUT(
 ./release\scientistrepository.o
 ./release\baserepository.o
 ./release\addcomputerdialog.o
+./release\addscientistdialog.o
 ./release\moc_mainwindow.o
 ./release\moc_addcomputerdialog.o
+./release\moc_addscientistdialog.o
 );

@@ -56,11 +56,15 @@ SOURCES       = ../week3/main.cpp \
 		../week3/scientist.cpp \
 		../week3/scientistservices.cpp \
 		../week3/scientistrepository.cpp \
+		../week3/compsciconnectionservices.cpp \
+		../week3/compsciconnectionrepository.cpp \
 		../week3/baserepository.cpp \
 		../week3/addcomputerdialog.cpp \
-		../week3/addscientistdialog.cpp moc_mainwindow.cpp \
+		../week3/addscientistdialog.cpp \
+		../week3/addconnectionsdialog.cpp moc_mainwindow.cpp \
 		moc_addcomputerdialog.cpp \
-		moc_addscientistdialog.cpp
+		moc_addscientistdialog.cpp \
+		moc_addconnectionsdialog.cpp
 OBJECTS       = main.o \
 		mainwindow.o \
 		computer.o \
@@ -69,12 +73,16 @@ OBJECTS       = main.o \
 		scientist.o \
 		scientistservices.o \
 		scientistrepository.o \
+		compsciconnectionservices.o \
+		compsciconnectionrepository.o \
 		baserepository.o \
 		addcomputerdialog.o \
 		addscientistdialog.o \
+		addconnectionsdialog.o \
 		moc_mainwindow.o \
 		moc_addcomputerdialog.o \
-		moc_addscientistdialog.o
+		moc_addscientistdialog.o \
+		moc_addconnectionsdialog.o
 DIST          = ../../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/qdevice.pri \
 		../../../../Qt/5.5/clang_64/mkspecs/features/device_config.prf \
@@ -196,6 +204,7 @@ DIST          = ../../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		../week3/.qmake.stash \
 		../../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -223,9 +232,12 @@ DIST          = ../../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../week3/scientist.h \
 		../week3/scientistservices.h \
 		../week3/scientistrepository.h \
+		../week3/compsciconnectionservices.h \
+		../week3/compsciconnectionrepository.h \
 		../week3/baserepository.h \
 		../week3/addcomputerdialog.h \
-		../week3/addscientistdialog.h ../week3/main.cpp \
+		../week3/addscientistdialog.h \
+		../week3/addconnectionsdialog.h ../week3/main.cpp \
 		../week3/mainwindow.cpp \
 		../week3/computer.cpp \
 		../week3/computerservices.cpp \
@@ -233,9 +245,12 @@ DIST          = ../../../../Qt/5.5/clang_64/mkspecs/features/spec_pre.prf \
 		../week3/scientist.cpp \
 		../week3/scientistservices.cpp \
 		../week3/scientistrepository.cpp \
+		../week3/compsciconnectionservices.cpp \
+		../week3/compsciconnectionrepository.cpp \
 		../week3/baserepository.cpp \
 		../week3/addcomputerdialog.cpp \
-		../week3/addscientistdialog.cpp
+		../week3/addscientistdialog.cpp \
+		../week3/addconnectionsdialog.cpp
 QMAKE_TARGET  = profa
 DESTDIR       = #avoid trailing-slash linebreak
 TARGET        = profa.app/Contents/MacOS/profa
@@ -273,7 +288,7 @@ first: all
 
 ####### Build rules
 
-$(TARGET): ui_mainwindow.h ui_addcomputerdialog.h ui_addscientistdialog.h $(OBJECTS)  
+$(TARGET): ui_mainwindow.h ui_addcomputerdialog.h ui_addscientistdialog.h ui_addconnectionsdialog.h $(OBJECTS)  
 	@test -d profa.app/Contents/MacOS/ || mkdir -p profa.app/Contents/MacOS/
 	$(LINK) $(LFLAGS) -o $(TARGET) $(OBJECTS) $(OBJCOMP) $(LIBS)
 
@@ -398,6 +413,7 @@ Makefile: ../week3/profa.pro ../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmak
 		../../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf \
+		.qmake.stash \
 		../../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf \
 		../../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf \
@@ -545,6 +561,7 @@ Makefile: ../week3/profa.pro ../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmak
 ../../../../Qt/5.5/clang_64/mkspecs/features/qt_config.prf:
 ../../../../Qt/5.5/clang_64/mkspecs/macx-clang/qmake.conf:
 ../../../../Qt/5.5/clang_64/mkspecs/features/spec_post.prf:
+.qmake.stash:
 ../../../../Qt/5.5/clang_64/mkspecs/features/exclusive_builds.prf:
 ../../../../Qt/5.5/clang_64/mkspecs/features/default_pre.prf:
 ../../../../Qt/5.5/clang_64/mkspecs/features/mac/default_pre.prf:
@@ -599,9 +616,9 @@ dist: distdir FORCE
 distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
-	$(COPY_FILE) --parents ../week3/mainwindow.h ../week3/computer.h ../week3/computerservices.h ../week3/computerrepository.h ../week3/scientist.h ../week3/scientistservices.h ../week3/scientistrepository.h ../week3/baserepository.h ../week3/addcomputerdialog.h ../week3/addscientistdialog.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../week3/main.cpp ../week3/mainwindow.cpp ../week3/computer.cpp ../week3/computerservices.cpp ../week3/computerrepository.cpp ../week3/scientist.cpp ../week3/scientistservices.cpp ../week3/scientistrepository.cpp ../week3/baserepository.cpp ../week3/addcomputerdialog.cpp ../week3/addscientistdialog.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../week3/mainwindow.ui ../week3/addcomputerdialog.ui ../week3/addscientistdialog.ui $(DISTDIR)/
+	$(COPY_FILE) --parents ../week3/mainwindow.h ../week3/computer.h ../week3/computerservices.h ../week3/computerrepository.h ../week3/scientist.h ../week3/scientistservices.h ../week3/scientistrepository.h ../week3/compsciconnectionservices.h ../week3/compsciconnectionrepository.h ../week3/baserepository.h ../week3/addcomputerdialog.h ../week3/addscientistdialog.h ../week3/addconnectionsdialog.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../week3/main.cpp ../week3/mainwindow.cpp ../week3/computer.cpp ../week3/computerservices.cpp ../week3/computerrepository.cpp ../week3/scientist.cpp ../week3/scientistservices.cpp ../week3/scientistrepository.cpp ../week3/compsciconnectionservices.cpp ../week3/compsciconnectionrepository.cpp ../week3/baserepository.cpp ../week3/addcomputerdialog.cpp ../week3/addscientistdialog.cpp ../week3/addconnectionsdialog.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../week3/mainwindow.ui ../week3/addcomputerdialog.ui ../week3/addscientistdialog.ui ../week3/addconnectionsdialog.ui $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -627,9 +644,9 @@ compiler_objective_c_make_all:
 compiler_objective_c_clean:
 compiler_rcc_make_all:
 compiler_rcc_clean:
-compiler_moc_header_make_all: moc_mainwindow.cpp moc_addcomputerdialog.cpp moc_addscientistdialog.cpp
+compiler_moc_header_make_all: moc_mainwindow.cpp moc_addcomputerdialog.cpp moc_addscientistdialog.cpp moc_addconnectionsdialog.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_mainwindow.cpp moc_addcomputerdialog.cpp moc_addscientistdialog.cpp
+	-$(DEL_FILE) moc_mainwindow.cpp moc_addcomputerdialog.cpp moc_addscientistdialog.cpp moc_addconnectionsdialog.cpp
 moc_mainwindow.cpp: ../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMainWindow \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmainwindow.h \
 		../week3/computerservices.h \
@@ -661,6 +678,7 @@ moc_mainwindow.cpp: ../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/
 		../week3/addscientistdialog.h \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../week3/addconnectionsdialog.h \
 		../week3/mainwindow.h
 	/Users/hafdisinga/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hafdisinga/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/hafdisinga/Desktop/hopur32/vika3/week3 -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/hafdisinga/Qt/5.5/clang_64/lib ../week3/mainwindow.h -o moc_mainwindow.cpp
 
@@ -716,11 +734,39 @@ moc_addscientistdialog.cpp: ../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/
 		../week3/addscientistdialog.h
 	/Users/hafdisinga/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hafdisinga/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/hafdisinga/Desktop/hopur32/vika3/week3 -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/hafdisinga/Qt/5.5/clang_64/lib ../week3/addscientistdialog.h -o moc_addscientistdialog.cpp
 
+moc_addconnectionsdialog.cpp: ../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../week3/scientistservices.h \
+		../week3/scientist.h \
+		../week3/scientistrepository.h \
+		../week3/baserepository.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../week3/computerservices.h \
+		../week3/computer.h \
+		../week3/computerrepository.h \
+		../week3/addconnectionsdialog.h
+	/Users/hafdisinga/Qt/5.5/clang_64/bin/moc $(DEFINES) -D__APPLE__ -D__GNUC__=4 -D__APPLE_CC__ -I/Users/hafdisinga/Qt/5.5/clang_64/mkspecs/macx-clang -I/Users/hafdisinga/Desktop/hopur32/vika3/week3 -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtWidgets.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtGui.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtSql.framework/Headers -I/Users/hafdisinga/Qt/5.5/clang_64/lib/QtCore.framework/Headers -I. -F/Users/hafdisinga/Qt/5.5/clang_64/lib ../week3/addconnectionsdialog.h -o moc_addconnectionsdialog.cpp
+
 compiler_moc_source_make_all:
 compiler_moc_source_clean:
-compiler_uic_make_all: ui_mainwindow.h ui_addcomputerdialog.h ui_addscientistdialog.h
+compiler_uic_make_all: ui_mainwindow.h ui_addcomputerdialog.h ui_addscientistdialog.h ui_addconnectionsdialog.h
 compiler_uic_clean:
-	-$(DEL_FILE) ui_mainwindow.h ui_addcomputerdialog.h ui_addscientistdialog.h
+	-$(DEL_FILE) ui_mainwindow.h ui_addcomputerdialog.h ui_addscientistdialog.h ui_addconnectionsdialog.h
 ui_mainwindow.h: ../week3/mainwindow.ui
 	/Users/hafdisinga/Qt/5.5/clang_64/bin/uic ../week3/mainwindow.ui -o ui_mainwindow.h
 
@@ -729,6 +775,9 @@ ui_addcomputerdialog.h: ../week3/addcomputerdialog.ui
 
 ui_addscientistdialog.h: ../week3/addscientistdialog.ui
 	/Users/hafdisinga/Qt/5.5/clang_64/bin/uic ../week3/addscientistdialog.ui -o ui_addscientistdialog.h
+
+ui_addconnectionsdialog.h: ../week3/addconnectionsdialog.ui
+	/Users/hafdisinga/Qt/5.5/clang_64/bin/uic ../week3/addconnectionsdialog.ui -o ui_addconnectionsdialog.h
 
 compiler_rez_source_make_all:
 compiler_rez_source_clean:
@@ -774,6 +823,7 @@ main.o: ../week3/main.cpp ../week3/mainwindow.h \
 		../week3/addscientistdialog.h \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../week3/addconnectionsdialog.h \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QApplication \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qapplication.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o ../week3/main.cpp
@@ -810,6 +860,7 @@ mainwindow.o: ../week3/mainwindow.cpp ../week3/mainwindow.h \
 		../week3/addscientistdialog.h \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QMessageBox \
 		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qmessagebox.h \
+		../week3/addconnectionsdialog.h \
 		ui_mainwindow.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o mainwindow.o ../week3/mainwindow.cpp
 
@@ -905,6 +956,49 @@ scientistrepository.o: ../week3/scientistrepository.cpp ../week3/scientistreposi
 		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o scientistrepository.o ../week3/scientistrepository.cpp
 
+compsciconnectionservices.o: ../week3/compsciconnectionservices.cpp ../week3/compsciconnectionservices.h \
+		../week3/compsciconnectionrepository.h \
+		../week3/baserepository.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../week3/computer.h \
+		../week3/scientist.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o compsciconnectionservices.o ../week3/compsciconnectionservices.cpp
+
+compsciconnectionrepository.o: ../week3/compsciconnectionrepository.cpp ../week3/compsciconnectionrepository.h \
+		../week3/baserepository.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o compsciconnectionrepository.o ../week3/compsciconnectionrepository.cpp
+
 baserepository.o: ../week3/baserepository.cpp ../week3/baserepository.h \
 		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
 		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
@@ -980,6 +1074,35 @@ addscientistdialog.o: ../week3/addscientistdialog.cpp ../week3/addscientistdialo
 		ui_addscientistdialog.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addscientistdialog.o ../week3/addscientistdialog.cpp
 
+addconnectionsdialog.o: ../week3/addconnectionsdialog.cpp ../week3/addconnectionsdialog.h \
+		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/QDialog \
+		../../../../Qt/5.5/clang_64/lib/QtWidgets.framework/Headers/qdialog.h \
+		../week3/scientistservices.h \
+		../week3/scientist.h \
+		../week3/scientistrepository.h \
+		../week3/baserepository.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/QtSql \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsql.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldatabase.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriver.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqldriverplugin.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlerror.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlfield.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlindex.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquery.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrecord.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlresult.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlquerymodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaldelegate.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqlrelationaltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qsqltablemodel.h \
+		../../../../Qt/5.5/clang_64/lib/QtSql.framework/Headers/qtsqlversion.h \
+		../week3/computerservices.h \
+		../week3/computer.h \
+		../week3/computerrepository.h \
+		ui_addconnectionsdialog.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o addconnectionsdialog.o ../week3/addconnectionsdialog.cpp
+
 moc_mainwindow.o: moc_mainwindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_mainwindow.o moc_mainwindow.cpp
 
@@ -988,6 +1111,9 @@ moc_addcomputerdialog.o: moc_addcomputerdialog.cpp
 
 moc_addscientistdialog.o: moc_addscientistdialog.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addscientistdialog.o moc_addscientistdialog.cpp
+
+moc_addconnectionsdialog.o: moc_addconnectionsdialog.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_addconnectionsdialog.o moc_addconnectionsdialog.cpp
 
 ####### Install
 

@@ -292,3 +292,16 @@ void MainWindow::displayComputersForScientistConnections(vector<Computer> comput
     }
     currentlyDisplayedComputers = computers;
 }
+
+void MainWindow::on_button_add_computer_connection_clicked()
+{
+    AddConnectionsDialog addConnectDialog;
+    int addConnectReturnValue = addConnectDialog.exec();
+    if(addConnectReturnValue == 0){
+        displayAllComputersForComputerConnections();
+        ui->statusBar->showMessage("Successfully added connection", 2500);
+    }
+    else {
+        int answer = QMessageBox::warning(this, "FAIL", "Failed to add connections");
+    }
+}

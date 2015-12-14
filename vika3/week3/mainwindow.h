@@ -7,6 +7,7 @@
 #include <vector>
 #include <iostream>
 #include <addscientistdialog.h>
+#include <addconnectionsdialog.h>
 using namespace std;
 
 
@@ -42,6 +43,8 @@ private slots:
     void displayScientistsForScientistConnections(vector<Scientist> scientists);
     void displayAllScientistsForScientistConnections();
     void displayComputersForScientistConnections(vector<Computer> computers);
+    
+    void on_button_add_computer_connection_clicked();
 
 private:
     string getCurrentOrderBy();
@@ -55,6 +58,8 @@ private:
     void displayScientist(vector<Scientist> scientists);
     ScientistServices sciService;
     vector<Scientist> currentlyDisplayedScientists;
+    
+    
 
 };
 

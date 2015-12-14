@@ -14,8 +14,11 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QButtonGroup>
 #include <QtWidgets/QComboBox>
+#include <QtWidgets/QHBoxLayout>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QLineEdit>
+#include <QtWidgets/QListWidget>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -46,17 +49,47 @@ public:
     QPushButton *button_remove_computer;
     QPushButton *button_add_computer;
     QWidget *tab_scientist;
-    QWidget *verticalLayoutWidget_5;
+    QVBoxLayout *verticalLayout_21;
     QVBoxLayout *verticalLayout_7;
     QLineEdit *input_filter_scientists;
-    QWidget *verticalLayoutWidget_6;
     QVBoxLayout *verticalLayout_8;
     QTableWidget *table_scientists;
-    QWidget *verticalLayoutWidget_7;
     QVBoxLayout *verticalLayout_9;
     QVBoxLayout *verticalLayout_10;
     QPushButton *button_remove_scientist;
     QPushButton *button_add_scientist;
+    QWidget *tab_connections;
+    QVBoxLayout *verticalLayout_18;
+    QVBoxLayout *verticalLayout_11;
+    QTabWidget *connections_tabs;
+    QWidget *tab_computer_connections;
+    QVBoxLayout *verticalLayout_20;
+    QPushButton *button_see_connections_computer;
+    QHBoxLayout *horizontalLayout_4;
+    QLabel *label_computers_connections_computer;
+    QLabel *label_computers_connections_scientist;
+    QVBoxLayout *verticalLayout_12;
+    QHBoxLayout *horizontalLayout;
+    QListWidget *computer_list_computer_connections;
+    QListWidget *scientist_list_computer_connections;
+    QVBoxLayout *verticalLayout_13;
+    QVBoxLayout *verticalLayout_14;
+    QPushButton *button_add_computer_connection;
+    QPushButton *button_remove_computer_connection;
+    QWidget *tab_scientist_connections;
+    QVBoxLayout *verticalLayout_19;
+    QPushButton *button_see_connections_scientist;
+    QHBoxLayout *horizontalLayout_3;
+    QLabel *label_scientists_connections_scientist;
+    QLabel *label_scientists_connection_computer;
+    QVBoxLayout *verticalLayout_15;
+    QHBoxLayout *horizontalLayout_2;
+    QListWidget *scientist_list_scientist_connections;
+    QListWidget *computer_list_scientist_connections;
+    QVBoxLayout *verticalLayout_16;
+    QVBoxLayout *verticalLayout_17;
+    QPushButton *button_add_scientist_connection;
+    QPushButton *button_remove_scientist_connection;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -152,28 +185,25 @@ public:
         tabs->addTab(tab_computer, QString());
         tab_scientist = new QWidget();
         tab_scientist->setObjectName(QStringLiteral("tab_scientist"));
-        verticalLayoutWidget_5 = new QWidget(tab_scientist);
-        verticalLayoutWidget_5->setObjectName(QStringLiteral("verticalLayoutWidget_5"));
-        verticalLayoutWidget_5->setGeometry(QRect(10, 10, 551, 51));
-        verticalLayout_7 = new QVBoxLayout(verticalLayoutWidget_5);
+        verticalLayout_21 = new QVBoxLayout(tab_scientist);
+        verticalLayout_21->setSpacing(6);
+        verticalLayout_21->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_21->setObjectName(QStringLiteral("verticalLayout_21"));
+        verticalLayout_7 = new QVBoxLayout();
         verticalLayout_7->setSpacing(6);
-        verticalLayout_7->setContentsMargins(11, 11, 11, 11);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
-        verticalLayout_7->setContentsMargins(0, 0, 0, 0);
-        input_filter_scientists = new QLineEdit(verticalLayoutWidget_5);
+        input_filter_scientists = new QLineEdit(tab_scientist);
         input_filter_scientists->setObjectName(QStringLiteral("input_filter_scientists"));
 
         verticalLayout_7->addWidget(input_filter_scientists);
 
-        verticalLayoutWidget_6 = new QWidget(tab_scientist);
-        verticalLayoutWidget_6->setObjectName(QStringLiteral("verticalLayoutWidget_6"));
-        verticalLayoutWidget_6->setGeometry(QRect(10, 70, 541, 311));
-        verticalLayout_8 = new QVBoxLayout(verticalLayoutWidget_6);
+
+        verticalLayout_21->addLayout(verticalLayout_7);
+
+        verticalLayout_8 = new QVBoxLayout();
         verticalLayout_8->setSpacing(6);
-        verticalLayout_8->setContentsMargins(11, 11, 11, 11);
         verticalLayout_8->setObjectName(QStringLiteral("verticalLayout_8"));
-        verticalLayout_8->setContentsMargins(0, 0, 0, 0);
-        table_scientists = new QTableWidget(verticalLayoutWidget_6);
+        table_scientists = new QTableWidget(tab_scientist);
         if (table_scientists->columnCount() < 5)
             table_scientists->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
@@ -194,24 +224,22 @@ public:
 
         verticalLayout_8->addWidget(table_scientists);
 
-        verticalLayoutWidget_7 = new QWidget(tab_scientist);
-        verticalLayoutWidget_7->setObjectName(QStringLiteral("verticalLayoutWidget_7"));
-        verticalLayoutWidget_7->setGeometry(QRect(10, 400, 541, 121));
-        verticalLayout_9 = new QVBoxLayout(verticalLayoutWidget_7);
+
+        verticalLayout_21->addLayout(verticalLayout_8);
+
+        verticalLayout_9 = new QVBoxLayout();
         verticalLayout_9->setSpacing(6);
-        verticalLayout_9->setContentsMargins(11, 11, 11, 11);
         verticalLayout_9->setObjectName(QStringLiteral("verticalLayout_9"));
-        verticalLayout_9->setContentsMargins(0, 0, 0, 0);
         verticalLayout_10 = new QVBoxLayout();
         verticalLayout_10->setSpacing(6);
         verticalLayout_10->setObjectName(QStringLiteral("verticalLayout_10"));
-        button_remove_scientist = new QPushButton(verticalLayoutWidget_7);
+        button_remove_scientist = new QPushButton(tab_scientist);
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
         button_remove_scientist->setEnabled(false);
 
         verticalLayout_10->addWidget(button_remove_scientist);
 
-        button_add_scientist = new QPushButton(verticalLayoutWidget_7);
+        button_add_scientist = new QPushButton(tab_scientist);
         button_add_scientist->setObjectName(QStringLiteral("button_add_scientist"));
 
         verticalLayout_10->addWidget(button_add_scientist);
@@ -219,7 +247,176 @@ public:
 
         verticalLayout_9->addLayout(verticalLayout_10);
 
+
+        verticalLayout_21->addLayout(verticalLayout_9);
+
         tabs->addTab(tab_scientist, QString());
+        tab_connections = new QWidget();
+        tab_connections->setObjectName(QStringLiteral("tab_connections"));
+        verticalLayout_18 = new QVBoxLayout(tab_connections);
+        verticalLayout_18->setSpacing(6);
+        verticalLayout_18->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_18->setObjectName(QStringLiteral("verticalLayout_18"));
+        verticalLayout_11 = new QVBoxLayout();
+        verticalLayout_11->setSpacing(6);
+        verticalLayout_11->setObjectName(QStringLiteral("verticalLayout_11"));
+        connections_tabs = new QTabWidget(tab_connections);
+        connections_tabs->setObjectName(QStringLiteral("connections_tabs"));
+        tab_computer_connections = new QWidget();
+        tab_computer_connections->setObjectName(QStringLiteral("tab_computer_connections"));
+        verticalLayout_20 = new QVBoxLayout(tab_computer_connections);
+        verticalLayout_20->setSpacing(6);
+        verticalLayout_20->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_20->setObjectName(QStringLiteral("verticalLayout_20"));
+        button_see_connections_computer = new QPushButton(tab_computer_connections);
+        button_see_connections_computer->setObjectName(QStringLiteral("button_see_connections_computer"));
+        button_see_connections_computer->setEnabled(false);
+
+        verticalLayout_20->addWidget(button_see_connections_computer);
+
+        horizontalLayout_4 = new QHBoxLayout();
+        horizontalLayout_4->setSpacing(6);
+        horizontalLayout_4->setObjectName(QStringLiteral("horizontalLayout_4"));
+        label_computers_connections_computer = new QLabel(tab_computer_connections);
+        label_computers_connections_computer->setObjectName(QStringLiteral("label_computers_connections_computer"));
+
+        horizontalLayout_4->addWidget(label_computers_connections_computer);
+
+        label_computers_connections_scientist = new QLabel(tab_computer_connections);
+        label_computers_connections_scientist->setObjectName(QStringLiteral("label_computers_connections_scientist"));
+
+        horizontalLayout_4->addWidget(label_computers_connections_scientist);
+
+
+        verticalLayout_20->addLayout(horizontalLayout_4);
+
+        verticalLayout_12 = new QVBoxLayout();
+        verticalLayout_12->setSpacing(6);
+        verticalLayout_12->setObjectName(QStringLiteral("verticalLayout_12"));
+        horizontalLayout = new QHBoxLayout();
+        horizontalLayout->setSpacing(6);
+        horizontalLayout->setObjectName(QStringLiteral("horizontalLayout"));
+        computer_list_computer_connections = new QListWidget(tab_computer_connections);
+        computer_list_computer_connections->setObjectName(QStringLiteral("computer_list_computer_connections"));
+
+        horizontalLayout->addWidget(computer_list_computer_connections);
+
+        scientist_list_computer_connections = new QListWidget(tab_computer_connections);
+        scientist_list_computer_connections->setObjectName(QStringLiteral("scientist_list_computer_connections"));
+
+        horizontalLayout->addWidget(scientist_list_computer_connections);
+
+
+        verticalLayout_12->addLayout(horizontalLayout);
+
+
+        verticalLayout_20->addLayout(verticalLayout_12);
+
+        verticalLayout_13 = new QVBoxLayout();
+        verticalLayout_13->setSpacing(6);
+        verticalLayout_13->setObjectName(QStringLiteral("verticalLayout_13"));
+        verticalLayout_14 = new QVBoxLayout();
+        verticalLayout_14->setSpacing(6);
+        verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
+        button_add_computer_connection = new QPushButton(tab_computer_connections);
+        button_add_computer_connection->setObjectName(QStringLiteral("button_add_computer_connection"));
+
+        verticalLayout_14->addWidget(button_add_computer_connection);
+
+        button_remove_computer_connection = new QPushButton(tab_computer_connections);
+        button_remove_computer_connection->setObjectName(QStringLiteral("button_remove_computer_connection"));
+        button_remove_computer_connection->setEnabled(false);
+
+        verticalLayout_14->addWidget(button_remove_computer_connection);
+
+
+        verticalLayout_13->addLayout(verticalLayout_14);
+
+
+        verticalLayout_20->addLayout(verticalLayout_13);
+
+        connections_tabs->addTab(tab_computer_connections, QString());
+        tab_scientist_connections = new QWidget();
+        tab_scientist_connections->setObjectName(QStringLiteral("tab_scientist_connections"));
+        verticalLayout_19 = new QVBoxLayout(tab_scientist_connections);
+        verticalLayout_19->setSpacing(6);
+        verticalLayout_19->setContentsMargins(11, 11, 11, 11);
+        verticalLayout_19->setObjectName(QStringLiteral("verticalLayout_19"));
+        button_see_connections_scientist = new QPushButton(tab_scientist_connections);
+        button_see_connections_scientist->setObjectName(QStringLiteral("button_see_connections_scientist"));
+        button_see_connections_scientist->setEnabled(false);
+
+        verticalLayout_19->addWidget(button_see_connections_scientist);
+
+        horizontalLayout_3 = new QHBoxLayout();
+        horizontalLayout_3->setSpacing(6);
+        horizontalLayout_3->setObjectName(QStringLiteral("horizontalLayout_3"));
+        label_scientists_connections_scientist = new QLabel(tab_scientist_connections);
+        label_scientists_connections_scientist->setObjectName(QStringLiteral("label_scientists_connections_scientist"));
+
+        horizontalLayout_3->addWidget(label_scientists_connections_scientist);
+
+        label_scientists_connection_computer = new QLabel(tab_scientist_connections);
+        label_scientists_connection_computer->setObjectName(QStringLiteral("label_scientists_connection_computer"));
+
+        horizontalLayout_3->addWidget(label_scientists_connection_computer);
+
+
+        verticalLayout_19->addLayout(horizontalLayout_3);
+
+        verticalLayout_15 = new QVBoxLayout();
+        verticalLayout_15->setSpacing(6);
+        verticalLayout_15->setObjectName(QStringLiteral("verticalLayout_15"));
+        horizontalLayout_2 = new QHBoxLayout();
+        horizontalLayout_2->setSpacing(6);
+        horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
+        scientist_list_scientist_connections = new QListWidget(tab_scientist_connections);
+        scientist_list_scientist_connections->setObjectName(QStringLiteral("scientist_list_scientist_connections"));
+
+        horizontalLayout_2->addWidget(scientist_list_scientist_connections);
+
+        computer_list_scientist_connections = new QListWidget(tab_scientist_connections);
+        computer_list_scientist_connections->setObjectName(QStringLiteral("computer_list_scientist_connections"));
+
+        horizontalLayout_2->addWidget(computer_list_scientist_connections);
+
+
+        verticalLayout_15->addLayout(horizontalLayout_2);
+
+
+        verticalLayout_19->addLayout(verticalLayout_15);
+
+        verticalLayout_16 = new QVBoxLayout();
+        verticalLayout_16->setSpacing(6);
+        verticalLayout_16->setObjectName(QStringLiteral("verticalLayout_16"));
+        verticalLayout_17 = new QVBoxLayout();
+        verticalLayout_17->setSpacing(6);
+        verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
+        button_add_scientist_connection = new QPushButton(tab_scientist_connections);
+        button_add_scientist_connection->setObjectName(QStringLiteral("button_add_scientist_connection"));
+
+        verticalLayout_17->addWidget(button_add_scientist_connection);
+
+        button_remove_scientist_connection = new QPushButton(tab_scientist_connections);
+        button_remove_scientist_connection->setObjectName(QStringLiteral("button_remove_scientist_connection"));
+        button_remove_scientist_connection->setEnabled(false);
+
+        verticalLayout_17->addWidget(button_remove_scientist_connection);
+
+
+        verticalLayout_16->addLayout(verticalLayout_17);
+
+
+        verticalLayout_19->addLayout(verticalLayout_16);
+
+        connections_tabs->addTab(tab_scientist_connections, QString());
+
+        verticalLayout_11->addWidget(connections_tabs);
+
+
+        verticalLayout_18->addLayout(verticalLayout_11);
+
+        tabs->addTab(tab_connections, QString());
 
         verticalLayout_2->addWidget(tabs);
 
@@ -237,7 +434,8 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(1);
+        tabs->setCurrentIndex(2);
+        connections_tabs->setCurrentIndex(1);
 
 
         QMetaObject::connectSlotsByName(MainWindow);
@@ -272,6 +470,22 @@ public:
         button_remove_scientist->setText(QApplication::translate("MainWindow", "Remove selected Scientist", 0));
         button_add_scientist->setText(QApplication::translate("MainWindow", "Add a new scientist", 0));
         tabs->setTabText(tabs->indexOf(tab_scientist), QApplication::translate("MainWindow", "Scientists", 0));
+#ifndef QT_NO_ACCESSIBILITY
+        tab_connections->setAccessibleName(QString());
+#endif // QT_NO_ACCESSIBILITY
+        button_see_connections_computer->setText(QApplication::translate("MainWindow", "See connections for selected computer", 0));
+        label_computers_connections_computer->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Computers</span></p></body></html>", 0));
+        label_computers_connections_scientist->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Scientists</span></p></body></html>", 0));
+        button_add_computer_connection->setText(QApplication::translate("MainWindow", "Add Connection", 0));
+        button_remove_computer_connection->setText(QApplication::translate("MainWindow", "Remove Connection", 0));
+        connections_tabs->setTabText(connections_tabs->indexOf(tab_computer_connections), QApplication::translate("MainWindow", "Computer Connections", 0));
+        button_see_connections_scientist->setText(QApplication::translate("MainWindow", "See connection for selected scientist", 0));
+        label_scientists_connections_scientist->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Scientists</span></p></body></html>", 0));
+        label_scientists_connection_computer->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Computers</span></p></body></html>", 0));
+        button_add_scientist_connection->setText(QApplication::translate("MainWindow", "Add Connection", 0));
+        button_remove_scientist_connection->setText(QApplication::translate("MainWindow", "Remove Connection", 0));
+        connections_tabs->setTabText(connections_tabs->indexOf(tab_scientist_connections), QApplication::translate("MainWindow", "Scientist Connections", 0));
+        tabs->setTabText(tabs->indexOf(tab_connections), QApplication::translate("MainWindow", "Connections", 0));
     } // retranslateUi
 
 };

@@ -7,10 +7,14 @@ INPUT(
 ./debug\scientist.o
 ./debug\scientistservices.o
 ./debug\scientistrepository.o
+./debug\compsciconnectionservices.o
+./debug\compsciconnectionrepository.o
 ./debug\baserepository.o
 ./debug\addcomputerdialog.o
 ./debug\addscientistdialog.o
+./debug\addconnectionsdialog.o
 ./debug\moc_mainwindow.o
 ./debug\moc_addcomputerdialog.o
 ./debug\moc_addscientistdialog.o
+./debug\moc_addconnectionsdialog.o
 );

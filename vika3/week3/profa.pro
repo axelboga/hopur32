@@ -21,9 +21,12 @@ SOURCES += main.cpp \
         scientist.cpp \
         scientistservices.cpp \
         scientistrepository.cpp \
+        compsciconnectionservices.cpp \
+        compsciconnectionrepository.cpp \
         baserepository.cpp \
     addcomputerdialog.cpp \
-    addscientistdialog.cpp
+    addscientistdialog.cpp \
+    addconnectionsdialog.cpp
 
 HEADERS  += mainwindow.h \
         computer.h \
@@ -32,12 +35,16 @@ HEADERS  += mainwindow.h \
         scientist.h \
         scientistservices.h \
         scientistrepository.h \
+        compsciconnectionservices.h \
+        compsciconnectionrepository.h \
         baserepository.h \
     addcomputerdialog.h \
-    addscientistdialog.h
+    addscientistdialog.h \
+    addconnectionsdialog.h
 
 FORMS    += mainwindow.ui \
     addcomputerdialog.ui \
-    addscientistdialog.ui
+    addscientistdialog.ui \
+    addconnectionsdialog.ui
 
 DISTFILES +=

@@ -19,8 +19,8 @@
 
 QT_BEGIN_MOC_NAMESPACE
 struct qt_meta_stringdata_MainWindow_t {
-    QByteArrayData data[13];
-    char stringdata[328];
+    QByteArrayData data[29];
+    char stringdata[896];
 };
 #define QT_MOC_LITERAL(idx, ofs, len) \
     Q_STATIC_BYTE_ARRAY_DATA_HEADER_INITIALIZER_WITH_OFFSET(len, \
@@ -41,7 +41,23 @@ QT_MOC_LITERAL(8, 163, 30), // "on_button_add_computer_clicked"
 QT_MOC_LITERAL(9, 194, 34), // "on_button_remove_scientist_cl..."
 QT_MOC_LITERAL(10, 229, 27), // "on_table_scientists_clicked"
 QT_MOC_LITERAL(11, 257, 38), // "on_input_filter_scientists_te..."
-QT_MOC_LITERAL(12, 296, 31) // "on_button_add_scientist_clicked"
+QT_MOC_LITERAL(12, 296, 31), // "on_button_add_scientist_clicked"
+QT_MOC_LITERAL(13, 328, 42), // "on_button_see_connections_com..."
+QT_MOC_LITERAL(14, 371, 45), // "on_computer_list_computer_con..."
+QT_MOC_LITERAL(15, 417, 38), // "displayComputersForComputerCo..."
+QT_MOC_LITERAL(16, 456, 16), // "vector<Computer>"
+QT_MOC_LITERAL(17, 473, 9), // "computers"
+QT_MOC_LITERAL(18, 483, 41), // "displayAllComputersForCompute..."
+QT_MOC_LITERAL(19, 525, 39), // "displayScientistsForComputerC..."
+QT_MOC_LITERAL(20, 565, 17), // "vector<Scientist>"
+QT_MOC_LITERAL(21, 583, 10), // "scientists"
+QT_MOC_LITERAL(22, 594, 47), // "on_scientist_list_scientist_c..."
+QT_MOC_LITERAL(23, 642, 43), // "on_button_see_connections_sci..."
+QT_MOC_LITERAL(24, 686, 40), // "displayScientistsForScientist..."
+QT_MOC_LITERAL(25, 727, 43), // "displayAllScientistsForScient..."
+QT_MOC_LITERAL(26, 771, 39), // "displayComputersForScientistC..."
+QT_MOC_LITERAL(27, 811, 41), // "on_button_add_computer_connec..."
+QT_MOC_LITERAL(28, 853, 42) // "on_button_add_scientist_conne..."
 
     },
     "MainWindow\0on_input_filter_computers_textChanged\0"
@@ -52,7 +68,21 @@ QT_MOC_LITERAL(12, 296, 31) // "on_button_add_scientist_clicked"
     "on_button_remove_scientist_clicked\0"
     "on_table_scientists_clicked\0"
     "on_input_filter_scientists_textChanged\0"
-    "on_button_add_scientist_clicked"
+    "on_button_add_scientist_clicked\0"
+    "on_button_see_connections_computer_clicked\0"
+    "on_computer_list_computer_connections_clicked\0"
+    "displayComputersForComputerConnections\0"
+    "vector<Computer>\0computers\0"
+    "displayAllComputersForComputerConnections\0"
+    "displayScientistsForComputerConnections\0"
+    "vector<Scientist>\0scientists\0"
+    "on_scientist_list_scientist_connections_clicked\0"
+    "on_button_see_connections_scientist_clicked\0"
+    "displayScientistsForScientistConnections\0"
+    "displayAllScientistsForScientistConnections\0"
+    "displayComputersForScientistConnections\0"
+    "on_button_add_computer_connection_clicked\0"
+    "on_button_add_scientist_connection_clicked"
 };
 #undef QT_MOC_LITERAL
 
@@ -62,7 +92,7 @@ static const uint qt_meta_data_MainWindow[] = {
        7,       // revision
        0,       // classname
        0,    0, // classinfo
-       9,   14, // methods
+      21,   14, // methods
        0,    0, // properties
        0,    0, // enums/sets
        0,    0, // constructors
@@ -70,15 +100,27 @@ static const uint qt_meta_data_MainWindow[] = {
        0,       // signalCount
 
  // slots: name, argc, parameters, tag, flags
-       1,    1,   59,    2, 0x08 /* Private */,
-       4,    0,   62,    2, 0x08 /* Private */,
-       5,    1,   63,    2, 0x08 /* Private */,
-       7,    1,   66,    2, 0x08 /* Private */,
-       8,    0,   69,    2, 0x08 /* Private */,
-       9,    0,   70,    2, 0x08 /* Private */,
-      10,    1,   71,    2, 0x08 /* Private */,
-      11,    1,   74,    2, 0x08 /* Private */,
-      12,    0,   77,    2, 0x08 /* Private */,
+       1,    1,  119,    2, 0x08 /* Private */,
+       4,    0,  122,    2, 0x08 /* Private */,
+       5,    1,  123,    2, 0x08 /* Private */,
+       7,    1,  126,    2, 0x08 /* Private */,
+       8,    0,  129,    2, 0x08 /* Private */,
+       9,    0,  130,    2, 0x08 /* Private */,
+      10,    1,  131,    2, 0x08 /* Private */,
+      11,    1,  134,    2, 0x08 /* Private */,
+      12,    0,  137,    2, 0x08 /* Private */,
+      13,    0,  138,    2, 0x08 /* Private */,
+      14,    1,  139,    2, 0x08 /* Private */,
+      15,    1,  142,    2, 0x08 /* Private */,
+      18,    0,  145,    2, 0x08 /* Private */,
+      19,    1,  146,    2, 0x08 /* Private */,
+      22,    1,  149,    2, 0x08 /* Private */,
+      23,    0,  152,    2, 0x08 /* Private */,
+      24,    1,  153,    2, 0x08 /* Private */,
+      25,    0,  156,    2, 0x08 /* Private */,
+      26,    1,  157,    2, 0x08 /* Private */,
+      27,    0,  160,    2, 0x08 /* Private */,
+      28,    0,  161,    2, 0x08 /* Private */,
 
  // slots: parameters
     QMetaType::Void, QMetaType::QString,    3,
@@ -89,6 +131,18 @@ static const uint qt_meta_data_MainWindow[] = {
     QMetaType::Void,
     QMetaType::Void, QMetaType::QModelIndex,    6,
     QMetaType::Void, QMetaType::QString,    3,
+    QMetaType::Void,
+    QMetaType::Void,
+    QMetaType::Void, QMetaType::QModelIndex,    6,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 20,   21,
+    QMetaType::Void, QMetaType::QModelIndex,    6,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 20,   21,
+    QMetaType::Void,
+    QMetaType::Void, 0x80000000 | 16,   17,
+    QMetaType::Void,
     QMetaType::Void,
 
        0        // eod
@@ -108,6 +162,18 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 6: _t->on_table_scientists_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
         case 7: _t->on_input_filter_scientists_textChanged((*reinterpret_cast< const QString(*)>(_a[1]))); break;
         case 8: _t->on_button_add_scientist_clicked(); break;
+        case 9: _t->on_button_see_connections_computer_clicked(); break;
+        case 10: _t->on_computer_list_computer_connections_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 11: _t->displayComputersForComputerConnections((*reinterpret_cast< vector<Computer>(*)>(_a[1]))); break;
+        case 12: _t->displayAllComputersForComputerConnections(); break;
+        case 13: _t->displayScientistsForComputerConnections((*reinterpret_cast< vector<Scientist>(*)>(_a[1]))); break;
+        case 14: _t->on_scientist_list_scientist_connections_clicked((*reinterpret_cast< const QModelIndex(*)>(_a[1]))); break;
+        case 15: _t->on_button_see_connections_scientist_clicked(); break;
+        case 16: _t->displayScientistsForScientistConnections((*reinterpret_cast< vector<Scientist>(*)>(_a[1]))); break;
+        case 17: _t->displayAllScientistsForScientistConnections(); break;
+        case 18: _t->displayComputersForScientistConnections((*reinterpret_cast< vector<Computer>(*)>(_a[1]))); break;
+        case 19: _t->on_button_add_computer_connection_clicked(); break;
+        case 20: _t->on_button_add_scientist_connection_clicked(); break;
         default: ;
         }
     }
@@ -138,13 +204,13 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
     if (_id < 0)
         return _id;
     if (_c == QMetaObject::InvokeMetaMethod) {
-        if (_id < 9)
+        if (_id < 21)
             qt_static_metacall(this, _c, _id, _a);
-        _id -= 9;
+        _id -= 21;
     } else if (_c == QMetaObject::RegisterMethodArgumentMetaType) {
-        if (_id < 9)
+        if (_id < 21)
             *reinterpret_cast<int*>(_a[0]) = -1;
-        _id -= 9;
+        _id -= 21;
     }
     return _id;
 }

@@ -25,7 +25,7 @@ public:
     vector<Scientist> sort(string sortBy);
     bool remove(string my_id);
     void output(vector<Scientist>& v);
-    void getScientistsByComputerId(string c_id);
+    vector<Scientist> getScientistsByComputerId(string c_id);
 private:
     ScientistRepository sciRepo;
 };

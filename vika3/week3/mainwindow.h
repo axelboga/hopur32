@@ -49,9 +49,11 @@ private slots:
     void on_button_remove_scientist_connection_clicked();
     void on_button_remove_computer_connection_clicked();
     void on_tabs_tabBarClicked(int index);
+    void on_dropdown_scientist_order_by_currentIndexChanged(int index);
 
 private:
-    string getCurrentOrderBy();
+    string getCurrentComputerOrderBy();
+    string getCurrentScientistOrderBy();
     void displayAllComputers();
     void displayComputer(vector<Computer> computers);
     Ui::MainWindow *ui;
@@ -62,9 +64,6 @@ private:
     void displayScientist(vector<Scientist> scientists);
     ScientistServices sciService;
     vector<Scientist> currentlyDisplayedScientists;
-    
-    
-
 };
 
 #endif // MAINWINDOW_H

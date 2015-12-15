@@ -10,20 +10,25 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->dropdown_order_by->addItem("Type");
     ui->dropdown_order_by->addItem("WasBuilt");
     ui->dropdown_order_by->addItem("YearBuilt");
+    ui->dropdown_scientist_order_by->addItem("First name");
+    ui->dropdown_scientist_order_by->addItem("Last name");
+    ui->dropdown_scientist_order_by->addItem("Gender");
+    ui->dropdown_scientist_order_by->addItem("Year of birth");
+    ui->dropdown_scientist_order_by->addItem("Year of death");
     displayAllComputers();
     displayAllScientists();
     displayAllComputersForComputerConnections();
     displayAllScientistsForScientistConnections();
 }
 
-MainWindow::~MainWindow(){
+MainWindow::~MainWindow() {
     delete ui;
 }
 
 /*************************************** COMPUTERS *********************************************/
 
 void MainWindow::displayAllComputers() {
-    vector<Computer> computers = compService.sort(getCurrentOrderBy());
+    vector<Computer> computers = compService.sort(getCurrentComputerOrderBy());
     displayComputer(computers);
 }
 
@@ -48,8 +53,31 @@ void MainWindow::displayComputer(vector<Computer> computers) {
 
 void MainWindow::on_input_filter_computers_textChanged(const QString& arg1) {
     string userInput = ui->input_filter_computers->text().toStdString();
-    vector<Computer> computers = compService.search(userInput, getCurrentOrderBy());
+    vector<Computer> computers = compService.search(userInput, getCurrentComputerOrderBy());
     displayComputer(computers);
+}
+
+void MainWindow::on_dropdown_order_by_currentIndexChanged(int index) {
+   on_input_filter_scientists_textChanged("");
+}
+
+string MainWindow::getCurrentComputerOrderBy() {
+    string currentValueInOrderBy = ui->dropdown_order_by->currentText().toStdString();
+    if (currentValueInOrderBy == "Name"){
+        return "Name";
+    }
+    else if(currentValueInOrderBy == "YearBuilt"){
+        return "YearBuilt";
+    }
+    else if(currentValueInOrderBy == "WasBuilt"){
+        return "WasBuilt";
+    }
+    else if(currentValueInOrderBy == "Type"){
+        return "Type";
+    }
+    else {
+        return "Name";
+    }
 }
 
 void MainWindow::on_button_remove_computer_clicked() {
@@ -75,29 +103,6 @@ void MainWindow::on_button_remove_computer_clicked() {
     }
     else{
         int answer = QMessageBox::warning(this, "FAIL", "Failed to remove computer");
-    }
-}
-
-void MainWindow::on_dropdown_order_by_currentIndexChanged(int index) {
-   on_input_filter_computers_textChanged("");
-}
-
-string MainWindow::getCurrentOrderBy() {
-    string currentValueInOrderBy = ui->dropdown_order_by->currentText().toStdString();
-    if (currentValueInOrderBy == "Name"){
-        return "Name";
-    }
-    else if(currentValueInOrderBy == "YearBuilt"){
-        return "YearBuilt";
-    }
-    else if(currentValueInOrderBy == "WasBuilt"){
-        return "WasBuilt";
-    }
-    else if(currentValueInOrderBy == "Type"){
-        return "Type";
-    }
-    else {
-        return "Name";
     }
 }
 
@@ -146,6 +151,38 @@ void MainWindow::displayScientist(vector<Scientist> scientists) {
     currentlyDisplayedScientists = scientists;
 }
 
+void MainWindow::on_dropdown_scientist_order_by_currentIndexChanged(int index) {
+   on_input_filter_scientists_textChanged("");
+}
+
+void MainWindow::on_input_filter_scientists_textChanged(const QString &arg1) {
+    string userInput = ui->input_filter_scientists->text().toStdString();
+    vector<Scientist> scientists = sciService.search(userInput, getCurrentScientistOrderBy());
+    displayScientist(scientists);
+}
+
+string MainWindow::getCurrentScientistOrderBy() {
+    string currentValueInOrderBy = ui->dropdown_scientist_order_by->currentText().toStdString();
+    if (currentValueInOrderBy == "First name"){
+        return "FirstName";
+    }
+    else if(currentValueInOrderBy == "Last name"){
+        return "LastName";
+    }
+    else if(currentValueInOrderBy == "Gender"){
+        return "Gender";
+    }
+    else if(currentValueInOrderBy == "Year of birth"){
+        return "BirthYear";
+    }
+    else if(currentValueInOrderBy == "Year of death"){
+        return "DeathYear";
+    }
+    else {
+        return "FirstName";
+    }
+}
+
 void MainWindow::on_button_remove_scientist_clicked() {
     int currentlySelectedScientistIndex = ui->table_scientists->currentIndex().row();
 
@@ -176,12 +213,6 @@ void MainWindow::on_button_remove_scientist_clicked() {
 
 void MainWindow::on_table_scientists_clicked(const QModelIndex &index) {
     ui->button_remove_scientist->setEnabled(true);
-}
-
-void MainWindow::on_input_filter_scientists_textChanged(const QString &arg1) {
-    string userInput = ui->input_filter_scientists->text().toStdString();
-    vector<Scientist> scientists = sciService.search(userInput, "FirstName");
-    displayScientist(scientists);
 }
 
 void MainWindow::on_button_add_scientist_clicked() {

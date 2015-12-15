@@ -38,10 +38,10 @@ void AddConnectionsDialog::on_button_add_connections_clicked()
     bool success = connectionService.addConnection(stringIdOfScientist, stringIdOfComputer);
 
     if (success){
-        this->done(0); //0 er gott, notum í on_button_add_computer í mainwindow.cpp
+        this->done(1);
     }
    else{
-        this->done(-1); //-1 er villa, notum í on_button_add_computer í mainwindow.cpp
+        this->done(-1);
     }
 }
 

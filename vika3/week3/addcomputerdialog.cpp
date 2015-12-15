@@ -64,10 +64,10 @@ void AddComputerDialog::on_button_add_computer_clicked(){
     if (success){
         ui->input_computer_name->setText("");
         ui->input_computer_year_built->setText("");
-        this->done(0); //0 er gott, notum í on_button_add_computer í mainwindow.cpp
+        this->done(1);
     }
     else{
-        this->done(-1); //-1 er villa, notum í on_button_add_computer í mainwindow.cpp
+        this->done(-1);
     }
 }
 

@@ -91,10 +91,10 @@ void AddScientistDialog::on_button_add_scientist_clicked() {
         ui->input_scientist_year_born->setText("");
         ui->input_scientist_year_death->setText("");
 
-        this->done(0); //0 er gott;
+        this->done(1);
     }
     else{
-        this->done(-1); //-1 er villa
+        this->done(-1);
     }
 }
 

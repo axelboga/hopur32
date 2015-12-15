@@ -67,6 +67,7 @@ public:
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         label_add_scientist = new QLabel(AddScientistDialog);
         label_add_scientist->setObjectName(QStringLiteral("label_add_scientist"));
+        label_add_scientist->setWordWrap(true);
 
         verticalLayout_3->addWidget(label_add_scientist);
 

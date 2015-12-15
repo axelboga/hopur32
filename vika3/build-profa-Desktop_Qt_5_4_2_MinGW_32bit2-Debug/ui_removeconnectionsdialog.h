@@ -45,6 +45,7 @@ public:
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(RemoveConnectionsDialog);
         label->setObjectName(QStringLiteral("label"));
+        label->setWordWrap(true);
 
         verticalLayout->addWidget(label);
 

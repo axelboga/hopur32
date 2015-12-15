@@ -40,11 +40,12 @@ public:
     {
         if (AddConnectionsDialog->objectName().isEmpty())
             AddConnectionsDialog->setObjectName(QStringLiteral("AddConnectionsDialog"));
-        AddConnectionsDialog->resize(400, 333);
+        AddConnectionsDialog->resize(469, 333);
         verticalLayout = new QVBoxLayout(AddConnectionsDialog);
         verticalLayout->setObjectName(QStringLiteral("verticalLayout"));
         label = new QLabel(AddConnectionsDialog);
         label->setObjectName(QStringLiteral("label"));
+        label->setWordWrap(true);
 
         verticalLayout->addWidget(label);
 
@@ -97,7 +98,7 @@ public:
     void retranslateUi(QDialog *AddConnectionsDialog)
     {
         AddConnectionsDialog->setWindowTitle(QApplication::translate("AddConnectionsDialog", "Add connections", 0));
-        label->setText(QApplication::translate("AddConnectionsDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Select a computer and </span></p><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">a scientist to connect</span></p></body></html>", 0));
+        label->setText(QApplication::translate("AddConnectionsDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:12pt; font-weight:600;\">Select a computer and a scientist to connect</span></p></body></html>", 0));
         label_connections_computer->setText(QApplication::translate("AddConnectionsDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Computers</span></p></body></html>", 0));
         label_connections_scientist->setText(QApplication::translate("AddConnectionsDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Scientists</span></p></body></html>", 0));
         button_add_connections->setText(QApplication::translate("AddConnectionsDialog", "Add", 0));

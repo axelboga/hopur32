@@ -133,7 +133,7 @@ void MainWindow::on_table_computers_clicked(const QModelIndex &index) {
 void MainWindow::on_button_add_computer_clicked() {
     AddComputerDialog addCompDialog;
     int addCompReturnValue = addCompDialog.exec();
-    if(addCompReturnValue == 0){
+    if(addCompReturnValue == 1){
         ui->input_filter_computers->setText("");
         displayAllComputers();
         ui->statusBar->showMessage("Successfully added computer", 2500);
@@ -252,7 +252,7 @@ void MainWindow::on_table_scientists_clicked(const QModelIndex &index) {
 void MainWindow::on_button_add_scientist_clicked() {
     AddScientistDialog addSciDialog;
     int addSciReturnValue = addSciDialog.exec();
-    if(addSciReturnValue == 0){
+    if(addSciReturnValue == 1){
         ui->input_filter_scientists->setText("");
         displayAllScientists();
         ui->statusBar->showMessage("Successfully added scientist", 2500);
@@ -305,7 +305,7 @@ void MainWindow::on_button_see_connections_computer_clicked() {
 void MainWindow::on_button_add_computer_connection_clicked() {
     AddConnectionsDialog addConnectDialog;
     int addConnectReturnValue = addConnectDialog.exec();
-    if(addConnectReturnValue == 0){
+    if(addConnectReturnValue == 1){
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully added connection", 2500);
     }
@@ -318,7 +318,7 @@ void MainWindow::on_button_remove_computer_connection_clicked() {
     RemoveConnectionsDialog removeConnectDialog;
     int removeConnectReturnValue = removeConnectDialog.exec();
 
-    if(removeConnectReturnValue == 0){
+    if(removeConnectReturnValue == 1){
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);
     }
@@ -371,7 +371,7 @@ void MainWindow::on_button_see_connections_scientist_clicked() {
 void MainWindow::on_button_add_scientist_connection_clicked() {
     AddConnectionsDialog addConnectDialog;
     int addConnectReturnValue = addConnectDialog.exec();
-    if(addConnectReturnValue == 0){
+    if(addConnectReturnValue == 1){
         displayAllScientistsForScientistConnections();
         ui->statusBar->showMessage("Successfully added connection", 2500);
     }
@@ -383,7 +383,7 @@ void MainWindow::on_button_add_scientist_connection_clicked() {
 void MainWindow::on_button_remove_scientist_connection_clicked() {
     RemoveConnectionsDialog removeConnectDialog;
     int removeConnectReturnValue = removeConnectDialog.exec();
-    if(removeConnectReturnValue == 0){
+    if(removeConnectReturnValue == 1){
         displayAllScientistsForScientistConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);
     }

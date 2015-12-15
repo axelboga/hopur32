@@ -105,7 +105,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(589, 642);
+        MainWindow->resize(679, 642);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_2 = new QVBoxLayout(centralWidget);
@@ -117,6 +117,7 @@ public:
         horizontalLayout_5->setObjectName(QStringLiteral("horizontalLayout_5"));
         label = new QLabel(centralWidget);
         label->setObjectName(QStringLiteral("label"));
+        label->setWordWrap(true);
 
         horizontalLayout_5->addWidget(label);
 
@@ -167,18 +168,26 @@ public:
         table_computers = new QTableWidget(tab_computer);
         if (table_computers->columnCount() < 4)
             table_computers->setColumnCount(4);
+        QFont font;
+        font.setBold(true);
+        font.setWeight(75);
         QTableWidgetItem *__qtablewidgetitem = new QTableWidgetItem();
+        __qtablewidgetitem->setFont(font);
         table_computers->setHorizontalHeaderItem(0, __qtablewidgetitem);
         QTableWidgetItem *__qtablewidgetitem1 = new QTableWidgetItem();
+        __qtablewidgetitem1->setFont(font);
         table_computers->setHorizontalHeaderItem(1, __qtablewidgetitem1);
         QTableWidgetItem *__qtablewidgetitem2 = new QTableWidgetItem();
+        __qtablewidgetitem2->setFont(font);
         table_computers->setHorizontalHeaderItem(2, __qtablewidgetitem2);
         QTableWidgetItem *__qtablewidgetitem3 = new QTableWidgetItem();
+        __qtablewidgetitem3->setFont(font);
         table_computers->setHorizontalHeaderItem(3, __qtablewidgetitem3);
         table_computers->setObjectName(QStringLiteral("table_computers"));
         table_computers->setEnabled(true);
         table_computers->setLayoutDirection(Qt::LeftToRight);
         table_computers->setAutoScroll(true);
+        table_computers->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_computers->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_computers->setSortingEnabled(false);
         table_computers->horizontalHeader()->setStretchLastSection(true);
@@ -198,15 +207,16 @@ public:
         button_remove_computer->setObjectName(QStringLiteral("button_remove_computer"));
         button_remove_computer->setEnabled(false);
         QIcon icon;
-        icon.addFile(QStringLiteral(":/icons/compu-.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon.addFile(QStringLiteral(":/svg/computer19.svg"), QSize(), QIcon::Normal, QIcon::Off);
         button_remove_computer->setIcon(icon);
+        button_remove_computer->setIconSize(QSize(20, 20));
 
         verticalLayout_5->addWidget(button_remove_computer);
 
         button_add_computer = new QPushButton(tab_computer);
         button_add_computer->setObjectName(QStringLiteral("button_add_computer"));
         QIcon icon1;
-        icon1.addFile(QStringLiteral(":/icons/compu+.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon1.addFile(QStringLiteral(":/svg/computers20.svg"), QSize(), QIcon::Normal, QIcon::Off);
         button_add_computer->setIcon(icon1);
 
         verticalLayout_5->addWidget(button_add_computer);
@@ -260,16 +270,27 @@ public:
         if (table_scientists->columnCount() < 5)
             table_scientists->setColumnCount(5);
         QTableWidgetItem *__qtablewidgetitem4 = new QTableWidgetItem();
+        __qtablewidgetitem4->setFont(font);
         table_scientists->setHorizontalHeaderItem(0, __qtablewidgetitem4);
+        QFont font1;
+        font1.setBold(true);
+        font1.setUnderline(false);
+        font1.setWeight(75);
+        font1.setStrikeOut(false);
         QTableWidgetItem *__qtablewidgetitem5 = new QTableWidgetItem();
+        __qtablewidgetitem5->setFont(font1);
         table_scientists->setHorizontalHeaderItem(1, __qtablewidgetitem5);
         QTableWidgetItem *__qtablewidgetitem6 = new QTableWidgetItem();
+        __qtablewidgetitem6->setFont(font);
         table_scientists->setHorizontalHeaderItem(2, __qtablewidgetitem6);
         QTableWidgetItem *__qtablewidgetitem7 = new QTableWidgetItem();
+        __qtablewidgetitem7->setFont(font);
         table_scientists->setHorizontalHeaderItem(3, __qtablewidgetitem7);
         QTableWidgetItem *__qtablewidgetitem8 = new QTableWidgetItem();
+        __qtablewidgetitem8->setFont(font);
         table_scientists->setHorizontalHeaderItem(4, __qtablewidgetitem8);
         table_scientists->setObjectName(QStringLiteral("table_scientists"));
+        table_scientists->setEditTriggers(QAbstractItemView::NoEditTriggers);
         table_scientists->setSelectionBehavior(QAbstractItemView::SelectRows);
         table_scientists->setSortingEnabled(false);
         table_scientists->horizontalHeader()->setStretchLastSection(true);
@@ -290,7 +311,7 @@ public:
         button_remove_scientist->setObjectName(QStringLiteral("button_remove_scientist"));
         button_remove_scientist->setEnabled(false);
         QIcon icon3;
-        icon3.addFile(QStringLiteral(":/icons/minuskall.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon3.addFile(QStringLiteral(":/svg/remove7.svg"), QSize(), QIcon::Normal, QIcon::Off);
         button_remove_scientist->setIcon(icon3);
 
         verticalLayout_10->addWidget(button_remove_scientist);
@@ -298,7 +319,7 @@ public:
         button_add_scientist = new QPushButton(tab_scientist);
         button_add_scientist->setObjectName(QStringLiteral("button_add_scientist"));
         QIcon icon4;
-        icon4.addFile(QStringLiteral(":/icons/addkall.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon4.addFile(QStringLiteral(":/svg/addition7.svg"), QSize(), QIcon::Normal, QIcon::Off);
         button_add_scientist->setIcon(icon4);
 
         verticalLayout_10->addWidget(button_add_scientist);
@@ -383,14 +404,16 @@ public:
         button_remove_computer_connection->setObjectName(QStringLiteral("button_remove_computer_connection"));
         button_remove_computer_connection->setEnabled(true);
         QIcon icon6;
-        icon6.addFile(QStringLiteral(":/icons/tengi2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        icon6.addFile(QStringLiteral(":/svg/remove12.svg"), QSize(), QIcon::Normal, QIcon::Off);
         button_remove_computer_connection->setIcon(icon6);
 
         verticalLayout_14->addWidget(button_remove_computer_connection);
 
         button_add_computer_connection = new QPushButton(tab_computer_connections);
         button_add_computer_connection->setObjectName(QStringLiteral("button_add_computer_connection"));
-        button_add_computer_connection->setIcon(icon6);
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/svg/linked.svg"), QSize(), QIcon::Normal, QIcon::Off);
+        button_add_computer_connection->setIcon(icon7);
 
         verticalLayout_14->addWidget(button_add_computer_connection);
 
@@ -437,11 +460,13 @@ public:
         horizontalLayout_2->setObjectName(QStringLiteral("horizontalLayout_2"));
         scientist_list_scientist_connections = new QListWidget(tab_scientist_connections);
         scientist_list_scientist_connections->setObjectName(QStringLiteral("scientist_list_scientist_connections"));
+        scientist_list_scientist_connections->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         horizontalLayout_2->addWidget(scientist_list_scientist_connections);
 
         computer_list_scientist_connections = new QListWidget(tab_scientist_connections);
         computer_list_scientist_connections->setObjectName(QStringLiteral("computer_list_scientist_connections"));
+        computer_list_scientist_connections->setEditTriggers(QAbstractItemView::NoEditTriggers);
 
         horizontalLayout_2->addWidget(computer_list_scientist_connections);
 
@@ -466,7 +491,7 @@ public:
 
         button_add_scientist_connection = new QPushButton(tab_scientist_connections);
         button_add_scientist_connection->setObjectName(QStringLiteral("button_add_scientist_connection"));
-        button_add_scientist_connection->setIcon(icon6);
+        button_add_scientist_connection->setIcon(icon7);
 
         verticalLayout_17->addWidget(button_add_scientist_connection);
 
@@ -483,16 +508,16 @@ public:
 
         verticalLayout_18->addLayout(verticalLayout_11);
 
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/icons/connecti.png"), QSize(), QIcon::Normal, QIcon::Off);
-        tabs->addTab(tab_connections, icon7, QString());
+        QIcon icon8;
+        icon8.addFile(QStringLiteral(":/icons/connecti.png"), QSize(), QIcon::Normal, QIcon::Off);
+        tabs->addTab(tab_connections, icon8, QString());
 
         verticalLayout_2->addWidget(tabs);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 589, 25));
+        menuBar->setGeometry(QRect(0, 0, 679, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -513,7 +538,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Legends of Computer Science", 0));
-        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#213dbc;\">Computer and </span></p><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#213dbc;\">Scientist Program</span></p></body></html>", 0));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#213dbc;\">Computer and Scientist Program</span></p></body></html>", 0));
         input_filter_computers->setPlaceholderText(QApplication::translate("MainWindow", "Search", 0));
         QTableWidgetItem *___qtablewidgetitem = table_computers->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Name ", 0));

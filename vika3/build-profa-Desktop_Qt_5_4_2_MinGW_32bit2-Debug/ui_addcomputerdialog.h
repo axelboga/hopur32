@@ -60,6 +60,7 @@ public:
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
         label_add_computer = new QLabel(AddComputerDialog);
         label_add_computer->setObjectName(QStringLiteral("label_add_computer"));
+        label_add_computer->setWordWrap(true);
 
         verticalLayout_7->addWidget(label_add_computer);
 

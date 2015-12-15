@@ -38,17 +38,17 @@ void RemoveConnectionsDialog::on_button_remove_clicked()
 
     int answer = QMessageBox::question(this, "confirm", "Are you sure?");
     if (answer == QMessageBox::No) {
-        this->done(1);
+        this->done(2);
         return;
     }
 
     bool success = connectionService.removeConnection(stringIdOfScientist, stringIdOfComputer);
 
     if (success){
-        this->done(0); //0 er gott
+        this->done(1);
     }
    else{
-        this->done(-1); //-1 er villa
+        this->done(-1);
     }
 }
 

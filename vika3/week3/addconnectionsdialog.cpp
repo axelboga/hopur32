@@ -84,6 +84,6 @@ void AddConnectionsDialog::displayComputersForAddConnections(vector<Computer> co
 }
 
 void AddConnectionsDialog::displayAllComputersForAddConnections() {
-    vector<Computer> computers = compService.sort("Name");
+    vector<Computer> computers = compService.sort("Name", "ASC");
     displayComputersForAddConnections(computers);
 }

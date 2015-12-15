@@ -15,6 +15,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->dropdown_scientist_order_by->addItem("Gender");
     ui->dropdown_scientist_order_by->addItem("Year of Birth");
     ui->dropdown_scientist_order_by->addItem("Year of Death");
+    ui->dropdown_order_by_ascending->addItem("Ascending");
+    ui->dropdown_order_by_ascending->addItem("Descending");
     displayAllComputers();
     displayAllScientists();
     displayAllComputersForComputerConnections();
@@ -28,7 +30,7 @@ MainWindow::~MainWindow() {
 /*************************************** COMPUTERS *********************************************/
 
 void MainWindow::displayAllComputers() {
-    vector<Computer> computers = compService.sort(getCurrentComputerOrderBy());
+    vector<Computer> computers = compService.sort(getCurrentComputerOrderBy(), getComputerOrderByAscending());
     displayComputer(computers);
 }
 
@@ -53,7 +55,7 @@ void MainWindow::displayComputer(vector<Computer> computers) {
 
 void MainWindow::on_input_filter_computers_textChanged(const QString& arg1) {
     string userInput = ui->input_filter_computers->text().toStdString();
-    vector<Computer> computers = compService.search(userInput, getCurrentComputerOrderBy());
+    vector<Computer> computers = compService.search(userInput, getCurrentComputerOrderBy(), getComputerOrderByAscending());
     displayComputer(computers);
 }
 
@@ -78,6 +80,20 @@ string MainWindow::getCurrentComputerOrderBy() {
     else {
         return "Name";
     }
+}
+
+string MainWindow::getComputerOrderByAscending() {
+    string ascendingText = ui->dropdown_order_by_ascending->currentText().toStdString();
+    if (ascendingText == "Ascending") {
+        return "ASC";
+    }
+    else {
+        return "DESC";
+    }
+}
+
+void MainWindow::on_dropdown_order_by_ascending_activated(const QString &arg1) {
+    on_input_filter_computers_textChanged("");
 }
 
 void MainWindow::on_button_remove_computer_clicked() {
@@ -241,7 +257,7 @@ void MainWindow::displayComputersForComputerConnections(vector<Computer> compute
 }
 
 void MainWindow::displayAllComputersForComputerConnections() {
-    vector<Computer> computers = compService.sort("Name");
+    vector<Computer> computers = compService.sort("Name", "ASC");
     displayComputersForComputerConnections(computers);
 }
 
@@ -364,3 +380,4 @@ void MainWindow::on_tabs_tabBarClicked(int index) {
     displayAllComputersForComputerConnections();
     displayAllScientistsForScientistConnections();
 }
+

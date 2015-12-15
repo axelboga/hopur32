@@ -33,15 +33,15 @@ bool ComputerServices::add(Computer computer) {
     return compRepo.addToDatabase(computer);
 }
 
-vector<Computer> ComputerServices::search(string searchTerm, string sortBy) {
+vector<Computer> ComputerServices::search(string searchTerm, string sortBy, string ascendingOrder) {
     vector<Computer> v;
-    v = compRepo.searchInDatabase(searchTerm, sortBy);
+    v = compRepo.searchInDatabase(searchTerm, sortBy, ascendingOrder);
     return v;
 }
 
-vector<Computer> ComputerServices::sort(string sortBy) {
+vector<Computer> ComputerServices::sort(string sortBy, string ascendingOrder) {
     vector<Computer> v;
-    v = compRepo.sortDatabase(sortBy);
+    v = compRepo.sortDatabase(sortBy, ascendingOrder);
     return v;
 }
 
@@ -50,7 +50,6 @@ bool ComputerServices::remove(string my_id) {
 }
 
 /************************************* CONNECTIONS ****************************************/
-
 
 vector<Computer> ComputerServices::getComputersByScientistId(string s_id) {
     vector<Computer> v;

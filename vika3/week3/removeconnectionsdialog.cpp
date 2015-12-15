@@ -83,7 +83,7 @@ void RemoveConnectionsDialog::displayComputersForRemoveConnections(vector<Comput
 }
 
 void RemoveConnectionsDialog::displayAllComputersForRemoveConnections() {
-    vector<Computer> computers = compService.sort("Name");
+    vector<Computer> computers = compService.sort("Name", "ASC");
     displayComputersForRemoveConnections(computers);
 }
 

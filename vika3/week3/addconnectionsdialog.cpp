@@ -86,21 +86,4 @@ void AddConnectionsDialog::displayComputersForAddConnections(vector<Computer> co
 void AddConnectionsDialog::displayAllComputersForAddConnections() {
     vector<Computer> computers = compService.sort("Name");
     displayComputersForAddConnections(computers);
-}/*
-string AddConnectionsDialog::on_button_connections_select_scientist_clicked()
-{
-    int currentlySelectedScientistIndex = ui->list_scientists_add_connections->currentIndex().row();
-    Scientist currentlySelectedScientist = currentlyDisplayedScientists.at(currentlySelectedScientistIndex);
-    int idOfScientist = currentlySelectedScientist.getId();
-    string stringIdOfScientist = static_cast<ostringstream*>(&(ostringstream() << idOfScientist) )->str();
-    return stringIdOfScientist;
 }
-
-string AddConnectionsDialog::on_button_connections_select_computer_clicked()
-{
-    int currentlySelectedComputerIndex = ui->list_computers_add_connections->currentIndex().row();
-    Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
-    int idOfComputer = currentlySelectedComputer.getId();
-    string stringIdOfComputer = static_cast<ostringstream*>(&(ostringstream() << idOfComputer) )->str();
-    return stringIdOfComputer;
-}*/

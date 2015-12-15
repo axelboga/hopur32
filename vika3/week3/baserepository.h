@@ -1,5 +1,6 @@
 #ifndef BASEREPOSITORY_H
 #define BASEREPOSITORY_H
+
 #include <QtSql>
 
 class BaseRepository{

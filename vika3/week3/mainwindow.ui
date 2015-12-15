@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>670</width>
+    <width>808</width>
     <height>630</height>
    </rect>
   </property>
@@ -45,7 +45,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -278,7 +278,7 @@
           <item>
            <widget class="QTabWidget" name="connections_tabs">
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_computer_connections">
              <attribute name="title">
@@ -459,8 +459,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>670</width>
-     <height>22</height>
+     <width>808</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

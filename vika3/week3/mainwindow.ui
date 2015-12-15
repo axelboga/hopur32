@@ -16,6 +16,17 @@
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#0103ef;&quot;&gt;~ Welcome to the future ~&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
      <widget class="QTabWidget" name="tabs">
       <property name="tabShape">
        <enum>QTabWidget::Rounded</enum>
@@ -424,7 +435,7 @@
      <x>0</x>
      <y>0</y>
      <width>594</width>
-     <height>31</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

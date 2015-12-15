@@ -58,7 +58,7 @@ void MainWindow::on_input_filter_computers_textChanged(const QString& arg1) {
 }
 
 void MainWindow::on_dropdown_order_by_currentIndexChanged(int index) {
-   on_input_filter_scientists_textChanged("");
+   on_input_filter_computers_textChanged("");
 }
 
 string MainWindow::getCurrentComputerOrderBy() {

@@ -10,8 +10,8 @@
 *	Skoða lista af tölvunarfræðingum og raða eftir:
   *	Fornafni (stafrófsröð og öfug stafrófsröð)
   *	Eftirnafni (stafrófsröð og öfug stafrófsröð)
-  *	Kyni
-  *	Fæðingarári
+  *	Kyni (stafrófsröð og öfug stafrófsröð)
+  *	Fæðingarári (hækkandi og lækkandi röð)
 *	Leita að tölvunarfræðingi í lista
   *	Styður bæði há- og lástafi
 *	Bæta tölvu við lista
@@ -31,8 +31,8 @@
 
 Allar upplýsingar um tölvunarfræðinga eru geymdar með lágstöfum í gagnagrunninum til þess að leit og uppröðun sé óháð há-og lágstöfum. Fyrsti stafur í fornafni og eftirnafni er þó skrifaður út með stórum staf. Við ákváðum hins vegar að geyma nafn tölvanna ekki með lágstöfum í gagnagrunninum (það er geymt á sama formi og skrifað er inn) því að þau hafa ekki endilega bara hástaf fremst í nafninu (sbr. iPhone).
 
-Athugað er eftir villum í öllu sem notandi slær inn(eða slær ekki inn) og eru viðeigandi villuskilaboð birt í forritinu ef svo á við. 
-Ef notandi vill eyða út tölvu, tölvunnarfræðingi eða tengingu milli þeirra poppar upp gluggi sem spyr hvor notandi sé viss um að hann vilji eyða viðkomandi tölvu, tölvunnarfræðingi eða tengingu. 
+Athugað er eftir villum í öllu sem notandi slær inn (eða slær ekki inn) og eru viðeigandi villuskilaboð birt í forritinu ef við á.
+Ef notandi vill eyða út tölvu, tölvunarfræðingi eða tengingu milli þeirra kemur upp nýr gluggi sem spyr hvort notandi sé viss um að hann vilji eyða viðkomandi tölvu, tölvunarfræðingi eða tengingu. Ef framkvæmdin sem notandi valdi tókst þá birtist texti neðst í forritinu sem staðfestir að framkvæmdin virkaði. Annað auka í forritinu er að hægt er að minnka/stækka alla glugga sem forritið birtir án þess að hlutföll skekkist.
 
 ### Forritið er lagskipt og inniheldur fjórtán klasa:
 *	Presentation Layer: 
@@ -45,7 +45,6 @@ Ef notandi vill eyða út tölvu, tölvunnarfræðingi eða tengingu milli þeir
   *	ComputerServices
   *	ScientistServices
   *	CompSciConnectionServices
-*	Buisness Layer:
   *	Computer
   *	Scientist
 * Data Layer

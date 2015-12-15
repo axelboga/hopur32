@@ -44,14 +44,11 @@ private slots:
     void displayScientistsForScientistConnections(vector<Scientist> scientists);
     void displayAllScientistsForScientistConnections();
     void displayComputersForScientistConnections(vector<Computer> computers);
-    
     void on_button_add_computer_connection_clicked();
-
     void on_button_add_scientist_connection_clicked();
-
     void on_button_remove_scientist_connection_clicked();
-
     void on_button_remove_computer_connection_clicked();
+    void on_tabs_tabBarClicked(int index);
 
 private:
     string getCurrentOrderBy();

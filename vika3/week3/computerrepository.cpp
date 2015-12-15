@@ -30,7 +30,6 @@ bool ComputerRepository::addToDatabase(Computer computer) {
     query.bindValue(":Type", QString::fromStdString(computer.getType()));
     query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
     query.bindValue(":YearBuilt", QString::fromStdString(computer.getYear()));
-
     bool success = query.exec();
     return success;
 }

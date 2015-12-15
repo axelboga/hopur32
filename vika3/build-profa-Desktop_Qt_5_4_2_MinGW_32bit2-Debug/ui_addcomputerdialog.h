@@ -186,7 +186,7 @@ public:
          << QApplication::translate("AddComputerDialog", "transistor", 0)
         );
         checkbox_computer_was_built->setText(QApplication::translate("AddComputerDialog", "Was it built?", 0));
-        label_computer_year_built->setText(QApplication::translate("AddComputerDialog", "YearBuilt:", 0));
+        label_computer_year_built->setText(QApplication::translate("AddComputerDialog", "Year Built:", 0));
         label_error_computer_year_built->setText(QString());
         button_add_computer->setText(QApplication::translate("AddComputerDialog", "Add", 0));
     } // retranslateUi

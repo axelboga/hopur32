@@ -81,8 +81,8 @@ public:
     QListWidget *scientist_list_computer_connections;
     QVBoxLayout *verticalLayout_13;
     QVBoxLayout *verticalLayout_14;
-    QPushButton *button_add_computer_connection;
     QPushButton *button_remove_computer_connection;
+    QPushButton *button_add_computer_connection;
     QWidget *tab_scientist_connections;
     QVBoxLayout *verticalLayout_19;
     QPushButton *button_see_connections_scientist;
@@ -95,8 +95,8 @@ public:
     QListWidget *computer_list_scientist_connections;
     QVBoxLayout *verticalLayout_16;
     QVBoxLayout *verticalLayout_17;
-    QPushButton *button_add_scientist_connection;
     QPushButton *button_remove_scientist_connection;
+    QPushButton *button_add_scientist_connection;
     QMenuBar *menuBar;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
@@ -379,22 +379,20 @@ public:
         verticalLayout_14 = new QVBoxLayout();
         verticalLayout_14->setSpacing(6);
         verticalLayout_14->setObjectName(QStringLiteral("verticalLayout_14"));
-        button_add_computer_connection = new QPushButton(tab_computer_connections);
-        button_add_computer_connection->setObjectName(QStringLiteral("button_add_computer_connection"));
-        QIcon icon6;
-        icon6.addFile(QStringLiteral(":/icons/tengi1.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        button_add_computer_connection->setIcon(icon6);
-
-        verticalLayout_14->addWidget(button_add_computer_connection);
-
         button_remove_computer_connection = new QPushButton(tab_computer_connections);
         button_remove_computer_connection->setObjectName(QStringLiteral("button_remove_computer_connection"));
         button_remove_computer_connection->setEnabled(true);
-        QIcon icon7;
-        icon7.addFile(QStringLiteral(":/icons/tengi2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
-        button_remove_computer_connection->setIcon(icon7);
+        QIcon icon6;
+        icon6.addFile(QStringLiteral(":/icons/tengi2.jpg"), QSize(), QIcon::Normal, QIcon::Off);
+        button_remove_computer_connection->setIcon(icon6);
 
         verticalLayout_14->addWidget(button_remove_computer_connection);
+
+        button_add_computer_connection = new QPushButton(tab_computer_connections);
+        button_add_computer_connection->setObjectName(QStringLiteral("button_add_computer_connection"));
+        button_add_computer_connection->setIcon(icon6);
+
+        verticalLayout_14->addWidget(button_add_computer_connection);
 
 
         verticalLayout_13->addLayout(verticalLayout_14);
@@ -459,18 +457,18 @@ public:
         verticalLayout_17 = new QVBoxLayout();
         verticalLayout_17->setSpacing(6);
         verticalLayout_17->setObjectName(QStringLiteral("verticalLayout_17"));
-        button_add_scientist_connection = new QPushButton(tab_scientist_connections);
-        button_add_scientist_connection->setObjectName(QStringLiteral("button_add_scientist_connection"));
-        button_add_scientist_connection->setIcon(icon7);
-
-        verticalLayout_17->addWidget(button_add_scientist_connection);
-
         button_remove_scientist_connection = new QPushButton(tab_scientist_connections);
         button_remove_scientist_connection->setObjectName(QStringLiteral("button_remove_scientist_connection"));
         button_remove_scientist_connection->setEnabled(true);
-        button_remove_scientist_connection->setIcon(icon7);
+        button_remove_scientist_connection->setIcon(icon6);
 
         verticalLayout_17->addWidget(button_remove_scientist_connection);
+
+        button_add_scientist_connection = new QPushButton(tab_scientist_connections);
+        button_add_scientist_connection->setObjectName(QStringLiteral("button_add_scientist_connection"));
+        button_add_scientist_connection->setIcon(icon6);
+
+        verticalLayout_17->addWidget(button_add_scientist_connection);
 
 
         verticalLayout_16->addLayout(verticalLayout_17);
@@ -485,16 +483,16 @@ public:
 
         verticalLayout_18->addLayout(verticalLayout_11);
 
-        QIcon icon8;
-        icon8.addFile(QStringLiteral(":/icons/connecti.png"), QSize(), QIcon::Normal, QIcon::Off);
-        tabs->addTab(tab_connections, icon8, QString());
+        QIcon icon7;
+        icon7.addFile(QStringLiteral(":/icons/connecti.png"), QSize(), QIcon::Normal, QIcon::Off);
+        tabs->addTab(tab_connections, icon7, QString());
 
         verticalLayout_2->addWidget(tabs);
 
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QStringLiteral("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 589, 31));
+        menuBar->setGeometry(QRect(0, 0, 589, 25));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QStringLiteral("mainToolBar"));
@@ -505,7 +503,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(1);
+        tabs->setCurrentIndex(2);
         connections_tabs->setCurrentIndex(1);
 
 
@@ -548,14 +546,14 @@ public:
         button_see_connections_computer->setText(QApplication::translate("MainWindow", "See connections for selected computer", 0));
         label_computers_connections_computer->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Computers</span></p></body></html>", 0));
         label_computers_connections_scientist->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Scientists</span></p></body></html>", 0));
-        button_add_computer_connection->setText(QApplication::translate("MainWindow", "Add Connection", 0));
         button_remove_computer_connection->setText(QApplication::translate("MainWindow", "Remove Connection", 0));
+        button_add_computer_connection->setText(QApplication::translate("MainWindow", "Add Connection", 0));
         connections_tabs->setTabText(connections_tabs->indexOf(tab_computer_connections), QApplication::translate("MainWindow", "Computer Connections", 0));
         button_see_connections_scientist->setText(QApplication::translate("MainWindow", "See connection for selected scientist", 0));
         label_scientists_connections_scientist->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Scientists</span></p></body></html>", 0));
         label_scientists_connection_computer->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:14pt; font-weight:600; color:#213dbc;\">Computers</span></p></body></html>", 0));
-        button_add_scientist_connection->setText(QApplication::translate("MainWindow", "Add Connection", 0));
         button_remove_scientist_connection->setText(QApplication::translate("MainWindow", "Remove Connection", 0));
+        button_add_scientist_connection->setText(QApplication::translate("MainWindow", "Add Connection", 0));
         connections_tabs->setTabText(connections_tabs->indexOf(tab_scientist_connections), QApplication::translate("MainWindow", "Scientist Connections", 0));
         tabs->setTabText(tabs->indexOf(tab_connections), QApplication::translate("MainWindow", "Connections", 0));
     } // retranslateUi

@@ -6,27 +6,42 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>594</width>
+    <width>670</width>
     <height>633</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Legends of computer sciense</string>
   </property>
   <widget class="QWidget" name="centralWidget">
    <layout class="QVBoxLayout" name="verticalLayout_2">
+    <item>
+     <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <item>
+       <widget class="QLabel" name="label">
+        <property name="text">
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:36pt; font-weight:600; color:#0103ef;&quot;&gt;~ Welcome to the future ~&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
     <item>
      <widget class="QTabWidget" name="tabs">
       <property name="tabShape">
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
       </property>
       <widget class="QWidget" name="tab_computer">
+       <attribute name="icon">
+        <iconset resource="myndir.qrc">
+         <normaloff>:/icons/monitor-512.png</normaloff>:/icons/monitor-512.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Computers</string>
        </attribute>
@@ -131,6 +146,10 @@
        </layout>
       </widget>
       <widget class="QWidget" name="tab_scientist">
+       <attribute name="icon">
+        <iconset resource="myndir.qrc">
+         <normaloff>:/icons/scientistIcon.png</normaloff>:/icons/scientistIcon.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Scientists</string>
        </attribute>
@@ -233,6 +252,10 @@
        <property name="accessibleName">
         <string/>
        </property>
+       <attribute name="icon">
+        <iconset resource="myndir.qrc">
+         <normaloff>:/icons/connecti.png</normaloff>:/icons/connecti.png</iconset>
+       </attribute>
        <attribute name="title">
         <string>Connections</string>
        </attribute>
@@ -242,7 +265,7 @@
           <item>
            <widget class="QTabWidget" name="connections_tabs">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_computer_connections">
              <attribute name="title">
@@ -384,7 +407,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi1.jpg</normaloff>:/icons/tengi1.jpg</iconset>
+                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -423,8 +446,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>594</width>
-     <height>31</height>
+     <width>670</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>

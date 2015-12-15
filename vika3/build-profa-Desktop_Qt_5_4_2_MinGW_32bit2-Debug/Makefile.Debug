@@ -173,9 +173,12 @@ debug/qrc_myndir.cpp: ../week3/myndir.qrc \
 		../week3/compu-.jpg \
 		../week3/addkall.jpg \
 		../week3/compu....jpg \
+		../week3/connecti.png \
 		../week3/tengi1.jpg \
+		../week3/scientistIcon.png \
 		../week3/minuskall.jpg \
-		../week3/compu+.jpg
+		../week3/compu+.jpg \
+		../week3/monitor-512.png
 	C:\Qt\5.4\mingw491_32\bin\rcc.exe -name myndir ..\week3\myndir.qrc -o debug\qrc_myndir.cpp
 
 compiler_moc_header_make_all: debug/moc_mainwindow.cpp debug/moc_addcomputerdialog.cpp debug/moc_addscientistdialog.cpp debug/moc_addconnectionsdialog.cpp debug/moc_removeconnectionsdialog.cpp

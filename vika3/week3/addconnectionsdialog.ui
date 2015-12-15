@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add connections</string>
   </property>
   <widget class="QPushButton" name="button_add_connections">
    <property name="enabled">

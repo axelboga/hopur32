@@ -11,7 +11,7 @@
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Add scientist</string>
   </property>
   <layout class="QVBoxLayout" name="verticalLayout_3">
    <item>
@@ -186,13 +186,9 @@
     </widget>
    </item>
   </layout>
-  <zorder>layoutWidget</zorder>
   <zorder>label_add_scientist</zorder>
-  <zorder>layoutWidget_2</zorder>
-  <zorder>label_scientist_year_born</zorder>
   <zorder>input_scientist_year_born</zorder>
   <zorder>button_add_scientist</zorder>
-  <zorder>horizontalLayoutWidget</zorder>
   <zorder>input_scientist_year_death</zorder>
   <zorder>checkbox_scientist_is_dead</zorder>
  </widget>

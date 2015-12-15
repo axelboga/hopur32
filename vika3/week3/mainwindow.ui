@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>589</width>
+    <width>679</width>
     <height>642</height>
    </rect>
   </property>
@@ -20,7 +20,10 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#213dbc;&quot;&gt;Computer and &lt;/span&gt;&lt;/p&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#213dbc;&quot;&gt;Scientist Program&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+         <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;span style=&quot; font-size:18pt; font-weight:600; color:#213dbc;&quot;&gt;Computer and Scientist Program&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+        </property>
+        <property name="wordWrap">
+         <bool>true</bool>
         </property>
        </widget>
       </item>
@@ -84,6 +87,9 @@
             <property name="autoScroll">
              <bool>true</bool>
             </property>
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
             <property name="selectionBehavior">
              <enum>QAbstractItemView::SelectRows</enum>
             </property>
@@ -97,20 +103,44 @@
              <property name="text">
               <string>Name </string>
              </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Type</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>Built? </string>
              </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Year Built</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
            </widget>
@@ -186,6 +216,9 @@
          <layout class="QVBoxLayout" name="verticalLayout_8">
           <item>
            <widget class="QTableWidget" name="table_scientists">
+            <property name="editTriggers">
+             <set>QAbstractItemView::NoEditTriggers</set>
+            </property>
             <property name="selectionBehavior">
              <enum>QAbstractItemView::SelectRows</enum>
             </property>
@@ -202,25 +235,57 @@
              <property name="text">
               <string>First Name</string>
              </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Last Name</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+               <underline>false</underline>
+               <strikeout>false</strikeout>
+              </font>
              </property>
             </column>
             <column>
              <property name="text">
               <string>Gender</string>
              </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Year of Birth</string>
              </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
+             </property>
             </column>
             <column>
              <property name="text">
               <string>Year of Death</string>
+             </property>
+             <property name="font">
+              <font>
+               <weight>75</weight>
+               <bold>true</bold>
+              </font>
              </property>
             </column>
            </widget>
@@ -279,7 +344,7 @@
           <item>
            <widget class="QTabWidget" name="connections_tabs">
             <property name="currentIndex">
-             <number>1</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="tab_computer_connections">
              <attribute name="title">
@@ -401,10 +466,18 @@
                 <item>
                  <layout class="QHBoxLayout" name="horizontalLayout_2">
                   <item>
-                   <widget class="QListWidget" name="scientist_list_scientist_connections"/>
+                   <widget class="QListWidget" name="scientist_list_scientist_connections">
+                    <property name="editTriggers">
+                     <set>QAbstractItemView::NoEditTriggers</set>
+                    </property>
+                   </widget>
                   </item>
                   <item>
-                   <widget class="QListWidget" name="computer_list_scientist_connections"/>
+                   <widget class="QListWidget" name="computer_list_scientist_connections">
+                    <property name="editTriggers">
+                     <set>QAbstractItemView::NoEditTriggers</set>
+                    </property>
+                   </widget>
                   </item>
                  </layout>
                 </item>
@@ -460,7 +533,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>589</width>
+     <width>679</width>
      <height>25</height>
     </rect>
    </property>

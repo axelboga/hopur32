@@ -32,7 +32,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -173,7 +173,14 @@
          </layout>
         </item>
         <item>
-         <widget class="QComboBox" name="dropdown_scientist_order_by"/>
+         <layout class="QHBoxLayout" name="horizontalLayout_7">
+          <item>
+           <widget class="QComboBox" name="dropdown_scientist_order_by"/>
+          </item>
+          <item>
+           <widget class="QComboBox" name="dropdown_scientist_order_by_ascending"/>
+          </item>
+         </layout>
         </item>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_8">

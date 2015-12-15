@@ -63,15 +63,15 @@ bool ScientistServices::add(Scientist c) {
     return sciRepo.addToDatabase(c);
 }
 
-vector<Scientist> ScientistServices::search(string searchTerm, string sortBy) {
+vector<Scientist> ScientistServices::search(string searchTerm, string sortBy, string ascendingOrder) {
     vector<Scientist> v;
-    v = sciRepo.searchInDatabase(searchTerm, sortBy);
+    v = sciRepo.searchInDatabase(searchTerm, sortBy, ascendingOrder);
     return v;
 }
 
-vector<Scientist> ScientistServices::sort(string sortBy) {
+vector<Scientist> ScientistServices::sort(string sortBy, string ascendingOrder) {
     vector<Scientist> v;
-    v = sciRepo.sortDatabase(sortBy);
+    v = sciRepo.sortDatabase(sortBy, ascendingOrder);
     return v;
 }
 

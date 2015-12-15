@@ -15,8 +15,8 @@ public:
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
     bool add(Scientist c);
-    vector<Scientist> search(string searchTerm, string sortBy);
-    vector<Scientist> sort(string sortBy);
+    vector<Scientist> search(string searchTerm, string sortBy, string ascendingOrder);
+    vector<Scientist> sort(string sortBy, string ascendingOrder);
     bool remove(string my_id);
     vector<Scientist> getScientistsByComputerId(string c_id);
 private:

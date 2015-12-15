@@ -52,13 +52,14 @@ private slots:
     void on_dropdown_scientist_order_by_currentIndexChanged(int index);
 
     void on_dropdown_order_by_ascending_activated(const QString &arg1);
+    void on_dropdown_scientist_order_by_ascending_activated(const QString &arg1);
 
 
 private:
     string getCurrentComputerOrderBy();
     string getCurrentScientistOrderBy();
     string getComputerOrderByAscending();
-    bool getScientistOrderByAscending();
+    string getScientistOrderByAscending();
     void displayAllComputers();
     void displayComputer(vector<Computer> computers);
     Ui::MainWindow *ui;

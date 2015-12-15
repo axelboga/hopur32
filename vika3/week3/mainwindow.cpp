@@ -17,6 +17,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->dropdown_scientist_order_by->addItem("Year of Death");
     ui->dropdown_order_by_ascending->addItem("Ascending");
     ui->dropdown_order_by_ascending->addItem("Descending");
+    ui->dropdown_scientist_order_by_ascending->addItem("Ascending");
+    ui->dropdown_scientist_order_by_ascending->addItem("Descending");
     displayAllComputers();
     displayAllScientists();
     displayAllComputersForComputerConnections();
@@ -142,7 +144,7 @@ void MainWindow::on_button_add_computer_clicked() {
 /****************************************** SCIENTISTS *********************************************/
 
 void MainWindow::displayAllScientists() {
-    vector<Scientist> scientists = sciService.sort(getCurrentScientistOrderBy());
+    vector<Scientist> scientists = sciService.sort(getCurrentScientistOrderBy(), getScientistOrderByAscending());
     displayScientist(scientists);
 }
 
@@ -173,7 +175,7 @@ void MainWindow::on_dropdown_scientist_order_by_currentIndexChanged(int index) {
 
 void MainWindow::on_input_filter_scientists_textChanged(const QString &arg1) {
     string userInput = ui->input_filter_scientists->text().toStdString();
-    vector<Scientist> scientists = sciService.search(userInput, getCurrentScientistOrderBy());
+    vector<Scientist> scientists = sciService.search(userInput, getCurrentScientistOrderBy(), getScientistOrderByAscending());
     displayScientist(scientists);
 }
 
@@ -197,6 +199,20 @@ string MainWindow::getCurrentScientistOrderBy() {
     else {
         return "FirstName";
     }
+}
+
+string MainWindow::getScientistOrderByAscending() {
+    string ascendingText = ui->dropdown_scientist_order_by_ascending->currentText().toStdString();
+    if (ascendingText == "Ascending") {
+        return "ASC";
+    }
+    else {
+        return "DESC";
+    }
+}
+
+void MainWindow::on_dropdown_scientist_order_by_ascending_activated(const QString &arg1) {
+    on_input_filter_scientists_textChanged("");
 }
 
 void MainWindow::on_button_remove_scientist_clicked() {
@@ -323,7 +339,7 @@ void MainWindow::displayScientistsForScientistConnections(vector<Scientist> scie
 }
 
 void MainWindow::displayAllScientistsForScientistConnections() {
-    vector<Scientist> scientists = sciService.sort("firstName");
+    vector<Scientist> scientists = sciService.sort("firstName", "ASC");
     displayScientistsForScientistConnections(scientists);
 }
 

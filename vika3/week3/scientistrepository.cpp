@@ -36,19 +36,19 @@ bool ScientistRepository::addToDatabase(Scientist scientist){
     return success;
 }
 
-vector<Scientist> ScientistRepository::searchInDatabase(string input, string sortBy) {
+vector<Scientist> ScientistRepository::searchInDatabase(string input, string sortBy, string ascendingOrder) {
     vector<Scientist> v;
     string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM "
                "Scientists WHERE ID LIKE '%" + input + "%' OR FirstName LIKE '%" + input + "%' "
                "OR LastName LIKE '%" + input + "%' OR Gender LIKE '%" + input + "%' OR BirthYear LIKE '%"
-               + input + "%' OR DeathYear LIKE '%" + input + "%' ORDER BY " + sortBy;
+               + input + "%' OR DeathYear LIKE '%" + input + "%' ORDER BY " + sortBy + " " + ascendingOrder;
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-vector<Scientist> ScientistRepository::sortDatabase(string sortBy) {
+vector<Scientist> ScientistRepository::sortDatabase(string sortBy, string ascendingOrder) {
     vector<Scientist> v;
-    string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY " + sortBy;
+    string s = "SELECT ID, FirstName, LastName, Gender, BirthYear, DeathYear FROM Scientists ORDER BY " + sortBy + " " + ascendingOrder;
     fillVectorFromDatabase(v, s);
     return v;
 }

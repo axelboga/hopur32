@@ -67,7 +67,7 @@ void RemoveConnectionsDialog::displayScientistsForRemoveConnections(vector<Scien
 }
 
 void RemoveConnectionsDialog::displayAllScientistsForRemoveConnections() {
-    vector<Scientist> scientists = sciService.sort("firstName");
+    vector<Scientist> scientists = sciService.sort("firstName", "ASC");
     displayScientistsForRemoveConnections(scientists);
 }
 

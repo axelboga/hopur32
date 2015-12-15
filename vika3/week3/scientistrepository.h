@@ -15,8 +15,8 @@ public:
     bool removeFromDatabase(string my_id);
     void fillVectorFromDatabase(vector<Scientist>& v, string sql);
     bool addToDatabase(Scientist scientist);
-    vector<Scientist> searchInDatabase(string input, string sortBy);
-    vector<Scientist> sortDatabase(string sortBy);
+    vector<Scientist> searchInDatabase(string input, string sortBy, string ascendingOrder);
+    vector<Scientist> sortDatabase(string sortBy, string ascendingOrder);
     vector<Scientist> getScientistsByComputerId(string id);
 private:
     BaseRepository baseRepo;

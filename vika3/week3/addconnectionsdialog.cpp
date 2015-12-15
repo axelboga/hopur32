@@ -68,7 +68,7 @@ void AddConnectionsDialog::displayScientistsForAddConnections(vector<Scientist> 
 }
 
 void AddConnectionsDialog::displayAllScientistsForAddConnections() {
-    vector<Scientist> scientists = sciService.sort("firstName");
+    vector<Scientist> scientists = sciService.sort("firstName", "ASC");
     displayScientistsForAddConnections(scientists);
 }
 

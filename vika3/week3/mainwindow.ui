@@ -350,7 +350,7 @@
           <item>
            <widget class="QTabWidget" name="connections_tabs">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_computer_connections">
              <attribute name="title">
@@ -503,7 +503,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                      <normaloff>:/svg/remove12.svg</normaloff>:/svg/remove12.svg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -514,7 +514,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                      <normaloff>:/svg/linked.svg</normaloff>:/svg/linked.svg</iconset>
                     </property>
                    </widget>
                   </item>

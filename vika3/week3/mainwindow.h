@@ -62,9 +62,6 @@ private:
     void displayScientist(vector<Scientist> scientists);
     ScientistServices sciService;
     vector<Scientist> currentlyDisplayedScientists;
-    
-    
-
 };
 
 #endif // MAINWINDOW_H

@@ -12,19 +12,12 @@ class ScientistServices {
 public:
     ScientistServices();
     bool checkName(string s);
-    bool checkGender(string& s);
     bool checkBirth(string s);
     bool checkDeath(string d, string b);
-    bool checkSearch(string searchTerm, string sortBy);
-    bool checkIfIdExists(string my_id, string& name);
-    bool checkCompSciConnections(string c_id);
-    bool isAlive(string& answ);
     bool add(Scientist c);
-    void view();
     vector<Scientist> search(string searchTerm, string sortBy);
     vector<Scientist> sort(string sortBy);
     bool remove(string my_id);
-    void output(vector<Scientist>& v);
     vector<Scientist> getScientistsByComputerId(string c_id);
 private:
     ScientistRepository sciRepo;

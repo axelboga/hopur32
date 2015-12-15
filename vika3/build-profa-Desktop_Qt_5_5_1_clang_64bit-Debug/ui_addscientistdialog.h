@@ -62,7 +62,7 @@ public:
     {
         if (AddScientistDialog->objectName().isEmpty())
             AddScientistDialog->setObjectName(QStringLiteral("AddScientistDialog"));
-        AddScientistDialog->resize(400, 439);
+        AddScientistDialog->resize(400, 434);
         verticalLayout_3 = new QVBoxLayout(AddScientistDialog);
         verticalLayout_3->setObjectName(QStringLiteral("verticalLayout_3"));
         label_add_scientist = new QLabel(AddScientistDialog);
@@ -224,7 +224,7 @@ public:
     void retranslateUi(QDialog *AddScientistDialog)
     {
         AddScientistDialog->setWindowTitle(QApplication::translate("AddScientistDialog", "Add scientist", 0));
-        label_add_scientist->setText(QApplication::translate("AddScientistDialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Add a new scientist</span></p></body></html>", 0));
+        label_add_scientist->setText(QApplication::translate("AddScientistDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#213dbc;\">Add a new scientist</span></p></body></html>", 0));
         label_scientist_FirstName->setText(QApplication::translate("AddScientistDialog", "First Name:", 0));
         label_error_scientist_first_name->setText(QString());
         label_scientist_last_name->setText(QApplication::translate("AddScientistDialog", "Last Name:", 0));

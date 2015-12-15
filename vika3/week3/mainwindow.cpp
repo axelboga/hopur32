@@ -8,13 +8,13 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->setupUi(this);
     ui->dropdown_order_by->addItem("Name");
     ui->dropdown_order_by->addItem("Type");
-    ui->dropdown_order_by->addItem("WasBuilt");
-    ui->dropdown_order_by->addItem("YearBuilt");
-    ui->dropdown_scientist_order_by->addItem("First name");
-    ui->dropdown_scientist_order_by->addItem("Last name");
+    ui->dropdown_order_by->addItem("Was Built");
+    ui->dropdown_order_by->addItem("Year Built");
+    ui->dropdown_scientist_order_by->addItem("First Name");
+    ui->dropdown_scientist_order_by->addItem("Last Name");
     ui->dropdown_scientist_order_by->addItem("Gender");
-    ui->dropdown_scientist_order_by->addItem("Year of birth");
-    ui->dropdown_scientist_order_by->addItem("Year of death");
+    ui->dropdown_scientist_order_by->addItem("Year of Birth");
+    ui->dropdown_scientist_order_by->addItem("Year of Death");
     displayAllComputers();
     displayAllScientists();
     displayAllComputersForComputerConnections();
@@ -66,10 +66,10 @@ string MainWindow::getCurrentComputerOrderBy() {
     if (currentValueInOrderBy == "Name"){
         return "Name";
     }
-    else if(currentValueInOrderBy == "YearBuilt"){
+    else if(currentValueInOrderBy == "Year Built"){
         return "YearBuilt";
     }
-    else if(currentValueInOrderBy == "WasBuilt"){
+    else if(currentValueInOrderBy == "Was Built"){
         return "WasBuilt";
     }
     else if(currentValueInOrderBy == "Type"){
@@ -126,7 +126,7 @@ void MainWindow::on_button_add_computer_clicked() {
 /****************************************** SCIENTISTS *********************************************/
 
 void MainWindow::displayAllScientists() {
-    vector<Scientist> scientists = sciService.sort("FirstName");
+    vector<Scientist> scientists = sciService.sort(getCurrentScientistOrderBy());
     displayScientist(scientists);
 }
 
@@ -163,19 +163,19 @@ void MainWindow::on_input_filter_scientists_textChanged(const QString &arg1) {
 
 string MainWindow::getCurrentScientistOrderBy() {
     string currentValueInOrderBy = ui->dropdown_scientist_order_by->currentText().toStdString();
-    if (currentValueInOrderBy == "First name"){
+    if (currentValueInOrderBy == "First Name"){
         return "FirstName";
     }
-    else if(currentValueInOrderBy == "Last name"){
+    else if(currentValueInOrderBy == "Last Name"){
         return "LastName";
     }
     else if(currentValueInOrderBy == "Gender"){
         return "Gender";
     }
-    else if(currentValueInOrderBy == "Year of birth"){
+    else if(currentValueInOrderBy == "Year of Birth"){
         return "BirthYear";
     }
-    else if(currentValueInOrderBy == "Year of death"){
+    else if(currentValueInOrderBy == "Year of Death"){
         return "DeathYear";
     }
     else {

@@ -22,6 +22,7 @@
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
+#include <QtWidgets/QSpacerItem>
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTabWidget>
 #include <QtWidgets/QTableWidget>
@@ -38,6 +39,7 @@ public:
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_5;
     QLabel *label;
+    QSpacerItem *horizontalSpacer;
     QTabWidget *tabs;
     QWidget *tab_computer;
     QVBoxLayout *verticalLayout_6;
@@ -101,7 +103,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QStringLiteral("MainWindow"));
-        MainWindow->resize(670, 633);
+        MainWindow->resize(670, 630);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QStringLiteral("centralWidget"));
         verticalLayout_2 = new QVBoxLayout(centralWidget);
@@ -118,6 +120,10 @@ public:
 
 
         verticalLayout_2->addLayout(horizontalLayout_5);
+
+        horizontalSpacer = new QSpacerItem(40, 20, QSizePolicy::Expanding, QSizePolicy::Minimum);
+
+        verticalLayout_2->addItem(horizontalSpacer);
 
         tabs = new QTabWidget(centralWidget);
         tabs->setObjectName(QStringLiteral("tabs"));
@@ -479,7 +485,7 @@ public:
 
         retranslateUi(MainWindow);
 
-        tabs->setCurrentIndex(0);
+        tabs->setCurrentIndex(1);
         connections_tabs->setCurrentIndex(1);
 
 
@@ -489,7 +495,7 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QApplication::translate("MainWindow", "Legends of Computer Science", 0));
-        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; font-weight:600; color:#1063ff;\">~ Welcome to the future ~</span></p></body></html>", 0));
+        label->setText(QApplication::translate("MainWindow", "<html><head/><body><p align=\"center\"><span style=\" font-size:36pt; font-weight:600; color:#213dbc;\"> Computer and Scientist Program</span></p></body></html>", 0));
         input_filter_computers->setPlaceholderText(QApplication::translate("MainWindow", "Search", 0));
         QTableWidgetItem *___qtablewidgetitem = table_computers->horizontalHeaderItem(0);
         ___qtablewidgetitem->setText(QApplication::translate("MainWindow", "Name ", 0));
@@ -508,7 +514,7 @@ public:
         QTableWidgetItem *___qtablewidgetitem5 = table_scientists->horizontalHeaderItem(1);
         ___qtablewidgetitem5->setText(QApplication::translate("MainWindow", "Last Name", 0));
         QTableWidgetItem *___qtablewidgetitem6 = table_scientists->horizontalHeaderItem(2);
-        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Sex", 0));
+        ___qtablewidgetitem6->setText(QApplication::translate("MainWindow", "Gender", 0));
         QTableWidgetItem *___qtablewidgetitem7 = table_scientists->horizontalHeaderItem(3);
         ___qtablewidgetitem7->setText(QApplication::translate("MainWindow", "Year of Birth", 0));
         QTableWidgetItem *___qtablewidgetitem8 = table_scientists->horizontalHeaderItem(4);

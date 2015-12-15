@@ -71,13 +71,6 @@ void AddScientistDialog::on_button_add_scientist_clicked() {
         return;
     }
 
-    int answer = QMessageBox::question(this, "confirm", "Are you sure?");
-
-    if (answer == QMessageBox::No) {
-        this->done(1);
-        return;
-    }
-
     Scientist s;
     s.setFirstName(firstName.toStdString());
     s.setLastName(lastName.toStdString());

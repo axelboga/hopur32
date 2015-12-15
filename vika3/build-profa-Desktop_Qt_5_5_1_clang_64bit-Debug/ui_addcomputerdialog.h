@@ -55,7 +55,7 @@ public:
     {
         if (AddComputerDialog->objectName().isEmpty())
             AddComputerDialog->setObjectName(QStringLiteral("AddComputerDialog"));
-        AddComputerDialog->resize(387, 374);
+        AddComputerDialog->resize(387, 315);
         verticalLayout_7 = new QVBoxLayout(AddComputerDialog);
         verticalLayout_7->setObjectName(QStringLiteral("verticalLayout_7"));
         label_add_computer = new QLabel(AddComputerDialog);
@@ -174,7 +174,7 @@ public:
     void retranslateUi(QDialog *AddComputerDialog)
     {
         AddComputerDialog->setWindowTitle(QApplication::translate("AddComputerDialog", "Add computer", 0));
-        label_add_computer->setText(QApplication::translate("AddComputerDialog", "<html><head/><body><p align=\"center\"><span style=\" font-weight:600;\">Add a new computer</span></p></body></html>", 0));
+        label_add_computer->setText(QApplication::translate("AddComputerDialog", "<html><head/><body><p align=\"center\"><span style=\" font-size:18pt; font-weight:600; color:#213dbc;\">Add a new computer</span></p></body></html>", 0));
         label_computer_name->setText(QApplication::translate("AddComputerDialog", "Name:", 0));
         label_error_computer_name->setText(QString());
         label_computer_type->setText(QApplication::translate("AddComputerDialog", "Type:", 0));

@@ -35,12 +35,6 @@ void AddConnectionsDialog::on_button_add_connections_clicked()
     int idOfScientist = currentlySelectedScientist.getId();
     string stringIdOfScientist = static_cast<ostringstream*>(&(ostringstream() << idOfScientist) )->str();
 
-    int answer = QMessageBox::question(this, "confirm", "Are you sure?");
-    if (answer == QMessageBox::No) {
-        this->done(1);
-        return;
-    }
-
     bool success = connectionService.addConnection(stringIdOfScientist, stringIdOfComputer);
 
     if (success){

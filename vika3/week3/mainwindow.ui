@@ -32,7 +32,7 @@
        <enum>QTabWidget::Rounded</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>2</number>
       </property>
       <property name="tabsClosable">
        <bool>false</bool>
@@ -333,23 +333,23 @@
                 <item>
                  <layout class="QVBoxLayout" name="verticalLayout_14">
                   <item>
-                   <widget class="QPushButton" name="button_add_computer_connection">
-                    <property name="text">
-                     <string>Add Connection</string>
-                    </property>
-                    <property name="icon">
-                     <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi1.jpg</normaloff>:/icons/tengi1.jpg</iconset>
-                    </property>
-                   </widget>
-                  </item>
-                  <item>
                    <widget class="QPushButton" name="button_remove_computer_connection">
                     <property name="enabled">
                      <bool>true</bool>
                     </property>
                     <property name="text">
                      <string>Remove Connection</string>
+                    </property>
+                    <property name="icon">
+                     <iconset resource="myndir.qrc">
+                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                    </property>
+                   </widget>
+                  </item>
+                  <item>
+                   <widget class="QPushButton" name="button_add_computer_connection">
+                    <property name="text">
+                     <string>Add Connection</string>
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
@@ -415,9 +415,12 @@
                 <item>
                  <layout class="QVBoxLayout" name="verticalLayout_17">
                   <item>
-                   <widget class="QPushButton" name="button_add_scientist_connection">
+                   <widget class="QPushButton" name="button_remove_scientist_connection">
+                    <property name="enabled">
+                     <bool>true</bool>
+                    </property>
                     <property name="text">
-                     <string>Add Connection</string>
+                     <string>Remove Connection</string>
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
@@ -426,12 +429,9 @@
                    </widget>
                   </item>
                   <item>
-                   <widget class="QPushButton" name="button_remove_scientist_connection">
-                    <property name="enabled">
-                     <bool>true</bool>
-                    </property>
+                   <widget class="QPushButton" name="button_add_scientist_connection">
                     <property name="text">
-                     <string>Remove Connection</string>
+                     <string>Add Connection</string>
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
@@ -461,7 +461,7 @@
      <x>0</x>
      <y>0</y>
      <width>589</width>
-     <height>31</height>
+     <height>25</height>
     </rect>
    </property>
   </widget>

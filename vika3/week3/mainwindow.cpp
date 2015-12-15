@@ -19,6 +19,8 @@ MainWindow::MainWindow(QWidget *parent) : QMainWindow(parent), ui(new Ui::MainWi
     ui->dropdown_order_by_ascending->addItem("Descending");
     ui->dropdown_scientist_order_by_ascending->addItem("Ascending");
     ui->dropdown_scientist_order_by_ascending->addItem("Descending");
+    ui->table_computers->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    ui->table_scientists->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
     displayAllComputers();
     displayAllScientists();
     displayAllComputersForComputerConnections();

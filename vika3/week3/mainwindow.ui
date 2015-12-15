@@ -161,7 +161,13 @@
               </property>
               <property name="icon">
                <iconset resource="myndir.qrc">
-                <normaloff>:/icons/compu-.jpg</normaloff>:/icons/compu-.jpg</iconset>
+                <normaloff>:/svg/computer19.svg</normaloff>:/svg/computer19.svg</iconset>
+              </property>
+              <property name="iconSize">
+               <size>
+                <width>20</width>
+                <height>20</height>
+               </size>
               </property>
              </widget>
             </item>
@@ -172,7 +178,7 @@
               </property>
               <property name="icon">
                <iconset resource="myndir.qrc">
-                <normaloff>:/icons/compu+.jpg</normaloff>:/icons/compu+.jpg</iconset>
+                <normaloff>:/svg/computers20.svg</normaloff>:/svg/computers20.svg</iconset>
               </property>
              </widget>
             </item>
@@ -306,7 +312,7 @@
               </property>
               <property name="icon">
                <iconset resource="myndir.qrc">
-                <normaloff>:/icons/minuskall.jpg</normaloff>:/icons/minuskall.jpg</iconset>
+                <normaloff>:/svg/remove7.svg</normaloff>:/svg/remove7.svg</iconset>
               </property>
              </widget>
             </item>
@@ -317,7 +323,7 @@
               </property>
               <property name="icon">
                <iconset resource="myndir.qrc">
-                <normaloff>:/icons/addkall.jpg</normaloff>:/icons/addkall.jpg</iconset>
+                <normaloff>:/svg/addition7.svg</normaloff>:/svg/addition7.svg</iconset>
               </property>
              </widget>
             </item>
@@ -344,7 +350,7 @@
           <item>
            <widget class="QTabWidget" name="connections_tabs">
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="tab_computer_connections">
              <attribute name="title">
@@ -407,7 +413,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                      <normaloff>:/svg/remove12.svg</normaloff>:/svg/remove12.svg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -418,7 +424,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                      <normaloff>:/svg/linked.svg</normaloff>:/svg/linked.svg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -497,7 +503,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                      <normaloff>:/svg/remove12.svg</normaloff>:/svg/remove12.svg</iconset>
                     </property>
                    </widget>
                   </item>
@@ -508,7 +514,7 @@
                     </property>
                     <property name="icon">
                      <iconset resource="myndir.qrc">
-                      <normaloff>:/icons/tengi2.jpg</normaloff>:/icons/tengi2.jpg</iconset>
+                      <normaloff>:/svg/linked.svg</normaloff>:/svg/linked.svg</iconset>
                     </property>
                    </widget>
                   </item>

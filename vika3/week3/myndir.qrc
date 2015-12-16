@@ -1,19 +1,10 @@
 <RCC>
     <qresource prefix="/icons">
-        <file>compu....jpg</file>
-        <file>compu-.jpg</file>
-        <file>compu+.jpg</file>
-        <file>addkall.jpg</file>
-        <file>tengi2.jpg</file>
-        <file>tengi1.jpg</file>
-        <file>minuskall.jpg</file>
         <file>connecti.png</file>
         <file>monitor-512.png</file>
         <file>scientistIcon.png</file>
     </qresource>
     <qresource prefix="/">
-        <file>png/remove7.png</file>
-        <file>png/remove12.png</file>
         <file>svg/addition7.svg</file>
         <file>svg/computer19.svg</file>
         <file>svg/computers18.svg</file>

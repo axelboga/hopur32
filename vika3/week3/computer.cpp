@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Computer::Computer(){
+Computer::Computer() {
     id = 0;
     name = "";
     year = "-";
@@ -49,13 +49,3 @@ string Computer::getWasBuilt() const {
 void Computer::setWasBuilt(string my_wasBuilt) {
     wasBuilt = my_wasBuilt;
 }
-
-/*
-ostream& operator <<(ostream& outs, Computer& c) { //how to output the object computerScientist
-    string tempN = c.getName();
-    tempN[0] = toupper(tempN[0]);
-    outs << left << setw(11) << tempN << left << setw(15) << c.type << left << setw(9)
-         << c.wasBuilt << left << setw(16)<< c.year << endl;
-    return outs;
-}
-*/

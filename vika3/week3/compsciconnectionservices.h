@@ -5,8 +5,7 @@
 #include "scientist.h"
 
 
-class CompSciConnectionServices
-{
+class CompSciConnectionServices {
 public:
     CompSciConnectionServices();
     bool addConnection(string sci_id, string comp_id);

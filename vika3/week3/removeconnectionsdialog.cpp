@@ -12,20 +12,18 @@ RemoveConnectionsDialog::RemoveConnectionsDialog(QWidget *parent) :
 
 }
 
-RemoveConnectionsDialog::~RemoveConnectionsDialog()
-{
+RemoveConnectionsDialog::~RemoveConnectionsDialog() {
     delete ui;
 }
 
-void RemoveConnectionsDialog::enableRemoveButton(){
-if((ui->list_computers_remove_connections->currentIndex().row()) >=0 &&
-        (ui->list_scientists_remove_connections->currentIndex().row()) >=0){
-    ui->button_remove->setEnabled(true);
+void RemoveConnectionsDialog::enableRemoveButton() {
+  if ((ui->list_computers_remove_connections->currentIndex().row()) >= 0 &&
+        (ui->list_scientists_remove_connections->currentIndex().row()) >= 0) {
+          ui->button_remove->setEnabled(true);
     }
 }
 
-void RemoveConnectionsDialog::on_button_remove_clicked()
-{
+void RemoveConnectionsDialog::on_button_remove_clicked() {
     int currentlySelectedComputerIndex = ui->list_computers_remove_connections->currentIndex().row();
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
     int idOfComputer = currentlySelectedComputer.getId();
@@ -44,10 +42,9 @@ void RemoveConnectionsDialog::on_button_remove_clicked()
 
     bool success = connectionService.removeConnection(stringIdOfScientist, stringIdOfComputer);
 
-    if (success){
+    if (success) {
         this->done(1);
-    }
-   else{
+    } else {
         this->done(-1);
     }
 }
@@ -56,7 +53,7 @@ void RemoveConnectionsDialog::on_button_remove_clicked()
 
 void RemoveConnectionsDialog::displayScientistsForRemoveConnections(vector<Scientist> scientists) {
     ui->list_scientists_remove_connections->clear();
-    for(unsigned int i = 0; i < scientists.size(); i++) {
+    for (unsigned int i = 0; i < scientists.size(); i++) {
         Scientist currentScientist = scientists.at(i);
         string name_temp = currentScientist.getFirstName() +  " " + currentScientist.getLastName();
         QString name = QString::fromStdString(name_temp);
@@ -73,7 +70,7 @@ void RemoveConnectionsDialog::displayAllScientistsForRemoveConnections() {
 
 void RemoveConnectionsDialog::displayComputersForRemoveConnections(vector<Computer> computers) {
     ui->list_computers_remove_connections->clear();
-    for(unsigned int i = 0; i < computers.size(); i++){
+    for (unsigned int i = 0; i < computers.size(); i++) {
         Computer currentComputer = computers.at(i);
         QString name = QString::fromStdString(currentComputer.getName());
 
@@ -87,12 +84,10 @@ void RemoveConnectionsDialog::displayAllComputersForRemoveConnections() {
     displayComputersForRemoveConnections(computers);
 }
 
-void RemoveConnectionsDialog::on_list_computers_remove_connections_clicked(const QModelIndex &index)
-{
+void RemoveConnectionsDialog::on_list_computers_remove_connections_clicked(const QModelIndex &index) {
     enableRemoveButton();
 }
 
-void RemoveConnectionsDialog::on_list_scientists_remove_connections_clicked(const QModelIndex &index)
-{
+void RemoveConnectionsDialog::on_list_scientists_remove_connections_clicked(const QModelIndex &index) {
     enableRemoveButton();
 }

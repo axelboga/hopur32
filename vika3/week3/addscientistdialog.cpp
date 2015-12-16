@@ -18,41 +18,46 @@ bool AddScientistDialog::checkInput() {
 
     bool thereWasAnError = false;
 
-    if (firstName.isEmpty()){
-        ui->label_error_scientist_first_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
+    if (firstName.isEmpty()) {
+        ui->label_error_scientist_first_name->setText(
+          "<span style='color: #ED1C58'>Name cannot be empty</span>");
         thereWasAnError = true;
-    }
-    else if (!sciService.checkName(firstName.toStdString())) {
-        ui->label_error_scientist_first_name->setText("<span style='color: #ED1C58'>Invalid name</span>");
-        thereWasAnError = true;
-    }
-
-    if (lastName.isEmpty()){
-        ui->label_error_scientist_last_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
-        thereWasAnError = true;
-    }
-    else if (!sciService.checkName(lastName.toStdString())) {
-        ui->label_error_scientist_last_name->setText("<span style='color: #ED1C58'>Invalid name</span>");
+    } else if (!sciService.checkName(firstName.toStdString())) {
+        ui->label_error_scientist_first_name->setText(
+          "<span style='color: #ED1C58'>Invalid name</span>");
         thereWasAnError = true;
     }
 
-    if (birthYear.isEmpty()){
-        ui->label_error_scientist_year_born->setText("<span style='color: #ED1C58'>Year of birth cannot be empty</span>");
+    if (lastName.isEmpty()) {
+        ui->label_error_scientist_last_name->setText(
+          "<span style='color: #ED1C58'>Name cannot be empty</span>");
+        thereWasAnError = true;
+    } else if (!sciService.checkName(lastName.toStdString())) {
+        ui->label_error_scientist_last_name->setText(
+          "<span style='color: #ED1C58'>Invalid name</span>");
         thereWasAnError = true;
     }
-    else if (!sciService.checkBirth(birthYear.toStdString())) {
-        ui->label_error_scientist_year_born->setText("<span style='color: #ED1C58'>Invalid year</span>");
+
+    if (birthYear.isEmpty()) {
+        ui->label_error_scientist_year_born->setText(
+          "<span style='color: #ED1C58'>Year of birth cannot be empty</span>");
+        thereWasAnError = true;
+    } else if (!sciService.checkBirth(birthYear.toStdString())) {
+        ui->label_error_scientist_year_born->setText(
+          "<span style='color: #ED1C58'>Invalid year</span>");
         thereWasAnError = true;
     }
 
     bool deathInputOK = sciService.checkDeath(deathYear.toStdString(), birthYear.toStdString());
 
-    if (ui->checkbox_scientist_is_dead->isChecked()== true && deathYear.isEmpty()){
-        ui->label_error_scientist_year_of_death->setText("<span style='color: #ED1C58'>Year of death cannot be emty </span>");
+    if (ui->checkbox_scientist_is_dead->isChecked() == true && deathYear.isEmpty()) {
+        ui->label_error_scientist_year_of_death->setText(
+          "<span style='color: #ED1C58'>Year of death cannot be emty </span>");
         thereWasAnError = true;
     }
-    else if(ui->checkbox_scientist_is_dead->isChecked()== true && !deathInputOK){
-        ui->label_error_scientist_year_of_death->setText("<span style='color: #ED1C58'> Invalid year </span>");
+    else if (ui->checkbox_scientist_is_dead->isChecked() == true && !deathInputOK) {
+        ui->label_error_scientist_year_of_death->setText(
+          "<span style='color: #ED1C58'> Invalid year </span>");
         thereWasAnError = true;
     }
 
@@ -76,34 +81,31 @@ void AddScientistDialog::on_button_add_scientist_clicked() {
     s.setLastName(lastName.toStdString());
     s.setSex(gender.toStdString());
     s.setYearOfBirth(birthYear.toStdString());
-    if(ui->checkbox_scientist_is_dead->isChecked()==true){
+    if (ui->checkbox_scientist_is_dead->isChecked() == true) {
         s.setYearOfDeath(deathYear.toStdString());
-    }
-    else {
+    } else {
         s.setYearOfDeath("-");
     }
 
     bool success = sciService.add(s);
 
-    if (success){
+    if (success) {
         ui->input_scientist_first_name->setText("");
         ui->input_scientist_last_name->setText("");
         ui->input_scientist_year_born->setText("");
         ui->input_scientist_year_death->setText("");
 
         this->done(1);
-    }
-    else{
+    } else {
         this->done(-1);
     }
 }
 
-void AddScientistDialog::on_checkbox_scientist_is_dead_toggled(bool checked){
-    if(checked==true){
+void AddScientistDialog::on_checkbox_scientist_is_dead_toggled(bool checked) {
+    if (checked == true) {
         ui->label_scientist_year_death->setEnabled(true);
         ui->input_scientist_year_death->setEnabled(true);
-    }
-    else if(checked==false){
+    } else if (checked == false) {
     ui->label_scientist_year_death->setEnabled(false);
     ui->input_scientist_year_death->setEnabled(false);
     }

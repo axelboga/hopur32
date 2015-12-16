@@ -4,7 +4,7 @@
 #include "computerrepository.h"
 #include <vector>
 
-class ComputerServices{
+class ComputerServices {
 
 public:
     ComputerServices();

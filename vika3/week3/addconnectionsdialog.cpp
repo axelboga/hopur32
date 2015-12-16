@@ -11,20 +11,18 @@ AddConnectionsDialog::AddConnectionsDialog(QWidget *parent) :
     displayAllComputersForAddConnections();
 }
 
-AddConnectionsDialog::~AddConnectionsDialog()
-{
+AddConnectionsDialog::~AddConnectionsDialog() {
     delete ui;
 }
 
-void AddConnectionsDialog::enableAddButton(){
-    if((ui->list_computers_add_connections->currentIndex().row()) >=0 &&
-            (ui->list_scientists_add_connections->currentIndex().row()) >=0){
-        ui->button_add_connections->setEnabled(true);
+void AddConnectionsDialog::enableAddButton() {
+    if ((ui->list_computers_add_connections->currentIndex().row()) >= 0 &&
+        (ui->list_scientists_add_connections->currentIndex().row()) >= 0) {
+          ui->button_add_connections->setEnabled(true);
     }
 }
 
-void AddConnectionsDialog::on_button_add_connections_clicked()
-{
+void AddConnectionsDialog::on_button_add_connections_clicked() {
     int currentlySelectedComputerIndex = ui->list_computers_add_connections->currentIndex().row();
     Computer currentlySelectedComputer = currentlyDisplayedComputers.at(currentlySelectedComputerIndex);
     int idOfComputer = currentlySelectedComputer.getId();
@@ -37,31 +35,28 @@ void AddConnectionsDialog::on_button_add_connections_clicked()
 
     bool success = connectionService.addConnection(stringIdOfScientist, stringIdOfComputer);
 
-    if (success){
-        this->done(1);
-    }
-   else{
-        this->done(-1);
+    if (success) {
+      this->done(1);
+    } else {
+      this->done(-1);
     }
 }
 
-void AddConnectionsDialog::on_list_computers_add_connections_clicked(const QModelIndex &index)
-{
+void AddConnectionsDialog::on_list_computers_add_connections_clicked(const QModelIndex &index) {
     enableAddButton();
 }
 
-void AddConnectionsDialog::on_list_scientists_add_connections_clicked(const QModelIndex &index)
-{
+void AddConnectionsDialog::on_list_scientists_add_connections_clicked(const QModelIndex &index) {
     enableAddButton();
 }
 
 void AddConnectionsDialog::displayScientistsForAddConnections(vector<Scientist> scientists) {
     ui->list_scientists_add_connections->clear();
-    for(unsigned int i = 0; i < scientists.size(); i++) {
+    for (unsigned int i = 0; i < scientists.size(); i++) {
         Scientist currentScientist = scientists.at(i);
         string name_temp = currentScientist.getFirstName() +  " " + currentScientist.getLastName();
         QString name = QString::fromStdString(name_temp);
-    
+
         ui->list_scientists_add_connections->addItem(name);
     }
     currentlyDisplayedScientists = scientists;
@@ -74,7 +69,7 @@ void AddConnectionsDialog::displayAllScientistsForAddConnections() {
 
 void AddConnectionsDialog::displayComputersForAddConnections(vector<Computer> computers) {
     ui->list_computers_add_connections->clear();
-    for(unsigned int i = 0; i < computers.size(); i++){
+    for(unsigned int i = 0; i < computers.size(); i++) {
         Computer currentComputer = computers.at(i);
         QString name = QString::fromStdString(currentComputer.getName());
 

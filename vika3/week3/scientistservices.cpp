@@ -11,7 +11,7 @@ ScientistServices::ScientistServices() {
 bool ScientistServices::checkName(string s) {
     for (unsigned int i = 0; i < s.length(); i++){
         if (!isalpha(s[i])) {
-            if (s[i] != ' ' && s[i] != '\''){
+            if (s[i] != ' ' && s[i] != '\'') {
                 return false;
             }
         }
@@ -22,14 +22,14 @@ bool ScientistServices::checkName(string s) {
 bool ScientistServices::checkBirth(string s) { //returns false if user inputs non-digits, wrong length or year greater than 2015
     int  year = atoi(s.c_str());
 
-    for (unsigned int i = 0; i < s.length(); i++){
-        if (!isdigit(s[i])){
+    for (unsigned int i = 0; i < s.length(); i++) {
+        if (!isdigit(s[i])) {
             return false;
         }
-        if(s.length() != 4){
+        if (s.length() != 4) {
             return false;
         }
-        if(year > CURRENT_YEAR){
+        if (year > CURRENT_YEAR) {
             return false;
         }
     }
@@ -40,17 +40,17 @@ bool ScientistServices::checkDeath(string d, string b) {
     int yearOfDeath = atoi(d.c_str());
     int yearOfBirth = atoi(b.c_str());
 
-    for (unsigned int i = 0; i < d.length(); i++){
+    for (unsigned int i = 0; i < d.length(); i++) {
         if (!isdigit(d[i])) {
             return false;
         }
-        if(d.length() != 4){
+        if (d.length() != 4) {
             return false;
         }
-        if(yearOfDeath > CURRENT_YEAR){
+        if (yearOfDeath > CURRENT_YEAR) {
             return false;
         }
-        if(yearOfBirth > yearOfDeath){
+        if (yearOfBirth > yearOfDeath) {
             return false;
         }
     }

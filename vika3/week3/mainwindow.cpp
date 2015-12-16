@@ -42,7 +42,7 @@ void MainWindow::displayComputer(vector<Computer> computers) {
     ui->table_computers->clearContents();
     ui->table_computers->setRowCount(computers.size());
 
-    for (unsigned int i = 0; i < computers.size(); i++){
+    for (unsigned int i = 0; i < computers.size(); i++) {
         Computer currentComputer = computers.at(i);
         QString Name = QString::fromStdString(currentComputer.getName());
         QString Type = QString::fromStdString(currentComputer.getType());
@@ -69,19 +69,15 @@ void MainWindow::on_dropdown_order_by_currentIndexChanged(int index) {
 
 string MainWindow::getCurrentComputerOrderBy() {
     string currentValueInOrderBy = ui->dropdown_order_by->currentText().toStdString();
-    if (currentValueInOrderBy == "Name"){
+    if (currentValueInOrderBy == "Name") {
         return "Name";
-    }
-    else if(currentValueInOrderBy == "Year Built"){
+    } else if (currentValueInOrderBy == "Year Built") {
         return "YearBuilt";
-    }
-    else if(currentValueInOrderBy == "Was Built"){
+    } else if (currentValueInOrderBy == "Was Built") {
         return "WasBuilt";
-    }
-    else if(currentValueInOrderBy == "Type"){
+    } else if (currentValueInOrderBy == "Type") {
         return "Type";
-    }
-    else {
+    } else {
         return "Name";
     }
 }
@@ -90,8 +86,7 @@ string MainWindow::getComputerOrderByAscending() {
     string ascendingText = ui->dropdown_order_by_ascending->currentText().toStdString();
     if (ascendingText == "Ascending") {
         return "ASC";
-    }
-    else {
+    } else {
         return "DESC";
     }
 }
@@ -115,13 +110,12 @@ void MainWindow::on_button_remove_computer_clicked() {
 
     bool success = compService.remove(stringIdToRemove);
 
-    if (success){
+    if (success) {
         ui->input_filter_computers->setText("");
         displayAllComputers();
         ui->statusBar->showMessage("Successfully removed computer", 2500);
         ui->button_remove_computer->setEnabled(false);
-    }
-    else{
+    } else {
         int answer = QMessageBox::warning(this, "FAIL", "Failed to remove computer");
     }
 }
@@ -133,12 +127,11 @@ void MainWindow::on_table_computers_clicked(const QModelIndex &index) {
 void MainWindow::on_button_add_computer_clicked() {
     AddComputerDialog addCompDialog;
     int addCompReturnValue = addCompDialog.exec();
-    if(addCompReturnValue == 1){
+    if (addCompReturnValue == 1) {
         ui->input_filter_computers->setText("");
         displayAllComputers();
         ui->statusBar->showMessage("Successfully added computer", 2500);
-    }
-    else if (addCompReturnValue == -1){
+    } else if (addCompReturnValue == -1) {
         int answer = QMessageBox::warning(this, "FAIL", "Failed to add computer");
     }
 }
@@ -154,7 +147,7 @@ void MainWindow::displayScientist(vector<Scientist> scientists) {
     ui->table_scientists->clearContents();
     ui->table_scientists->setRowCount(scientists.size());
 
-    for (unsigned int i = 0; i < scientists.size(); i++){
+    for (unsigned int i = 0; i < scientists.size(); i++) {
         Scientist currentScientist = scientists.at(i);
         QString FirstName = QString::fromStdString(currentScientist.getFirstName());
         QString LastName = QString::fromStdString(currentScientist.getLastName());
@@ -183,22 +176,17 @@ void MainWindow::on_input_filter_scientists_textChanged(const QString &arg1) {
 
 string MainWindow::getCurrentScientistOrderBy() {
     string currentValueInOrderBy = ui->dropdown_scientist_order_by->currentText().toStdString();
-    if (currentValueInOrderBy == "First Name"){
+    if (currentValueInOrderBy == "First Name") {
         return "FirstName";
-    }
-    else if(currentValueInOrderBy == "Last Name"){
+    } else if (currentValueInOrderBy == "Last Name") {
         return "LastName";
-    }
-    else if(currentValueInOrderBy == "Gender"){
+    } else if (currentValueInOrderBy == "Gender") {
         return "Gender";
-    }
-    else if(currentValueInOrderBy == "Year of Birth"){
+    } else if (currentValueInOrderBy == "Year of Birth") {
         return "BirthYear";
-    }
-    else if(currentValueInOrderBy == "Year of Death"){
+    } else if (currentValueInOrderBy == "Year of Death") {
         return "DeathYear";
-    }
-    else {
+    } else {
         return "FirstName";
     }
 }
@@ -207,8 +195,7 @@ string MainWindow::getScientistOrderByAscending() {
     string ascendingText = ui->dropdown_scientist_order_by_ascending->currentText().toStdString();
     if (ascendingText == "Ascending") {
         return "ASC";
-    }
-    else {
+    } else {
         return "DESC";
     }
 }
@@ -234,13 +221,12 @@ void MainWindow::on_button_remove_scientist_clicked() {
 
     bool success = sciService.remove(stringIdToRemove);
 
-    if (success){
+    if (success) {
         ui->input_filter_scientists->setText("");
         displayAllScientists();
         ui->statusBar->showMessage("Successfully removed scientist", 2500);
         ui->button_remove_scientist->setEnabled(false);
-    }
-    else{
+    } else {
         QMessageBox::warning(this, "FAIL", "Failed to remove scientist");
     }
 }
@@ -252,12 +238,11 @@ void MainWindow::on_table_scientists_clicked(const QModelIndex &index) {
 void MainWindow::on_button_add_scientist_clicked() {
     AddScientistDialog addSciDialog;
     int addSciReturnValue = addSciDialog.exec();
-    if(addSciReturnValue == 1){
+    if (addSciReturnValue == 1) {
         ui->input_filter_scientists->setText("");
         displayAllScientists();
         ui->statusBar->showMessage("Successfully added scientist", 2500);
-    }
-    else if (addSciReturnValue == -1){
+    } else if (addSciReturnValue == -1) {
         int answer = QMessageBox::warning(this, "FAIL", "Failed to add scientist");
     }
 }
@@ -266,7 +251,7 @@ void MainWindow::on_button_add_scientist_clicked() {
 
 void MainWindow::displayComputersForComputerConnections(vector<Computer> computers) {
     ui->computer_list_computer_connections->clear();
-    for(unsigned int i = 0; i < computers.size(); i++){
+    for (unsigned int i = 0; i < computers.size(); i++) {
         Computer currentComputer = computers.at(i);
         QString name = QString::fromStdString(currentComputer.getName());
         ui->computer_list_computer_connections->addItem(name);
@@ -281,7 +266,7 @@ void MainWindow::displayAllComputersForComputerConnections() {
 
 void MainWindow::displayScientistsForComputerConnections(vector<Scientist> scientists) {
     ui->scientist_list_computer_connections->clear();
-    for(unsigned int i = 0; i < scientists.size(); i++){
+    for (unsigned int i = 0; i < scientists.size(); i++) {
         Scientist currentScientist = scientists.at(i);
         string name_temp = currentScientist.getFirstName() +  " " + currentScientist.getLastName();
         QString name = QString::fromStdString(name_temp);
@@ -300,16 +285,16 @@ void MainWindow::on_button_see_connections_computer_clicked() {
     string StringIdOfComputer = static_cast<ostringstream*>(&(ostringstream() << idOfComputer) )->str();
     vector<Scientist> scientists = sciService.getScientistsByComputerId(StringIdOfComputer);
     displayScientistsForComputerConnections(scientists);
+    ui->button_see_connections_computer->setEnabled(false);
 }
 
 void MainWindow::on_button_add_computer_connection_clicked() {
     AddConnectionsDialog addConnectDialog;
     int addConnectReturnValue = addConnectDialog.exec();
-    if(addConnectReturnValue == 1){
+    if (addConnectReturnValue == 1) {
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully added connection", 2500);
-    }
-    else if (addConnectReturnValue == -1){
+    } else if (addConnectReturnValue == -1) {
         QMessageBox::warning(this, "FAIL", "Failed to add connections");
     }
 }
@@ -318,11 +303,10 @@ void MainWindow::on_button_remove_computer_connection_clicked() {
     RemoveConnectionsDialog removeConnectDialog;
     int removeConnectReturnValue = removeConnectDialog.exec();
 
-    if(removeConnectReturnValue == 1){
+    if (removeConnectReturnValue == 1) {
         displayAllComputersForComputerConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);
-    }
-    else if (removeConnectReturnValue == -1){
+    } else if (removeConnectReturnValue == -1) {
         QMessageBox::warning(this, "FAIL", "Failed to remove connections");
     }
 }
@@ -331,7 +315,7 @@ void MainWindow::on_button_remove_computer_connection_clicked() {
 
 void MainWindow::displayScientistsForScientistConnections(vector<Scientist> scientists) {
     ui->scientist_list_scientist_connections->clear();
-    for(unsigned int i = 0; i < scientists.size(); i++){
+    for (unsigned int i = 0; i < scientists.size(); i++) {
         Scientist currentScientist = scientists.at(i);
         string name_temp = currentScientist.getFirstName() +  " " + currentScientist.getLastName();
         QString name = QString::fromStdString(name_temp);
@@ -347,7 +331,7 @@ void MainWindow::displayAllScientistsForScientistConnections() {
 
 void MainWindow::displayComputersForScientistConnections(vector<Computer> computers) {
     ui->computer_list_scientist_connections->clear();
-    for(unsigned int i = 0; i < computers.size(); i++){
+    for (unsigned int i = 0; i < computers.size(); i++) {
         Computer currentComputer = computers.at(i);
         QString name = QString::fromStdString(currentComputer.getName());
         ui->computer_list_scientist_connections->addItem(name);
@@ -366,16 +350,17 @@ void MainWindow::on_button_see_connections_scientist_clicked() {
     vector<Computer> computers = compService.getComputersByScientistId(stringIdOfScientist);
 
     displayComputersForScientistConnections(computers);
+
+    ui->button_see_connections_scientist->setEnabled(false);
 }
 
 void MainWindow::on_button_add_scientist_connection_clicked() {
     AddConnectionsDialog addConnectDialog;
     int addConnectReturnValue = addConnectDialog.exec();
-    if(addConnectReturnValue == 1){
+    if (addConnectReturnValue == 1) {
         displayAllScientistsForScientistConnections();
         ui->statusBar->showMessage("Successfully added connection", 2500);
-    }
-    else if (addConnectReturnValue == -1) {
+    } else if (addConnectReturnValue == -1) {
         QMessageBox::warning(this, "FAIL", "Failed to add connections");
     }
 }
@@ -383,11 +368,10 @@ void MainWindow::on_button_add_scientist_connection_clicked() {
 void MainWindow::on_button_remove_scientist_connection_clicked() {
     RemoveConnectionsDialog removeConnectDialog;
     int removeConnectReturnValue = removeConnectDialog.exec();
-    if(removeConnectReturnValue == 1){
+    if (removeConnectReturnValue == 1) {
         displayAllScientistsForScientistConnections();
         ui->statusBar->showMessage("Successfully removed connection", 2500);
-    }
-    else if (removeConnectReturnValue == -1){
+    } else if (removeConnectReturnValue == -1) {
         QMessageBox::warning(this, "FAIL", "Failed to remove connections");
     }
 }
@@ -398,4 +382,3 @@ void MainWindow::on_tabs_tabBarClicked(int index) {
     displayAllComputersForComputerConnections();
     displayAllScientistsForScientistConnections();
 }
-

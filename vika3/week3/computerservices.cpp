@@ -13,14 +13,14 @@ ComputerServices::ComputerServices() {
 bool ComputerServices::checkYear(string my_year) {
     int  year = atoi(my_year.c_str());
 
-    for (unsigned int i = 0; i < my_year.length(); i++){
-        if (!isdigit(my_year[i])){
+    for (unsigned int i = 0; i < my_year.length(); i++) {
+        if (!isdigit(my_year[i])) {
             return false;
         }
-        if(my_year.length() != 4){
+        if (my_year.length() != 4) {
             return false;
         }
-        if(year > CURRENT_YEAR){
+        if (year > CURRENT_YEAR) {
             return false;
         }
     }
@@ -56,4 +56,3 @@ vector<Computer> ComputerServices::getComputersByScientistId(string s_id) {
     v = compRepo.getComputersByScientistId(s_id);
     return v;
 }
-

@@ -1,11 +1,11 @@
 #include "computerrepository.h"
 #include <sstream>
 
-ComputerRepository::ComputerRepository(){
+ComputerRepository::ComputerRepository() {
     datab = baseRepo.CreateConnection();
 }
 
-ComputerRepository::~ComputerRepository(){
+ComputerRepository::~ComputerRepository() {
 }
 
 void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql) {
@@ -13,7 +13,7 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
     QSqlQuery query(datab);
     query.prepare(QString::fromStdString(sql));
     query.exec();
-    while(query.next()){
+    while(query.next()) {
         c.setId(query.value("Id").toUInt());
         c.setName(query.value("Name").toString().toStdString());
         c.setWasBuilt(query.value("WasBuilt").toString().toStdString());
@@ -25,7 +25,9 @@ void ComputerRepository::fillVectorFromDatabase(vector<Computer>& v, string sql)
 
 bool ComputerRepository::addToDatabase(Computer computer) {
     QSqlQuery query(datab);
-    query.prepare("INSERT INTO Computers(Name, Type, WasBuilt, YearBuilt) VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
+    query.prepare("INSERT INTO "
+                  "Computers(Name, Type, WasBuilt, YearBuilt) "
+                  "VALUES (:Name, :Type, :WasBuilt, :YearBuilt)");
     query.bindValue(":Name", QString::fromStdString(computer.getName()));
     query.bindValue(":Type", QString::fromStdString(computer.getType()));
     query.bindValue(":WasBuilt", QString::fromStdString(computer.getWasBuilt()));
@@ -34,16 +36,24 @@ bool ComputerRepository::addToDatabase(Computer computer) {
     return success;
 }
 
-vector<Computer> ComputerRepository::searchInDatabase(string input, string sortBy, string ascendingOrder){
+vector<Computer> ComputerRepository::searchInDatabase(string input, string sortBy, string ascendingOrder) {
     vector<Computer> v;
-    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers WHERE ID LIKE '%" + input + "%' OR Name LIKE '%" + input + "%' OR YearBuilt LIKE '%" + input + "%' OR Type LIKE '%" + input + "%' OR WasBuilt LIKE '%" + input + "%' ORDER BY " + sortBy + " " + ascendingOrder;
+    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt"
+               "FROM Computers WHERE ID LIKE '%" + input + "%' "
+               "OR Name LIKE '%" + input + "%' "
+               "OR YearBuilt LIKE '%" + input + "%' "
+               "OR Type LIKE '%" + input + "%' "
+               "OR WasBuilt LIKE '%" + input + "%' "
+               "ORDER BY " + sortBy + " " + ascendingOrder;
     fillVectorFromDatabase(v, s);
     return v;
 }
 
-vector<Computer> ComputerRepository::sortDatabase(string sortBy, string ascendingOrder){
+vector<Computer> ComputerRepository::sortDatabase(string sortBy, string ascendingOrder) {
     vector<Computer> v;
-    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers ORDER BY " + sortBy + " " + ascendingOrder;
+    string s = "SELECT ID, Name, YearBuilt, Type, WasBuilt "
+                "FROM Computers "
+                "ORDER BY " + sortBy + " " + ascendingOrder;
     fillVectorFromDatabase(v, s);
     return v;
 }
@@ -55,7 +65,7 @@ bool ComputerRepository::removeFromDatabase(string my_id) {
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
     query.exec();
     bool success1 = query.exec();
-    //^Also delete the connections
+    // ^Also delete the connections
 
     query.prepare("DELETE FROM Computers WHERE ID = :my_id");
     query.bindValue(":my_id", std::atoi(my_id.c_str()));
@@ -66,7 +76,7 @@ bool ComputerRepository::removeFromDatabase(string my_id) {
 
 /*************************************CONNECTIONS********************************************/
 
-vector<Computer> ComputerRepository::getComputersByScientistId(string id){
+vector<Computer> ComputerRepository::getComputersByScientistId(string id) {
     vector<Computer> v;
     QSqlQuery query(datab);
     string sql = "SELECT ID, Name, YearBuilt, Type, WasBuilt FROM Computers c "

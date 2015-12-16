@@ -1,6 +1,6 @@
 #include "scientist.h"
 
-Scientist::Scientist(){
+Scientist::Scientist() {
     firstName = "";
     lastName = "";
     sex = "";
@@ -61,4 +61,3 @@ void Scientist::setYearOfBirth(string b_year) {
 void Scientist::setYearOfDeath(string d_year) {
     yearOfDeath = d_year;
 }
-

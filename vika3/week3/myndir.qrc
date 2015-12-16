@@ -12,10 +12,6 @@
         <file>scientistIcon.png</file>
     </qresource>
     <qresource prefix="/">
-        <file>png/addition7.png</file>
-        <file>png/computer19.png</file>
-        <file>png/computers18.png</file>
-        <file>png/linked.png</file>
         <file>png/remove7.png</file>
         <file>png/remove12.png</file>
         <file>svg/addition7.svg</file>

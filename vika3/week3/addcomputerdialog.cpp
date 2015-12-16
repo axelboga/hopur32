@@ -2,11 +2,12 @@
 #include "ui_addcomputerdialog.h"
 #include <QMessageBox>
 
-AddComputerDialog::AddComputerDialog(QWidget *parent) : QDialog(parent), ui(new Ui::AddComputerDialog){
+AddComputerDialog::AddComputerDialog(QWidget *parent) : QDialog(parent),
+                                      ui(new Ui::AddComputerDialog) {
     ui->setupUi(this);
 }
 
-AddComputerDialog::~AddComputerDialog(){
+AddComputerDialog::~AddComputerDialog() {
     delete ui;
 }
 
@@ -17,66 +18,64 @@ bool AddComputerDialog::checkInput() {
 
     bool thereWasAnError = false;
 
-    if (name.isEmpty()){
-        ui->label_error_computer_name->setText("<span style='color: #ED1C58'>Name cannot be empty</span>");
+    if (name.isEmpty()) {
+        ui->label_error_computer_name->setText(
+           "<span style='color: #ED1C58'>Name cannot be empty</span>");
         thereWasAnError = true;
     }
 
     bool yearInputOK = compService.checkYear(yearBuilt.toStdString());
 
-    if (ui->checkbox_computer_was_built->isChecked()== true && yearBuilt.isEmpty()){
-        ui->label_error_computer_year_built->setText("<span style='color: #ED1C58'>Year built cannot be emty </span>");
+    if (ui->checkbox_computer_was_built->isChecked() == true && yearBuilt.isEmpty()) {
+        ui->label_error_computer_year_built->setText(
+          "<span style='color: #ED1C58'>Year built cannot be emty </span>");
         thereWasAnError = true;
-    }
-
-    else if (ui->checkbox_computer_was_built->isChecked()== true && !yearInputOK){
-        ui->label_error_computer_year_built->setText("<span style='color: #ED1C58'> Invalid year </span>");
+    } else if (ui->checkbox_computer_was_built->isChecked() == true && !yearInputOK) {
+        ui->label_error_computer_year_built->setText(
+          "<span style='color: #ED1C58'> Invalid year </span>");
         thereWasAnError = true;
     }
     return thereWasAnError;
 }
 
-void AddComputerDialog::on_button_add_computer_clicked(){
+void AddComputerDialog::on_button_add_computer_clicked() {
     QString name = ui->input_computer_name->text();
     QString type = ui->input_computer_type->currentText();
     QString yearBuilt = ui->input_computer_year_built->text();
 
     bool thereWasAnError = checkInput();
 
-    if (thereWasAnError){
+    if (thereWasAnError) {
         return;
     }
 
     Computer c;
     c.setName(name.toStdString());
     c.setType(type.toStdString());
-    if(ui->checkbox_computer_was_built->isChecked()==true){
+    if (ui->checkbox_computer_was_built->isChecked() == true) {
         c.setWasBuilt("Yes");
         c.setYear(yearBuilt.toStdString());
-    }
-    else if(ui->checkbox_computer_was_built->isChecked()==false){
+    } else if (ui->checkbox_computer_was_built->isChecked() == false) {
         c.setWasBuilt("No");
         c.setYear("-");
     }
 
     bool success = compService.add(c);
 
-    if (success){
+    if (success) {
         ui->input_computer_name->setText("");
         ui->input_computer_year_built->setText("");
         this->done(1);
-    }
-    else{
+    } else {
         this->done(-1);
     }
 }
 
-void AddComputerDialog::on_checkbox_computer_was_built_toggled(bool checked){
-    if(checked==true){
+void AddComputerDialog::on_checkbox_computer_was_built_toggled(bool checked) {
+    if (checked == true) {
         ui->label_computer_year_built->setEnabled(true);
         ui->input_computer_year_built->setEnabled(true);
-    }
-    else if(checked==false){
+    } else if (checked == false) {
         ui->label_computer_year_built->setEnabled(false);
         ui->input_computer_year_built->setEnabled(false);
     }

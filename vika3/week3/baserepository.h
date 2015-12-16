@@ -3,7 +3,7 @@
 
 #include <QtSql>
 
-class BaseRepository{
+class BaseRepository {
 public:
         QSqlDatabase CreateConnection();
 };

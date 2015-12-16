@@ -11,8 +11,7 @@ namespace Ui {
 class RemoveConnectionsDialog;
 }
 
-class RemoveConnectionsDialog : public QDialog
-{
+class RemoveConnectionsDialog : public QDialog {
     Q_OBJECT
 
 public:

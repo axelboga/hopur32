@@ -7,7 +7,7 @@ CompSciConnectionRepository::CompSciConnectionRepository() {
 CompSciConnectionRepository::~CompSciConnectionRepository() {
 }
 
-bool CompSciConnectionRepository::addConnection(string sci_id, string comp_id){
+bool CompSciConnectionRepository::addConnection(string sci_id, string comp_id) {
     QSqlQuery query(datab);
     query.prepare("INSERT INTO ScientistComputerConnections (sId, cId) VALUES(:sId, :cId)");
     query.bindValue(":sId", atoi(sci_id.c_str()));
@@ -16,7 +16,7 @@ bool CompSciConnectionRepository::addConnection(string sci_id, string comp_id){
     return success;
 }
 
-bool CompSciConnectionRepository::removeConnection(string sci_id, string comp_id){
+bool CompSciConnectionRepository::removeConnection(string sci_id, string comp_id) {
     QSqlQuery query(datab);
     query.prepare("DELETE FROM ScientistComputerConnections "
                   "WHERE sId = :sci_id "

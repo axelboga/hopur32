@@ -6,8 +6,8 @@
 using namespace std;
 
 
-class CompSciConnectionRepository
-{
+class CompSciConnectionRepository {
+  
 public:
     CompSciConnectionRepository();
     ~CompSciConnectionRepository();

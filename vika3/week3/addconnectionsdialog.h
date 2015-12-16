@@ -13,8 +13,7 @@ namespace Ui {
 class AddConnectionsDialog;
 }
 
-class AddConnectionsDialog : public QDialog
-{
+class AddConnectionsDialog : public QDialog {
     Q_OBJECT
 
 public:
@@ -23,11 +22,11 @@ public:
 
 private slots:
     void on_button_add_connections_clicked();
-    
+
     void on_list_computers_add_connections_clicked(const QModelIndex &index);
-    
+
     void on_list_scientists_add_connections_clicked(const QModelIndex &index);
-    
+
     void enableAddButton();
 
 private:

@@ -4,8 +4,8 @@
 #include <iomanip>
 using namespace std;
 
-class Computer
-{
+class Computer {
+
 public:
     Computer();
     int getId() const;
@@ -18,7 +18,6 @@ public:
     void setType(string my_type);
     string getWasBuilt() const;
     void setWasBuilt(string my_wasBuilt);
-    friend ostream& operator <<(ostream& outs, Computer& c);
 
 private:
     int id;
